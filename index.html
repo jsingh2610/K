@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#1a0f2e">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#070e16">
@@ -1089,6 +1091,15 @@ function boot(){syncTier();renderJapa();renderHome();document.getElementById("br
 (function init(){if(!S.onboarded){startOnb();}else{boot();}})();
 /* hide the opening / splash screen once the app is ready */
 setTimeout(function(){var sp=document.getElementById("splash");if(sp)sp.classList.add("hide");},2000);
+</script> 
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((reg) => console.log('SW registered:', reg.scope))
+        .catch((err) => console.error('SW failed:', err));
+    });
+  }
 </script>
 </body>
 </html>

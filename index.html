@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#070e16">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="theme-color" content="#070e16">
+<link rel="manifest" href="/manifest.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Kailāsa">
@@ -610,6 +611,17 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
       <div class="audio-toggle"><div class="lab"><b>🥁 Damaru daily reminder</b><span>Authentic damaru sound</span></div><div class="sw on" id="notifSw" onclick="this.classList.toggle('on');playDamaru()"></div></div>
       <div style="height:11px"></div>
       <div class="audio-toggle" id="mondayRow"><div class="lab"><b>🌑 Mahadev Mondays</b><span>Weekly Shiva tasks · Pro</span></div><div class="sw" id="mondaySw" onclick="mondayToggle()"></div></div>
+      <h2 class="sec">Wellness support</h2>
+      <div class="card" style="background:linear-gradient(160deg,rgba(139,156,255,.09),rgba(106,214,232,.04));border-color:rgba(139,156,255,.28)">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="font-size:26px;line-height:1">🤝</div>
+          <div style="flex:1">
+            <b style="font-size:14.5px;display:block;margin-bottom:5px">Need someone to talk to?</b>
+            <p class="subtle" style="font-size:12.5px;line-height:1.55">If your practice brings up something heavy, <b>Tele-MANAS</b> is India’s free 24×7 mental health helpline. Confidential support in your language.</p>
+            <a href="tel:14416" style="display:inline-flex;align-items:center;gap:6px;margin-top:11px;padding:10px 18px;border-radius:12px;background:var(--grad);color:#06121c;font-weight:800;font-size:14px;text-decoration:none;letter-spacing:.3px">📞 Call 14416</a>
+          </div>
+        </div>
+      </div>
       <h2 class="sec">Demo controls</h2>
       <p class="subtle" style="font-size:12.5px;margin-bottom:10px">Switch tiers to preview gating:</p>
       <div class="row"><button class="btn ghost" onclick="setTier('bhakt')">Bhakt</button><button class="btn ghost" onclick="setTier('sadhu')">Sadhu</button><button class="btn ghost" onclick="setTier('mahayogi')">Mahayogi</button></div>
@@ -1912,6 +1924,23 @@ function boot(){S.chant=false;syncTier();renderJapa();renderHome();document.getE
 (function init(){if(!S.onboarded){startOnb();}else{boot();}})();
 /* hide the opening / splash screen once the app is ready */
 setTimeout(function(){var sp=document.getElementById("splash");if(sp)sp.classList.add("hide");},2000);
+</script>
+<script>
+/* Register service worker — offline support + auto-update.
+   When a new version is deployed, the SW claims control and the page reloads once. */
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('/service-worker.js').then(reg=>{
+      let refreshing=false;
+      navigator.serviceWorker.addEventListener('controllerchange',()=>{
+        if(refreshing) return;
+        refreshing=true;
+        window.location.reload();
+      });
+      reg.update();
+    }).catch(err=>console.warn('SW registration failed:',err));
+  });
+}
 </script>
 </body>
 </html>

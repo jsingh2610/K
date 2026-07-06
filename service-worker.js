@@ -6,7 +6,7 @@
    - skipWaiting + clients.claim = new version takes over immediately
    BUMP CACHE_VERSION on every deploy that changes assets. */
 
-constCACHE_VERSION = 'kailasa-v1.1.0';
+constCACHE_VERSION = 'kailasa-v1.2.0';
 const CORE_ASSETS = [
   '/',
   '/index.html',

@@ -2017,29 +2017,166 @@ function shufflePersonalisedPool() {
 // Start looking for the file immediately on boot
 loadPersonalisedAffirmations();
 
+/* ===== KAILASA 4,000 PREMIUM AFFIRMATIONS ENGINE (CRASH-PROOF) ===== */
+let personalizedPool = [];
+let currentShuffleOffset = 0;
+
+const GOAL_SYNONYM_MATRIX = {
+  "focus": ["study", "mind", "attention", "clarity", "exam", "preparation", "discipline", "focus", "knowledge", "career", "success"],
+  "study": ["focus", "exam", "assistant", "knowledge", "clear", "discipline", "mind", "intellect", "preparation"],
+  "exam": ["study", "focus", "assistant", "clear", "success", "rank", "score", "pass", "preparation"],
+  "rbi": ["exam", "study", "assistant", "job", "career", "clear", "success", "aptitude"],
+  "assistant": ["exam", "study", "job", "career", "clear"],
+  "fitness": ["body", "muscle", "strength", "health", "gym", "workout", "power", "energy", "discipline", "hypertrophy"],
+  "muscle": ["fitness", "body", "strength", "gym", "workout", "power", "hypertrophy", "gains", "growth"],
+  "gym": ["workout", "exercise", "strength", "muscle", "consistency", "health", "energy"],
+  "money": ["wealth", "abundance", "prosperity", "earn", "financial", "success", "fortune", "rich"],
+  "wealth": ["money", "financial", "abundance", "prosperity", "success", "growth"],
+  "peace": ["calm", "stillness", "shanti", "anxiety", "serene", "quiet", "rest", "peaceful"],
+  "calm": ["peace", "stillness", "shanti", "serene", "quiet", "relax", "mindful"]
+};
+
+async function loadPersonalisedAffirmations() {
+  try {
+    const response = await fetch('./affirmations.json');
+    if (!response.ok) throw new Error("Could not find affirmations.json");
+    const data = await response.json();
+    
+    let tempPool = [];
+    if (data && data.pillars) {
+      data.pillars.forEach(pillar => {
+        for (let key in pillar) {
+          if (Array.isArray(pillar[key])) {
+            pillar[key].forEach(item => {
+              if (item && item.text) tempPool.push(item.text);
+            });
+          }
+        }
+      });
+    }
+    
+    if (tempPool.length > 0) {
+      personalizedPool = tempPool;
+      console.log("🔱 Connected perfectly! Loaded " + personalizedPool.length + " premium items.");
+    }
+    if (typeof renderAffirm === 'function') renderAffirm();
+  } catch (e) {
+    console.error("Using safety backup phrases", e);
+    personalizedPool = [
+      "I am aligned with the infinite consciousness of Mahadev.",
+      "Every breath fills me with inner strength, focus, and clarity."
+    ];
+  }
+}
+
+function getPersonalisedAffirmationsSet() {
+  if (!personalizedPool || personalizedPool.length === 0) {
+    return ["Aligning with the supreme stillness of Shiva...", "I am resilient, powerful, and at absolute peace."];
+  }
+  try {
+    const rawGoal = (S && S.goal ? S.goal : "inner peace focus").toLowerCase();
+    const rawWords = rawGoal.split(/[\s,._\-]+/);
+    let targets = [...rawWords];
+    rawWords.forEach(word => {
+      if (GOAL_SYNONYM_MATRIX[word]) targets = targets.concat(GOAL_SYNONYM_MATRIX[word]);
+    });
+    const uniqueTargets = [...new Set(targets)].filter(t => t.length > 2);
+
+    let scoredCollection = personalizedPool.map(phrase => {
+      let score = 0;
+      const lowerPhrase = phrase.toLowerCase();
+      uniqueTargets.forEach(target => {
+        if (lowerPhrase.includes(target)) score += 10;
+      });
+      return { phrase, score };
+    });
+
+    let alignedPool = scoredCollection.filter(item => item.score > 0).map(item => item.phrase);
+    if (alignedPool.length === 0) alignedPool = personalizedPool;
+
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 0);
+    const dayOfYear = Math.floor((now - start) / 86400000);
+
+    const index1 = (dayOfYear * 2 + currentShuffleOffset) % alignedPool.length;
+    const index2 = (dayOfYear * 2 + 1 + currentShuffleOffset) % alignedPool.length;
+    return [alignedPool[index1], alignedPool[index2]];
+  } catch (err) {
+    return ["I am moving decisively toward my high-performance goals.", "My mind remains calm, anchored, and perfectly clear."];
+  }
+}
+
+function renderAffirm(){
+  try {
+    const d = new Date();
+    const affDateEl = document.getElementById("affDate");
+    if (affDateEl) affDateEl.textContent = d.toLocaleDateString(undefined, {weekday:"long", month:"long", day:"numeric"});
+    
+    const affHiSwEl = document.getElementById("affHiSw");
+    if (affHiSwEl && typeof S !== 'undefined') affHiSwEl.classList.toggle("on", !!S.affirmHindi);
+    
+    const hi = (typeof S !== 'undefined' && !!S.affirmHindi);
+    const dailyEng = (typeof getDailyAffirmation === 'function') ? getDailyAffirmation() : "I am strong.";
+    const dailyHi = (typeof getDailyAffirmationHi === 'function') ? getDailyAffirmationHi() : "मैं शक्तिशाली हूँ।";
+    
+    const affFreeEl = document.getElementById("affFree");
+    if (affFreeEl) {
+      affFreeEl.innerHTML = `<div class="aff"><span class="tag">Today's Affirmation · Daily</span><div class="q">"${hi ? dailyHi : dailyEng}"</div></div>`;
+    }
+    
+    const pro = document.getElementById("affPro");
+    if (pro) {
+      const userIsPro = (typeof isPro === 'function' ? isPro() : (typeof S !== 'undefined' && S.tier === 'pro'));
+      const safeEsc = (typeof esc === 'function') ? esc : function(str) { return str; };
+      
+      if (userIsPro) {
+        const premiumItems = getPersonalisedAffirmationsSet();
+        pro.innerHTML = `
+          <h2 class="sec" style="color: var(--gold); display: flex; align-items: center; gap: 6px;">✦ Your Personalised Affirmations</h2>
+          ${premiumItems.map(q => `
+            <div class="aff" style="border-color: rgba(232, 200, 122, 0.3); background: linear-gradient(155deg, #162436, var(--bg2))">
+              <span class="tag" style="color: var(--gold); font-weight: 700;">🔱 PERSONALISED</span>
+              <div class="q" style="line-height: 1.5; font-size: 14px;">"${safeEsc(q)}"</div>
+            </div>
+          `).join("")}
+          <div class="card" style="margin-top:16px; text-align: center; border-color: var(--line2); background: rgba(255,255,255,0.02)">
+            <b style="font-size:14px; display: block; margin-bottom: 4px; color: var(--gold)">Explore Sacred Treasury</b>
+            <p class="subtle" style="font-size:12px; margin-bottom: 12px; color: var(--ink3)">Seek new direction from your personalized collection of 4,000 paths.</p>
+            <button class="btn ghost" style="padding: 8px 16px; font-size: 13px;" onclick="shufflePersonalisedPool()">🔱 Reveal New Paths</button>
+          </div>
+        `;
+      } else {
+        pro.innerHTML = `
+          <div class="card glass" style="margin-top:20px; text-align:center; padding: 24px 16px;">
+            <div style="font-size:32px; margin-bottom: 4px;">🔱</div>
+            <b style="font-size:16px; display:block; margin-bottom:6px; color: var(--gold)">Premium Personalised Affirmations</b>
+            <p class="subtle" style="font-size:13px; line-height: 1.4;">Unlock 2 custom tailored, goal-aligned personalized affirmations every single day from your library of 4,000+ tracks.</p>
+            <button class="btn gold" style="margin-top:16px; width: 100%; max-width: 200px;" onclick="openPaywall()">Unlock with Pro</button>
+          </div>
+        `;
+      }
+    }
+  } catch (err) {
+    console.error("Error drawing elements on screen, skipping safely:", err);
+  }
+}
+
+function shufflePersonalisedPool() {
+  currentShuffleOffset += 2;
+  renderAffirm();
+  if (typeof toast === 'function') toast("✨ Cosmic energy realigned");
+}
+
+loadPersonalisedAffirmations();
+
+function replayOnb(){S.onboarded=false;onbMantra=S.mantra;startOnb();}
+
 /* ===== INIT ===== */
 function boot(){S.chant=false;syncTier();renderJapa();renderHome();document.getElementById("brandSub").textContent=S.name?S.name+" · Manifest":"Shiva · Manifest";go("home");
-  if(!S.tipSeen){S.tipSeen=true;save();setTimeout(()=>toast("💡 Tip: 'More' tab shows how to install on your phone"),1400);}}
-(function init(){if(!S.onboarded){startOnb();}else{boot();}})();
-/* hide the opening / splash screen once the app is ready */
-setTimeout(function(){var sp=document.getElementById("splash");if(sp)sp.classList.add("hide");},2000);
-</script>
-<script>
-/* Register service worker — offline support + auto-update.
-   When a new version is deployed, the SW claims control and the page reloads once. */
-if('serviceWorker' in navigator){
-  window.addEventListener('load',()=>{
-    navigator.serviceWorker.register('/service-worker.js').then(reg=>{
-      let refreshing=false;
-      navigator.serviceWorker.addEventListener('controllerchange',()=>{
-        if(refreshing) return;
-        refreshing=true;
-        window.location.reload();
-      });
-      reg.update();
-    }).catch(err=>console.warn('SW registration failed:',err));
-  });
+  if(!S.tipSeen){S.tipSeen=true;save();setTimeout(()=>{if(typeof toast==='function')toast("💡 Tip: Tap counter to manually set counts");},4000);}
 }
+window.onload=()=>{initStorage();if(S.onboarded){boot();}else{startOnb();}};
+if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-worker.js').then(reg=>console.log("SW Registered")).catch(err=>console.log("SW Failed",err));}
 </script>
 </body>
 </html>

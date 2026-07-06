@@ -6,13 +6,15 @@
    - skipWaiting + clients.claim = new version takes over immediately
    BUMP CACHE_VERSION on every deploy that changes assets. */
 
-const CACHE_VERSION = 'kailasa-v1.0.0';
+constCACHE_VERSION = 'kailasa-v1.1.0';
 const CORE_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
   '/icon-192.png',
-  '/icon-512.png'
+  '/icon-512.png',
+  '/affirmations.json',
+  '/affirmation-selector.js'
 ];
 
 self.addEventListener('install', event => {

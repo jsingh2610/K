@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#070e16">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Kailāsa">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Kailāsa · Shiva Manifestation</title>
+<!-- App icon (trishul on icy gradient) — used for Add to Home Screen -->
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%236ad6e8'/%3E%3Cstop%20offset='1'%20stop-color='%238b9cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='180'%20height='180'%20rx='40'%20fill='%23070e16'/%3E%3Ccircle%20cx='90'%20cy='90'%20r='62'%20fill='none'%20stroke='url(%23g)'%20stroke-width='3'%20opacity='.4'/%3E%3Cg%20fill='url(%23g)'%3E%3Crect%20x='86'%20y='52'%20width='8'%20height='86'%20rx='3'/%3E%3Cpath%20d='M64%2070c0-14%2010-22%2010-22s2%2014-4%2022c8-2%2016-10%2016-10s0%2018-22%2022zM116%2070c0-14-10-22-10-22s-2%2014%204%2022c-8-2-16-10-16-10s0%2018%2022%2022z'/%3E%3Cpath%20d='M90%2040l7%2016H83z'/%3E%3Cellipse%20cx='90'%20cy='140'%20rx='20'%20ry='6'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3Crect%20width='180'%20height='180'%20rx='40'%20fill='%23070e16'/%3E%3Ctext%20x='50%25'%20y='62%25'%20font-size='100'%20text-anchor='middle'%3E%F0%9F%94%B1%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#070e16; --bg2:#0a1420; --panel:#0e1c2b; --panel2:#122436;
+  --line:rgba(146,180,210,.12); --line2:rgba(146,180,210,.20);
+  --ink:#eaf2f8; --ink2:#a9c0d4; --ink3:#6f8aa3;
+  --ice:#6ad6e8; --ice2:#3fb8d4; --cosmic:#8b9cff; --violet:#b794ff;
+  --gold:#e8c87a; --ok:#67e0a3; --warn:#ffb86b;
+  --grad:linear-gradient(135deg,#6ad6e8 0%,#8b9cff 100%);
+  --grad-soft:linear-gradient(160deg,rgba(106,214,232,.14),rgba(139,156,255,.10));
+  --shadow:0 10px 40px rgba(0,0,0,.45);
+  --glass:rgba(14,28,43,.55); --glass2:rgba(18,30,46,.42);
+  --r:24px; --r2:18px;
+  --safe-t:env(safe-area-inset-top,0px); --safe-b:env(safe-area-inset-bottom,0px);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overscroll-behavior:none}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;
+  background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;user-select:none}
+#app{position:fixed;inset:0;display:flex;flex-direction:column;overflow:hidden;
+  background:radial-gradient(1200px 600px at 75% -8%,rgba(139,156,255,.16),transparent 60%),
+    radial-gradient(900px 500px at 10% 8%,rgba(106,214,232,.12),transparent 55%),
+    linear-gradient(180deg,#08111c 0%,#070e16 60%,#060a11 100%)}
+#app::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46%;pointer-events:none;opacity:.5;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='300' viewBox='0 0 800 300'><path d='M0 300 L120 120 L210 200 L320 70 L430 210 L520 110 L640 230 L740 140 L800 300 Z' fill='%230c1a29'/><path d='M0 300 L120 120 L150 160 L120 120 Z M320 70 L350 120 L290 120 Z M520 110 L545 150 L495 150 Z M740 140 L765 178 L715 178 Z' fill='%23ffffff' opacity='.06'/></svg>") bottom/cover no-repeat;
+  mask:linear-gradient(180deg,transparent,#000 60%)}
+.scroll{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding:calc(var(--safe-t) + 8px) 18px 120px;position:relative;z-index:2}
+.scroll::-webkit-scrollbar{display:none}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 2px 18px}
+.brand{display:flex;align-items:center;gap:11px}
+.tri{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:var(--grad);box-shadow:0 6px 18px rgba(106,214,232,.35);font-size:18px}
+.brand h1{font-size:17px;font-weight:700;letter-spacing:.3px}
+.brand small{display:block;font-size:11px;color:var(--ink3);font-weight:500;letter-spacing:1.5px;text-transform:uppercase}
+.tierchip{font-size:11px;font-weight:700;letter-spacing:.5px;padding:7px 12px;border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.03);color:var(--ink2);display:flex;gap:6px;align-items:center}
+.tierchip.pro{background:var(--grad-soft);border-color:rgba(139,156,255,.4);color:var(--ink)}
+.tierchip .dot{width:6px;height:6px;border-radius:50%;background:var(--ice)}
+.tierchip.pro .dot{background:var(--gold);box-shadow:0 0 8px var(--gold)}
+
+h2.sec{font-size:13px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink3);margin:26px 4px 12px}
+.hero{font-size:27px;font-weight:700;line-height:1.18;letter-spacing:-.4px;margin:2px 2px 4px}
+.hero span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.subtle{color:var(--ink2);font-size:14px;line-height:1.55}
+
+.card{background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line2);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.card.glass{background:var(--grad-soft);backdrop-filter:blur(8px)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.tile{background:var(--glass2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:var(--r2);padding:16px;display:flex;flex-direction:column;gap:8px;min-height:120px;transition:transform .18s cubic-bezier(.2,.8,.2,1),border-color .2s}
+.tile:active{transform:scale(.97);border-color:var(--line2)}
+.tile .ic{font-size:24px}.tile h3{font-size:15px;font-weight:700}.tile p{font-size:12px;color:var(--ink3);line-height:1.4}
+.tile .lock{margin-top:auto;font-size:10.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--gold)}
+.tile.free .lock{color:var(--ice)}
+
+.btn{appearance:none;border:none;border-radius:14px;font-family:inherit;font-weight:700;font-size:15px;padding:15px;width:100%;cursor:pointer;color:#06121c;background:var(--grad);box-shadow:0 8px 24px rgba(106,214,232,.3);transition:transform .15s,opacity .2s;letter-spacing:.2px}
+.btn:active{transform:scale(.98)}
+.btn:disabled{opacity:.4}
+.btn.ghost{background:rgba(255,255,255,.04);color:var(--ink);border:1px solid var(--line2);box-shadow:none}
+.btn.gold{background:linear-gradient(135deg,#e8c87a,#caa24e);box-shadow:0 8px 24px rgba(232,200,122,.3)}
+.row{display:flex;gap:11px}
+
+nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9px + var(--safe-b));display:flex;justify-content:space-around;background:linear-gradient(180deg,rgba(8,16,26,.4),rgba(7,13,20,.92));backdrop-filter:blur(18px);border-top:1px solid var(--line)}
+.nav-i{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 0;color:var(--ink3);font-size:10px;font-weight:600;letter-spacing:.3px;transition:color .2s;cursor:pointer}
+.nav-i .gi{font-size:21px;transition:transform .2s}
+.nav-i.on{color:var(--ice)}.nav-i.on .gi{transform:translateY(-2px) scale(1.08)}
+
+.screen{display:none;animation:fade .35s ease}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* japa */
+.mala-wrap{display:flex;flex-direction:column;align-items:center;gap:22px;padding-top:6px}
+.bead-btn{position:relative;width:240px;height:240px;border-radius:50%;border:none;cursor:pointer;background:radial-gradient(circle at 35% 30%,#163048,#0c1a28 70%);box-shadow:0 0 0 1px var(--line2),0 20px 60px rgba(0,0,0,.5),inset 0 2px 30px rgba(106,214,232,.08);display:grid;place-items:center;transition:transform .1s}
+.bead-btn:active{transform:scale(.96)}
+.bead-btn::before{content:"";position:absolute;inset:14px;border-radius:50%;border:1px dashed rgba(146,180,210,.18)}
+.ring-svg{position:absolute;inset:0;transform:rotate(-90deg)}
+.bead-count{font-size:60px;font-weight:800;letter-spacing:-2px;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bead-of{font-size:13px;color:var(--ink3);margin-top:6px;letter-spacing:1px}
+.mala-stats{display:flex;gap:13px;width:100%}
+.stat{flex:1;text-align:center;background:linear-gradient(160deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:var(--r2);padding:14px 8px}
+.stat b{display:block;font-size:23px;font-weight:800;color:var(--ink)}.stat span{font-size:11px;color:var(--ink3);letter-spacing:.5px}
+.mantra-pill{display:flex;align-items:center;gap:10px;background:var(--grad-soft);border:1px solid var(--line2);border-radius:999px;padding:11px 18px;font-weight:700;font-size:15px;letter-spacing:.5px}
+.audio-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:linear-gradient(160deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:var(--r2);padding:15px 17px}
+.audio-toggle .lab{display:flex;flex-direction:column}.audio-toggle b{font-size:14px}.audio-toggle span{font-size:11.5px;color:var(--ink3)}
+.sw{width:48px;height:28px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--line2);position:relative;transition:background .25s;flex:none}
+.sw::after{content:"";position:absolute;top:2px;left:2px;width:22px;height:22px;border-radius:50%;background:#cfe0ee;transition:transform .25s}
+.sw.on{background:var(--ice2)}.sw.on::after{transform:translateX(20px);background:#fff}
+
+.aff{background:linear-gradient(155deg,var(--panel2),var(--bg2));border:1px solid var(--line);border-radius:var(--r);padding:24px 20px;margin-bottom:13px;position:relative;overflow:hidden}
+.aff::before{content:"";position:absolute;top:-40%;right:-20%;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(139,156,255,.18),transparent 70%)}
+.aff .q{font-size:18px;font-weight:600;line-height:1.5;letter-spacing:-.2px;position:relative}
+.aff .tag{font-size:11px;color:var(--ice);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;display:block}
+.aff.ai .tag{color:var(--violet)}
+
+.path{position:relative;padding:14px 0}
+.node{display:flex;align-items:center;gap:16px;padding:9px 0;position:relative}
+.node .orb{width:54px;height:54px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:800;font-size:17px;border:1px solid var(--line2);background:var(--panel);color:var(--ink3);position:relative;z-index:2}
+.node.done .orb{background:linear-gradient(135deg,#1c6e5a,#2a9e7e);color:#fff;border-color:transparent}
+.node.cur .orb{background:var(--grad);color:#06121c;border-color:transparent;box-shadow:0 0 0 5px rgba(106,214,232,.16),0 8px 22px rgba(106,214,232,.4);animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 5px rgba(106,214,232,.16),0 8px 22px rgba(106,214,232,.4)}50%{box-shadow:0 0 0 9px rgba(106,214,232,.05),0 8px 22px rgba(106,214,232,.25)}}
+.node::before{content:"";position:absolute;left:27px;top:-14px;width:2px;height:24px;background:var(--line2);z-index:1}
+.node:first-child::before{display:none}
+.node.done::before,.node.cur::before{background:linear-gradient(180deg,#2a9e7e,var(--ice2))}
+.node .meta{flex:1}.node .meta h4{font-size:15px;font-weight:700}.node .meta p{font-size:12px;color:var(--ink3);margin-top:2px}
+.node.lock{opacity:.45}
+
+.streak{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(232,200,122,.14),rgba(183,148,255,.10));border:1px solid rgba(232,200,122,.3);border-radius:var(--r);padding:16px 18px}
+.streak .fire{font-size:30px}.streak b{font-size:22px}.streak span{font-size:12px;color:var(--ink2)}
+
+.track{display:flex;align-items:center;gap:14px;background:linear-gradient(160deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:var(--r2);padding:13px 15px;margin-bottom:11px;transition:border-color .2s}
+.track:active{border-color:var(--line2)}
+.track .pp{width:46px;height:46px;border-radius:13px;flex:none;display:grid;place-items:center;font-size:18px;background:var(--grad-soft);border:1px solid var(--line2);color:var(--ice)}
+.track .ti{flex:1}.track .ti b{font-size:14.5px;display:block}.track .ti span{font-size:11.5px;color:var(--ink3)}
+.track .locktag{font-size:16px;opacity:.7}
+.mblur{filter:blur(6px);-webkit-filter:blur(6px);user-select:none;-webkit-user-select:none;pointer-events:none}
+
+.sheet-bg{position:fixed;inset:0;z-index:50;background:rgba(4,8,14,.6);backdrop-filter:blur(6px);display:none;align-items:flex-end;animation:fade .25s}
+.sheet-bg.on{display:flex}
+.sheet{width:100%;max-height:92vh;overflow-y:auto;background:linear-gradient(180deg,#0d1c2b,#091420);border-radius:28px 28px 0 0;border-top:1px solid var(--line2);padding:10px 20px calc(26px + var(--safe-b));box-shadow:0 -20px 60px rgba(0,0,0,.6);animation:up .35s cubic-bezier(.2,.9,.2,1)}
+@keyframes up{from{transform:translateY(100%)}to{transform:none}}
+.grab{width:42px;height:5px;border-radius:99px;background:var(--line2);margin:6px auto 16px}
+.plan{border:1px solid var(--line2);border-radius:var(--r);padding:17px;margin-bottom:13px;position:relative;transition:border-color .2s}
+.plan.best{border-color:var(--gold);background:linear-gradient(160deg,rgba(232,200,122,.08),transparent)}
+.plan .badge{position:absolute;top:-10px;right:16px;background:var(--gold);color:#1a1306;font-size:10px;font-weight:800;letter-spacing:.5px;padding:4px 10px;border-radius:99px;text-transform:uppercase}
+.plan .pt{display:flex;justify-content:space-between;align-items:baseline}
+.plan .pt b{font-size:18px}.plan .pt .pr{font-size:20px;font-weight:800}.plan .pt .pr small{font-size:12px;color:var(--ink3);font-weight:500}
+.plan ul{list-style:none;margin-top:11px;display:flex;flex-direction:column;gap:7px}
+.plan li{font-size:13px;color:var(--ink2);display:flex;gap:9px}.plan li::before{content:"❄";color:var(--ice)}
+.feat-list{display:flex;flex-direction:column;gap:11px;margin:14px 0}
+.feat-list .f{display:flex;gap:13px;align-items:flex-start}.feat-list .f .fi{font-size:19px;flex:none;width:26px}
+.feat-list .f b{font-size:14px}.feat-list .f p{font-size:12px;color:var(--ink3);line-height:1.45}
+
+.locked-veil{text-align:center;padding:50px 20px}
+.locked-veil .bigic{font-size:46px;margin-bottom:14px}.locked-veil h3{font-size:20px;margin-bottom:8px}
+.locked-veil p{color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:22px}
+
+.toast{position:fixed;left:50%;bottom:calc(96px + var(--safe-b));transform:translateX(-50%) translateY(20px);background:#12283a;border:1px solid var(--line2);color:var(--ink);padding:12px 20px;border-radius:14px;font-size:13.5px;font-weight:600;z-index:80;opacity:0;transition:.3s;box-shadow:var(--shadow);pointer-events:none;white-space:nowrap}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.field{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line2);border-radius:14px;color:var(--ink);font-family:inherit;font-size:15px;padding:14px;margin:8px 0 4px;resize:none;user-select:text;outline:none}
+.field::placeholder{color:var(--ink3)}
+.field:focus{border-color:var(--ice2)}
+.muted{font-size:11.5px;color:var(--ink3);text-align:center;line-height:1.5;margin-top:14px}
+.divider{height:1px;background:var(--line);margin:22px 0}
+
+/* ===== pillar goal tiles (onboarding + profile) ===== */
+.goal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.goal-tile{background:var(--glass2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:var(--r2);padding:11px 8px;text-align:center;cursor:pointer;transition:transform .18s,border-color .2s,background .2s;position:relative}
+.goal-tile:active{transform:scale(.97)}
+.goal-tile.sel{border-color:rgba(106,214,232,.5);background:var(--grad-soft);box-shadow:0 0 20px rgba(106,214,232,.15)}
+.goal-tile .gt-san{font-size:15px;font-weight:700;margin-bottom:2px;color:var(--gold)}
+.goal-tile .gt-eng{font-size:10.5px;color:var(--ink3);letter-spacing:.3px;font-weight:600}
+.goal-tile.sel .gt-eng{color:var(--ink2)}
+.goal-tile .gt-check{position:absolute;top:8px;right:8px;width:18px;height:18px;border-radius:50%;background:var(--ice);display:none;align-items:center;justify-content:center;font-size:10px;color:#06121c;font-weight:800}
+.goal-tile.sel .gt-check{display:flex}
+
+/* personalized badge on affirmation screen */
+.personalized-pill{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(232,200,122,.12),rgba(183,148,255,.08));border:1px solid rgba(232,200,122,.25);border-radius:999px;padding:6px 14px;font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.7px;text-transform:uppercase;margin-bottom:14px}
+.personalized-pill .pp-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:ppPulse 2s ease infinite}
+@keyframes ppPulse{0%,100%{opacity:.4}50%{opacity:1}}
+.aff-pillar{text-align:center;margin-bottom:18px}
+.aff-pillar .ap-san{font-size:22px;font-weight:700;color:var(--gold)}
+.aff-pillar .ap-eng{font-size:11px;color:var(--ink3);letter-spacing:1.2px;text-transform:uppercase;margin-top:2px}
+
+/* ===== onboarding ===== */
+#onb{position:fixed;inset:0;z-index:100;display:none;flex-direction:column;padding:calc(var(--safe-t) + 30px) 26px calc(var(--safe-b) + 26px);
+  background:radial-gradient(900px 500px at 70% 0%,rgba(139,156,255,.22),transparent 60%),linear-gradient(180deg,#0a1421,#060a11)}
+#onb.on{display:flex}
+.onb-step{display:none;flex:1;flex-direction:column;animation:fade .4s}
+.onb-step.on{display:flex}
+.onb-logo{width:78px;height:78px;border-radius:24px;background:var(--grad);display:grid;place-items:center;font-size:40px;margin:0 auto 26px;box-shadow:0 14px 40px rgba(106,214,232,.4)}
+.onb-step h2{font-size:28px;font-weight:800;letter-spacing:-.5px;line-height:1.2;text-align:center}
+.onb-step h2 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.onb-step p.lead{color:var(--ink2);font-size:15px;line-height:1.6;text-align:center;margin-top:12px}
+.label{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);font-weight:700;margin:22px 2px 4px}
+.choices{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.choice{border:1px solid var(--line2);border-radius:15px;padding:15px 16px;display:flex;align-items:center;gap:13px;cursor:pointer;transition:.18s}
+.choice .ce{font-size:22px}.choice b{font-size:15px}.choice small{display:block;color:var(--ink3);font-size:12px;margin-top:1px}
+.choice.sel{border-color:var(--ice);background:var(--grad-soft)}
+.dots{display:flex;gap:7px;justify-content:center;margin:18px 0}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--line2);transition:.3s}
+.dots i.on{background:var(--ice);width:22px;border-radius:5px}
+
+/* ===== lesson reader ===== */
+#lesson{position:fixed;inset:0;z-index:90;display:none;flex-direction:column;background:linear-gradient(180deg,#0a1522,#060a11)}
+#lesson.on{display:flex}
+#mcounter{position:fixed;inset:0;z-index:90;display:none;flex-direction:column;background:linear-gradient(180deg,#0a1522,#060a11)}
+#mcounter.on{display:flex}
+.lhead{display:flex;align-items:center;gap:12px;padding:calc(var(--safe-t) + 14px) 18px 12px}
+.lhead .x{width:38px;height:38px;border-radius:12px;border:1px solid var(--line2);background:rgba(255,255,255,.04);display:grid;place-items:center;font-size:18px;cursor:pointer;flex:none}
+.lprog{flex:1;height:7px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+.lprog i{display:block;height:100%;background:var(--grad);border-radius:99px;transition:width .4s}
+.lbody{flex:1;overflow-y:auto;padding:8px 22px 30px}
+.lbody::-webkit-scrollbar{display:none}
+.ltheme{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ice);font-weight:700}
+.ltitle{font-size:26px;font-weight:800;letter-spacing:-.4px;margin:6px 0 18px;line-height:1.2}
+.lblock{margin-bottom:22px}
+.lblock .bh{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.lblock .bt{font-size:15.5px;line-height:1.65;color:var(--ink)}
+.lpractice{background:var(--grad-soft);border:1px solid var(--line2);border-radius:var(--r);padding:18px}
+.laff{background:linear-gradient(155deg,var(--panel2),var(--bg2));border:1px solid var(--line);border-radius:var(--r);padding:20px;font-size:17px;font-weight:600;line-height:1.5;font-style:italic;text-align:center}
+.lfoot{padding:12px 22px calc(20px + var(--safe-b));border-top:1px solid var(--line);background:rgba(7,13,20,.6);backdrop-filter:blur(10px)}
+
+/* ===== journal ===== */
+.mood-row{display:flex;justify-content:space-between;gap:8px;margin:6px 0 4px}
+.mood{flex:1;aspect-ratio:1;border-radius:14px;border:1px solid var(--line2);background:rgba(255,255,255,.03);display:grid;place-items:center;font-size:24px;cursor:pointer;transition:.18s}
+.mood.sel{border-color:var(--ice);background:var(--grad-soft);transform:scale(1.05)}
+.jentry{background:linear-gradient(160deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:var(--r2);padding:15px;margin-bottom:11px}
+.jentry .jh{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.jentry .jh .je{font-size:20px}.jentry .jh .jd{font-size:11.5px;color:var(--ink3);font-weight:600;letter-spacing:.4px}
+.jentry .jt{font-size:14px;line-height:1.5;color:var(--ink)}
+.jentry .jg{font-size:12.5px;color:var(--gold);margin-top:7px}
+.empty{text-align:center;color:var(--ink3);padding:34px 10px;font-size:13.5px;line-height:1.6}
+
+/* ===== aesthetic refresh: glass silhouette + shimmer ===== */
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.tierchip.pro{background:linear-gradient(90deg,rgba(232,200,122,.10) 25%,rgba(232,200,122,.34) 50%,rgba(232,200,122,.10) 75%),var(--grad-soft);background-size:220% 100%,100% 100%;animation:shimmer 3.4s linear infinite;border-color:rgba(232,200,122,.45);color:var(--ink)}
+.card::after,.aff::after,.sanctum-cta::after{content:"";position:absolute;left:0;right:0;bottom:0;height:28px;pointer-events:none;opacity:.4;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20' preserveAspectRatio='none'%3E%3Cpath d='M0,20 L18,9 L34,14 L52,4 L70,12 L86,6 L100,15 L100,20 Z' fill='%239df0ff' fill-opacity='0.10'/%3E%3C/svg%3E") no-repeat bottom/cover}
+
+/* ===== Home: Inner Sanctum CTA ===== */
+.sanctum-cta{position:relative;overflow:hidden;display:flex;align-items:center;gap:15px;margin-top:18px;padding:18px;border-radius:var(--r);background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line2);box-shadow:var(--shadow);cursor:pointer;transition:transform .15s}
+.sanctum-cta:active{transform:scale(.99)}
+.sc-glow{position:absolute;top:-60%;left:50%;transform:translateX(-50%);width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(157,240,255,.30),transparent 70%);pointer-events:none}
+.sc-ling{width:54px;height:54px;border-radius:16px;flex:none;display:grid;place-items:center;font-size:26px;background:var(--grad-soft);border:1px solid var(--line2);position:relative;z-index:1}
+.sc-txt{flex:1;position:relative;z-index:1}
+.sc-kick{font-size:10.5px;letter-spacing:1.5px;font-weight:700;color:var(--ice)}
+.sc-txt b{display:block;font-size:18px;font-weight:800;margin-top:2px}
+.sc-txt span{font-size:12.5px;color:var(--ink2)}
+.sc-play{width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;color:#06121c;font-size:18px;background:var(--grad);box-shadow:0 8px 22px rgba(106,214,232,.4);position:relative;z-index:1}
+
+/* ===== Pooja / Inner Sanctum room ===== */
+.sanctum{position:relative;height:300px;margin:18px 0 8px;border-radius:var(--r);overflow:hidden;background:radial-gradient(120% 80% at 50% -10%,rgba(139,156,255,.22),transparent 55%),linear-gradient(180deg,#0b1a2a,#081019);border:1px solid var(--line2);box-shadow:inset 0 0 60px rgba(0,0,0,.5)}
+.sanctum-light{position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:170px;height:270px;pointer-events:none;background:linear-gradient(180deg,rgba(189,240,255,.34),rgba(189,240,255,0) 78%);filter:blur(6px);clip-path:polygon(40% 0,60% 0,100% 100%,0 100%);animation:lightpulse 5s ease-in-out infinite}
+@keyframes lightpulse{0%,100%{opacity:.7}50%{opacity:1}}
+.shivling{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);width:210px;height:auto;z-index:2;filter:drop-shadow(0 10px 20px rgba(0,0,0,.55))}
+#triGroup{transform-box:fill-box;transform-origin:center;opacity:0}
+.offer-fx{position:absolute;inset:0;pointer-events:none;z-index:3;overflow:hidden}
+.fx-pour{position:absolute;top:72px;left:50%;width:7px;border-radius:6px;transform:translateX(-50%);filter:blur(.4px)}
+.fx-drop{position:absolute;border-radius:50%;filter:blur(.3px)}
+.fx-part{position:absolute;will-change:transform;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
+.aarti-orbit{position:absolute;top:52%;left:50%;width:0;height:0;z-index:4}
+.aarti-lamp{position:absolute;font-size:30px;transform:translate(-50%,-50%) translateX(98px);filter:drop-shadow(0 0 12px rgba(255,170,60,.95))}
+.offer-status{text-align:center;font-size:12px;letter-spacing:.5px;color:var(--ink3);margin:4px 0 8px}
+.offer-note{text-align:center;font-size:12px;line-height:1.45;color:var(--ink2);margin:0 0 14px;min-height:34px;padding:0 8px;transition:opacity .3s}
+.offer.locked{opacity:.8}
+.offer .prolock{position:absolute;top:7px;left:9px;font-size:11px;opacity:.85}
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:16px}
+.offer{position:relative;display:flex;flex-direction:column;align-items:center;gap:5px;padding:13px 6px;border-radius:var(--r2);background:var(--glass2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);cursor:pointer;transition:transform .15s,border-color .2s}
+.offer:active{transform:scale(.95)}
+.offer .oic{font-size:26px;line-height:1}
+.offer b{font-size:13px;font-weight:700}
+.offer span{font-size:10.5px;color:var(--ink3)}
+.offer.done{border-color:rgba(232,200,122,.5);background:linear-gradient(160deg,rgba(232,200,122,.12),transparent)}
+.offer .tick{position:absolute;top:7px;right:9px;font-size:12px;color:var(--gold);opacity:0;transition:opacity .2s}
+.offer.done .tick{opacity:1}
+
+/* ===== premium polish: cosmic bg, sanctum, motion ===== */
+#cosmic-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
+#app{background:transparent}
+#app::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(1100px 560px at 78% -6%,rgba(139,156,255,.18),transparent 60%),
+    radial-gradient(820px 460px at 8% 10%,rgba(106,214,232,.12),transparent 55%)}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.tri{animation:floaty 4.5s ease-in-out infinite}
+@keyframes glowpulse{0%,100%{box-shadow:0 8px 22px rgba(106,214,232,.4),0 0 0 0 rgba(106,214,232,.35)}50%{box-shadow:0 8px 30px rgba(106,214,232,.55),0 0 0 8px rgba(106,214,232,.04)}}
+.sc-play{animation:glowpulse 2.6s ease-in-out infinite}
+
+/* ===== 2D Inner Sanctum (Himalayan shrine) ===== */
+.sanctum2d{position:relative;height:380px;margin:18px 0 6px;border-radius:var(--r);overflow:hidden;
+  background:linear-gradient(180deg,#0b1d34 0%,#0c2138 30%,#0b1a2b 60%,#081320 100%);
+  border:1px solid var(--line2);box-shadow:inset 0 0 90px rgba(0,0,0,.6)}
+.sanctum2d .layer{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sanctum2d .beam{transform-box:fill-box;transform-origin:top center;animation:beampulse 6s ease-in-out infinite}
+@keyframes beampulse{0%,100%{opacity:.5}50%{opacity:.88}}
+#triGroup{opacity:0}
+.sanctum-hint{position:absolute;left:0;right:0;bottom:9px;text-align:center;font-size:11px;letter-spacing:.4px;color:var(--ink3);pointer-events:none;z-index:6;opacity:.7}
+
+/* course trail line */
+.path::before{content:"";position:absolute;left:27px;top:8px;bottom:8px;width:3px;border-radius:99px;
+  background:linear-gradient(180deg,rgba(106,214,232,.5),rgba(146,180,210,.12));z-index:0}
+
+/* ===== OPENING / SPLASH SCREEN ===== */
+#splash{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;
+  background:radial-gradient(1000px 600px at 50% 16%,rgba(139,156,255,.20),transparent 60%),
+    radial-gradient(800px 500px at 50% 100%,rgba(106,214,232,.10),transparent 60%),
+    linear-gradient(180deg,#08111c 0%,#070e16 60%,#060a11 100%);
+  transition:opacity .8s ease,visibility .8s}
+#splash.hide{opacity:0;visibility:hidden;pointer-events:none}
+#splash .sp-mtn{position:absolute;left:0;right:0;bottom:0;height:40%;opacity:.55;pointer-events:none;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='300' viewBox='0 0 800 300'><path d='M0 300 L120 120 L210 200 L320 70 L430 210 L520 110 L640 230 L740 140 L800 300 Z' fill='%230c1a29'/><path d='M0 300 L120 120 L150 160 L120 120 Z M320 70 L350 120 L290 120 Z M520 110 L545 150 L495 150 Z M740 140 L765 178 L715 178 Z' fill='%23ffffff' opacity='.07'/></svg>") bottom/cover no-repeat;
+  mask:linear-gradient(180deg,transparent,#000 60%);-webkit-mask:linear-gradient(180deg,transparent,#000 60%)}
+.sp-logo{width:106px;height:106px;border-radius:30px;background:var(--grad);display:grid;place-items:center;font-size:54px;position:relative;z-index:2;
+  box-shadow:0 18px 60px rgba(106,214,232,.45);animation:spRise 1.1s cubic-bezier(.2,.8,.2,1) both,spGlow 3s ease-in-out 1.1s infinite}
+@keyframes spRise{from{opacity:0;transform:translateY(26px) scale(.84)}to{opacity:1;transform:none}}
+@keyframes spGlow{0%,100%{box-shadow:0 18px 60px rgba(106,214,232,.45)}50%{box-shadow:0 22px 84px rgba(139,156,255,.6)}}
+.sp-title{font-size:42px;font-weight:800;letter-spacing:-.5px;margin-top:26px;position:relative;z-index:2;animation:spFade 1s ease .35s both}
+.sp-title span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sp-sub{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--ink3);margin-top:11px;position:relative;z-index:2;animation:spFade 1s ease .55s both}
+.sp-om{font-size:15px;color:var(--ice);margin-top:22px;letter-spacing:1px;position:relative;z-index:2;animation:spFade 1s ease .8s both}
+.sp-bar{width:120px;height:3px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:30px;position:relative;z-index:2;animation:spFade 1s ease 1s both}
+.sp-bar i{display:block;height:100%;width:38%;border-radius:99px;background:var(--grad);animation:spLoad 1.5s ease-in-out infinite}
+@keyframes spLoad{0%{transform:translateX(-130%)}100%{transform:translateX(330%)}}
+@keyframes spFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ===== LIVE TEMPLE DARSHAN ===== */
+.temple{display:flex;gap:14px;background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line2);border-radius:var(--r2);padding:14px;margin-bottom:12px}
+.tthumb{width:62px;height:62px;border-radius:16px;flex:none;display:grid;place-items:center;font-size:30px;background:var(--grad-soft);border:1px solid var(--line2)}
+.tinfo{flex:1;min-width:0}
+.tinfo b{font-size:15.5px;font-weight:700;display:block}
+.tinfo .tloc{font-size:12px;color:var(--ink3);display:block;margin-top:2px}
+.tinfo .ttag{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.3px;display:block;margin-top:3px}
+.tlinks{display:flex;gap:8px;margin-top:11px;flex-wrap:wrap}
+.tlink{font-size:12.5px;font-weight:700;text-decoration:none;padding:8px 13px;border-radius:11px;background:rgba(255,255,255,.05);border:1px solid var(--line2);color:var(--ink)}
+.tlink.live{background:linear-gradient(135deg,#ff5252,#c1121f);border-color:transparent;color:#fff;box-shadow:0 4px 14px rgba(193,18,31,.32)}
+.tlink.live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;margin-right:6px;vertical-align:middle;animation:livePulse 1.4s infinite}
+@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.25}}
+</style>
+</head>
+<body>
+<canvas id="cosmic-bg"></canvas>
+
+<!-- ===== OPENING / SPLASH SCREEN ===== -->
+<div id="splash">
+  <div class="sp-mtn"></div>
+  <div class="sp-logo">🔱</div>
+  <div class="sp-title">Kailā<span>sa</span></div>
+  <div class="sp-sub">Shiva · Manifestation</div>
+  <div class="sp-om">🕉️ Har Har Mahadev</div>
+  <div class="sp-bar"><i></i></div>
+</div>
+
+<!-- ===== ONBOARDING ===== -->
+<div id="onb">
+  <!-- step 1 -->
+  <div class="onb-step on" id="onb1">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center">
+      <div class="onb-logo">🔱</div>
+      <h2>Welcome to <span>Kailāsa</span></h2>
+      <p class="lead">A still, cool space for manifestation through Shiva bhakti — japa, breath, and a 40-day inner journey.</p>
+    </div>
+    <div class="dots"><i class="on"></i><i></i><i></i></div>
+    <button class="btn" onclick="onbGo(2)">Begin the ascent</button>
+  </div>
+  <!-- step 2: name + goal pillar -->
+  <div class="onb-step" id="onb2">
+    <div style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:12px">
+      <div style="text-align:center;font-size:32px;margin-bottom:16px">🪷</div>
+      <h2 style="font-size:22px;text-align:center">What shall we call you?</h2>
+      <div class="label">Your name</div>
+      <input class="field" id="onbName" placeholder="e.g. Aarav" autocomplete="off">
+      <div class="label" style="margin-top:18px">What are you manifesting?</div>
+      <p class="muted" style="text-align:left;margin-top:2px;margin-bottom:4px">Pick your goal. Affirmations are personalized to it.</p>
+      <div class="goal-grid" id="onbGoalGrid"></div>
+    </div>
+    <div class="dots"><i></i><i class="on"></i><i></i></div>
+    <div class="row"><button class="btn ghost" style="flex:.5" onclick="onbGo(1)">Back</button><button class="btn" id="onbStep2Btn" onclick="onbGo(3)">Continue</button></div>
+  </div>
+  <!-- step 3: mantra -->
+  <div class="onb-step" id="onb3">
+    <div style="flex:1">
+      <div class="onb-logo">🕉️</div>
+      <h2 style="font-size:24px">Choose your<br>daily mantra</h2>
+      <div class="choices" id="mantraChoices" style="margin-top:24px"></div>
+    </div>
+    <div class="dots"><i></i><i></i><i class="on"></i></div>
+    <button class="btn" onclick="finishOnb()">Enter Kailāsa 🔱</button>
+  </div>
+</div>
+
+<!-- ===== LESSON READER ===== -->
+<div id="lesson">
+  <div class="lhead"><div class="x" onclick="closeLesson()">✕</div><div class="lprog"><i id="lprogBar"></i></div></div>
+  <div class="lbody" id="lessonBody"></div>
+  <div class="lfoot"><button class="btn" id="lessonBtn" onclick="completeLesson()">Complete lesson ✓</button></div>
+</div>
+
+<!-- ===== MANTRA COUNTER ===== -->
+<div id="mcounter">
+  <div class="lhead"><div class="x" onclick="closeMCounter()">✕</div><div class="lprog"><i id="mcProgBar"></i></div></div>
+  <div class="lbody" id="mcBody" style="display:flex;flex-direction:column;align-items:center;padding-top:26px"></div>
+</div>
+
+<div id="app">
+  <div class="scroll" id="scroll">
+    <div class="topbar">
+      <div class="brand"><div class="tri">🔱</div><div><h1>Kailāsa</h1><small id="brandSub">Shiva · Manifest</small></div></div>
+      <div class="tierchip" id="tierchip" onclick="openPaywall()"><span class="dot"></span><span id="tiername">Bhakt</span></div>
+    </div>
+
+    <!-- HOME -->
+    <section class="screen on" id="s-home">
+      <div class="hero" id="homeHero">Har Har <span>Mahadev.</span></div>
+      <p class="subtle" id="homeGreet"></p>
+      <div class="card glass" style="margin-top:18px" onclick="go('japa')">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div><div style="font-size:12px;letter-spacing:1px;color:var(--ice);font-weight:700">TODAY'S JAPA</div>
+          <div style="font-size:20px;font-weight:800;margin-top:3px" id="homeMantra">Om Namah Shivaya</div>
+          <div class="subtle" style="font-size:12.5px;margin-top:3px"><span id="homeRounds">0</span> rounds · <span id="homeStreak">1</span>-day streak 🔥</div></div>
+          <div style="font-size:34px">📿</div>
+        </div>
+      </div>
+      <div class="sanctum-cta" onclick="go('pooja')">
+        <div class="sc-glow"></div>
+        <div class="sc-ling">🛕</div>
+        <div class="sc-txt"><div class="sc-kick">INNER SANCTUM</div><b>Virtual Pooja</b><span>Himalayan abhishekam ritual</span></div>
+        <div class="sc-play">▶</div>
+      </div>
+      <div class="card" style="margin-top:13px;display:flex;align-items:center;gap:14px;cursor:pointer" onclick="go('darshan')">
+        <div style="font-size:30px">📡</div>
+        <div style="flex:1">
+          <div style="font-size:12px;letter-spacing:1px;color:#ff6b6b;font-weight:800">● LIVE DARSHAN</div>
+          <b style="font-size:16px">Temple Livestreams</b>
+          <div class="subtle" style="font-size:12.5px">Live aarti from the 12 Jyotirlingas</div>
+        </div>
+        <div style="font-size:22px;color:var(--ink3)">›</div>
+      </div>
+      <h2 class="sec">Your practice</h2>
+      <div class="grid">
+        <div class="tile free" onclick="go('japa')"><div class="ic">📿</div><h3>Japa Mala</h3><p>108-bead counter, haptic</p><div class="lock">Open</div></div>
+        <div class="tile free" onclick="go('affirm')"><div class="ic">🪷</div><h3>Affirmations</h3><p>Personalized daily</p><div class="lock">Open</div></div>
+        <div class="tile" onclick="go('course')"><div class="ic">🏔️</div><h3>40-Day Path</h3><p>Self-mastery sadhana</p><div class="lock" id="courseLock">Pro</div></div>
+        <div class="tile free" onclick="go('journal')"><div class="ic">📖</div><h3>Sankalpa Journal</h3><p>Track your manifestations</p><div class="lock">Open</div></div>
+        <div class="tile free" onclick="go('mantras')"><div class="ic">🕉️</div><h3>Sacred Mantras</h3><p>Phase 1 free · 21 total</p><div class="lock">Open</div></div>
+        <div class="tile free" onclick="go('yoga')"><div class="ic">🧘</div><h3>Yoga & Pranayama</h3><p>Asana & breath</p><div class="lock">Open</div></div>
+      </div>
+      <div id="upsellHome"></div>
+    </section>
+
+    <!-- JAPA -->
+    <section class="screen" id="s-japa">
+      <div class="hero" style="font-size:24px">Japa Mala</div>
+      <p class="subtle">Tap the bead with each repetition. Haptic feedback, no sound.</p>
+      <div class="mala-wrap">
+        <div class="mantra-pill">🕉️ <span id="japaMantra">Om Namah Shivaya</span></div>
+        <button class="bead-btn" id="bead" onclick="tapBead()">
+          <svg class="ring-svg" viewBox="0 0 240 240"><circle cx="120" cy="120" r="112" fill="none" stroke="rgba(146,180,210,.12)" stroke-width="6"/>
+          <circle id="ring" cx="120" cy="120" r="112" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round" stroke-dasharray="703.7" stroke-dashoffset="703.7"/>
+          <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6ad6e8"/><stop offset="1" stop-color="#8b9cff"/></linearGradient></defs></svg>
+          <div style="text-align:center"><div class="bead-count" id="beadCount">0</div><div class="bead-of">of 108</div></div>
+        </button>
+        <div class="mala-stats">
+          <div class="stat"><b id="stRounds">0</b><span>ROUNDS</span></div>
+          <div class="stat"><b id="stTotal">0</b><span>TOTAL JAPA</span></div>
+          <div class="stat"><b id="stStreak">0</b><span>DAY STREAK</span></div>
+        </div>
+        <div class="audio-toggle"><div class="lab"><b>🔊 Background chant</b><span>Looping Om · seamless</span></div><div class="sw" id="chantSw" onclick="toggleChant()"></div></div>
+        <button class="btn ghost" onclick="resetMala()">Reset current mala</button>
+      </div>
+    </section>
+
+    <!-- POOJA / INNER SANCTUM -->
+    <section class="screen" id="s-pooja">
+      <div class="hero" style="font-size:24px">Inner Sanctum</div>
+      <p class="subtle">Tap each offering to perform abhishekam on the Shivling, then complete the aarti.</p>
+      <div class="sanctum2d" id="sanctum">
+        <svg class="layer" viewBox="0 0 400 380" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#dff1ff" stop-opacity=".9"/><stop offset="40%" stop-color="#a9d4ff" stop-opacity=".35"/><stop offset="100%" stop-color="#a9d4ff" stop-opacity="0"/></radialGradient>
+            <linearGradient id="beamGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dff1ff" stop-opacity=".4"/><stop offset="80%" stop-color="#dff1ff" stop-opacity="0"/></linearGradient>
+            <linearGradient id="hazeGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fc6ee" stop-opacity=".16"/><stop offset="100%" stop-color="#9fc6ee" stop-opacity="0"/></linearGradient>
+          </defs>
+          <circle cx="200" cy="64" r="62" fill="url(#moonGlow)"/>
+          <circle cx="200" cy="60" r="26" fill="#eaf6ff"/>
+          <circle cx="208" cy="56" r="22" fill="#dcefff" opacity=".5"/>
+          <polygon class="beam" points="186,66 214,66 286,330 114,330" fill="url(#beamGrad)"/>
+          <!-- far range -->
+          <polygon points="0,250 60,168 112,212 172,138 232,200 300,150 360,210 400,176 400,380 0,380" fill="#2c4f70" opacity=".55"/>
+          <polygon points="172,138 150,166 196,170" fill="#eaf4ff" opacity=".5"/>
+          <polygon points="300,150 282,176 322,178" fill="#eaf4ff" opacity=".45"/>
+          <rect x="0" y="150" width="400" height="230" fill="url(#hazeGrad)"/>
+          <!-- mid range -->
+          <polygon points="0,292 72,210 132,252 200,188 262,242 330,202 400,250 400,380 0,380" fill="#1c3d59"/>
+          <polygon points="200,188 180,222 224,224" fill="#dbe9f7" opacity=".4"/>
+          <!-- near range (valley in middle for the shrine) -->
+          <polygon points="0,300 44,250 96,292 150,258 190,300 210,300 250,256 312,292 360,250 400,300 400,380 0,380" fill="#0e2336"/>
+        </svg>
+        <svg class="layer" id="shrine" viewBox="0 0 400 380" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#07131c"/><stop offset="22%" stop-color="#173445"/><stop offset="45%" stop-color="#2d5d77"/><stop offset="58%" stop-color="#214a60"/><stop offset="80%" stop-color="#0f2533"/><stop offset="100%" stop-color="#060f17"/>
+            </linearGradient>
+            <linearGradient id="topLight" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cdeeff" stop-opacity=".55"/><stop offset="42%" stop-color="#cdeeff" stop-opacity="0"/></linearGradient>
+            <linearGradient id="rimGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#bfe9ff" stop-opacity="0"/><stop offset="72%" stop-color="#bfe9ff" stop-opacity="0"/><stop offset="100%" stop-color="#dff4ff" stop-opacity=".55"/></linearGradient>
+            <linearGradient id="aoGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity=".55"/></linearGradient>
+            <linearGradient id="baseTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#27506a"/><stop offset="100%" stop-color="#0f2735"/></linearGradient>
+            <radialGradient id="specGrad" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffffff" stop-opacity=".85"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+            <radialGradient id="glossGrad" cx="42%" cy="26%" r="62%"><stop offset="0" stop-color="#ffffff" stop-opacity=".6"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+            <clipPath id="lingamClip"><path d="M140 330 L140 232 Q140 150 200 150 Q260 150 260 232 L260 330 Z"/></clipPath>
+          </defs>
+          <!-- ground shadow + yoni base -->
+          <ellipse cx="200" cy="348" rx="142" ry="20" fill="#000" opacity=".45"/>
+          <ellipse cx="200" cy="332" rx="130" ry="30" fill="#0a1925"/>
+          <ellipse cx="200" cy="324" rx="122" ry="25" fill="url(#baseTop)" stroke="rgba(190,225,255,.18)" stroke-width="1"/>
+          <ellipse cx="200" cy="322" rx="74" ry="14" fill="#0a1824"/>
+          <!-- lingam, clipped shading -->
+          <g clip-path="url(#lingamClip)">
+            <path d="M140 330 L140 232 Q140 150 200 150 Q260 150 260 232 L260 330 Z" fill="url(#bodyGrad)"/>
+            <path d="M140 330 L140 232 Q140 150 200 150 Q260 150 260 232 L260 330 Z" fill="url(#topLight)"/>
+            <rect x="236" y="148" width="26" height="186" fill="url(#rimGrad)"/>
+            <ellipse cx="176" cy="200" rx="19" ry="40" fill="url(#specGrad)" transform="rotate(-10 176 200)"/>
+            <rect id="washRect" x="130" y="150" width="140" height="200" fill="#bfe9ff" opacity="0"/>
+            <rect id="washEdge" x="130" y="150" width="140" height="8" fill="#ffffff" opacity="0"/>
+            <g id="rivulets"></g>
+            <g id="triGroup">
+              <path d="M152 206 Q200 218 248 206" stroke="#e8c87a" stroke-width="7" fill="none" stroke-linecap="round"/>
+              <path d="M150 228 Q200 240 250 228" stroke="#f2efe6" stroke-width="7" fill="none" stroke-linecap="round"/>
+              <path d="M152 250 Q200 262 248 250" stroke="#e8c87a" stroke-width="7" fill="none" stroke-linecap="round"/>
+            </g>
+            <rect id="gloss" x="138" y="150" width="124" height="130" fill="url(#glossGrad)" opacity="0"/>
+            <rect x="130" y="298" width="140" height="40" fill="url(#aoGrad)"/>
+          </g>
+          <g id="fxLayer"></g>
+        </svg>
+        <div class="sanctum-hint">Tap an offering to begin the ritual</div>
+      </div>
+      <div class="offer-status" id="offerStatus"></div>
+      <div class="offer-note" id="poojaNote"></div>
+      <div class="offer-grid" id="offerGrid"></div>
+      <button class="btn" id="aartiBtn" onclick="doAarti()">🪔 Complete the Aarti</button>
+      <p class="muted">Offered in the order of the Rudrābhishek. Har Har Mahadev 🔱</p>
+    </section>
+
+    <!-- AFFIRM -->
+    <section class="screen" id="s-affirm">
+      <div class="hero" style="font-size:24px">Affirmations</div>
+      <p class="subtle" id="affDate"></p>
+      <div id="affPersonalized" style="margin-top:18px"></div>
+      <div id="affPro"></div>
+    </section>
+
+    <!-- COURSE -->
+    <section class="screen" id="s-course"><div class="hero" style="font-size:24px">40-Day Path to Self-Mastery</div><div id="courseBody"></div></section>
+
+    <!-- JOURNAL -->
+    <section class="screen" id="s-journal">
+      <div class="hero" style="font-size:24px">Sankalpa Journal</div>
+      <p class="subtle">Capture how today felt and what's manifesting.</p>
+      <div class="card" style="margin-top:16px">
+        <div class="label" style="margin-top:0">How is your energy?</div>
+        <div class="mood-row" id="moodRow"></div>
+        <textarea class="field" id="jText" placeholder="Reflection — what shifted, what you noticed…" rows="3"></textarea>
+        <input class="field" id="jGrat" placeholder="🙏 One thing you're grateful for">
+        <button class="btn" onclick="addJournal()">Save entry</button>
+      </div>
+      <h2 class="sec">Your reflections</h2>
+      <div id="journalList"></div>
+    </section>
+
+    <!-- MANTRAS -->
+    <section class="screen" id="s-mantras">
+      <div class="hero" style="font-size:24px">Sacred Mantras</div>
+      <p class="subtle">The 21-mantra Shiva protocol, in order, with vidhi &amp; a tap counter for every mantra.</p>
+      <div class="card" style="margin-top:16px" id="vidhiCard">
+        <div style="display:flex;align-items:center;justify-content:space-between;cursor:pointer" onclick="toggleVidhi()">
+          <b style="font-size:15px">📜 How to Practice (Vidhi)</b>
+          <span id="vidhiChevron" style="font-size:19px;color:var(--ink3);display:inline-block;transition:transform .2s">›</span>
+        </div>
+        <div id="vidhiBody" style="display:none;margin-top:15px">
+          <b style="font-size:12.5px;color:var(--ice);letter-spacing:.6px">SETUP</b>
+          <p class="subtle" style="font-size:13px;margin:6px 0 14px;line-height:1.55">Sit in a quiet room and light a ghee lamp or incense. Face <b>East</b> if your focus is career, intellect or wealth — face <b>North</b> if it's health, protection or grounding. Sit cross-legged on a mat of wool or cotton, with a 108-bead rudraksha mala and a small copper cup of water within reach.</p>
+          <b style="font-size:12.5px;color:var(--ice);letter-spacing:.6px">HOW THE COUNTING WORKS</b>
+          <p class="subtle" style="font-size:13px;margin:6px 0 14px;line-height:1.55">Traditionally Mantras A–L (21 reps) are counted on mala beads with a thumb stopper, and Mantras M–U (11 reps) on your finger segments — no beads needed. In this app, just tap the ring under each mantra to count instead; it's the same method, digitized.</p>
+          <b style="font-size:12.5px;color:var(--ice);letter-spacing:.6px">FLOW &amp; CLOSING SEAL</b>
+          <p class="subtle" style="font-size:13px;margin:6px 0 14px;line-height:1.55">Move from one mantra straight into the next — no breaks, one continuous breath. After Mantra L (end of Phase 2), sip one drop of water from your copper cup before starting Phase 3. Close with Mantra U — even a slow recording works if you can't recite it at speed — then sit in silence, eyes closed, for 2 full minutes.</p>
+          <b style="font-size:12.5px;color:var(--ice);letter-spacing:.6px">SHORT ON TIME?</b>
+          <p class="subtle" style="font-size:13px;margin:6px 0 0;line-height:1.55">Basic session (manual count): chant <b>A</b> 108×, then <b>M</b> 11×, <b>G</b> 11×, <b>H</b> 108×, and close with <b>S</b> 3×. A shorter alternative — note the counters below track the full protocol's own rep counts.</p>
+        </div>
+      </div>
+      <div id="mantraBody" style="margin-top:8px"></div>
+    </section>
+
+    <!-- YOGA -->
+    <section class="screen" id="s-yoga"><div class="hero" style="font-size:24px">Yoga & Pranayama</div><div id="yogaBody" style="margin-top:8px"></div></section>
+
+    <!-- LIVE TEMPLE DARSHAN -->
+    <section class="screen" id="s-darshan">
+      <div class="hero" style="font-size:24px">Live Temple Darshan</div>
+      <p class="subtle">Sit before Mahadev from anywhere — live aarti &amp; darshan from the twelve Jyotirlingas and beyond.</p>
+      <div id="darshanBody" style="margin-top:14px"></div>
+    </section>
+
+    <!-- MORE -->
+    <section class="screen" id="s-more">
+      <div class="hero" style="font-size:24px">More</div>
+      <div class="card" style="margin-top:16px">
+        <div style="font-size:13px;color:var(--ink3);letter-spacing:.5px">CURRENT PLAN</div>
+        <div style="font-size:22px;font-weight:800;margin-top:4px" id="moreTier">Bhakt · Free</div>
+        <p class="subtle" style="font-size:13px;margin-top:6px" id="moreTierDesc"></p>
+        <button class="btn gold" style="margin-top:14px" id="moreUpgrade" onclick="openPaywall()">Unlock Pro ❄</button>
+      </div>
+      <h2 class="sec">📲 Put this on your home screen</h2>
+      <div class="card">
+        <p class="subtle" style="font-size:13.5px">Install Kailāsa as a real app — full-screen, with its own icon, works offline. No app store needed.</p>
+        <div style="margin-top:14px">
+          <b style="font-size:14px"> iPhone (Safari)</b>
+          <p class="subtle" style="font-size:13px;margin-top:4px">Tap the <b>Share</b> button (□↑) at the bottom → scroll down → <b>Add to Home Screen</b> → <b>Add</b>.</p>
+        </div>
+        <div class="divider" style="margin:14px 0"></div>
+        <div>
+          <b style="font-size:14px">🤖 Android (Chrome)</b>
+          <p class="subtle" style="font-size:13px;margin-top:4px">Tap the <b>⋮</b> menu (top-right) → <b>Add to Home screen</b> (or <b>Install app</b>) → <b>Add</b>.</p>
+        </div>
+        <p class="muted" style="margin-top:14px;text-align:left">Then open it from the new 🔱 icon — it launches like a normal app.</p>
+      </div>
+      <h2 class="sec">Profile</h2>
+      <div class="card">
+        <div class="label" style="margin-top:0">Name</div><input class="field" id="setName" placeholder="Your name">
+        <div class="label">Manifestation goal</div>
+        <div class="goal-grid" id="profileGoalGrid" style="margin-top:8px"></div>
+        <div class="label">Daily mantra</div><div class="choices" id="setMantra"></div>
+        <button class="btn" style="margin-top:12px" onclick="saveProfile()">Save profile</button>
+      </div>
+      <h2 class="sec">Notifications</h2>
+      <div class="audio-toggle"><div class="lab"><b>🥁 Damaru daily reminder</b><span>Authentic damaru sound</span></div><div class="sw on" id="notifSw" onclick="this.classList.toggle('on');playDamaru()"></div></div>
+      <div style="height:11px"></div>
+      <div class="audio-toggle" id="mondayRow"><div class="lab"><b>🌑 Mahadev Mondays</b><span>Weekly Shiva tasks · Pro</span></div><div class="sw" id="mondaySw" onclick="mondayToggle()"></div></div>
+      <h2 class="sec">Demo controls</h2>
+      <p class="subtle" style="font-size:12.5px;margin-bottom:10px">Switch tiers to preview gating:</p>
+      <div class="row"><button class="btn ghost" onclick="setTier('bhakt')">Bhakt</button><button class="btn ghost" onclick="setTier('sadhu')">Sadhu</button><button class="btn ghost" onclick="setTier('mahayogi')">Mahayogi</button></div>
+      <button class="btn ghost" style="margin-top:11px" onclick="replayOnb()">Replay intro</button>
+      <button class="btn ghost" style="margin-top:11px" onclick="wipe()">Reset all data</button>
+      <p class="muted">Kailāsa · kailash 4 · 2D Himalayan sanctum<br>Manifestation through Shiva bhakti 🔱</p>
+    </section>
+  </div>
+
+  <nav>
+    <div class="nav-i on" data-s="home" onclick="go('home')"><span class="gi">🏔️</span>Home</div>
+    <div class="nav-i" data-s="japa" onclick="go('japa')"><span class="gi">📿</span>Japa</div>
+    <div class="nav-i" data-s="pooja" onclick="go('pooja')"><span class="gi">🛕</span>Pooja</div>
+    <div class="nav-i" data-s="course" onclick="go('course')"><span class="gi">🪷</span>Course</div>
+    <div class="nav-i" data-s="more" onclick="go('more')"><span class="gi">☰</span>More</div>
+  </nav>
+</div>
+
+<!-- PAYWALL -->
+<div class="sheet-bg" id="paywall" onclick="if(event.target===this)closePaywall()">
+  <div class="sheet">
+    <div class="grab"></div>
+    <div style="text-align:center;margin-bottom:6px"><div style="font-size:38px">🔱</div>
+    <h2 style="font-size:23px;font-weight:800;margin-top:6px">Ascend to the Himalayas</h2>
+    <p class="subtle" style="font-size:13.5px;margin-top:6px">Unlock the full path of manifestation through Shiva bhakti.</p></div>
+    <div class="feat-list">
+      <div class="f"><div class="fi">🏔️</div><div><b>40-Day Self-Mastery Path</b><p>Daily Shiva sadhana — yoga, mantra & meditation</p></div></div>
+      <div class="f"><div class="fi">✨</div><div><b>Personalized affirmations</b><p>3 affirmations daily, tuned to your Sankalpa</p></div></div>
+      <div class="f"><div class="fi">🧘</div><div><b>Personalized asana & pranayama</b><p>Postures & breathwork tuned to your level</p></div></div>
+      <div class="f"><div class="fi">🕉️</div><div><b>Full 21-mantra protocol</b><p>Unlocks Phases 2–4: Wealth, Vitality & Home</p></div></div>
+      <div class="f"><div class="fi">🌑</div><div><b>Mahadev Mondays + early access</b><p>Weekly tasks & priority feature rollouts</p></div></div>
+    </div>
+    <div class="plan" onclick="buy('sadhu')"><div class="pt"><b>Sadhu</b><span class="pr">₹499<small>/mo</small></span></div><ul><li>Everything in Pro</li><li>Cancel anytime</li></ul></div>
+    <div class="plan best" onclick="buy('mahayogi')"><div class="badge">Best value · save 50%</div><div class="pt"><b>Mahayogi</b><span class="pr">₹2999<small>/yr</small></span></div><ul><li>Everything in Pro</li><li>Just ₹250/month, billed yearly</li><li>Priority new features</li></ul></div>
+    <p class="muted">Prototype — “purchase” unlocks Pro locally. Real billing routes through Play / App Store.</p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+/* ===== STATE ===== */
+const MANTRAS=[
+  {id:"ons",n:"Om Namah Shivaya",d:"I bow to the Self within — the core mantra"},
+  {id:"mty",n:"Maha Mrityunjaya",d:"Healing & protection mantra"},
+  {id:"shm",n:"Om Shri Shivaya",d:"Auspiciousness & grace"},
+  {id:"har",n:"Har Har Mahadev",d:"The victory cry of Shiva"}
+];
+const DEFAULT={onboarded:false,name:"",goal:"",primaryGoal:"dhan_samriddhi",mantra:"ons",tier:"bhakt",
+  count:0,rounds:0,total:0,streak:1,lastDay:todayKey(),
+  courseDay:1,courseDone:[],chant:false,monday:false,journal:[],tipSeen:false,
+  poojaCount:0,poojaToday:[],mantraCount:{},mantraDoneToday:[],affirmHindi:false};
+
+/* ===== PILLAR AFFIRMATIONS (personalized by user intent) ===== */
+const PILLAR_NAMES={
+  dhan_samriddhi:"धन-समृद्धि",karya_siddhi:"कार्य-सिद्धि",arogya:"आरोग्य",vivaha:"विवाह",
+  vighna_nashana:"विघ्न-नाशन",santana_sukha:"संतान-सुख",vidya:"विद्या",rina_mukti:"ऋण-मुक्ति",griha:"गृह",suraksha:"सुरक्षा"};
+const PILLAR_NAMES_EN={
+  dhan_samriddhi:"Wealth & Prosperity",karya_siddhi:"Career Success",arogya:"Health & Vitality",vivaha:"Love & Marriage",
+  vighna_nashana:"Obstacle Removal",santana_sukha:"Family & Children",vidya:"Knowledge & Education",rina_mukti:"Debt Freedom",griha:"Home & Property",suraksha:"Protection & Safety"};
+const PILLAR_ORDER=["dhan_samriddhi","karya_siddhi","arogya","vivaha","vighna_nashana","santana_sukha","vidya","rina_mukti","griha","suraksha"];
+const PILLAR_ICONS={dhan_samriddhi:"💰",karya_siddhi:"🚀",arogya:"💪",vivaha:"💕",vighna_nashana:"🔱",santana_sukha:"👨‍👩‍👧",vidya:"📚",rina_mukti:"🔓",griha:"🏠",suraksha:"🛡️"};
+const PILLAR_AFFIRMATIONS={
+  dhan_samriddhi:[
+    "I am a vessel of divine abundance, and prosperity flows to me effortlessly.",
+    "Shiva's grace opens new channels of wealth in my life every day.",
+    "I honor the sacred flow of giving and receiving, and abundance multiplies through me.",
+    "My work creates lasting value, and the universe rewards me generously.",
+    "I release all fear around money and trust in the infinite provision of Mahadeva.",
+    "Lakshmi's blessings rest upon my endeavors, and I attract wealth with ease.",
+    "I am worthy of financial abundance, and I receive it with gratitude and grace.",
+    "Every rupee I earn and spend carries the energy of sacred purpose.",
+    "I am aligned with the prosperous rhythm of the cosmos, and opportunities seek me out.",
+    "My prosperity grows silently and steadily, like a river finding its way to the ocean.",
+    "I welcome wealth as a divine tool for serving my highest purpose.",
+    "The universe conspires to fulfill my material needs, and I trust its timing completely."],
+  karya_siddhi:[
+    "My work is an offering to Shiva, and excellence flows through everything I do.",
+    "I am recognized for my unique skills, and new doors of opportunity open before me.",
+    "Divine intelligence guides my decisions, and I move through my career with clarity.",
+    "I bring focused energy to my purpose, and success follows my disciplined action.",
+    "My professional growth is unstoppable, blessed by the grace of Mahadeva.",
+    "I attract mentors, collaborators, and opportunities that elevate my career.",
+    "Every challenge at work is a stepping stone placed by the divine for my growth.",
+    "I lead with integrity and wisdom, and others trust and respect my contribution.",
+    "My skills sharpen daily, and I become the master of my chosen path.",
+    "I am exactly where I need to be in my career, and the next level is already unfolding.",
+    "Shiva's cosmic rhythm guides my ambitions, and I achieve more than I imagine.",
+    "I create meaningful impact through my work, and the world rewards my dedication."],
+  arogya:[
+    "My body is a sacred temple, and I honor it with care, movement, and nourishment.",
+    "Divine prana flows through every cell, restoring me to perfect health.",
+    "I am strong, vital, and full of energy, blessed by Shiva's healing grace.",
+    "My immune system is powerful, my recovery is swift, and my vitality is boundless.",
+    "I choose foods and habits that honor the divine vessel I have been given.",
+    "Every breath I take fills me with cosmic energy and renews my entire being.",
+    "My mind is calm, my body is balanced, and I radiate wellness from within.",
+    "I release all illness and embrace the natural state of health that is my birthright.",
+    "Mahadeva's grace guides my healing journey, and I trust my body's wisdom completely.",
+    "I wake each morning with renewed strength, ready to embrace the day fully.",
+    "My physical discipline is a form of devotion, and every effort makes me stronger.",
+    "I am grateful for this body, and I nurture it as the sacred gift it truly is."],
+  vivaha:[
+    "I am deserving of deep, sacred love, and the universe is guiding my soulmate to me.",
+    "My heart is open, radiant, and ready to receive the divine partnership meant for me.",
+    "Shiva and Parvati's eternal bond inspires the love I attract into my life.",
+    "I embody the qualities I seek in a partner \u2014 devotion, strength, and tenderness.",
+    "The sacred union I desire is already forming in the cosmic plan, and I trust its timing.",
+    "I release all past wounds and welcome love with a healed and grateful heart.",
+    "My relationships are grounded in mutual respect, spiritual growth, and joyful companionship.",
+    "Divine love flows through me, making me magnetic to the right partner.",
+    "I honor my own worth completely, and I attract someone who mirrors that reverence.",
+    "My future marriage is blessed by Mahadeva, built on trust, devotion, and shared purpose.",
+    "I bring patience and faith to my journey toward love, knowing the divine plan is perfect.",
+    "The love I give returns to me multiplied, and my life overflows with sacred connection."],
+  vighna_nashana:[
+    "Every obstacle in my path dissolves in the presence of divine grace.",
+    "I face challenges with the courage of a devotee who knows Mahadeva walks beside them.",
+    "What seems impossible today is already being resolved by forces beyond my sight.",
+    "I release resistance and flow around obstacles with the ease of sacred water.",
+    "No barrier can withstand the power of my faith combined with devoted action.",
+    "Ganesh clears the way before me, and I walk forward with unshakable confidence.",
+    "Every delay is divine redirection, guiding me toward something far greater.",
+    "I transform obstacles into stepping stones through patience, wisdom, and surrender.",
+    "The universe removes what no longer serves me to make space for what truly matters.",
+    "I am protected and guided through every difficulty by the compassion of Shiva.",
+    "My path clears with each step I take in faith, and solutions appear effortlessly.",
+    "I trust that what blocks me today is shaping me for the breakthrough tomorrow."],
+  santana_sukha:[
+    "My family is blessed with harmony, health, and the grace of Mahadeva.",
+    "I nurture my loved ones with patience, wisdom, and unconditional devotion.",
+    "The bond between my family and me grows stronger and more joyful each day.",
+    "I am a source of strength and peace in my household, guided by divine love.",
+    "My children thrive under the protection and blessings of Shiva's compassion.",
+    "I create a home filled with laughter, learning, and sacred connection.",
+    "Every interaction with my family is an opportunity to express divine love.",
+    "I trust the divine plan for my family's growth, happiness, and togetherness.",
+    "My love provides a foundation of security and confidence for my children.",
+    "The generations that follow me are blessed because of the devotion I carry today.",
+    "I balance responsibility and joy in my family life with grace and gratitude.",
+    "Parvati's nurturing energy flows through me, and my family flourishes in its warmth."],
+  vidya:[
+    "My mind is sharp, focused, and blessed with Saraswati's gift of understanding.",
+    "I absorb knowledge with ease, and every subject reveals its secrets to my devoted study.",
+    "Divine wisdom guides my learning, and I grasp complex ideas with clarity.",
+    "I am a lifelong student of the universe, and each day brings profound new insight.",
+    "My memory is strong, my concentration is deep, and my intellect serves my highest purpose.",
+    "Shiva as Dakshinamurti illuminates the path of knowledge before me.",
+    "I approach every exam and challenge with calm confidence and thorough preparation.",
+    "The sacred tradition of learning flows through me, connecting me to generations of seekers.",
+    "I ask the right questions, find the right teachers, and absorb the right lessons at the right time.",
+    "My education is not just for credentials \u2014 it is a sacred journey of self-discovery.",
+    "I trust my ability to learn anything I set my mind to, guided by divine intelligence.",
+    "Knowledge transforms me from within, and I use what I learn to uplift myself and others."],
+  rina_mukti:[
+    "I am freeing myself from all financial burdens, one wise decision at a time.",
+    "Divine grace clears the weight of debt from my life, and I breathe easier each day.",
+    "I manage my money with the discipline of a devotee and the wisdom of a sage.",
+    "Every payment I make brings me closer to complete financial liberation.",
+    "I attract unexpected resources and opportunities that accelerate my freedom from debt.",
+    "Shiva's grace dissolves the karmic patterns that created financial struggle in my life.",
+    "I forgive myself for past financial mistakes and step forward with clarity and purpose.",
+    "My income grows steadily while my debts shrink, and I feel the shift with gratitude.",
+    "I am breaking the cycle of borrowing and stepping into permanent abundance.",
+    "The universe supports my journey to financial freedom with perfect timing and provision.",
+    "I spend mindfully, save consistently, and invest wisely \u2014 guided by divine intelligence.",
+    "Debt does not define me; my devotion and discipline define the prosperous future I am building."],
+  griha:[
+    "The perfect home for my family and me is being prepared by the divine right now.",
+    "I am worthy of a beautiful, peaceful, and sacred living space.",
+    "Shiva's blessings guide me to the right property at the right time and the right price.",
+    "My dream home is not a distant wish \u2014 it is a reality already taking shape.",
+    "I attract the resources, opportunities, and connections needed to secure my ideal home.",
+    "Every step I take toward homeownership is blessed and protected by Mahadeva.",
+    "My living space is a sanctuary of peace, devotion, and family togetherness.",
+    "I manage my finances with the foresight and discipline needed to own my home.",
+    "The land and walls that shelter me carry the sacred energy of divine protection.",
+    "I release anxiety about property and trust that the universe is arranging everything perfectly.",
+    "My home is a place where abundance, love, and spiritual growth naturally flourish.",
+    "Vastu and divine grace harmonize my living space, making it a source of lasting peace."],
+  suraksha:[
+    "I am surrounded by Shiva's protective grace at every moment of my life.",
+    "My family and I move through the world safely, shielded by divine compassion.",
+    "I trust the universe to keep me and my loved ones protected from all harm.",
+    "Mahadeva's watchful presence guards my home, my health, and my journey.",
+    "I release fear and anxiety, knowing that divine protection is always with me.",
+    "My intuition is strong and clear, guiding me away from danger and toward safety.",
+    "The sacred energy I carry creates a shield of protection around everything I cherish.",
+    "I am safe. My family is safe. My future is secure in the hands of the divine.",
+    "Every journey I undertake is blessed and watched over by cosmic guardianship.",
+    "I rest in the shelter of Mahadeva's grace, and no harm can touch what the divine protects.",
+    "Negative energies and harmful intentions dissolve before they reach me or my loved ones.",
+    "I walk through life with courage and peace, knowing I am divinely protected always."]};
+let S=load();
+function todayKey(){return new Date().toISOString().slice(0,10);}
+function load(){try{return Object.assign({},DEFAULT,JSON.parse(localStorage.getItem("kailasa"))||{});}catch(e){return {...DEFAULT};}}
+function save(){localStorage.setItem("kailasa",JSON.stringify(S));}
+function isPro(){return S.tier==="sadhu"||S.tier==="mahayogi";}
+/* toast notifications (the #toast pill) — used app-wide */
+let _toastTO=null;
+function toast(m){var el=document.getElementById("toast");if(!el)return;el.textContent=m;el.classList.add("on");
+  clearTimeout(_toastTO);_toastTO=setTimeout(function(){el.classList.remove("on");},2200);}
+function mantraName(){return (MANTRAS.find(m=>m.id===S.mantra)||MANTRAS[0]).n;}
+(function streakCheck(){const t=todayKey();if(S.lastDay!==t){const diff=(new Date(t)-new Date(S.lastDay))/86400000;
+  S.streak=diff===1?S.streak+1:1;S.lastDay=t;S.count=0;S.poojaToday=[];S.mantraDoneToday=[];save();}})();
+
+/* ===== AUDIO (Web Audio API, synthesized, offline) ===== */
+let AC=null;
+function ac(){if(!AC)AC=new (window.AudioContext||window.webkitAudioContext)();if(AC.state==="suspended")AC.resume();return AC;}
+function playDamaru(){const c=ac();[0,.16].forEach(t=>{const o=c.createOscillator(),g=c.createGain();
+  o.type="triangle";o.frequency.setValueAtTime(180,c.currentTime+t);o.frequency.exponentialRampToValueAtTime(70,c.currentTime+t+.13);
+  g.gain.setValueAtTime(.0001,c.currentTime+t);g.gain.exponentialRampToValueAtTime(.5,c.currentTime+t+.005);
+  g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+t+.22);o.connect(g).connect(c.destination);
+  o.start(c.currentTime+t);o.stop(c.currentTime+t+.25);});}
+function playTing(freq){const c=ac();const o=c.createOscillator(),g=c.createGain();o.type="sine";o.frequency.value=freq||760;
+  g.gain.setValueAtTime(.0001,c.currentTime);g.gain.exponentialRampToValueAtTime(.22,c.currentTime+.005);
+  g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+1.0);o.connect(g).connect(c.destination);o.start();o.stop(c.currentTime+1.1);}
+function playBell(){const c=ac();const t=c.currentTime;[[523,.30],[784,.13],[1046,.08],[1318,.05]].forEach(([f,v])=>{
+  const o=c.createOscillator(),g=c.createGain();o.type="sine";o.frequency.value=f;
+  g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(v,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+2.4);
+  o.connect(g).connect(c.destination);o.start(t);o.stop(t+2.6);});}
+let chantNodes=null;
+function startChant(){if(chantNodes)return;const c=ac();const fs=[136.1,272.2,408.3];const master=c.createGain();master.gain.value=0;master.connect(c.destination);
+  const oscs=[];fs.forEach((f,i)=>{const o=c.createOscillator();o.type="sine";o.frequency.value=f;const g=c.createGain();g.gain.value=[.18,.07,.035][i];
+    const lfo=c.createOscillator();lfo.frequency.value=.12+i*.05;const lg=c.createGain();lg.gain.value=.04;lfo.connect(lg).connect(g.gain);lfo.start();
+    o.connect(g).connect(master);o.start();oscs.push(o,lfo);});master.gain.linearRampToValueAtTime(.5,c.currentTime+1.2);chantNodes={master,oscs};}
+function stopChant(){if(!chantNodes)return;const c=ac();chantNodes.master.gain.linearRampToValueAtTime(0,c.currentTime+.8);
+  const n=chantNodes;chantNodes=null;setTimeout(()=>n.oscs.forEach(o=>{try{o.stop();}catch(e){}}),900);}
+
+
+/* ===== NAV ===== */
+function go(s){document.querySelectorAll(".screen").forEach(e=>e.classList.remove("on"));
+  const next=document.getElementById("s-"+s);next.classList.add("on");
+  document.querySelectorAll(".nav-i").forEach(n=>n.classList.toggle("on",n.dataset.s===s));
+  document.getElementById("scroll").scrollTop=0;
+  if(s==="affirm")renderAffirm();if(s==="course")renderCourse();if(s==="mantras")renderMantras();
+  if(s==="yoga")renderYoga();if(s==="more")renderMore();if(s==="journal")renderJournal();if(s==="home")renderHome();
+  if(s==="pooja")renderPooja();if(s==="darshan")renderDarshan();if(s==="japa")renderJapa();
+  animateIn(next);}
+
+/* ===== JAPA ===== */
+const CIRC=2*Math.PI*112;
+function tapBead(){if(navigator.vibrate)navigator.vibrate(18);S.count++;S.total++;
+  if(S.count>=108){S.count=0;S.rounds++;if(navigator.vibrate)navigator.vibrate([40,30,40]);toast("🔱 Mala complete — "+S.rounds+" rounds");playDamaru();}
+  save();renderJapa();}
+function renderJapa(){document.getElementById("beadCount").textContent=S.count;document.getElementById("stRounds").textContent=S.rounds;
+  document.getElementById("stTotal").textContent=S.total;document.getElementById("stStreak").textContent=S.streak;
+  document.getElementById("ring").style.strokeDashoffset=CIRC*(1-S.count/108);
+  document.getElementById("japaMantra").textContent=mantraName();
+  document.getElementById("chantSw").classList.toggle("on",!!S.chant);}
+function resetMala(){S.count=0;save();renderJapa();toast("Mala reset");}
+function toggleChant(){S.chant=!S.chant;document.getElementById("chantSw").classList.toggle("on",S.chant);if(S.chant)startChant();else stopChant();save();}
+
+/* ===== AFFIRMATIONS =====
+   360 Shiva-themed affirmations for Bhakt (free) users, served
+   ONE per day, seeded by the date, rotating through the year
+   with no repeats. Paid tiers use aiAffirm() below instead. ===== */
+const KAILASA_AFFIRMATIONS=[
+  "Like Shiva in meditation, I rest in stillness while the world moves around me.",
+  "I am the calm at the centre of every storm.",
+  "My breath is slow, my mind is clear, my spirit is at peace.",
+  "In silence I meet Mahadev, and in silence I meet myself.",
+  "Nothing outside me can disturb the stillness I carry within.",
+  "I let the noise fall away and return to the quiet that is always here.",
+  "The mountain does not chase the clouds; I too remain unmoved.",
+  "Peace is my natural state; I simply stop resisting it.",
+  "I breathe in Kailāsa's cool air and release every tension.",
+  "My stillness is my strength, not my weakness.",
+  "I sit like the snow-capped peaks — silent, vast, unshaken.",
+  "Between each breath there is a doorway to perfect calm, and I step through it.",
+  "I do not need to react; I can simply witness and rest.",
+  "The lake of my mind grows still, and Mahadev's reflection appears clearly.",
+  "I carry the silence of the Himalayas wherever I go.",
+  "My peace does not depend on my circumstances.",
+  "I release the urge to control and settle into trust.",
+  "Even in motion, my inner world remains serene.",
+  "I am the witness, watching thoughts pass like clouds over Kailāsa.",
+  "Stillness is not empty; it is full of Mahadev's presence.",
+  "I quiet the mind and the answers arrive on their own.",
+  "In this moment there is nothing to fix and nowhere to rush.",
+  "I anchor myself in the eternal calm that Shiva embodies.",
+  "The more still I become, the more clearly I see.",
+  "I let go of the day's weight and rest in cool silence.",
+  "My centre is unshakable, like the axis of the universe.",
+  "I choose peace over the pull of every worry.",
+  "Serenity flows through me with each Om Namah Shivaya.",
+  "I am at home in the quiet; here nothing can harm me.",
+  "The stillness I cultivate today becomes the ground I stand on tomorrow.",
+  "I meet each moment with a calm and open heart.",
+  "The restless mind grows silent as I turn toward Mahadev.",
+  "I am steady; I am rooted; I am at ease.",
+  "Peace begins the instant I stop fighting the present.",
+  "In Shiva's stillness I find my greatest power.",
+  "I return, again and again, to the calm within.",
+  "What I hold steadily in my heart, the universe conspires to bring forth.",
+  "My sankalpa is clear, and Mahadev clears the path before me.",
+  "I plant my intention like a seed and trust it to grow.",
+  "The universe rearranges itself to match my inner conviction.",
+  "I manifest not by forcing, but by aligning with what already wishes to come.",
+  "My focused mind is the sharpest tool of creation.",
+  "I speak my desire once, with faith, and then I release it to Shiva.",
+  "Every day I move one deliberate step toward my goal.",
+  "I am a channel through which Mahadev's grace takes form.",
+  "What is meant for me is already flowing toward me.",
+  "I hold my vision without clinging and it ripens in its own time.",
+  "My intentions are backed by action and blessed by devotion.",
+  "I create my reality with the clarity of my attention.",
+  "The path reveals itself one step at a time, and I trust each step.",
+  "I am worthy of the very thing I am asking for.",
+  "My dreams are not too big; my faith is simply growing to meet them.",
+  "I align my thoughts, my words, and my deeds with what I wish to become.",
+  "Mahadev turns my sincere effort into extraordinary results.",
+  "I let go of how it will happen and stay certain that it will.",
+  "The energy I give my goal returns to me multiplied.",
+  "I am the author of my day and the co-creator of my destiny.",
+  "My mind is fertile ground; I plant only what I wish to harvest.",
+  "I trust divine timing more than my own impatience.",
+  "What I seek is also seeking me.",
+  "I turn my longing into disciplined, joyful practice.",
+  "My clarity today shapes my tomorrow.",
+  "I am building something real, one devoted day at a time.",
+  "The obstacles before me are simply shaping my strength.",
+  "I ask boldly, act faithfully, and receive gracefully.",
+  "My vision is clear and my resolve is unshakable.",
+  "I release doubt and make room for what I am calling in.",
+  "Grace meets effort, and my sankalpa becomes real.",
+  "I am becoming, each day, the person my goal requires.",
+  "The seed I plant in faith cannot fail to sprout.",
+  "I focus my whole being on what I intend to create.",
+  "With Mahadev's blessing, my will becomes my way.",
+  "Like Rudra, I am fierce in the face of what would hold me back.",
+  "Fear has no home in a heart that trusts Mahadev.",
+  "I am stronger than the difficulty in front of me.",
+  "I face what I must with the courage of the Destroyer of fear.",
+  "My spine is straight, my gaze is steady, my will is iron.",
+  "I do not shrink from challenges; I rise to meet them.",
+  "The trident of my resolve cuts through every hesitation.",
+  "I carry a warrior's calm and a devotee's faith.",
+  "Nothing can shake the one who has taken refuge in Shiva.",
+  "I am fearless because I am not alone.",
+  "I meet uncertainty with a steady, open heart.",
+  "My courage grows each time I choose to act despite fear.",
+  "I am the master of my mind, not the servant of my worries.",
+  "Difficulty is the forge in which my strength is made.",
+  "I stand tall, rooted like the mountain, unmoved by the wind.",
+  "Mahadev's strength flows through my veins.",
+  "I release the fear of what might go wrong and act on what could go right.",
+  "I am powerful, capable, and equal to this moment.",
+  "The fire in me burns brighter than any obstacle.",
+  "I choose courage over comfort, again and again.",
+  "I am not afraid of my own power.",
+  "Every fear I face shrinks the moment I turn toward it.",
+  "I walk through the fire and am not consumed.",
+  "My inner Rudra rises when I need him most.",
+  "I am brave enough to begin before I feel ready.",
+  "Setbacks do not defeat me; they refine me.",
+  "I have survived every hard day so far; I will survive this one too.",
+  "I am the calm and the storm, and I command them both.",
+  "I face the unknown with faith instead of fear.",
+  "My resolve is a blade that no doubt can dull.",
+  "I am protected, guided, and strong.",
+  "Fear knocks; faith answers the door.",
+  "I draw courage from the stillness of Mahadev.",
+  "I am unbreakable at my core.",
+  "Whatever comes, I will meet it standing.",
+  "I turn my fear into fuel and my doubt into determination.",
+  "Like the ascetic on Kailāsa, I hold everything lightly and cling to nothing.",
+  "I do my work with full heart and release the fruit to Mahadev.",
+  "I am not my possessions, my titles, or my fears.",
+  "Freedom is letting go of what was never mine to keep.",
+  "I release what I cannot control and act on what I can.",
+  "I am detached from the outcome and devoted to the effort.",
+  "What leaves my life was meant to leave; I bless it and let it go.",
+  "I wear the world like a loose garment.",
+  "My peace does not depend on things going my way.",
+  "I give my best and surrender the rest.",
+  "I let go, and in letting go I am free.",
+  "Nothing external defines my worth.",
+  "I release old resentments as ash to the wind.",
+  "I am free of the need for approval.",
+  "Like Shiva smeared in vibhuti, I remember all things pass.",
+  "I hold my plans firmly but my grip is open.",
+  "I release the past; it has already given me all it can.",
+  "I am unattached to praise and unbothered by blame.",
+  "My happiness is my own, not borrowed from circumstance.",
+  "I let the river flow instead of trying to hold the water.",
+  "I surrender my burdens at Mahadev's feet.",
+  "I am lighter each time I release what weighs me down.",
+  "I do not need to win every argument to be at peace.",
+  "I let go of the story that no longer serves me.",
+  "Detachment is not coldness; it is freedom with an open heart.",
+  "I release my need to be certain and rest in trust.",
+  "I own my choices and release my regrets.",
+  "The less I cling, the more freely life flows to me.",
+  "I am whole with or without the things I desire.",
+  "I release the outcome and keep the peace.",
+  "What is mine will remain; what leaves was never truly mine.",
+  "I unclench my hands and receive what grace brings.",
+  "I am free the moment I stop demanding the world be different.",
+  "I let go gently, like leaves in the Himalayan wind.",
+  "My freedom lives in my response, not in my circumstances.",
+  "I carry little and I am at peace.",
+  "Abundance flows to me as naturally as the Ganga flows from Shiva's hair.",
+  "I am open to receive all the good the universe offers.",
+  "There is more than enough for me and for everyone.",
+  "I release scarcity and welcome flow.",
+  "Prosperity finds me because I am ready to receive it.",
+  "I give freely, and life gives back to me in abundance.",
+  "My efforts are seeds, and the harvest is generous.",
+  "I attract opportunities that match my devotion and skill.",
+  "The universe is abundant, and I am part of that abundance.",
+  "I am worthy of prosperity, ease, and joy.",
+  "Money flows to me through honest work and Mahadev's grace.",
+  "I trust that my needs are always met.",
+  "I welcome success without guilt and wealth without greed.",
+  "Every rupee I earn is a blessing I use wisely.",
+  "I am a magnet for good fortune.",
+  "Abundance is my natural inheritance as a child of the divine.",
+  "I release the fear of not having enough.",
+  "Doors open for me that I could not have opened alone.",
+  "I prosper as I grow in devotion and discipline.",
+  "The more grateful I am, the more arrives.",
+  "I create value, and value returns to me.",
+  "My work is meaningful and my rewards are real.",
+  "I am supported by a generous universe.",
+  "Opportunity flows toward the prepared and the faithful, and I am both.",
+  "I receive with gratitude and give with joy.",
+  "There is a stream of abundance and I step into it today.",
+  "I am building lasting prosperity on a foundation of devotion.",
+  "My cup overflows, and I share the overflow.",
+  "I welcome wealth as a tool for good.",
+  "I trust the flow of giving and receiving in my life.",
+  "Every day brings new possibilities for growth and gain.",
+  "I am aligned with prosperity in body, mind, and spirit.",
+  "Mahadev's grace turns my labour into plenty.",
+  "I release the belief that I must struggle to succeed.",
+  "Abundance begins with the abundance in my own heart.",
+  "I am prosperous, provided for, and at peace.",
+  "Har Har Mahadev — I surrender my day into your hands.",
+  "My devotion is my anchor and my joy.",
+  "I offer this breath, this moment, this life to Shiva.",
+  "In surrender I find not weakness but the deepest strength.",
+  "I trust Mahadev even when I cannot see the whole path.",
+  "My heart bows to the one who dwells within it.",
+  "Every act I do today is an offering.",
+  "I let devotion soften the hard edges of my day.",
+  "I am held by a love greater than my understanding.",
+  "I surrender my worries to the Lord of Kailāsa.",
+  "My faith grows deeper with each Om Namah Shivaya.",
+  "I place my life in the flow of divine will.",
+  "I am never truly alone; Mahadev walks with me.",
+  "I let go and let Shiva.",
+  "Devotion turns my ordinary day into sacred practice.",
+  "I trust the intelligence that runs the universe.",
+  "My surrender is active, faithful, and full of love.",
+  "I offer my fears and receive peace in return.",
+  "I bow to the divine within and around me.",
+  "My heart is a temple, and Mahadev lives there.",
+  "I do my part and trust Shiva to do the rest.",
+  "Grace flows to the heart that surrenders.",
+  "I release my grip on life and rest in devotion.",
+  "I am guided, even when the way is dark.",
+  "My love for Mahadev steadies me through everything.",
+  "I turn toward the sacred in the middle of the ordinary.",
+  "I trust that I am exactly where I am meant to be.",
+  "Devotion is my quiet superpower.",
+  "I surrender the illusion of control and find real peace.",
+  "My faith carries me where effort alone cannot.",
+  "I am a humble instrument of Mahadev's will.",
+  "I greet this day with a bowed head and an open heart.",
+  "I let love, not fear, lead me.",
+  "In surrender, everything I need finds me.",
+  "My whole life is a chant of Om Namah Shivaya.",
+  "I rest in the certainty that I am held.",
+  "Like Nataraja, I dance through destruction into creation.",
+  "I release the old to make room for the new.",
+  "What is ending in my life is clearing space for something better.",
+  "I am not the person I was yesterday, and that is a gift.",
+  "I welcome change as the doorway to my growth.",
+  "The fire of transformation burns away all that no longer serves me.",
+  "I let old habits fall away like ash.",
+  "Every ending in my life is also a beginning.",
+  "I am constantly being remade into something truer.",
+  "I dance with change instead of fighting it.",
+  "Destruction and creation are two hands of the same grace.",
+  "I shed my old skin without fear.",
+  "I trust the wisdom of endings.",
+  "My past does not define my future.",
+  "I am willing to become new.",
+  "Mahadev clears the ground so that I can build again.",
+  "I release who I was to become who I am meant to be.",
+  "Change is not my enemy; it is my teacher.",
+  "I let the old story die so a better one can be born.",
+  "I embrace the discomfort of growth.",
+  "Out of every ending, Mahadev brings a new dawn.",
+  "I am reborn a little more each morning.",
+  "I burn away my doubts in the fire of practice.",
+  "Transformation is the rhythm of the cosmic dance, and I move with it.",
+  "I let go of the familiar to reach the extraordinary.",
+  "My struggles are shaping my rebirth.",
+  "I trust that breaking down can be breaking through.",
+  "I welcome the new version of myself with open arms.",
+  "I am unafraid to begin again.",
+  "Every day I choose growth over comfort.",
+  "The dance of Shiva moves through my life, clearing and creating.",
+  "I release the ashes and rise renewed.",
+  "I am always becoming, never finished.",
+  "Change flows through me and leaves me stronger.",
+  "I let go of the branch and trust I will grow wings.",
+  "My renewal begins the moment I decide it does.",
+  "This moment is the only place life is happening, and I am fully here.",
+  "I bring my whole attention to what is in front of me.",
+  "Awareness is my true nature, quiet and clear.",
+  "I am the witness behind every thought and feeling.",
+  "I return to the present breath whenever my mind wanders.",
+  "Right now, in this breath, all is well.",
+  "I notice, I observe, I remain aware.",
+  "I am awake to the beauty of this ordinary moment.",
+  "My awareness is vast, like the sky over Kailāsa.",
+  "I watch my thoughts without becoming them.",
+  "The present moment is a gift, and I unwrap it fully.",
+  "I am here, now, alive, and aware.",
+  "I let each moment be enough.",
+  "My attention is my most precious offering.",
+  "I meet life directly, without the fog of distraction.",
+  "I am the still awareness in which everything appears.",
+  "I notice the small blessings hidden in this day.",
+  "I anchor myself in the now with a single conscious breath.",
+  "Consciousness is my home, and I never truly leave it.",
+  "I observe my mind with kindness and clarity.",
+  "I am not my thoughts; I am the awareness that holds them.",
+  "This breath is my anchor to the present.",
+  "I give this moment my full, undivided presence.",
+  "Awareness dissolves my anxieties like mist in morning sun.",
+  "I am fully here for my own life.",
+  "The present is where Mahadev meets me.",
+  "I let go of yesterday and tomorrow and rest in today.",
+  "My mind is clear when I return to now.",
+  "I witness my emotions without being swept away.",
+  "I am awake, aware, and alive to this instant.",
+  "Presence is my practice and my peace.",
+  "I meet each task with mindful attention.",
+  "In stillness, awareness reveals what haste conceals.",
+  "I am the calm sky; thoughts are only passing clouds.",
+  "I return to the present as many times as it takes.",
+  "This moment, fully lived, is my whole life in miniature.",
+  "The same consciousness that is Shiva also dwells in me.",
+  "I am worthy simply because I exist.",
+  "I honour the divine spark within myself.",
+  "I am enough, exactly as I am, right now.",
+  "I speak to myself with the kindness I would offer a dear friend.",
+  "My worth is not measured by my productivity.",
+  "I am a temple of the divine, and I treat myself with reverence.",
+  "I release the habit of comparing myself to others.",
+  "I am a unique expression of the same divine source.",
+  "I forgive myself for being human.",
+  "I deserve rest, joy, and love.",
+  "I am becoming my own greatest ally.",
+  "The light of Mahadev shines in me.",
+  "I let go of shame and reclaim my dignity.",
+  "I am proud of how far I have come.",
+  "My value does not rise or fall with others' opinions.",
+  "I treat my body as the sacred vessel it is.",
+  "I am worthy of the goals I am pursuing.",
+  "I meet my flaws with compassion, not contempt.",
+  "There is a divinity in me that nothing can diminish.",
+  "I am learning to love myself as I am.",
+  "I release the inner critic and welcome the inner guide.",
+  "I honour my needs without guilt.",
+  "I am a work in progress and a masterpiece at once.",
+  "The divine chose to become me, and that is no small thing.",
+  "I am deserving of every good thing I am building.",
+  "I speak my worth aloud until I believe it.",
+  "I am whole, not broken; growing, not lacking.",
+  "My imperfections do not cancel my worth.",
+  "I trust myself to figure things out.",
+  "I am enough for today, and today is enough.",
+  "I carry the divine within me into everything I do.",
+  "I release the need to prove myself to anyone.",
+  "I am my own home, and it is a good place to be.",
+  "The Shiva in me bows to the Shiva in all.",
+  "I am worthy of my own respect.",
+  "I begin this day with gratitude in my heart.",
+  "I give thanks for the breath that fills my lungs.",
+  "Grace surrounds me, even in the moments I forget to notice.",
+  "I am thankful for the lessons hidden inside my struggles.",
+  "I count my blessings and they multiply.",
+  "I am grateful for this body, this mind, this life.",
+  "Thank you, Mahadev, for another day to grow.",
+  "I notice the small graces that make up a good life.",
+  "Gratitude turns what I have into enough.",
+  "I am thankful for the people who walk beside me.",
+  "I receive today's blessings with an open heart.",
+  "Even my difficulties are teaching me something worth knowing.",
+  "I give thanks before I ask for more.",
+  "My heart is full of gratitude for what is already here.",
+  "I appreciate the journey as much as the destination.",
+  "Grace meets me halfway on every path I walk.",
+  "I am grateful for the roof over my head and the ground beneath my feet.",
+  "Thankfulness is the quickest path back to peace.",
+  "I honour the quiet blessings I usually overlook.",
+  "I am grateful for the chance to begin again each morning.",
+  "Every good thing in my life is a gift I did not have to earn.",
+  "I thank Mahadev for guiding me even when I could not feel it.",
+  "Gratitude is the prayer my heart says most easily.",
+  "I appreciate how far grace has already carried me.",
+  "I am thankful for both the sunshine and the storms.",
+  "My life is rich in ways money cannot measure.",
+  "I give thanks for this practice and this path.",
+  "Grace flows to the grateful heart, and mine is open.",
+  "I am blessed, and I let myself feel it.",
+  "I meet this day with thanks instead of complaint.",
+  "I am grateful for the strength to keep going.",
+  "Thank you for this moment; it is enough.",
+  "I see grace in the ordinary and give thanks.",
+  "My gratitude grows the more I practice it.",
+  "I close each day by counting its blessings.",
+  "Har Har Mahadev — for all of it, I am grateful."];
+/* Hindi translations, same order/index as KAILASA_AFFIRMATIONS above — powers the Hindi toggle */
+const KAILASA_AFFIRMATIONS_HI=[
+  "जैसे शिव ध्यानमग्न रहते हैं, वैसे ही संसार के चलते हुए भी मैं स्थिरता में विश्राम करता हूं।",
+  "मैं हर तूफ़ान के केंद्र में स्थित शांति हूं।",
+  "मेरी सांस धीमी है, मेरा मन स्पष्ट है, मेरी आत्मा शांत है।",
+  "मौन में मैं महादेव से मिलता हूं, और मौन में मैं स्वयं से मिलता हूं।",
+  "मेरे भीतर की स्थिरता को बाहर की कोई भी चीज़ भंग नहीं कर सकती।",
+  "मैं शोर को दूर जाने देता हूं और उस मौन में लौटता हूं जो सदा यहीं है।",
+  "पर्वत बादलों के पीछे नहीं भागता; मैं भी अडिग रहता हूं।",
+  "शांति मेरा स्वाभाविक रूप है; मैं बस उसका विरोध करना छोड़ देता हूं।",
+  "मैं कैलाश की शीतल हवा में सांस लेता हूं और हर तनाव को छोड़ देता हूं।",
+  "मेरी स्थिरता मेरी शक्ति है, मेरी कमज़ोरी नहीं।",
+  "मैं बर्फ़ से ढकी चोटियों की तरह बैठता हूं — मौन, विशाल, अडिग।",
+  "हर सांस के बीच पूर्ण शांति का एक द्वार है, और मैं उसमें प्रवेश करता हूं।",
+  "मुझे प्रतिक्रिया देने की ज़रूरत नहीं; मैं बस साक्षी बनकर विश्राम कर सकता हूं।",
+  "मेरे मन की झील शांत हो जाती है, और महादेव का प्रतिबिंब स्पष्ट दिखाई देता है।",
+  "मैं जहां भी जाता हूं, हिमालय की शांति अपने साथ ले जाता हूं।",
+  "मेरी शांति मेरी परिस्थितियों पर निर्भर नहीं है।",
+  "मैं नियंत्रण की इच्छा को छोड़ता हूं और विश्वास में स्थिर होता हूं।",
+  "गति में भी, मेरा आंतरिक संसार शांत रहता है।",
+  "मैं साक्षी हूं, विचारों को कैलाश के ऊपर बादलों की तरह गुज़रते हुए देखता हूं।",
+  "स्थिरता खाली नहीं है; वह महादेव की उपस्थिति से भरी है।",
+  "मैं मन को शांत करता हूं और उत्तर अपने आप आ जाते हैं।",
+  "इस क्षण में न कुछ ठीक करना है, न कहीं जल्दी करनी है।",
+  "मैं स्वयं को उस शाश्वत शांति में स्थिर करता हूं जो शिव का स्वरूप है।",
+  "मैं जितना अधिक स्थिर होता हूं, उतना ही स्पष्ट देखता हूं।",
+  "मैं दिन भर का बोझ छोड़ देता हूं और शीतल मौन में विश्राम करता हूं।",
+  "मेरा केंद्र अडिग है, जैसे ब्रह्मांड की धुरी।",
+  "मैं हर चिंता के खिंचाव पर शांति को चुनता हूं।",
+  "हर ॐ नमः शिवाय के साथ शांति मुझमें प्रवाहित होती है।",
+  "मैं मौन में घर जैसा अनुभव करता हूं; यहां कुछ भी मुझे हानि नहीं पहुंचा सकता।",
+  "आज जो स्थिरता मैं विकसित करता हूं, वही कल मेरे खड़े होने की भूमि बनती है।",
+  "मैं हर क्षण को शांत और खुले हृदय से मिलता हूं।",
+  "जैसे ही मैं महादेव की ओर मुड़ता हूं, अशांत मन मौन हो जाता है।",
+  "मैं स्थिर हूं; मैं जड़ों से जुड़ा हूं; मैं सहज हूं।",
+  "जिस क्षण मैं वर्तमान से लड़ना बंद करता हूं, शांति शुरू होती है।",
+  "शिव की स्थिरता में मुझे अपनी सबसे बड़ी शक्ति मिलती है।",
+  "मैं बार-बार अपने भीतर की शांति में लौटता हूं।",
+  "जो मैं स्थिर भाव से अपने हृदय में धारण करता हूं, ब्रह्मांड उसे साकार करने में जुट जाता है।",
+  "मेरा संकल्प स्पष्ट है, और महादेव मेरे मार्ग को स्वच्छ करते हैं।",
+  "मैं अपने संकल्प को बीज की तरह बोता हूं और उसके अंकुरित होने पर विश्वास करता हूं।",
+  "ब्रह्मांड स्वयं को मेरे आंतरिक विश्वास के अनुरूप पुनर्व्यवस्थित करता है।",
+  "मैं ज़बरदस्ती से नहीं, बल्कि उसके साथ तालमेल बिठाकर प्रकट करता हूं जो पहले से ही आना चाहता है।",
+  "मेरा एकाग्र मन सृजन का सबसे तीक्ष्ण साधन है।",
+  "मैं अपनी इच्छा एक बार, श्रद्धा के साथ कहता हूं, और फिर उसे शिव को सौंप देता हूं।",
+  "हर दिन मैं अपने लक्ष्य की ओर एक सुनिश्चित कदम बढ़ाता हूं।",
+  "मैं वह माध्यम हूं जिससे महादेव की कृपा आकार लेती है।",
+  "जो मेरे लिए नियत है, वह पहले से ही मेरी ओर प्रवाहित हो रहा है।",
+  "मैं अपनी दृष्टि को बिना आग्रह के धारण करता हूं और वह अपने समय पर पकती है।",
+  "मेरे संकल्पों को कर्म का साथ और भक्ति का आशीर्वाद प्राप्त है।",
+  "मैं अपने ध्यान की स्पष्टता से अपनी वास्तविकता रचता हूं।",
+  "मार्ग एक-एक कदम करके प्रकट होता है, और मैं हर कदम पर विश्वास करता हूं।",
+  "मैं उसी वस्तु के योग्य हूं जिसे मैं मांग रहा हूं।",
+  "मेरे सपने बहुत बड़े नहीं हैं; मेरी श्रद्धा बस उनसे मिलने के लिए बढ़ रही है।",
+  "मैं अपने विचारों, शब्दों और कर्मों को उससे जोड़ता हूं जो मैं बनना चाहता हूं।",
+  "महादेव मेरे सच्चे प्रयास को असाधारण परिणामों में बदल देते हैं।",
+  "मैं यह छोड़ देता हूं कि यह कैसे होगा, और निश्चित रहता हूं कि यह होगा।",
+  "जो ऊर्जा मैं अपने लक्ष्य को देता हूं, वह गुणा होकर मुझे लौटती है।",
+  "मैं अपने दिन का लेखक हूं और अपनी नियति का सह-रचयिता हूं।",
+  "मेरा मन उपजाऊ भूमि है; मैं वही बोता हूं जो मैं काटना चाहता हूं।",
+  "मैं अपनी अधीरता से अधिक दैवीय समय पर विश्वास करता हूं।",
+  "जो मैं ढूंढ़ रहा हूं, वह भी मुझे ढूंढ़ रहा है।",
+  "मैं अपनी तड़प को अनुशासित, आनंदमय अभ्यास में बदल देता हूं।",
+  "आज की मेरी स्पष्टता मेरे कल को आकार देती है।",
+  "मैं एक-एक समर्पित दिन से कुछ वास्तविक निर्मित कर रहा हूं।",
+  "मेरे सामने की बाधाएं बस मेरी शक्ति को गढ़ रही हैं।",
+  "मैं निडर होकर मांगता हूं, श्रद्धा से कर्म करता हूं, और सहजता से स्वीकार करता हूं।",
+  "मेरी दृष्टि स्पष्ट है और मेरा संकल्प अडिग है।",
+  "मैं संदेह को छोड़ता हूं और जो मैं आमंत्रित कर रहा हूं उसके लिए जगह बनाता हूं।",
+  "कृपा प्रयास से मिलती है, और मेरा संकल्प साकार होता है।",
+  "मैं हर दिन वह व्यक्ति बनता जा रहा हूं जिसकी मेरे लक्ष्य को आवश्यकता है।",
+  "जो बीज मैं श्रद्धा से बोता हूं, वह अंकुरित हुए बिना नहीं रह सकता।",
+  "मैं अपना संपूर्ण अस्तित्व उस पर केंद्रित करता हूं जिसे मैं रचना चाहता हूं।",
+  "महादेव के आशीर्वाद से, मेरी इच्छा ही मेरा मार्ग बन जाती है।",
+  "रुद्र की तरह, जो मुझे रोकना चाहता है उसके सामने मैं प्रचंड हूं।",
+  "जो हृदय महादेव पर विश्वास करता है, उसमें भय का कोई स्थान नहीं।",
+  "मैं अपने सामने की कठिनाई से अधिक शक्तिशाली हूं।",
+  "मैं भय के संहारक के साहस के साथ जो सामना करना है वह करता हूं।",
+  "मेरी रीढ़ सीधी है, मेरी दृष्टि स्थिर है, मेरी इच्छाशक्ति लोहे जैसी है।",
+  "मैं चुनौतियों से सिकुड़ता नहीं; मैं उनका सामना करने के लिए उठता हूं।",
+  "मेरे संकल्प का त्रिशूल हर संकोच को काट देता है।",
+  "मैं एक योद्धा की शांति और एक भक्त की श्रद्धा साथ लेकर चलता हूं।",
+  "जिसने शिव की शरण ली है, उसे कुछ भी हिला नहीं सकता।",
+  "मैं निर्भय हूं क्योंकि मैं अकेला नहीं हूं।",
+  "मैं अनिश्चितता का सामना स्थिर और खुले हृदय से करता हूं।",
+  "जब भी मैं भय के बावजूद कर्म करना चुनता हूं, मेरा साहस बढ़ता है।",
+  "मैं अपने मन का स्वामी हूं, अपनी चिंताओं का सेवक नहीं।",
+  "कठिनाई वह भट्टी है जिसमें मेरी शक्ति गढ़ी जाती है।",
+  "मैं पर्वत की तरह जड़ जमाए, ऊंचा खड़ा हूं, हवा से अडिग।",
+  "महादेव की शक्ति मेरी नसों में प्रवाहित होती है।",
+  "मैं गलत होने के भय को छोड़ता हूं और सही होने की संभावना पर कर्म करता हूं।",
+  "मैं शक्तिशाली, सक्षम और इस क्षण के योग्य हूं।",
+  "मुझमें जलती अग्नि किसी भी बाधा से अधिक तेज़ जलती है।",
+  "मैं बार-बार आराम की जगह साहस को चुनता हूं।",
+  "मुझे अपनी ही शक्ति से डर नहीं लगता।",
+  "जिस भय का मैं सामना करता हूं, वह मेरे मुड़ते ही सिकुड़ जाता है।",
+  "मैं अग्नि से होकर गुज़रता हूं और भस्म नहीं होता।",
+  "जब मुझे सबसे अधिक ज़रूरत होती है, मेरा आंतरिक रुद्र जाग उठता है।",
+  "मैं तैयार महसूस करने से पहले ही शुरुआत करने का साहस रखता हूं।",
+  "असफलताएं मुझे हराती नहीं; वे मुझे निखारती हैं।",
+  "मैंने अब तक हर कठिन दिन को झेला है; इसे भी झेलूंगा।",
+  "मैं शांति भी हूं और तूफ़ान भी, और मैं दोनों पर नियंत्रण रखता हूं।",
+  "मैं अज्ञात का सामना भय की जगह श्रद्धा से करता हूं।",
+  "मेरा संकल्प वह तलवार है जिसे कोई संदेह कुंद नहीं कर सकता।",
+  "मैं सुरक्षित हूं, मार्गदर्शित हूं, और शक्तिशाली हूं।",
+  "भय दस्तक देता है; श्रद्धा दरवाज़ा खोलती है।",
+  "मैं महादेव की स्थिरता से साहस प्राप्त करता हूं।",
+  "मैं अपने मूल में अटूट हूं।",
+  "जो भी आए, मैं उसका सामना खड़े होकर करूंगा।",
+  "मैं अपने भय को ईंधन में और अपने संदेह को दृढ़ संकल्प में बदल देता हूं।",
+  "कैलाश के तपस्वी की तरह, मैं हर चीज़ को हल्के से धारण करता हूं और किसी से चिपकता नहीं।",
+  "मैं अपना कर्म पूरे हृदय से करता हूं और फल महादेव को अर्पित कर देता हूं।",
+  "मैं अपनी संपत्ति, अपनी उपाधियां, या अपने भय नहीं हूं।",
+  "स्वतंत्रता उसे छोड़ देना है जो कभी मेरा रखने के लिए था ही नहीं।",
+  "जो मेरे नियंत्रण में नहीं, उसे मैं छोड़ता हूं, और जो नियंत्रण में है उस पर कर्म करता हूं।",
+  "मैं परिणाम से निर्लिप्त हूं और प्रयास के प्रति समर्पित हूं।",
+  "जो मेरे जीवन से जाता है, उसे जाना ही था; मैं उसे आशीर्वाद देकर विदा करता हूं।",
+  "मैं संसार को ढीले वस्त्र की तरह धारण करता हूं।",
+  "मेरी शांति इस पर निर्भर नहीं कि चीज़ें मेरी इच्छानुसार हों।",
+  "मैं अपना सर्वश्रेष्ठ देता हूं और बाकी समर्पित कर देता हूं।",
+  "मैं छोड़ देता हूं, और छोड़ने में ही मैं मुक्त हूं।",
+  "कोई भी बाहरी वस्तु मेरे मूल्य को परिभाषित नहीं करती।",
+  "मैं पुरानी कड़वाहटों को राख की तरह हवा में उड़ा देता हूं।",
+  "मैं स्वीकृति की आवश्यकता से मुक्त हूं।",
+  "विभूति से लिपटे शिव की तरह, मैं याद रखता हूं कि सब कुछ बीत जाता है।",
+  "मैं अपनी योजनाओं को दृढ़ता से थामता हूं पर मेरी पकड़ खुली रहती है।",
+  "मैं अतीत को छोड़ता हूं; उसने मुझे जो देना था दे दिया।",
+  "मैं प्रशंसा से अनासक्त हूं और निंदा से अविचलित।",
+  "मेरी खुशी मेरी अपनी है, परिस्थितियों से उधार ली हुई नहीं।",
+  "मैं पानी को रोकने की बजाय नदी को बहने देता हूं।",
+  "मैं अपने बोझ महादेव के चरणों में समर्पित करता हूं।",
+  "जब भी मैं अपना बोझ छोड़ता हूं, मैं हल्का हो जाता हूं।",
+  "शांति में रहने के लिए मुझे हर बहस जीतने की ज़रूरत नहीं।",
+  "मैं उस कहानी को छोड़ देता हूं जो अब मेरे काम की नहीं।",
+  "निर्लिप्तता ठंडापन नहीं है; यह खुले हृदय के साथ स्वतंत्रता है।",
+  "मैं निश्चितता की आवश्यकता छोड़ता हूं और विश्वास में विश्राम करता हूं।",
+  "मैं अपने निर्णयों का स्वामित्व लेता हूं और अपने पछतावे छोड़ देता हूं।",
+  "मैं जितना कम चिपकता हूं, जीवन उतना ही स्वतंत्र रूप से मेरी ओर बहता है।",
+  "मैं अपनी इच्छित वस्तुओं के साथ या बिना, संपूर्ण हूं।",
+  "मैं परिणाम छोड़ता हूं और शांति बनाए रखता हूं।",
+  "जो मेरा है वह रहेगा; जो चला जाता है वह सच में कभी मेरा था ही नहीं।",
+  "मैं अपनी मुट्ठियां खोलता हूं और जो कृपा लाती है उसे स्वीकार करता हूं।",
+  "जिस क्षण मैं संसार को अलग होने की मांग करना बंद करता हूं, मैं मुक्त हो जाता हूं।",
+  "मैं धीरे से छोड़ देता हूं, हिमालय की हवा में पत्तों की तरह।",
+  "मेरी स्वतंत्रता मेरी प्रतिक्रिया में है, मेरी परिस्थितियों में नहीं।",
+  "मैं कम लेकर चलता हूं और शांति में रहता हूं।",
+  "समृद्धि मेरी ओर उतनी ही स्वाभाविकता से बहती है जितनी गंगा शिव की जटाओं से बहती है।",
+  "मैं ब्रह्मांड द्वारा दी जाने वाली हर अच्छाई को ग्रहण करने के लिए खुला हूं।",
+  "मेरे लिए और सबके लिए पर्याप्त से भी अधिक है।",
+  "मैं अभाव को छोड़ता हूं और प्रवाह का स्वागत करता हूं।",
+  "समृद्धि मुझे ढूंढ़ लेती है क्योंकि मैं उसे पाने के लिए तैयार हूं।",
+  "मैं खुलकर देता हूं, और जीवन मुझे प्रचुरता में लौटाता है।",
+  "मेरे प्रयास बीज हैं, और फसल उदार है।",
+  "मैं वे अवसर आकर्षित करता हूं जो मेरी भक्ति और कौशल से मेल खाते हैं।",
+  "ब्रह्मांड प्रचुर है, और मैं उस प्रचुरता का हिस्सा हूं।",
+  "मैं समृद्धि, सहजता और आनंद के योग्य हूं।",
+  "धन मेरे पास ईमानदार परिश्रम और महादेव की कृपा से आता है।",
+  "मुझे विश्वास है कि मेरी आवश्यकताएं सदा पूरी होती हैं।",
+  "मैं सफलता का स्वागत बिना अपराधबोध और धन का स्वागत बिना लालच के करता हूं।",
+  "मैं जो भी रुपया कमाता हूं वह एक आशीर्वाद है जिसे मैं समझदारी से उपयोग करता हूं।",
+  "मैं सौभाग्य के लिए चुंबक हूं।",
+  "समृद्धि दिव्यता की संतान के रूप में मेरी स्वाभाविक विरासत है।",
+  "मैं पर्याप्त न होने के भय को छोड़ता हूं।",
+  "मेरे लिए वे द्वार खुलते हैं जिन्हें मैं अकेला नहीं खोल सकता था।",
+  "जैसे-जैसे मैं भक्ति और अनुशासन में बढ़ता हूं, मैं समृद्ध होता हूं।",
+  "मैं जितना कृतज्ञ होता हूं, उतना ही अधिक प्राप्त होता है।",
+  "मैं मूल्य निर्मित करता हूं, और मूल्य मेरे पास लौटता है।",
+  "मेरा कार्य सार्थक है और मेरे प्रतिफल वास्तविक हैं।",
+  "मुझे एक उदार ब्रह्मांड का साथ प्राप्त है।",
+  "अवसर तैयार और श्रद्धावान की ओर बहता है, और मैं दोनों हूं।",
+  "मैं कृतज्ञता से प्राप्त करता हूं और आनंद से देता हूं।",
+  "समृद्धि की एक धारा है और मैं आज उसमें कदम रखता हूं।",
+  "मैं भक्ति की नींव पर स्थायी समृद्धि निर्मित कर रहा हूं।",
+  "मेरा प्याला छलक रहा है, और मैं उस अतिरिक्त को बांटता हूं।",
+  "मैं धन का स्वागत भलाई के साधन के रूप में करता हूं।",
+  "मुझे अपने जीवन में देने और लेने के प्रवाह पर विश्वास है।",
+  "हर दिन विकास और लाभ की नई संभावनाएं लाता है।",
+  "मैं शरीर, मन और आत्मा में समृद्धि के साथ संरेखित हूं।",
+  "महादेव की कृपा मेरे परिश्रम को प्रचुरता में बदल देती है।",
+  "मैं यह विश्वास छोड़ता हूं कि सफल होने के लिए मुझे संघर्ष करना ही होगा।",
+  "समृद्धि मेरे अपने हृदय की प्रचुरता से शुरू होती है।",
+  "मैं समृद्ध हूं, सुरक्षित हूं, और शांति में हूं।",
+  "हर हर महादेव — मैं अपना दिन आपके हाथों में सौंपता हूं।",
+  "मेरी भक्ति मेरा आधार है और मेरा आनंद है।",
+  "मैं यह सांस, यह क्षण, यह जीवन शिव को अर्पित करता हूं।",
+  "समर्पण में मुझे कमज़ोरी नहीं, बल्कि गहनतम शक्ति मिलती है।",
+  "जब मैं पूरा मार्ग नहीं देख पाता, तब भी मुझे महादेव पर विश्वास है।",
+  "मेरा हृदय उसके सामने झुकता है जो उसके भीतर वास करता है।",
+  "आज मैं जो भी कर्म करता हूं वह एक अर्पण है।",
+  "मैं भक्ति को अपने दिन के कठोर किनारों को नरम करने देता हूं।",
+  "मुझे एक ऐसे प्रेम का सहारा है जो मेरी समझ से बड़ा है।",
+  "मैं अपनी चिंताएं कैलाशपति को समर्पित करता हूं।",
+  "हर ॐ नमः शिवाय के साथ मेरी श्रद्धा गहरी होती जाती है।",
+  "मैं अपना जीवन दैवीय इच्छा के प्रवाह में रखता हूं।",
+  "मैं वास्तव में कभी अकेला नहीं हूं; महादेव मेरे साथ चलते हैं।",
+  "मैं छोड़ देता हूं और शिव पर छोड़ देता हूं।",
+  "भक्ति मेरे साधारण दिन को पवित्र साधना में बदल देती है।",
+  "मुझे उस चेतना पर विश्वास है जो ब्रह्मांड को चलाती है।",
+  "मेरा समर्पण सक्रिय, श्रद्धापूर्ण और प्रेम से भरा है।",
+  "मैं अपने भय अर्पित करता हूं और बदले में शांति प्राप्त करता हूं।",
+  "मैं अपने भीतर और चारों ओर की दिव्यता को नमन करता हूं।",
+  "मेरा हृदय एक मंदिर है, और महादेव वहां वास करते हैं।",
+  "मैं अपना हिस्सा करता हूं और बाकी का भरोसा शिव पर करता हूं।",
+  "कृपा उस हृदय की ओर बहती है जो समर्पण करता है।",
+  "मैं जीवन पर अपनी पकड़ छोड़ता हूं और भक्ति में विश्राम करता हूं।",
+  "मुझे मार्गदर्शन प्राप्त है, भले ही रास्ता अंधकारमय हो।",
+  "महादेव के प्रति मेरा प्रेम मुझे हर परिस्थिति में स्थिर रखता है।",
+  "मैं साधारण के बीच में पवित्र की ओर मुड़ता हूं।",
+  "मुझे विश्वास है कि मैं ठीक वहीं हूं जहां मुझे होना चाहिए।",
+  "भक्ति मेरी शांत महाशक्ति है।",
+  "मैं नियंत्रण के भ्रम को छोड़ता हूं और वास्तविक शांति पाता हूं।",
+  "मेरी श्रद्धा मुझे वहां ले जाती है जहां अकेला प्रयास नहीं ले जा सकता।",
+  "मैं महादेव की इच्छा का एक विनम्र साधन हूं।",
+  "मैं इस दिन का स्वागत झुके सिर और खुले हृदय से करता हूं।",
+  "मैं प्रेम को अपना मार्गदर्शक बनने देता हूं, भय को नहीं।",
+  "समर्पण में, मुझे जो कुछ चाहिए वह मुझे मिल जाता है।",
+  "मेरा पूरा जीवन ॐ नमः शिवाय का जाप है।",
+  "मैं इस निश्चितता में विश्राम करता हूं कि मुझे संभाला गया है।",
+  "नटराज की तरह, मैं विनाश से गुज़रकर सृजन में नृत्य करता हूं।",
+  "मैं पुराने को छोड़ता हूं ताकि नए के लिए जगह बने।",
+  "जो मेरे जीवन में समाप्त हो रहा है, वह कुछ बेहतर के लिए जगह बना रहा है।",
+  "मैं वह व्यक्ति नहीं हूं जो कल था, और यह एक उपहार है।",
+  "मैं परिवर्तन का स्वागत अपनी वृद्धि के द्वार के रूप में करता हूं।",
+  "परिवर्तन की अग्नि उस सब को जला देती है जो अब मेरे काम का नहीं।",
+  "मैं पुरानी आदतों को राख की तरह गिरने देता हूं।",
+  "मेरे जीवन में हर अंत एक नई शुरुआत भी है।",
+  "मैं निरंतर कुछ अधिक सच्चे में पुनर्निर्मित हो रहा हूं।",
+  "मैं परिवर्तन से लड़ने की बजाय उसके साथ नृत्य करता हूं।",
+  "विनाश और सृजन एक ही कृपा के दो हाथ हैं।",
+  "मैं बिना भय के अपनी पुरानी त्वचा उतार देता हूं।",
+  "मुझे अंत की बुद्धिमत्ता पर विश्वास है।",
+  "मेरा अतीत मेरे भविष्य को परिभाषित नहीं करता।",
+  "मैं नया बनने के लिए तैयार हूं।",
+  "महादेव भूमि को साफ़ करते हैं ताकि मैं फिर से निर्माण कर सकूं।",
+  "मैं जो था उसे छोड़ता हूं ताकि जो होना है वह बन सकूं।",
+  "परिवर्तन मेरा शत्रु नहीं; वह मेरा शिक्षक है।",
+  "मैं पुरानी कहानी को समाप्त होने देता हूं ताकि एक बेहतर कहानी जन्म ले सके।",
+  "मैं वृद्धि की असुविधा को अपनाता हूं।",
+  "हर अंत में से, महादेव एक नई सुबह लाते हैं।",
+  "मैं हर सुबह थोड़ा और नया जन्म लेता हूं।",
+  "मैं अपने संदेहों को अभ्यास की अग्नि में जला देता हूं।",
+  "परिवर्तन ब्रह्मांडीय नृत्य की लय है, और मैं उसके साथ चलता हूं।",
+  "मैं असाधारण तक पहुंचने के लिए परिचित को छोड़ देता हूं।",
+  "मेरे संघर्ष मेरे पुनर्जन्म को आकार दे रहे हैं।",
+  "मुझे विश्वास है कि टूटना ही सफलता का मार्ग हो सकता है।",
+  "मैं अपने नए रूप का स्वागत खुली बांहों से करता हूं।",
+  "मैं फिर से शुरू करने से नहीं डरता।",
+  "हर दिन मैं आराम की जगह वृद्धि को चुनता हूं।",
+  "शिव का नृत्य मेरे जीवन में चलता है, साफ़ करता और सृजन करता हुआ।",
+  "मैं राख को छोड़ता हूं और नवीनीकृत होकर उठता हूं।",
+  "मैं सदा बनता रहता हूं, कभी पूर्ण नहीं होता।",
+  "परिवर्तन मुझमें से होकर बहता है और मुझे अधिक मज़बूत छोड़ जाता है।",
+  "मैं शाखा को छोड़ देता हूं और विश्वास करता हूं कि मुझे पंख मिलेंगे।",
+  "मेरा नवीनीकरण उसी क्षण शुरू होता है जब मैं तय करता हूं।",
+  "यह क्षण ही वह एकमात्र स्थान है जहां जीवन घटित हो रहा है, और मैं पूरी तरह यहां हूं।",
+  "मैं अपना संपूर्ण ध्यान उस पर लाता हूं जो मेरे सामने है।",
+  "जागरूकता मेरा वास्तविक स्वरूप है, शांत और स्पष्ट।",
+  "मैं हर विचार और भावना के पीछे का साक्षी हूं।",
+  "जब भी मेरा मन भटकता है, मैं वर्तमान सांस में लौट आता हूं।",
+  "अभी, इस सांस में, सब कुछ ठीक है।",
+  "मैं ध्यान देता हूं, मैं निरीक्षण करता हूं, मैं जागरूक रहता हूं।",
+  "मैं इस साधारण क्षण की सुंदरता के प्रति जागृत हूं।",
+  "मेरी जागरूकता विशाल है, कैलाश के ऊपर के आकाश की तरह।",
+  "मैं अपने विचारों को देखता हूं बिना उनमें बदले।",
+  "वर्तमान क्षण एक उपहार है, और मैं उसे पूरी तरह खोलता हूं।",
+  "मैं यहां हूं, अभी, जीवित, और जागरूक।",
+  "मैं हर क्षण को पर्याप्त होने देता हूं।",
+  "मेरा ध्यान मेरा सबसे बहुमूल्य अर्पण है।",
+  "मैं जीवन का सामना सीधे, विचलन की धुंध के बिना करता हूं।",
+  "मैं वह स्थिर जागरूकता हूं जिसमें सब कुछ प्रकट होता है।",
+  "मैं इस दिन में छिपे छोटे-छोटे आशीर्वादों को देखता हूं।",
+  "मैं एक सजग सांस के साथ स्वयं को वर्तमान में स्थिर करता हूं।",
+  "चेतना मेरा घर है, और मैं उसे वास्तव में कभी नहीं छोड़ता।",
+  "मैं अपने मन का निरीक्षण दयालुता और स्पष्टता से करता हूं।",
+  "मैं अपने विचार नहीं हूं; मैं वह जागरूकता हूं जो उन्हें धारण करती है।",
+  "यह सांस वर्तमान से मेरा जुड़ाव है।",
+  "मैं इस क्षण को अपनी पूर्ण, अखंड उपस्थिति देता हूं।",
+  "जागरूकता मेरी चिंताओं को सुबह की धूप में कोहरे की तरह घोल देती है।",
+  "मैं अपने ही जीवन के लिए पूरी तरह यहां हूं।",
+  "वर्तमान ही वह स्थान है जहां महादेव मुझसे मिलते हैं।",
+  "मैं कल और आने वाले कल को छोड़ता हूं और आज में विश्राम करता हूं।",
+  "जब मैं वर्तमान में लौटता हूं तो मेरा मन स्पष्ट होता है।",
+  "मैं अपनी भावनाओं का साक्षी बनता हूं बिना बहे।",
+  "मैं इस क्षण के प्रति जागृत, जागरूक और सजीव हूं।",
+  "उपस्थिति मेरी साधना है और मेरी शांति है।",
+  "मैं हर कार्य का सामना सजग ध्यान से करता हूं।",
+  "स्थिरता में, जागरूकता वह प्रकट करती है जो जल्दबाज़ी छुपाती है।",
+  "मैं शांत आकाश हूं; विचार केवल गुज़रते बादल हैं।",
+  "मैं जितनी बार ज़रूरत हो, वर्तमान में लौटता हूं।",
+  "यह क्षण, पूरी तरह जिया गया, मेरे पूरे जीवन का लघु रूप है।",
+  "वही चेतना जो शिव है, मुझमें भी वास करती है।",
+  "मैं केवल इसलिए योग्य हूं क्योंकि मैं अस्तित्व में हूं।",
+  "मैं अपने भीतर की दिव्य चिंगारी का सम्मान करता हूं।",
+  "मैं पर्याप्त हूं, ठीक जैसा मैं हूं, अभी इसी क्षण।",
+  "मैं स्वयं से उसी दयालुता से बात करता हूं जो मैं एक प्रिय मित्र को देता।",
+  "मेरा मूल्य मेरी उत्पादकता से नहीं मापा जाता।",
+  "मैं दिव्यता का एक मंदिर हूं, और मैं स्वयं के साथ श्रद्धा से व्यवहार करता हूं।",
+  "मैं स्वयं की दूसरों से तुलना करने की आदत छोड़ता हूं।",
+  "मैं उसी दिव्य स्रोत की एक अनूठी अभिव्यक्ति हूं।",
+  "मैं मनुष्य होने के लिए स्वयं को क्षमा करता हूं।",
+  "मैं विश्राम, आनंद और प्रेम का हकदार हूं।",
+  "मैं स्वयं का सबसे बड़ा सहयोगी बनता जा रहा हूं।",
+  "महादेव का प्रकाश मुझमें चमकता है।",
+  "मैं लज्जा को छोड़ता हूं और अपनी गरिमा पुनः प्राप्त करता हूं।",
+  "मुझे गर्व है कि मैं यहां तक पहुंचा हूं।",
+  "मेरा मूल्य दूसरों की राय के साथ न बढ़ता है न घटता है।",
+  "मैं अपने शरीर को उस पवित्र पात्र के रूप में मानता हूं जो वह है।",
+  "मैं उन लक्ष्यों के योग्य हूं जिनका मैं पीछा कर रहा हूं।",
+  "मैं अपनी कमियों का सामना करुणा से करता हूं, तिरस्कार से नहीं।",
+  "मुझमें एक दिव्यता है जिसे कुछ भी कम नहीं कर सकता।",
+  "मैं जैसा हूं वैसे ही स्वयं से प्रेम करना सीख रहा हूं।",
+  "मैं आंतरिक आलोचक को छोड़ता हूं और आंतरिक मार्गदर्शक का स्वागत करता हूं।",
+  "मैं अपनी आवश्यकताओं का सम्मान बिना अपराधबोध के करता हूं।",
+  "मैं एक साथ अधूरा काम भी हूं और एक कृति भी।",
+  "दिव्यता ने मैं बनना चुना, और यह कोई छोटी बात नहीं।",
+  "मैं हर उस अच्छी चीज़ का हकदार हूं जिसे मैं निर्मित कर रहा हूं।",
+  "मैं अपना मूल्य ज़ोर से कहता हूं जब तक मुझे उस पर विश्वास न हो जाए।",
+  "मैं संपूर्ण हूं, टूटा नहीं; बढ़ता हुआ, कमी में नहीं।",
+  "मेरी अपूर्णताएं मेरे मूल्य को समाप्त नहीं करतीं।",
+  "मुझे विश्वास है कि मैं चीज़ों को समझ लूंगा।",
+  "मैं आज के लिए पर्याप्त हूं, और आज पर्याप्त है।",
+  "मैं जो कुछ भी करता हूं उसमें अपने भीतर की दिव्यता लेकर चलता हूं।",
+  "मैं किसी को स्वयं को साबित करने की आवश्यकता छोड़ता हूं।",
+  "मैं स्वयं अपना घर हूं, और यह रहने के लिए एक अच्छी जगह है।",
+  "मुझमें का शिव सबमें के शिव को नमन करता है।",
+  "मैं अपने ही सम्मान के योग्य हूं।",
+  "मैं इस दिन की शुरुआत हृदय में कृतज्ञता के साथ करता हूं।",
+  "मैं उस सांस के लिए धन्यवाद देता हूं जो मेरे फेफड़ों को भरती है।",
+  "कृपा मुझे घेरे रहती है, उन क्षणों में भी जब मैं देखना भूल जाता हूं।",
+  "मैं अपने संघर्षों में छिपे सबकों के लिए आभारी हूं।",
+  "मैं अपने आशीर्वादों को गिनता हूं और वे बढ़ जाते हैं।",
+  "मैं इस शरीर, इस मन, इस जीवन के लिए कृतज्ञ हूं।",
+  "धन्यवाद, महादेव, बढ़ने के लिए एक और दिन देने के लिए।",
+  "मैं उन छोटी कृपाओं को देखता हूं जो एक अच्छे जीवन को बनाती हैं।",
+  "कृतज्ञता जो मेरे पास है उसे पर्याप्त बना देती है।",
+  "मैं उन लोगों के लिए आभारी हूं जो मेरे साथ चलते हैं।",
+  "मैं आज के आशीर्वादों को खुले हृदय से स्वीकार करता हूं।",
+  "मेरी कठिनाइयां भी मुझे कुछ जानने योग्य सिखा रही हैं।",
+  "अधिक मांगने से पहले मैं धन्यवाद देता हूं।",
+  "जो पहले से यहां है उसके लिए मेरा हृदय कृतज्ञता से भरा है।",
+  "मैं मंज़िल जितना ही यात्रा की सराहना करता हूं।",
+  "मैं जिस भी मार्ग पर चलता हूं, कृपा आधे रास्ते में मुझसे मिलती है।",
+  "मैं अपने सिर पर छत और पैरों तले ज़मीन के लिए कृतज्ञ हूं।",
+  "कृतज्ञता शांति की ओर लौटने का सबसे तेज़ मार्ग है।",
+  "मैं उन शांत आशीर्वादों का सम्मान करता हूं जिन्हें मैं आमतौर पर नज़रअंदाज़ करता हूं।",
+  "मैं हर सुबह फिर से शुरू करने के अवसर के लिए कृतज्ञ हूं।",
+  "मेरे जीवन की हर अच्छी चीज़ एक उपहार है जिसे मुझे कमाना नहीं पड़ा।",
+  "मैं महादेव को धन्यवाद देता हूं मुझे मार्गदर्शन देने के लिए, तब भी जब मैं इसे महसूस नहीं कर पाया।",
+  "कृतज्ञता वह प्रार्थना है जो मेरा हृदय सबसे सरलता से कहता है।",
+  "मैं सराहना करता हूं कि कृपा मुझे अब तक कितनी दूर ले आई है।",
+  "मैं धूप और तूफ़ान, दोनों के लिए आभारी हूं।",
+  "मेरा जीवन उन तरीकों से समृद्ध है जिन्हें धन नहीं माप सकता।",
+  "मैं इस साधना और इस मार्ग के लिए धन्यवाद देता हूं।",
+  "कृपा कृतज्ञ हृदय की ओर बहती है, और मेरा हृदय खुला है।",
+  "मैं धन्य हूं, और मैं स्वयं को इसे महसूस करने देता हूं।",
+  "मैं इस दिन का सामना शिकायत की बजाय धन्यवाद से करता हूं।",
+  "मैं आगे बढ़ते रहने की शक्ति के लिए कृतज्ञ हूं।",
+  "इस क्षण के लिए धन्यवाद; यह पर्याप्त है।",
+  "मैं साधारण में कृपा देखता हूं और धन्यवाद देता हूं।",
+  "मैं जितना अधिक अभ्यास करता हूं, मेरी कृतज्ञता उतनी ही बढ़ती है।",
+  "मैं हर दिन को उसके आशीर्वादों को गिनकर समाप्त करता हूं।",
+  "हर हर महादेव — इस सबके लिए, मैं कृतज्ञ हूं।"];
+function getDailyAffirmation(date){date=date||new Date();
+  const start=new Date(date.getFullYear(),0,0);
+  const dayOfYear=Math.floor((date-start)/86400000);
+  const idx=(dayOfYear-1)%KAILASA_AFFIRMATIONS.length;
+  return KAILASA_AFFIRMATIONS[idx<0?0:idx];}
+function getDailyAffirmationHi(date){const idx=(function(){date=date||new Date();
+  const start=new Date(date.getFullYear(),0,0);const dayOfYear=Math.floor((date-start)/86400000);
+  return (dayOfYear-1)%KAILASA_AFFIRMATIONS.length;})();
+  return KAILASA_AFFIRMATIONS_HI[idx<0?0:idx];}
+function aiAffirm(){const g=(S.goal||"inner peace and abundance").toLowerCase();
+  const pool=[`As I rest in Shiva consciousness, ${g} is already becoming my reality — I simply allow it.`,
+    `Every breath aligns me with the energy of ${g}. Mahadev moves through me, and the path opens.`,
+    `I am a clear vessel. ${g[0].toUpperCase()+g.slice(1)} flows to me the moment I stop resisting it.`,
+    `The same stillness that holds the Himalayas holds my intention for ${g}. It is done.`];
+  const seed=new Date().getDate();return [pool[seed%pool.length],pool[(seed+2)%pool.length]];}
+function aiAffirmHi(){const g=S.goal||"inner peace and abundance";
+  const pool=[`जैसे-जैसे मैं शिव चेतना में विश्राम करता हूं, ${g} पहले से ही मेरी वास्तविकता बनता जा रहा है — मैं बस इसे होने देता हूं।`,
+    `हर सांस मुझे ${g} की ऊर्जा से जोड़ती है। महादेव मुझमें से होकर बहते हैं, और मार्ग खुलता है।`,
+    `मैं एक स्वच्छ पात्र हूं। जिस क्षण मैं विरोध करना बंद करता हूं, ${g} मेरी ओर प्रवाहित होने लगता है।`,
+    `वही स्थिरता जो हिमालय को थामे हुए है, ${g} के लिए मेरे संकल्प को भी थामे हुए है। यह पूर्ण हो चुका है।`];
+  const seed=new Date().getDate();return [pool[seed%pool.length],pool[(seed+2)%pool.length]];}
+function getPillarDayIndex(pillarKey){
+  var pool=PILLAR_AFFIRMATIONS[pillarKey];if(!pool)return 0;
+  var now=new Date(),start=new Date(now.getFullYear(),0,0);
+  var dayOfYear=Math.floor((now-start)/86400000);
+  return dayOfYear%pool.length;}
+function renderAffirm(){var d=new Date();document.getElementById("affDate").textContent=d.toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"});
+  var pk=S.primaryGoal||"dhan_samriddhi";
+  var pool=PILLAR_AFFIRMATIONS[pk]||PILLAR_AFFIRMATIONS.dhan_samriddhi;
+  var idx=getPillarDayIndex(pk);
+  var sanName=PILLAR_NAMES[pk]||pk;var enName=PILLAR_NAMES_EN[pk]||pk;
+  var el=document.getElementById("affPersonalized");
+  el.innerHTML=`<div class="aff-pillar"><div class="personalized-pill"><span class="pp-dot"></span>Personalized for You</div><div class="ap-san">${sanName}</div><div class="ap-eng">${enName}</div></div>`+
+    `<div class="aff"><span class="tag">Today's Affirmation</span><div class="q">\u201C${esc(pool[idx])}\u201D</div></div>`;
+  var pro=document.getElementById("affPro");
+  if(isPro()){var idx2=(idx+1)%pool.length;var idx3=(idx+2)%pool.length;
+    pro.innerHTML=`<div class="aff" style="margin-top:13px"><span class="tag" style="color:var(--violet)">✦ Pro Affirmation 2</span><div class="q">\u201C${esc(pool[idx2])}\u201D</div></div>`+
+      `<div class="aff" style="margin-top:13px"><span class="tag" style="color:var(--violet)">✦ Pro Affirmation 3</span><div class="q">\u201C${esc(pool[idx3])}\u201D</div></div>`+
+      `<div class="card" style="margin-top:14px;cursor:pointer" onclick="go('more')"><div style="display:flex;align-items:center;gap:10px"><div style="font-size:22px">🎯</div><div><b style="font-size:14px">Change your Sankalpa</b><p class="subtle" style="font-size:12px">Update your goal in Profile to refresh affirmations.</p></div></div></div>`;}
+  else{pro.innerHTML=`<div class="card glass" style="margin-top:20px;text-align:center"><div style="font-size:30px">✨</div><b style="font-size:16px;display:block;margin:8px 0 4px">Get 2 more daily affirmations</b><p class="subtle" style="font-size:13px">Pro unlocks 3 personalized affirmations daily from your ${enName} pillar.</p><button class="btn gold" style="margin-top:14px" onclick="openPaywall()">Unlock with Pro</button></div>`;}}
+
+/* ===== 40-DAY COURSE CONTENT ===== */
+const PHASES=[
+ {n:"The Purge & Foundation",f:"Stripping away self-doubt, old baggage, and mental static. Before you build the best version of yourself, you must clear the rubble. (Days 1–10)"},
+ {n:"Awakening & Internal Fire",f:"Stoking your inner power, developing fierce focus, and cultivating the warrior energy of Shiva Nataraja. (Days 11–20)"},
+ {n:"Magnetic Manifestation",f:"Aligning your energy with high-vibrational outcomes — you no longer chase your goals; you alter your frequency so they gravitate toward you. (Days 21–30)"},
+ {n:"Sovereignty & Integration",f:"Embodying the Shivoham state — realizing you are the creator of your reality, living effortlessly as the absolute best version of yourself. (Days 31–40)"}
+];
+const TRATAKA="Trataka (Steady Gazing): gaze at a single point — a candle flame or a small dot on the wall — without blinking for 3 minutes, then close your eyes and hold the afterimage in your third-eye space for 7 minutes. This builds laser-like mental execution.";
+const LESSONS=[
+ {t:"Grounding the Blueprint",y:"Child's Pose (Balasana) + deep belly breathing.",yq:"Balasana child's pose yoga",m:"Om Namah Shivaya",a:"I am rooted, safe, and ready to transform.",med:"Focus entirely on the physical sensation of the earth supporting you."},
+ {t:"Breaking the Chains",y:"Cat-Cow Flow (Marjariasana) to loosen the spine.",yq:"Cat Cow pose Marjariasana yoga",m:"Om Namah Shivaya",a:"I release all past versions of myself that I have outgrown.",med:"Visualize old, grey energy leaving your body with every exhale."},
+ {t:"Mastering the Breath",y:"Nadi Shodhana (Alternate Nostril Breathing) for 10 minutes.",yq:"Nadi Shodhana alternate nostril breathing",m:"Om",a:"My mind is calm, clear, and perfectly centered.",med:"Watch the breath enter and leave the nostrils without trying to control it."},
+ {t:"Incinerating Fear",y:"Downward Facing Dog (Adho Mukha Svanasana) for calf and hamstring activation.",yq:"Downward Facing Dog Adho Mukha Svanasana",m:"Om Bhairavaya Namaha",a:"Fear has no power over my decisions.",med:"Inner Fire Meditation — visualize a small, bright flame burning at your navel."},
+ {t:"Emotional Detox",y:"Bound Angle Pose (Baddha Konasana) to open the hips where emotional tension hides.",yq:"Baddha Konasana bound angle pose",m:"Om Namah Shivaya",a:"I forgive myself for past mistakes; I am free.",med:"Allow any emotion to surface without judging it, then let it dissolve into space."},
+ {t:"Overcoming Inertia",y:"Sun Salutations (Surya Namaskar) — 3 slow rounds.",yq:"Surya Namaskar sun salutation",m:"Om Rudraya Namaha",a:"I am filled with unstoppable divine energy.",med:"Focus on the heartbeat, feeling the pulse of life moving through you."},
+ {t:"The Witness Mind",y:"Sphinx Pose (Salamba Bhujangasana) for gentle heart opening.",yq:"Sphinx pose yoga",m:"Om",a:"I am not my thoughts; I am the silent observer of my thoughts.",med:"Observe thoughts like clouds drifting across an empty sky."},
+ {t:"Cutting Cord with Negativity",y:"Seated Forward Fold (Paschimottanasana).",yq:"Paschimottanasana seated forward fold",m:"Om Namah Shivaya",a:"I reclaim my energy from anyone or anything that drains it.",med:"Mental clearing — visualize energetic ties to toxic habits snapping effortlessly."},
+ {t:"Developing Iron Discipline",y:"Plank Pose (Phalakasana) held for 1–2 minutes to build mental grit.",yq:"Plank pose Phalakasana yoga",m:"Om Tryambakam Yajamahe… (Maha Mrityunjaya Mantra)",a:"My willpower is stronger than my fleeting moods.",med:"Concentrate on the third-eye space, holding focus despite the urge to quit."},
+ {t:"The Blank Slate",y:"Corpse Pose (Shavasana) with absolute stillness.",yq:"Shavasana corpse pose relaxation",m:"Chant \"Om\" 9 times aloud",a:"The old story ends today. I am empty, clean, and ready.",med:"Shunya (Emptiness) — rest in the deep silence between your thoughts."},
+ {t:"Stepping Into Power",y:"Warrior I (Virabhadrasana I).",yq:"Warrior 1 pose Virabhadrasana",m:"Om Namah Shivaya",a:"I step boldly into my power.",med:TRATAKA},
+ {t:"Awakening Kundalini",y:"Cobra Pose (Bhujangasana).",yq:"Cobra pose Bhujangasana yoga",m:"Om Kapalaye Namaha",a:"My kundalini energy is waking up.",med:TRATAKA},
+ {t:"Master of Time",y:"Kapalabhati Breathwork (Skull-Shining Breath).",yq:"Kapalabhati pranayama breathing",m:"Om Kaleshwaraya Namaha",a:"I am the master of my time.",med:TRATAKA},
+ {t:"Unshakeable Focus",y:"Warrior II (Virabhadrasana II).",yq:"Warrior 2 pose Virabhadrasana II",m:"Om Namah Shivaya",a:"My focus is sharp and unshakeable.",med:TRATAKA},
+ {t:"Built to Endure",y:"Bridge Pose (Setu Bandha Sarvangasana).",yq:"Bridge pose Setu Bandha yoga",m:"Om Tryambakam… (Maha Mrityunjaya)",a:"I am resilient against all odds.",med:TRATAKA},
+ {t:"Peaceful Power",y:"Half Lord of the Fishes (Ardha Matsyendrasana) spinal twist.",yq:"Ardha Matsyendrasana half lord of the fishes",m:"Om Shambhave Namaha",a:"Peace flows through my choices.",med:TRATAKA},
+ {t:"The Strength to Endure",y:"Chair Pose (Utkatasana).",yq:"Chair pose Utkatasana yoga",m:"Om Mahadevaya Namaha",a:"I have the strength to endure.",med:TRATAKA},
+ {t:"Limitless Heart",y:"Camel Pose (Ustrasana) heart-opener.",yq:"Camel pose Ustrasana yoga",m:"Om Namah Shivaya",a:"My heart accepts limitless growth.",med:TRATAKA},
+ {t:"Cooling the Fire",y:"Sheetali Pranayama (Cooling Breath).",yq:"Sheetali pranayama cooling breath",m:"Om Someshwaraya Namaha",a:"I cool my temper, I master myself.",med:TRATAKA},
+ {t:"Rooted & Balanced",y:"Tree Pose (Vrikshasana).",yq:"Tree pose Vrikshasana yoga",m:"Om Sthanave Namaha",a:"I am perfectly balanced and strong.",med:TRATAKA},
+ {t:"Setting the Ultimate Intent",y:"Extended Triangle Pose (Utthita Trikonasana).",yq:"Extended Triangle pose Utthita Trikonasana",m:"Om Namah Shivaya Shubham Kuru Kuru",a:"Everything I touch turns into growth and abundance.",med:"Clearly visualize your highest goals as already-completed realities. Feel the precise emotion of success."},
+ {t:"Unlocking Creative Vision",y:"Pigeon Pose (Eka Pada Rajakapotasana).",yq:"Pigeon pose Eka Pada Rajakapotasana",m:"Om Neelakanthaya Namaha",a:"My creative vision is unique, powerful, and highly valued.",med:"See your throat chakra glowing with a vibrant, electric-blue light."},
+ {t:"The Magnetism of Confidence",y:"Locust Pose (Salabhasana) to strengthen the posterior chain.",yq:"Locust pose Salabhasana yoga",m:"Om Girishaya Namaha",a:"I walk into every room with natural authority and grace.",med:"Solar Plexus Activation — feel a golden sun spinning at your navel, projecting confidence outward."},
+ {t:"Dissolving Scarcity",y:"Seated Wide-Legged Forward Fold (Upavistha Konasana).",yq:"Upavistha Konasana wide-legged forward fold",m:"Om Shankari Namaha",a:"Abundance is my birthright, and I welcome it completely.",med:"Visualize a golden waterfall of prosperity washing over you from above."},
+ {t:"Becoming Unstoppable",y:"Warrior III (Virabhadrasana III) for full-body balance.",yq:"Warrior 3 pose Virabhadrasana III",m:"Om Mahakalaya Namaha",a:"Nothing can stop the vision meant for me.",med:"See yourself stepping cleanly through obstacles like they are made of smoke."},
+ {t:"Infinite Worth",y:"Fish Pose (Matsyasana).",yq:"Fish pose Matsyasana yoga",m:"Om Tryambakam… (Maha Mrityunjaya)",a:"I do not chase; I attract what belongs to me.",med:"Breathe directly into your chest, expanding your energetic presence outward into the room."},
+ {t:"The Power of Words",y:"Shoulder Stand (Sarvangasana) — or Legs-Up-The-Wall Pose.",yq:"Sarvangasana shoulder stand yoga",m:"Om",a:"My words manifest rapidly; I speak only truth and power.",med:"Focus entirely on the echo of the sound \"Om\" within your skull."},
+ {t:"Overcoming Self-Sabotage",y:"Bow Pose (Dhanurasana).",yq:"Bow pose Dhanurasana yoga",m:"Om Pashupataye Namaha",a:"I conquer my lower impulses; I am guided by my highest self.",med:"Identify one major limiting belief and mentally dissolve it into a visualization of cosmic fire."},
+ {t:"Divine Timing Alignment",y:"Low Lunge (Anjaneyasana).",yq:"Low Lunge Anjaneyasana yoga",m:"Om Namah Shivaya",a:"I am in the right place, at the right time, doing the right thing.",med:"Synchronize your breath with your heartbeat, feeling aligned with the rhythm of life."},
+ {t:"Absolute Certainty",y:"Side Plank (Vasisthasana) on both sides.",yq:"Side plank Vasisthasana yoga",m:"Om Ishanaya Namaha",a:"My success is already written in reality.",med:"Sit in total silence, holding the physical feeling of absolute certainty in your chest."},
+ {t:"The Kingly Mindset",y:"Hero Pose (Virasana) with a perfectly erect spine.",yq:"Hero pose Virasana yoga",m:"Shivoham (I am Shiva / divine consciousness)",a:"I rule my inner world with absolute calm.",med:"Feel your mind expand beyond the walls of the room — wide and unbothered by petty details."},
+ {t:"Radical Fearlessness",y:"Extended Side Angle Pose (Utthita Parsvakonasana).",yq:"Extended Side Angle Utthita Parsvakonasana",m:"Shivoham",a:"I am fearless because I know who I truly am.",med:"Visualize yourself navigating your biggest current challenge with effortless grace and steel confidence."},
+ {t:"Total Mental Clarity",y:"Bhastrika Pranayama (Bellows Breath) for 3 minutes.",yq:"Bhastrika pranayama bellows breath",m:"Om Namah Shivaya",a:"My mind is a sharp instrument of pure intent.",med:"Focus on the still point between your eyebrows (Chidakasha)."},
+ {t:"Radiating Universal Charisma",y:"Wheel Pose — or Bridge Pose (Setu Bandha).",yq:"Wheel pose Chakrasana yoga",m:"Om Shambhave Namaha",a:"My energy uplifts, inspires, and commands respect everywhere I go.",med:"Visualize a glowing field of pure white light radiating three feet out from your body in all directions."},
+ {t:"Detached Execution",y:"Eagle Pose (Garudasana).",yq:"Eagle pose Garudasana yoga",m:"Om",a:"I work with intense dedication, yet I am detached from anxiety over outcomes.",med:"Observe your life's goals from a bird's-eye perspective, perfectly calm."},
+ {t:"Awakening Intuitive Genius",y:"Dolphin Pose — or Headstand preparation.",yq:"Dolphin pose yoga",m:"Om Tryambakam… (Maha Mrityunjaya)",a:"I trust my intuition explicitly; it never guides me wrong.",med:"Third-Eye focus — visualize a brilliant, deep-indigo light pulsating at the center of your forehead."},
+ {t:"Unconditional Power",y:"High Lunge with arms raised high like Shiva's trident (Trishul).",yq:"High Lunge crescent pose yoga",m:"Shivoham",a:"External circumstances cannot change my internal state.",med:"Feel yourself as a solid mountain while storms and winds blow harmlessly around you."},
+ {t:"Effortless Flow",y:"A fluid, intuitive flow connecting Cat-Cow, Downward Dog and Child's Pose seamlessly with the breath.",yq:"Cat Cow Downward Dog Child's pose flow",m:"Om Namah Shivaya",a:"Life moves through me smoothly; I am in a state of absolute grace.",med:"Feel your body dissolving into pure energy, vibrating with the rhythm of the universe."},
+ {t:"Living the Vision",y:"Garland Pose (Malasana) deep squat.",yq:"Garland pose Malasana squat",m:"Om Tryambakam… (Maha Mrityunjaya)",a:"The best version of me is no longer a dream; it is my active daily reality.",med:"Mentally walk through a standard day as your transformed self — how you speak, work, exercise, and carry yourself."},
+ {t:"The Ultimate Offering",y:"Perfect Sitting Pose (Sukhasana), followed by a full 5-minute Shavasana.",yq:"Sukhasana easy pose meditation",m:"Chant \"Om Namah Shivaya\" 108 times (mala or mental count)",a:"I offer this transformed self to the service of the higher good. Shivoham.",med:"The Infinite Self — rest in total silence. No visualizations, no techniques. Sit as pure, boundless awareness for 15 full minutes."}
+];
+function renderCourse(){const b=document.getElementById("courseBody");
+  if(!isPro()){b.innerHTML=`<div class="locked-veil"><div class="bigic">🏔️</div><h3>The 40-Day Path awaits</h3><p>A 40-day path to self-improvement — a traditional Shiva sadhana blending yoga, breathwork, mantra and meditation to rewrite old patterns and build the best version of you. Bite-sized daily rituals, with streaks and progress.</p><button class="btn gold" onclick="openPaywall()">Unlock the Course</button></div>`;return;}
+  const done=S.courseDone.filter(n=>n>=1).length,pct=Math.round(done/40*100),zeroDone=S.courseDone.includes(0);
+  let html=`<div class="streak"><div class="fire">🔥</div><div><b>${S.streak}-day streak</b><br><span>${done}/40 lessons · ${pct}% complete</span></div></div><div class="card glass" style="margin:10px 0 16px;padding:14px 16px"><b style="font-size:13.5px">🕉️ Your Daily Ritual</b><p class="subtle" style="font-size:12.5px;line-height:1.6;margin-top:6px"><b>Movement</b> (15 min asana &amp; breath) → <b>Vibration</b> (10 min mantra &amp; affirmation) → <b>Stillness</b> (15 min Shiva meditation). The same frame every day; the focus evolves.</p></div>`;
+  html+=`<h2 class="sec">Foundation · Day 0</h2>
+    <p style="margin:-2px 0 12px;font-size:12px;line-height:1.55;color:rgba(232,200,122,.75);max-width:560px">Read this before Day 1. The fine print of abundance — the daily habit that makes everything that follows possible.</p>
+    <div class="path"><div class="node ${zeroDone?'done':'cur'}" onclick="openDayZero()">
+      <div class="orb" style="background:linear-gradient(135deg,#e8c87a,#caa24e);color:#3a2c0a;border-color:transparent;box-shadow:0 8px 22px rgba(232,200,122,.4)">${zeroDone?'✓':'☀'}</div>
+      <div class="meta"><h4>The Fine Print of Abundance</h4><p>${zeroDone?'Foundation set ✓':'Tap to read the disclaimer'}</p></div>
+      ${zeroDone?'':'<div style="font-size:11px;font-weight:800;color:var(--gold);letter-spacing:.5px">START ›</div>'}</div></div>`;
+  let lastWeek=-1;html+='<div class="path">';
+  for(let d=1;d<=40;d++){const wk=Math.floor((d-1)/10);if(wk!==lastWeek){lastWeek=wk;html+=`</div><h2 class="sec">Phase ${wk+1} · ${PHASES[wk].n}</h2><p style="margin:-2px 0 12px;font-size:12px;line-height:1.55;color:rgba(210,228,255,.6);max-width:560px">${PHASES[wk].f}</p><div class="path">`;}
+    const isDone=S.courseDone.includes(d),isCur=d===S.courseDay&&!isDone,locked=d>S.courseDay;const L=LESSONS[d-1];
+    const cls=isDone?"done":isCur?"cur":locked?"lock":"";
+    html+=`<div class="node ${cls}" onclick="${(isCur||isDone)?`openLesson(${d})`:`toast('Complete day ${S.courseDay} first 🔒')`}">
+      <div class="orb">${isDone?"✓":d}</div><div class="meta"><h4>${L.t}</h4><p>${isDone?"Completed ✓":isCur?"Tap to begin today's lesson":"Locked"}</p></div>
+      ${isCur?'<div style="font-size:11px;font-weight:800;color:var(--ice);letter-spacing:.5px">START ›</div>':''}</div>`;}
+  html+='</div>';b.innerHTML=html;}
+let activeLesson=null;
+function openLesson(d){if(!isPro()){openPaywall();return;}activeLesson=d;const L=LESSONS[d-1];const wk=Math.floor((d-1)/10);
+  document.getElementById("lprogBar").style.width=Math.round(d/40*100)+"%";
+  document.getElementById("lessonBody").innerHTML=
+    `<div class="ltheme">Day ${d} · Phase ${wk+1} · ${PHASES[wk].n}</div>
+     <div class="ltitle">${L.t}</div>
+     <div class="lblock"><div class="bh">🧘 The Movement · 15 min</div><div class="lpractice"><div class="bt">${L.y}</div><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(L.yq+' yoga tutorial')}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;margin-top:11px;padding:9px 14px;border-radius:12px;background:linear-gradient(135deg,#ff5252,#c1121f);color:#fff;font-weight:700;font-size:13px;text-decoration:none;box-shadow:0 4px 14px rgba(193,18,31,.35)">▶ Watch the asana on YouTube</a></div></div>
+     <div class="lblock"><div class="bh">🔱 The Vibration · 10 min</div><div class="bt"><b>Mantra:</b> ${L.m}</div><div class="laff">"${L.a}"</div></div>
+     <div class="lblock"><div class="bh">🏔️ The Stillness · 15 min</div><div class="bt">${L.med}</div></div>`;
+  const btn=document.getElementById("lessonBtn");const already=S.courseDone.includes(d);
+  btn.textContent=already?"Lesson completed ✓":"Complete lesson ✓";btn.disabled=already;btn.style.opacity=already?".5":"1";btn.onclick=completeLesson;
+  document.getElementById("lesson").classList.add("on");document.getElementById("lessonBody").scrollTop=0;}
+function closeLesson(){document.getElementById("lesson").classList.remove("on");renderCourse();}
+function completeLesson(){const d=activeLesson;if(S.courseDone.includes(d))return;
+  S.courseDone.push(d);S.courseDone.sort((a,b)=>a-b);if(d===S.courseDay&&S.courseDay<40)S.courseDay++;save();
+  if(navigator.vibrate)navigator.vibrate([30,20,30]);playDamaru();toast("✅ Lesson "+d+" complete! +1 day");closeLesson();}
+function openDayZero(){activeLesson=0;
+  document.getElementById("lprogBar").style.width="2%";
+  document.getElementById("lessonBody").innerHTML=
+    `<div class="ltheme" style="color:var(--gold)">Day 0 · The Foundation</div>
+     <div class="ltitle">Manifestation Disclaimer:<br>The Fine Print of Abundance</div>
+     <div class="lblock" style="border-color:rgba(232,200,122,.3)">
+       <div class="bh">📜 Please Read Carefully</div>
+       <div class="bt">Materializing your dream life does not default to a mansion on day one. Manifestation operates on a <b>“start small, scale up”</b> frequency. If you cannot manage the current of a small stream, you aren’t ready for the ocean.</div>
+     </div>
+     <div class="lblock">
+       <div class="bh">🐄 The Micro-Abundance Clause</div>
+       <div class="bt">Before the universe hands you the keys to the kingdom, it watches how you treat the kingdom’s smallest citizens. True wealth is an energetic loop — and it begins with intentional, small-scale micro-actions.</div>
+       <div class="bt" style="margin-top:11px"><b>The Catalyst —</b> Abundance is a habit, not just a destination. It starts by sharing what you have right now: feeding the <b>cows, birds, and ants</b> in your daily path.</div>
+       <div class="bt" style="margin-top:9px"><b>The Generosity Logic —</b> By feeding creatures who can never text you a thank-you note or pay you back, you strip away selfish attachment. You signal to the cosmos that you are a <i>source of supply</i>, not a pit of scarcity.</div>
+       <div class="bt" style="margin-top:9px"><b>The Energetic Return Policy —</b> Energy cannot be destroyed, only transferred. The life and nourishment you pour into the ecosystem inevitably loops back to you — multiplied in velocity and volume, returning as unexpected opportunities, peace, and financial flow.</div>
+     </div>
+     <div class="lblock" style="border-color:rgba(232,200,122,.3)">
+       <div class="bh">⚖️ Official Verdict</div>
+       <div class="laff">"If you want the universe to open the floodgates of massive abundance, start by filling the bird feeder and respecting the anthill. Big shifts hide in tiny, selfless acts of kindness."</div>
+     </div>
+     <div class="lblock">
+       <div class="bh">🌊 The Rhythm Rule</div>
+       <div class="bt">The universe does not reward occasional bursts of panic-induced generosity — it rewards <b>rhythm</b>. When you make feeding these creatures a daily habit, you invest small change into the cosmic bank. Daily repetition turns a minor ripple of kindness into a massive tidal wave of financial return.</div>
+     </div>
+     <div class="lblock" style="background:var(--grad-soft);border-color:rgba(232,200,122,.35)">
+       <div class="bh">🌱 Today's Foundation Practice</div>
+       <div class="bt">Pick one and do it with no expectation of return: leave grains for the <b>birds</b>, a little flour or sugar near an <b>anthill</b>, or feed a <b>cow</b>. This is Day 0 — keep repeating it through all 40 days.</div>
+     </div>`;
+  const btn=document.getElementById("lessonBtn");const done=S.courseDone.includes(0);
+  btn.textContent=done?"Foundation set ✓":"I accept the foundation ✓";btn.disabled=done;btn.style.opacity=done?".5":"1";btn.onclick=completeDayZero;
+  document.getElementById("lesson").classList.add("on");document.getElementById("lessonBody").scrollTop=0;}
+function completeDayZero(){if(S.courseDone.includes(0))return;S.courseDone.unshift(0);save();
+  if(navigator.vibrate)navigator.vibrate([30,20,30]);playDamaru();toast("☀ Foundation set — now begin Day 1");closeLesson();}
+
+/* ===== JOURNAL ===== */
+const MOODS=["😌","🙏","🔥","🌊","😔","✨"];let selMood=1;
+function renderJournal(){const mr=document.getElementById("moodRow");
+  mr.innerHTML=MOODS.map((m,i)=>`<div class="mood ${i===selMood?'sel':''}" onclick="selMood=${i};renderJournal()">${m}</div>`).join("");
+  const list=document.getElementById("journalList");
+  list.innerHTML=S.journal.length?S.journal.map(e=>`<div class="jentry"><div class="jh"><span class="je">${e.m}</span><span class="jd">${e.d}</span></div>${e.t?`<div class="jt">${esc(e.t)}</div>`:""}${e.g?`<div class="jg">🙏 ${esc(e.g)}</div>`:""}</div>`).join("")
+    :`<div class="empty">No reflections yet.<br>Your manifestation journey starts with one honest line.</div>`;}
+function addJournal(){const t=document.getElementById("jText").value.trim(),g=document.getElementById("jGrat").value.trim();
+  if(!t&&!g){toast("Write a reflection or gratitude first");return;}
+  S.journal.unshift({m:MOODS[selMood],t,g,d:new Date().toLocaleDateString(undefined,{month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"})});
+  save();document.getElementById("jText").value="";document.getElementById("jGrat").value="";renderJournal();
+  if(navigator.vibrate)navigator.vibrate(15);toast("📖 Reflection saved");}
+function esc(s){return s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
+
+/* ===== MANTRAS (replaces Sound Library) — Shiva Mantra Practice Protocol v2 ===== */
+const MANTRA_PHASES=[
+  {n:1,name:"Grounding & Mind Reset",dur:"10 min",focus:"Steadying the breath, calming racing thoughts, and clearing mental fog."},
+  {n:2,name:"Wealth & Strategy",dur:"12 min",focus:"Sharpening the mind, career growth, and clearing obstacles to success."},
+  {n:3,name:"Vitality & Shielding",dur:"10 min",focus:"Cellular healing and building a shield around your health and energy."},
+  {n:4,name:"Home & Spaces",dur:"13 min",focus:"Healing relationships, purifying your space, and sealing the practice."}
+];
+const MANTRA_PROTOCOL=[
+ {id:"A",phase:1,n:"Om Namah Shivaya",sub:"Panchakshari Mantra",target:"Stress relief, emotional balance & mental clarity",count:21,text:"Om Namah Shivaya.",sk:"ॐ नमः शिवाय ॥"},
+ {id:"B",phase:1,n:"Om Shivaya Namah",sub:"",target:"Core centering & foundational grounding",count:21,text:"Om Shivaya Namah.",sk:"ॐ शिवाय नमः ॥"},
+ {id:"C",phase:1,n:"Om Sham Shivaya Namah",sub:"",target:"Deep inner peace, pacifying anxiety",count:21,text:"Om Sham Shivaya Namah.",sk:"ॐ शं शिवाय नमः ॥"},
+ {id:"D",phase:1,n:"Bho Shambho Shiva Shambho",sub:"",target:"Internal stability & connecting to self-manifested energy",count:21,text:"Bho Shambho Shiva Shambho Swayambho.",sk:"भो शम्भो शिव शम्भो स्वयम्भो ॥"},
+ {id:"E",phase:1,n:"Nataraja Mantra",sub:"",target:"Cosmic rhythm, creative expression & dynamic harmony",count:21,text:"Om Natarajaya Namah.",sk:"ॐ नटराजाय नमः ॥"},
+ {id:"F",phase:1,n:"Shiva Dhyana Mantra",sub:"Kshama Prarthana",target:"Dissolving conscious & unconscious blockages",count:1,text:"Karcharankritam Vaa Kaayjam Karmajam Vaa | Shravananayanajam Vaa Maanasam Vaaparadham | Vihitamavihitam Vaa Sarvametat Kshamasva | Jaya Jaya Karunabdhe Sri Mahadeva Shambho.",sk:"करचरणकृतं वा कायजं कर्मजं वा श्रवणनयनजं वा मानसं वापराधम् । विहितमविहितं वा सर्वमेतत्क्षमस्व जय जय करुणाब्धे श्रीमहादेव शम्भो ॥"},
+ {id:"G",phase:2,n:"Shiva Gayatri Mantra",sub:"",target:"Strategic career growth, intelligence & clarity",count:21,text:"Om Tatpurushaya Vidmahe Mahadevaya Dhimahi Tanno Rudrah Prachodayat.",sk:"ॐ तत्पुरुषाय विद्महे महादेवाय धीमहि तन्नो रुद्रः प्रचोदयात् ॥"},
+ {id:"H",phase:2,n:"Rudra Mantra",sub:"",target:"Financial prosperity & removing roadblocks",count:21,text:"Om Namo Bhagavate Rudraya.",sk:"ॐ नमो भगवते रुद्राय ॥"},
+ {id:"I",phase:2,n:"Om Hreem Namah Shivaya",sub:"",target:"Manifestation power & executive intent",count:21,text:"Om Hreem Namah Shivaya.",sk:"ॐ ह्रीं नमः शिवाय ॥"},
+ {id:"J",phase:2,n:"Shiva Prataha Mantra",sub:"Pratah Smaran Stotram opening",target:"Aligning morning faculties, conquering worldly fears",count:3,text:"Pratah Smarami Bhavabhiti Haram Suresham… (Om Namah Shivaya).",sk:"प्रातः स्मरामि भवभीतिहरं सुरेशं... (ॐ नमः शिवाय) ॥"},
+ {id:"K",phase:2,n:"Shastha Rudra Mantra",sub:"",target:"Goal attainment & perfect action",count:21,text:"Om Hrim Hrim Safalyayai Siddhaye Om Namah.",sk:"ॐ ह्रीं ह्रीं सफल्यायै सिद्धये ॐ नमः ॥"},
+ {id:"L",phase:2,n:"Bhima Rudra Mantra",sub:"",target:"Magnifying willpower to manifest deep desires",count:21,text:"Om Aim Aim Mano Vanchita Siddhaye Aim Aim Om.",sk:"ॐ ऐं ऐं मनोवाञ्छितसिद्धये ऐं ऐं ॐ ॥"},
+ {id:"M",phase:3,n:"Maha Mrityunjaya Mantra",sub:"",target:"Cellular healing & safety from accidents",count:11,text:"Om Tryambakam Yajamahe Sugandhim Pushtivardhanam | Urvarukamiva Bandhanan Mrityor Mukshiya Maamritat.",sk:"ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् । उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय मामृतात् ॥"},
+ {id:"N",phase:3,n:"Vaidyanatha Ashtakam",sub:"Opening Verse",target:"Eradicating illness, chronic ailments & lethargy",count:1,text:"Sri Rama Saumitri Jatayu Veda Shadananaadyair Archita Lingaya | Prabhava Kalottha Mukhaja Varaya Sri Vaidyanathaya Namah Shivaya.",sk:"श्रीरामसौमित्रिजटायुवेदषडाननाद्यैरर्चितलिङ्गाय प्रभवकालोत्थमुखजवराय श्रीवैद्यनाथाय नमः शिवाय ॥"},
+ {id:"O",phase:3,n:"Kapali Rudra Mantra",sub:"",target:"Halting hostility, building a mental boundary",count:11,text:"Om Hum Hum Satrustambhanaya Hum Hum Om Phat.",sk:"ॐ हुं हुं शत्रुस्तम्भनाय हुं हुं ॐ फट् ॥"},
+ {id:"P",phase:3,n:"Virupaksha Rudra Mantra",sub:"",target:"Dispersing imbalance, optimizing vitality",count:11,text:"Om Rudraya Roganashaya Agacha Cha Ram Om Namah.",sk:"ॐ रुद्राय रोगनाशाय आगच्छ च राम ॐ नमः ॥"},
+ {id:"Q",phase:3,n:"Ahirbudhanya Rudra Mantra",sub:"",target:"Dissolving planetary afflictions & interference",count:11,text:"Om Hram Hrim Hum Samastha Graha Dosha Vinashaya Om.",sk:"ॐ ह्रां ह्रीं हुं समस्त ग्रह दोष विनाशाय ॐ ॥"},
+ {id:"R",phase:4,n:"Shiva Parvati Mantra",sub:"Uma Maheshwara Stotram opening",target:"Healing relationships & stabilizing home",count:11,text:"Namah Shivabhyam Nava Yauvanabhyam Parasparam Shlishta Vapurdharabhyam.",sk:"नमः शिवाभ्यां नवयौवनाभ्यां परस्परं श्लिष्टवपुर्धराभ्याम् ॥"},
+ {id:"S",phase:4,n:"Karpura Gauram Mantra",sub:"",target:"Family harmony, household purity & grace",count:3,text:"Karpura Gauram Karunavataram Sansarasaram Bhujagendra Haram | Sadavasantam Hridayaravinde Bhavam Bhavani Sahitam Namami.",sk:"कर्पूरगौरं करुणावतारं संसारसारं भुजगेन्द्रहारम् । सदावसन्तं हृदयारविन्दे भवं भवानीसहितं नमामि ॥"},
+ {id:"T",phase:4,n:"Pingala Rudra Mantra",sub:"",target:"Environmental protection & clearing karmic debt",count:11,text:"Om Shrim Hrim Shrim Sarva Mangalaya Pingalaya Om Namah.",sk:"ॐ श्रीं ह्रीं श्रीं सर्वमङ्गलाय पिङ्गलाय ॐ नमः ॥"},
+ {id:"U",phase:4,n:"Shiva Tandava Stotram",sub:"Opening Verse · the closing seal",target:"Anchors & locks the entire session",count:1,text:"Jatatavigalajjala Pravahapavitasthale Galevalambya Lambitam Bhujangatungamalikam | Damaddamaddamaddaman Ninadavaddamaryam Chakara Chandatandavam Tanotu Nah Shivah Shivam.",sk:"जटाटवीगलज्जलप्रवाहपावितस्थले गलेऽवलम्ब्य लम्बितां भुजङ्गतुङ्गमालिकाम् । डमड्डमड्डमड्डमन्निनादवड्डमर्वयं चकार चण्डताण्डवं तनोतु नः शिवः शिवम् ॥"}
+];
+let activeMantra=null;
+function mCount(id){return (S.mantraCount&&S.mantraCount[id])||0;}
+function toggleVidhi(){const b=document.getElementById("vidhiBody");const open=b.style.display==="block";
+  b.style.display=open?"none":"block";document.getElementById("vidhiChevron").style.transform=open?"":"rotate(90deg)";}
+function renderMantras(){const done=S.mantraDoneToday||[];const pro=isPro();
+  let html=`<div class="card glass" style="text-align:center"><b style="font-size:16px">${done.length} / ${MANTRA_PROTOCOL.length} mantras done today</b><p class="subtle" style="font-size:12.5px;margin-top:4px">Full protocol · ~45 minutes across 4 phases</p></div>`;
+  if(!pro)html+=`<div class="card" style="margin-top:14px;text-align:center"><div style="font-size:24px">🔱</div><b style="font-size:14.5px;display:block;margin:6px 0 3px">Phase 1 is free forever</b><p class="subtle" style="font-size:12.5px">Unlock Phases 2–4 — Wealth, Vitality & Home & Spaces — with Pro.</p><button class="btn gold" style="margin-top:12px" onclick="openPaywall()">Unlock with Pro</button></div>`;
+  MANTRA_PHASES.forEach(ph=>{const locked=ph.n>1&&!pro;
+    html+=`<h2 class="sec">Phase ${ph.n} · ${ph.name} <span style="opacity:.55;font-weight:400;text-transform:none;letter-spacing:0"> — ${ph.dur}</span>${locked?' <span style="color:var(--gold)">🔒 Pro</span>':''}</h2>
+      <p class="subtle" style="font-size:12.5px;margin:-6px 2px 12px">${ph.focus}</p>`;
+    MANTRA_PROTOCOL.filter(m=>m.phase===ph.n).forEach(m=>{const c=mCount(m.id),isDone=done.includes(m.id);
+      html+=`<div class="track" onclick="${locked?'openPaywall()':`openMCounter('${m.id}')`}">
+        <div class="pp" style="font-weight:800">${locked?'🔒':isDone?'✓':m.id}</div>
+        <div class="ti"><b${locked?' class="mblur"':''}>${m.n}${m.sub?' <span style="font-weight:400;color:var(--ink3)">· '+m.sub+'</span>':''}</b><div${locked?' class="mblur"':''} style="font-size:13px;color:var(--ice);margin:2px 0 1px">${m.sk}</div><span>${m.target}</span></div>
+        <div class="locktag" style="font-size:12.5px;opacity:.85;font-weight:700">${locked?'Pro':c+'/'+m.count}</div>
+      </div>`;});
+  });
+  document.getElementById("mantraBody").innerHTML=html;}
+function openMCounter(id){const M=MANTRA_PROTOCOL.find(x=>x.id===id);if(M.phase>1&&!isPro()){if(navigator.vibrate)navigator.vibrate(8);openPaywall();return;}
+  activeMantra=id;renderMCounter();document.getElementById("mcounter").classList.add("on");}
+function closeMCounter(){document.getElementById("mcounter").classList.remove("on");renderMantras();}
+function renderMCounter(){const M=MANTRA_PROTOCOL.find(x=>x.id===activeMantra);const c=mCount(M.id);
+  document.getElementById("mcBody").innerHTML=`
+    <div class="mantra-pill" style="margin:0 auto 22px">🕉️ ${M.n}</div>
+    <button class="bead-btn" id="mcBead" onclick="tapMCount()">
+      <svg class="ring-svg" viewBox="0 0 240 240"><defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6ad6e8"/><stop offset="1" stop-color="#8b9cff"/></linearGradient></defs>
+      <circle cx="120" cy="120" r="112" fill="none" stroke="rgba(146,180,210,.12)" stroke-width="6"/>
+      <circle id="mcRing" cx="120" cy="120" r="112" fill="none" stroke="url(#mg)" stroke-width="6" stroke-linecap="round" stroke-dasharray="${CIRC}" stroke-dashoffset="${CIRC*(1-c/M.count)}"/></svg>
+      <div style="text-align:center"><div class="bead-count" id="mcCount">${c}</div><div class="bead-of">of ${M.count}</div></div>
+    </button>
+    <p style="margin-top:24px;text-align:center;font-size:23px;font-weight:700;line-height:1.8;color:var(--ink)">${M.sk}</p>
+    <p class="subtle" style="text-align:center;font-style:italic;font-size:13px;line-height:1.5;margin-top:2px">${M.text}</p>
+    <p class="subtle" style="text-align:center;font-size:12.5px;margin-top:10px">${M.target}</p>
+    <button class="btn ghost" style="margin-top:18px" onclick="resetMCount()">Reset this counter</button>`;
+  document.getElementById("mcProgBar").style.width=(100*c/M.count)+"%";}
+function tapMCount(){const id=activeMantra;const M=MANTRA_PROTOCOL.find(x=>x.id===id);
+  if(navigator.vibrate)navigator.vibrate(18);
+  S.mantraCount=S.mantraCount||{};S.mantraCount[id]=Math.min(M.count,(S.mantraCount[id]||0)+1);
+  const c=S.mantraCount[id];
+  document.getElementById("mcCount").textContent=c;
+  document.getElementById("mcRing").style.strokeDashoffset=CIRC*(1-c/M.count);
+  document.getElementById("mcProgBar").style.width=(100*c/M.count)+"%";
+  if(c>=M.count){if(navigator.vibrate)navigator.vibrate([40,30,40]);
+    if(!(S.mantraDoneToday||[]).includes(id)){S.mantraDoneToday=(S.mantraDoneToday||[]).concat(id);toast("🔱 "+M.n+" complete");}}
+  save();}
+function resetMCount(){const id=activeMantra;S.mantraCount=S.mantraCount||{};S.mantraCount[id]=0;
+  S.mantraDoneToday=(S.mantraDoneToday||[]).filter(x=>x!==id);save();renderMCounter();toast("Counter reset");}
+
+/* ===== YOGA ===== */
+function renderYoga(){const b=document.getElementById("yogaBody");
+  const ytUrl=q=>"https://www.youtube.com/results?search_query="+encodeURIComponent(q+" yoga tutorial");
+  const vidBtn=q=>`<a href="${ytUrl(q)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:7px;margin-top:11px;padding:9px 14px;border-radius:12px;background:linear-gradient(135deg,#ff5252,#c1121f);color:#fff;font-weight:700;font-size:13px;text-decoration:none;box-shadow:0 4px 14px rgba(193,18,31,.35)">▶ Watch on YouTube</a>`;
+  const free=`<div class="card glass" style="margin-top:14px"><span style="font-size:11px;letter-spacing:1px;color:var(--ice);font-weight:700">THIS MONTH'S FREE PRACTICE</span>
+    <h3 style="font-size:18px;margin:6px 0 4px">🧘 Sukhasana + Nadi Shodhana</h3><p class="subtle" style="font-size:13px">Sit in the easy pose. 5 minutes of alternate-nostril breathing to balance your energy before japa. Updated on the 1st.</p>
+    <div>${vidBtn("Sukhasana Nadi Shodhana pranayama")}</div>
+    <button class="btn" id="breathBtn" style="margin-top:14px" onclick="breathGuide()">Begin guided breath</button>
+    <div id="breathTimer" class="subtle" style="margin-top:8px;font-size:13px"></div></div>`;
+  if(isPro()){b.innerHTML=free+`<h2 class="sec">Personalized for you</h2><div class="grid">
+    ${[["Padmasana","Lotus seat — stable base for long sittings","Padmasana lotus pose"],["Bhramari","Bee breath — calms the nervous system","Bhramari pranayama bee breath"],["Kapalabhati","Skull-shine — energizing breath of fire","Kapalabhati pranayama skull shining breath"],["Shavasana","Deep rest — integration & visualization","Shavasana corpse pose relaxation"]].map(x=>`<div class="tile" onclick="window.open('${ytUrl(x[2])}','_blank')"><div class="ic">🌀</div><h3>${x[0]}</h3><p>${x[1]}</p><div class="lock free">▶ Watch</div></div>`).join("")}
+    </div><p class="muted">Asanas & pranayama adapt to your level as you progress.</p>`;}
+  else{b.innerHTML=free+`<div class="card" style="margin-top:18px;text-align:center"><div style="font-size:28px">🧘</div><b style="font-size:15px;display:block;margin:6px 0">Personalized asana & pranayama</b><p class="subtle" style="font-size:13px">Pro tailors postures and breathwork to your exact level.</p><button class="btn gold" style="margin-top:13px" onclick="openPaywall()">Unlock with Pro</button></div>`;}}
+let breathT=null,breathCD=null;
+const BREATH_SECS=120;
+function breathTimerEl(){return document.getElementById("breathTimer");}
+function breathEnd(msg){if(breathT){clearInterval(breathT);breathT=null;}
+  if(breathCD){clearInterval(breathCD);breathCD=null;}
+  const tEl=breathTimerEl();if(tEl)tEl.textContent="";
+  const btn=document.getElementById("breathBtn");if(btn)btn.textContent="Begin guided breath";
+  toast(msg);}
+function breathGuide(){if(breathT){breathEnd("Breath ended");return;}
+  const ph=["Inhale… 🌬️","Hold…","Exhale… 💨","Hold…"];let i=0;toast(ph[0]);if(navigator.vibrate)navigator.vibrate(20);
+  breathT=setInterval(()=>{i=(i+1)%4;toast(ph[i]);if(navigator.vibrate)navigator.vibrate(15);},4000);
+  const btn=document.getElementById("breathBtn");if(btn)btn.textContent="End guided breath";
+  let secsLeft=BREATH_SECS;
+  const tEl=breathTimerEl();
+  const updateTimer=()=>{if(tEl){const m=Math.floor(secsLeft/60),s=secsLeft%60;tEl.textContent=`⏱ ${m}:${s<10?'0':''}${s} remaining`;}};
+  updateTimer();
+  breathCD=setInterval(()=>{secsLeft--;updateTimer();if(secsLeft<=0)breathEnd("Breath session complete 🙏");},1000);}
+
+/* ===== LIVE TEMPLE DARSHAN ===== */
+const TEMPLES=[
+ {n:"Kashi Vishwanath",loc:"Varanasi, Uttar Pradesh",ic:"🛕",tag:"Jyotirlinga · Ganga Aarti",q:"Kashi Vishwanath live darshan"},
+ {n:"Mahakaleshwar",loc:"Ujjain, Madhya Pradesh",ic:"🔱",tag:"Jyotirlinga · Bhasma Aarti",q:"Mahakaleshwar Ujjain live darshan bhasma aarti"},
+ {n:"Somnath",loc:"Prabhas Patan, Gujarat",ic:"🌊",tag:"First Jyotirlinga",q:"Somnath temple live darshan"},
+ {n:"Kedarnath",loc:"Rudraprayag, Uttarakhand",ic:"🏔️",tag:"Himalayan Jyotirlinga",q:"Kedarnath live darshan"},
+ {n:"Omkareshwar",loc:"Khandwa, Madhya Pradesh",ic:"🕉️",tag:"Jyotirlinga · Narmada",q:"Omkareshwar live darshan"},
+ {n:"Trimbakeshwar",loc:"Nashik, Maharashtra",ic:"💧",tag:"Jyotirlinga · Godavari",q:"Trimbakeshwar live darshan"},
+ {n:"Bhimashankar",loc:"Pune, Maharashtra",ic:"🌄",tag:"Sahyadri Jyotirlinga",q:"Bhimashankar live darshan"},
+ {n:"Grishneshwar",loc:"Verul, Maharashtra",ic:"🛕",tag:"Twelfth Jyotirlinga",q:"Grishneshwar live darshan"},
+ {n:"Baidyanath Dham",loc:"Deoghar, Jharkhand",ic:"🔱",tag:"Jyotirlinga",q:"Baidyanath Dham Deoghar live darshan"},
+ {n:"Amarnath",loc:"Anantnag, Kashmir",ic:"🧊",tag:"Sacred Ice Lingam",q:"Amarnath cave live darshan"}
+];
+function renderDarshan(){
+  const ytLive=q=>"https://www.youtube.com/results?search_query="+encodeURIComponent(q)+"&sp=EgJAAQ%253D%253D";
+  const photos=q=>"https://www.google.com/search?tbm=isch&q="+encodeURIComponent(q+" temple");
+  document.getElementById("darshanBody").innerHTML=TEMPLES.map(t=>`
+   <div class="temple">
+     <div class="tthumb">${t.ic}</div>
+     <div class="tinfo">
+       <b>${t.n}</b>
+       <span class="tloc">📍 ${t.loc}</span>
+       <span class="ttag">${t.tag}</span>
+       <div class="tlinks">
+         <a class="tlink live" href="${ytLive(t.q)}" target="_blank" rel="noopener">Live darshan</a>
+         <a class="tlink" href="${photos(t.n+' '+t.loc)}" target="_blank" rel="noopener">📷 Photos</a>
+       </div>
+     </div>
+   </div>`).join("")+
+  `<p class="muted">Live streams open on YouTube; photos open in Google Images. Darshan availability &amp; aarti timings depend on each temple's official channel. 🔱</p>`;}
+
+/* ===== VIRTUAL POOJA (abhishekam) ===== */
+const OFFERINGS=[
+  {id:"jal",n:"Jal",sub:"Gangājal",ic:"💧",color:"#bfe9ff",type:"liquid",free:true,mean:"Gangājal abhishek — cooling Mahādev's tej and washing away all impurity. Om Namah Shivaya."},
+  {id:"doodh",n:"Doodh",sub:"Milk",ic:"🥛",color:"#f4f8ff",type:"liquid",free:false,mean:"Dugdha abhishek — milk of the Panchāmrit, for purity and nourishment."},
+  {id:"madhu",n:"Madhu",sub:"Honey",ic:"🍯",color:"#f3c969",type:"liquid",free:false,mean:"Madhu abhishek — honey, the sweetness of pure devotion."},
+  {id:"chandan",n:"Chandan",sub:"Tripundra",ic:"🟡",color:"#e8c87a",type:"paste",free:false,mean:"Chandan tripundra — the three sacred lines drawn upon Lord Shiva."},
+  {id:"bilva",n:"Bilva",sub:"Bel patra",ic:"☘️",color:"#7fd99b",type:"leaf",free:false,mean:"Bilva patra — Mahādev's most beloved leaf; its three leaflets are His three eyes."},
+  {id:"pushpa",n:"Pushpa",sub:"Flowers",ic:"🌸",color:"#fdeef6",type:"flower",free:false,mean:"Pushpa — white blossoms of surrender, laid at His feet."}
+];
+let offerBusy=false;
+var SVGNS="http://www.w3.org/2000/svg";
+function svgmk(n,a){var e=document.createElementNS(SVGNS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+function animAttr(el,attr,from,to,dur,ease,onend){var t0=null;function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/dur);var e=ease==="in"?p*p:ease==="out"?1-(1-p)*(1-p):p;el.setAttribute(attr,(from+(to-from)*e).toFixed(2));if(p<1)requestAnimationFrame(step);else if(onend)onend();}requestAnimationFrame(step);}
+function renderPooja(){
+  const pro=isPro();
+  document.getElementById("offerGrid").innerHTML=OFFERINGS.map(o=>{const done=S.poojaToday.includes(o.id);const locked=!o.free&&!pro;
+    return `<div class="offer ${done?'done':''} ${locked?'locked':''}" id="off-${o.id}" onclick="offer('${o.id}')"><span class="tick">✓</span>${locked?'<span class="prolock">🔒</span>':''}<div class="oic">${o.ic}</div><b>${o.n}</b><span>${o.sub}</span></div>`;}).join("");
+  const tri=document.getElementById("triGroup");if(tri)tri.style.opacity=S.poojaToday.includes("chandan")?"1":"0";
+  const note=document.getElementById("poojaNote");
+  if(note)note.textContent=pro?"Offer in the sacred order, then complete the aarti. Om Namah Shivaya 🔱":"Jal abhishek is free for all. Milk, honey, chandan, bilva, flowers & the aarti await with Pro.";
+  const ab=document.getElementById("aartiBtn");if(ab)ab.textContent=pro?"🪔 Complete the Aarti":"🔒 Complete the Aarti · Pro";
+  poojaStatus();}
+function poojaStatus(){const n=S.poojaToday.length;
+  document.getElementById("offerStatus").textContent=`${n} of ${OFFERINGS.length} offerings made`+(S.poojaCount?` · ${S.poojaCount} pooja${S.poojaCount>1?'s':''} completed`:"");
+  document.getElementById("aartiBtn").disabled=isPro()?(n===0):false;}
+function offer(id){const o=OFFERINGS.find(x=>x.id===id);if(!o||offerBusy)return;
+  if(!o.free&&!isPro()){if(navigator.vibrate)navigator.vibrate(8);openPaywall();return;}
+  if(navigator.vibrate)navigator.vibrate(14);
+  const note=document.getElementById("poojaNote");if(note&&o.mean)note.textContent=o.mean;
+  if(o.type==="liquid")fxLiquid(o.color);
+  else if(o.type==="leaf")fxPetals("leaf",o.color);
+  else if(o.type==="flower")fxPetals("flower",o.color);
+  else if(o.type==="paste")fxChandan();
+  playTing(o.type==="liquid"?640:880);
+  if(!S.poojaToday.includes(id)){S.poojaToday.push(id);save();
+    const e=document.getElementById("off-"+id);if(e)e.classList.add("done");poojaStatus();}}
+function fxLiquid(color){
+  var fx=document.getElementById("fxLayer");if(!fx)return;
+  var wash=document.getElementById("washRect"),edge=document.getElementById("washEdge"),gloss=document.getElementById("gloss");
+  if(wash){wash.setAttribute("fill",color);wash.animate([{transform:"translateY(-200px)",opacity:0},{transform:"translateY(-150px)",opacity:.72,offset:.14},{transform:"translateY(-6px)",opacity:.6,offset:.78},{transform:"translateY(36px)",opacity:0}],{duration:2000,easing:"cubic-bezier(.45,.05,.4,1)"});}
+  if(edge){edge.setAttribute("fill",color);edge.style.filter="brightness(1.7)";edge.animate([{transform:"translateY(-200px)",opacity:0},{transform:"translateY(-150px)",opacity:.95,offset:.14},{transform:"translateY(-6px)",opacity:.8,offset:.78},{transform:"translateY(36px)",opacity:0}],{duration:2000,easing:"cubic-bezier(.45,.05,.4,1)"});}
+  if(gloss){gloss.animate([{opacity:0},{opacity:.5,offset:.2},{opacity:.38,offset:.7},{opacity:0}],{duration:2600,easing:"ease-out"});}
+  var kal=svgmk("g",{transform:"translate(200,66)"});
+  kal.appendChild(svgmk("path",{d:"M-16 0 Q-20 15 0 18 Q20 15 16 0 Q11 -8 0 -8 Q-11 -8 -16 0 Z",fill:"#c79a3a",stroke:"#7e5e1d","stroke-width":1}));
+  kal.appendChild(svgmk("ellipse",{cx:0,cy:-7,rx:12,ry:3.5,fill:"#e8c772"}));
+  kal.appendChild(svgmk("ellipse",{cx:-6,cy:3,rx:3.5,ry:7,fill:"#f3da92",opacity:.5}));
+  kal.style.opacity="0";fx.appendChild(kal);
+  kal.animate([{opacity:0},{opacity:1}],{duration:300,fill:"forwards"});
+  setTimeout(function(){kal.animate([{opacity:1},{opacity:0}],{duration:450,fill:"forwards"}).onfinish=function(){kal.remove();};},1900);
+  var pour=svgmk("rect",{x:196.5,y:86,width:7,height:0,rx:4,fill:color,opacity:.9});pour.style.filter="brightness(1.15)";fx.appendChild(pour);
+  animAttr(pour,"height",0,64,260,"in");setTimeout(function(){animAttr(pour,"height",64,0,520,"in");},1480);
+  pour.animate([{opacity:.2},{opacity:.95,offset:.18},{opacity:.9,offset:.78},{opacity:0}],{duration:2100}).onfinish=function(){pour.remove();};
+  var rg=document.getElementById("rivulets");
+  if(rg){["M186 170 q-7 28 -3 58 q-5 30 3 92","M214 170 q7 26 3 56 q6 32 -3 92","M200 162 q-3 38 0 78 q-2 40 0 96"].forEach(function(d,i){
+    var p=svgmk("path",{d:d,stroke:color,"stroke-width":(i===2?3.2:2.4),fill:"none","stroke-linecap":"round"});rg.appendChild(p);
+    var len=p.getTotalLength();p.setAttribute("stroke-dasharray",len);p.setAttribute("stroke-dashoffset",len);
+    p.animate([{strokeDashoffset:len,opacity:.9},{strokeDashoffset:0,opacity:.85,offset:.55},{strokeDashoffset:0,opacity:0}],{duration:1700,delay:i*110,easing:"ease-in"}).onfinish=function(){p.remove();};});}
+  for(var i=0;i<9;i++){(function(){var dx=(Math.random()-.5)*16,tx=(Math.random()-.5)*120,ty=170+Math.random()*30;
+    var d=svgmk("ellipse",{cx:200+dx,cy:152,rx:2.6,ry:4.4,fill:color,opacity:.9});fx.appendChild(d);
+    d.animate([{transform:"translate(0,0)",opacity:.9},{transform:"translate("+(tx*.3)+"px,"+(ty*.7)+"px)",opacity:.9,offset:.7},{transform:"translate("+tx+"px,"+ty+"px)",opacity:0}],{duration:700+Math.random()*300,delay:280+Math.random()*1000,easing:"ease-in"}).onfinish=function(){d.remove();};})();}
+  for(var r=0;r<3;r++){(function(r){setTimeout(function(){var e=svgmk("ellipse",{cx:200,cy:322,rx:18,ry:5,fill:"none",stroke:color,"stroke-width":2,opacity:.55});fx.appendChild(e);
+    animAttr(e,"rx",18,92,1100,"out");animAttr(e,"ry",5,24,1100,"out",function(){e.remove();});
+    e.animate([{opacity:.55},{opacity:0}],{duration:1100,easing:"ease-out"});},520+r*250);})(r);}}
+function fxPetals(kind,color){var fx=document.getElementById("fxLayer");if(!fx)return;
+  for(var i=0;i<14;i++){(function(){var x=120+Math.random()*160,y=118+Math.random()*40;var g=svgmk("g",{});
+    if(kind==="flower"){for(var k=0;k<5;k++){g.appendChild(svgmk("ellipse",{cx:0,cy:-6,rx:4,ry:7,fill:color,transform:"rotate("+(k*72)+")"}));}g.appendChild(svgmk("circle",{cx:0,cy:0,r:3,fill:"#ffd86b"}));}
+    else{["rotate(0)","rotate(-40)","rotate(40)"].forEach(function(rot){g.appendChild(svgmk("path",{d:"M0 1 C5 -3 5 -12 0 -16 C-5 -12 -5 -3 0 1 Z",fill:color,stroke:"#3f7a52","stroke-width":.6,transform:rot}));});g.appendChild(svgmk("path",{d:"M0 1 L0 7",stroke:"#3f7a52","stroke-width":1.1}));}
+    fx.appendChild(g);
+    var drift=(Math.random()-.5)*64,rot=(Math.random()-.5)*540,fall=150+Math.random()*30,dur=1800+Math.random()*1100,delay=Math.random()*500;
+    g.animate([{transform:"translate("+x+"px,"+y+"px) rotate(0deg)",opacity:0},{transform:"translate("+(x+drift*.4)+"px,"+(y+fall*.5)+"px) rotate("+(rot*.5)+"deg)",opacity:1,offset:.3},{transform:"translate("+(x+drift)+"px,"+(y+fall)+"px) rotate("+rot+"deg)",opacity:1,offset:.82},{transform:"translate("+(x+drift)+"px,"+(y+fall+14)+"px) rotate("+rot+"deg)",opacity:0}],{duration:dur,delay:delay,easing:"cubic-bezier(.3,.6,.5,1)"}).onfinish=function(){g.remove();};})();}}
+function fxChandan(){var tri=document.getElementById("triGroup");if(!tri)return;tri.style.opacity="1";
+  var paths=tri.querySelectorAll("path");for(var i=0;i<paths.length;i++){(function(p,i){var len=p.getTotalLength();
+    p.style.strokeDasharray=len;p.style.strokeDashoffset=len;
+    p.animate([{strokeDashoffset:len,opacity:0},{strokeDashoffset:0,opacity:1}],{duration:560,delay:i*150,easing:"ease-out",fill:"forwards"}).onfinish=function(){p.style.strokeDasharray="";p.style.strokeDashoffset="";};})(paths[i],i);}}
+function doAarti(){if(offerBusy)return;
+  if(!isPro()){if(navigator.vibrate)navigator.vibrate(8);openPaywall();return;}
+  if(S.poojaToday.length===0)return;offerBusy=true;
+  if(navigator.vibrate)navigator.vibrate([20,40,20]);
+  var btn=document.getElementById("aartiBtn");var lbl=btn.textContent;btn.disabled=true;btn.textContent="Aarti in progress…";
+  playBell();
+  var fx=document.getElementById("fxLayer");
+  var glow=svgmk("ellipse",{cx:200,cy:250,rx:120,ry:120,fill:"#ffb152"});glow.style.filter="blur(34px)";glow.style.opacity="0";fx.appendChild(glow);
+  glow.animate([{opacity:0},{opacity:.5,offset:.25},{opacity:.42,offset:.8},{opacity:0}],{duration:7200,easing:"ease-in-out"});
+  var lamp=svgmk("g",{});
+  lamp.appendChild(svgmk("path",{d:"M-13 0 Q0 15 13 0 Z",fill:"#d9a441",stroke:"#b9842f","stroke-width":1}));
+  var flame=svgmk("path",{d:"M0 -2 C7 -7 5 -19 0 -25 C-5 -19 -7 -7 0 -2 Z",fill:"#ffc24d"});flame.style.filter="drop-shadow(0 0 6px rgba(255,170,60,.95))";lamp.appendChild(flame);
+  fx.appendChild(lamp);
+  var t0=null,dur=7000;
+  function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/dur);var a=-Math.PI/2+p*Math.PI*4;
+    var cx=200+Math.cos(a)*150,cy=232+Math.sin(a)*52;
+    lamp.setAttribute("transform","translate("+cx.toFixed(1)+","+cy.toFixed(1)+")");
+    flame.setAttribute("transform","scale("+(1+0.12*Math.sin(ts*0.02)).toFixed(3)+","+(1+0.2*Math.sin(ts*0.026)).toFixed(3)+")");
+    if(p<1)requestAnimationFrame(step);else fin();}
+  function fin(){lamp.remove();glow.remove();offerBusy=false;btn.textContent=lbl;
+    S.poojaCount=(S.poojaCount||0)+1;S.poojaToday=[];save();
+    var tri=document.getElementById("triGroup");if(tri)tri.style.opacity="0";
+    if(navigator.vibrate)navigator.vibrate([40,30,60]);playBell();playDamaru();
+    renderPooja();toast("🙏 Pooja complete · Har Har Mahadev");}
+  requestAnimationFrame(step);}
+
+/* ===== entrance animation helper ===== */
+function animateIn(scr){if(!scr||!scr.animate&&!scr.children)return;var k=scr.children;for(var i=0;i<k.length;i++){try{k[i].animate([{opacity:0,transform:"translateY(14px)"},{opacity:1,transform:"none"}],{duration:460,delay:i*55,easing:"cubic-bezier(.2,.8,.2,1)",fill:"backwards"});}catch(e){}}}
+
+/* ===== cosmic starfield background (offline, lightweight) ===== */
+(function cosmic(){var cv=document.getElementById("cosmic-bg");if(!cv)return;var x=cv.getContext("2d");var w,h,dpr,stars;
+  function rs(){dpr=Math.min(window.devicePixelRatio||1,2);w=cv.width=innerWidth*dpr;h=cv.height=innerHeight*dpr;cv.style.width=innerWidth+"px";cv.style.height=innerHeight+"px";
+    var n=Math.max(40,Math.min(110,Math.round(innerWidth*innerHeight/14000)));stars=[];
+    for(var i=0;i<n;i++)stars.push({x:Math.random()*w,y:Math.random()*h,r:(Math.random()*1.3+0.3)*dpr,a:Math.random()*6.28,s:Math.random()*0.02+0.004,vy:(Math.random()*0.05+0.02)*dpr});}
+  rs();window.addEventListener("resize",rs);
+  function draw(){if(window.__noCosmic)return;x.clearRect(0,0,w,h);for(var i=0;i<stars.length;i++){var st=stars[i];st.a+=st.s;var tw=0.5+0.5*Math.sin(st.a);st.y+=st.vy;if(st.y>h+2){st.y=-2;st.x=Math.random()*w;}
+    x.beginPath();x.arc(st.x,st.y,st.r,0,6.28);x.fillStyle="rgba(190,225,255,"+(0.12+tw*0.5)+")";x.fill();}requestAnimationFrame(draw);}
+  draw();})();
+
+/* ===== HOME / MORE / TIERS ===== */
+function renderHome(){document.getElementById("homeRounds").textContent=S.rounds;document.getElementById("homeStreak").textContent=S.streak;
+  document.getElementById("homeMantra").textContent=mantraName();
+  document.getElementById("homeHero").innerHTML=S.name?`Namaste, <span>${esc(S.name)}.</span>`:`Har Har <span>Mahadev.</span>`;
+  const hr=new Date().getHours();document.getElementById("homeGreet").textContent=
+    hr<5?"The brahma muhurta is the most sacred hour for sadhana.":hr<12?"A still morning mind manifests the clearest intentions.":
+    hr<17?"Pause. One conscious breath returns you to center.":hr<21?"As the day dissolves, offer your practice to Mahadev.":"Night is Shiva's hour — let stillness guide your manifestation.";}
+const TIERDESC={bhakt:"Free practice — japa, Phase 1 mantras & vidhi, 1 personalized daily affirmation, monthly yoga.",
+  sadhu:"Pro monthly. Full course, all 21 mantras, 3 personalized affirmations, yoga & Mahadev Mondays.",
+  mahayogi:"Pro yearly. Everything in Sadhu plus priority new features & best value."};
+var profileGoalPillar=null;
+function renderMore(){const names={bhakt:"Bhakt · Free",sadhu:"Sadhu · ₹499/mo",mahayogi:"Mahayogi · ₹2999/yr"};
+  document.getElementById("moreTier").textContent=names[S.tier];document.getElementById("moreTierDesc").textContent=TIERDESC[S.tier];
+  document.getElementById("moreUpgrade").style.display=isPro()?"none":"block";
+  document.getElementById("mondaySw").classList.toggle("on",S.monday&&isPro());
+  document.getElementById("setName").value=S.name||"";
+  profileGoalPillar=S.primaryGoal||"dhan_samriddhi";
+  buildGoalGrid("profileGoalGrid",profileGoalPillar,function(k){profileGoalPillar=k;});
+  document.getElementById("setMantra").innerHTML=MANTRAS.map(m=>`<div class="choice ${m.id===S.mantra?'sel':''}" onclick="S.mantra='${m.id}';save();renderMore();renderHome();renderJapa()"><div class="ce">🕉️</div><div><b>${m.n}</b><small>${m.d}</small></div></div>`).join("");}
+function saveProfile(){S.name=document.getElementById("setName").value.trim();
+  if(profileGoalPillar){S.primaryGoal=profileGoalPillar;S.goal=PILLAR_NAMES_EN[profileGoalPillar]||"";}
+  save();document.getElementById("brandSub").textContent=S.name?S.name+" · Manifest":"Shiva · Manifest";renderHome();renderJapa();toast("✅ Profile saved · Affirmations updated");}
+function mondayToggle(){if(!isPro()){openPaywall();return;}S.monday=!S.monday;document.getElementById("mondaySw").classList.toggle("on",S.monday);save();toast(S.monday?"🌑 Mahadev Mondays on":"Off");}
+function setTier(t){S.tier=t;save();syncTier();toast(t==="bhakt"?"Switched to Bhakt (Free)":"✦ "+t[0].toUpperCase()+t.slice(1)+" unlocked");
+  const cur=document.querySelector(".screen.on").id.replace("s-","");go(cur);}
+function syncTier(){const c=document.getElementById("tierchip");document.getElementById("tiername").textContent={bhakt:"Bhakt",sadhu:"Sadhu",mahayogi:"Mahayogi"}[S.tier];
+  c.classList.toggle("pro",isPro());document.getElementById("courseLock").textContent=isPro()?"Open":"Pro";
+  const u=document.getElementById("upsellHome");u.innerHTML=isPro()?"":`<div class="card glass" style="margin-top:22px;text-align:center"><div style="font-size:28px">🔱</div><b style="font-size:16px;display:block;margin:7px 0 3px">Unlock the full path</b><p class="subtle" style="font-size:13px">40-day course, 3 daily personalized affirmations, yoga & more.</p><button class="btn gold" style="margin-top:13px" onclick="openPaywall()">See Pro plans</button></div>`;}
+function openPaywall(){document.getElementById("paywall").classList.add("on");}
+function closePaywall(){document.getElementById("paywall").classList.remove("on");}
+function buy(t){setTier(t);closePaywall();playDamaru();}
+function wipe(){if(confirm("Reset all progress and data?")){localStorage.removeItem("kailasa");S={...DEFAULT};save();location.reload();}}
+
+/* ===== ONBOARDING ===== */
+let onbMantra="ons";let onbGoalPillar="dhan_samriddhi";
+function buildGoalGrid(containerId,selectedKey,onSelectFn){
+  var grid=document.getElementById(containerId);if(!grid)return;grid.innerHTML="";
+  PILLAR_ORDER.forEach(function(key){
+    var tile=document.createElement("div");tile.className="goal-tile"+(key===selectedKey?" sel":"");tile.dataset.pillar=key;
+    tile.innerHTML='<div class="gt-check">\u2713</div><div class="gt-san">'+(PILLAR_ICONS[key]||"")+" "+PILLAR_NAMES[key]+'</div><div class="gt-eng">'+PILLAR_NAMES_EN[key]+'</div>';
+    tile.onclick=function(){grid.querySelectorAll(".goal-tile").forEach(function(t){t.classList.remove("sel");});tile.classList.add("sel");onSelectFn(key);};
+    grid.appendChild(tile);});}
+function startOnb(){document.getElementById("onb").classList.add("on");onbGo(1);
+  onbGoalPillar=S.primaryGoal||"dhan_samriddhi";
+  buildGoalGrid("onbGoalGrid",onbGoalPillar,function(k){onbGoalPillar=k;});
+  document.getElementById("mantraChoices").innerHTML=MANTRAS.map(m=>`<div class="choice ${m.id===onbMantra?'sel':''}" data-m="${m.id}" onclick="pickMantra('${m.id}')"><div class="ce">🕉️</div><div><b>${m.n}</b><small>${m.d}</small></div></div>`).join("");}
+function onbGo(n){document.querySelectorAll(".onb-step").forEach(s=>s.classList.remove("on"));document.getElementById("onb"+n).classList.add("on");}
+function pickMantra(id){onbMantra=id;document.querySelectorAll("#mantraChoices .choice").forEach(c=>c.classList.toggle("sel",c.dataset.m===id));}
+function finishOnb(){S.name=document.getElementById("onbName").value.trim();S.primaryGoal=onbGoalPillar;S.goal=PILLAR_NAMES_EN[onbGoalPillar]||"";S.mantra=onbMantra;S.onboarded=true;save();
+  document.getElementById("onb").classList.remove("on");boot();playDamaru();toast("🔱 Welcome to Kailāsa");}
+function replayOnb(){S.onboarded=false;onbMantra=S.mantra;startOnb();}
+
+/* ===== INIT ===== */
+function boot(){S.chant=false;syncTier();renderJapa();renderHome();document.getElementById("brandSub").textContent=S.name?S.name+" · Manifest":"Shiva · Manifest";go("home");
+  if(!S.tipSeen){S.tipSeen=true;save();setTimeout(()=>toast("💡 Tip: 'More' tab shows how to install on your phone"),1400);}}
+(function init(){
+  /* migration: existing users who onboarded before pillar system must re-pick their goal */
+  if(S.onboarded && !S.primaryGoal){S.onboarded=false;save();}
+  if(!S.onboarded){startOnb();}else{boot();}
+})();
+/* hide the opening / splash screen once the app is ready */
+setTimeout(function(){var sp=document.getElementById("splash");if(sp)sp.classList.add("hide");},2000);
+</script>
+</body>
+</html>

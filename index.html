@@ -331,6 +331,7 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
 .tlink.live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;margin-right:6px;vertical-align:middle;animation:livePulse 1.4s infinite}
 @keyframes livePulse{0%,100%{opacity:1}50%{opacity:.25}}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
 <body>
 <canvas id="cosmic-bg"></canvas>
@@ -630,6 +631,11 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
       <div class="audio-toggle"><div class="lab"><b>🥁 Damaru daily reminder</b><span>Authentic damaru sound</span></div><div class="sw on" id="notifSw" onclick="this.classList.toggle('on');playDamaru()"></div></div>
       <div style="height:11px"></div>
       <div class="audio-toggle" id="mondayRow"><div class="lab"><b>🌑 Mahadev Mondays</b><span>Weekly Shiva tasks · Pro</span></div><div class="sw" id="mondaySw" onclick="mondayToggle()"></div></div>
+      <h2 class="sec">Account</h2>
+      <div class="card" id="accountCard">
+        <p class="subtle" style="font-size:13.5px">Sign in to sync your progress across devices and keep it safe.</p>
+        <button class="btn" style="margin-top:12px" onclick="openAuth()">Sign in / Create account</button>
+      </div>
       <h2 class="sec">Support</h2>
       <div class="card" style="border-color:rgba(255,184,107,.35)">
         <b style="font-size:14px">🆘 Need to talk to someone?</b>
@@ -671,6 +677,26 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
       <p style="font-size:13px;color:var(--ink2);margin-top:6px">Less than a meal out. No recurring charges, ever.</p>
     </div>
     <p class="muted">Prototype — “purchase” unlocks Pro locally. Real billing routes through Google Play.</p>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="sheet-bg" id="authModal" onclick="if(event.target===this)closeAuth()">
+  <div class="sheet">
+    <div class="grab"></div>
+    <div style="text-align:center;margin-bottom:16px"><div style="font-size:38px">🔐</div>
+    <h2 style="font-size:22px;font-weight:800;margin-top:6px" id="authTitle">Sign In</h2>
+    <p class="subtle" style="font-size:13px;margin-top:4px">Sync progress across devices</p></div>
+    <div class="label" style="margin-top:0">Email</div>
+    <input class="field" id="authEmail" type="email" placeholder="your@email.com" autocomplete="email">
+    <div class="label">Password</div>
+    <input class="field" id="authPass" type="password" placeholder="Min 6 characters" autocomplete="current-password">
+    <p class="subtle" id="authError" style="color:var(--warn);font-size:12.5px;min-height:18px;margin-top:6px"></p>
+    <button class="btn" id="authBtn" onclick="doAuth()" style="width:100%;margin-top:4px">Sign In</button>
+    <p class="subtle" style="text-align:center;margin-top:14px;font-size:13px">
+      <span id="authToggleText">No account?</span>
+      <a href="#" onclick="toggleAuthMode();return false" style="color:var(--ice)" id="authToggleLink">Create one</a>
+    </p>
   </div>
 </div>
 
@@ -833,8 +859,104 @@ const PILLAR_AFFIRMATIONS={
 let S=load();
 function todayKey(){return new Date().toISOString().slice(0,10);}
 function load(){try{return Object.assign({},DEFAULT,JSON.parse(localStorage.getItem("kailasa"))||{});}catch(e){return {...DEFAULT};}}
-function save(){localStorage.setItem("kailasa",JSON.stringify(S));}
+function save(){localStorage.setItem("kailasa",JSON.stringify(S));syncToCloud();}
 function isPro(){return S.tier==="pro";}
+
+/* ===== SUPABASE CLOUD SYNC ===== */
+const SB_URL='https://pdqwvgsuhgekpkafoqki.supabase.co';
+const SB_KEY='sb_publishable_vOzCYAw2_sHzotp3a7RV6w_p_KaQ6_Q';
+const sb=window.supabase?window.supabase.createClient(SB_URL,SB_KEY):null;
+let currentUser=null;
+let _syncTO=null;
+let authMode='signin';
+
+function syncToCloud(){
+  if(!sb||!currentUser)return;
+  clearTimeout(_syncTO);
+  _syncTO=setTimeout(async function(){
+    try{await sb.from('profiles').update({
+      name:S.name,primary_goal:S.primaryGoal,mantra:S.mantra,tier:S.tier,
+      streak:S.streak,completed_days:S.courseDone||[],journal:S.journal||[],
+      count:S.count||0,onboarded:S.onboarded,updated_at:new Date().toISOString()
+    }).eq('id',currentUser.id);}catch(e){console.error('cloud sync error',e);}
+  },2000);
+}
+
+async function syncFromCloud(){
+  if(!sb||!currentUser)return;
+  try{
+    var r=await sb.from('profiles').select('*').eq('id',currentUser.id).single();
+    if(r.error||!r.data)return;var d=r.data;
+    if(d.onboarded){
+      S.name=d.name||S.name;S.primaryGoal=d.primary_goal||S.primaryGoal;
+      S.goal=PILLAR_NAMES_EN[S.primaryGoal]||S.goal;S.mantra=d.mantra||S.mantra;
+      S.tier=d.tier||S.tier;S.streak=Math.max(d.streak||0,S.streak);
+      S.count=Math.max(d.count||0,S.count);S.onboarded=true;
+      if(Array.isArray(d.completed_days)&&d.completed_days.length>0){
+        var merged=[...new Set([...(S.courseDone||[]),...d.completed_days])];
+        S.courseDone=merged.sort(function(a,b){return a-b;});
+        S.courseDay=Math.max.apply(null,S.courseDone.concat([0]))+1;
+      }
+      if(Array.isArray(d.journal)&&d.journal.length>=(S.journal||[]).length){S.journal=d.journal;}
+      localStorage.setItem("kailasa",JSON.stringify(S));
+    }else if(S.onboarded){syncToCloud();}
+  }catch(e){console.error('cloud pull error',e);}
+}
+
+async function initAuth(){
+  if(!sb)return;
+  try{
+    var r=await sb.auth.getSession();
+    if(r.data&&r.data.session){currentUser=r.data.session.user;await syncFromCloud();}
+  }catch(e){console.error('initAuth',e);}
+  sb.auth.onAuthStateChange(function(ev,session){currentUser=session?session.user:null;renderAccount();});
+}
+
+function openAuth(){document.getElementById('authModal').classList.add('on');authMode='signin';renderAuthMode();document.getElementById('authError').textContent='';}
+function closeAuth(){document.getElementById('authModal').classList.remove('on');document.getElementById('authError').textContent='';}
+function toggleAuthMode(){authMode=authMode==='signin'?'signup':'signin';renderAuthMode();}
+function renderAuthMode(){
+  document.getElementById('authTitle').textContent=authMode==='signin'?'Sign In':'Create Account';
+  document.getElementById('authBtn').textContent=authMode==='signin'?'Sign In':'Create Account';
+  document.getElementById('authToggleText').textContent=authMode==='signin'?'No account? ':'Have an account? ';
+  document.getElementById('authToggleLink').textContent=authMode==='signin'?'Create one':'Sign in';
+  document.getElementById('authBtn').disabled=false;}
+
+async function doAuth(){
+  if(!sb){toast('Offline — try again later');return;}
+  var email=document.getElementById('authEmail').value.trim();
+  var pass=document.getElementById('authPass').value;
+  var errEl=document.getElementById('authError');errEl.textContent='';
+  if(!email||!pass){errEl.textContent='Enter email and password';return;}
+  if(pass.length<6){errEl.textContent='Password must be at least 6 characters';return;}
+  document.getElementById('authBtn').disabled=true;
+  document.getElementById('authBtn').textContent='Please wait…';
+  try{var res;
+    if(authMode==='signup'){res=await sb.auth.signUp({email:email,password:pass});}
+    else{res=await sb.auth.signInWithPassword({email:email,password:pass});}
+    if(res.error)throw res.error;
+    if(authMode==='signup'&&(!res.data||!res.data.session)){
+      errEl.textContent='Check your email to confirm, then sign in.';
+      document.getElementById('authBtn').disabled=false;renderAuthMode();return;}
+    currentUser=res.data.session.user;closeAuth();
+    await syncFromCloud();renderAccount();
+    toast(authMode==='signup'?'🔱 Account created & synced':'🔱 Signed in & synced');
+    var cur=document.querySelector('.screen.on');if(cur)go(cur.id.replace('s-',''));
+  }catch(e){errEl.textContent=e.message||'Something went wrong';}
+  finally{document.getElementById('authBtn').disabled=false;renderAuthMode();}
+}
+
+async function doSignOut(){
+  if(!sb)return;await sb.auth.signOut();currentUser=null;renderAccount();toast('Signed out');}
+
+function renderAccount(){
+  var card=document.getElementById('accountCard');if(!card)return;
+  if(currentUser){
+    card.innerHTML='<div style="display:flex;align-items:center;gap:12px"><div style="font-size:28px">👤</div><div><b style="font-size:14px">'+currentUser.email+'</b><p class="subtle" style="font-size:12.5px">Progress synced to cloud ☁️</p></div></div><button class="btn ghost" style="margin-top:12px" onclick="doSignOut()">Sign out</button>';
+  }else{
+    card.innerHTML='<p class="subtle" style="font-size:13.5px">Sign in to sync your progress across devices and keep it safe.</p><button class="btn" style="margin-top:12px" onclick="openAuth()">Sign in / Create account</button>';
+  }
+}
 /* toast notifications (the #toast pill) — used app-wide */
 let _toastTO=null;
 function toast(m){var el=document.getElementById("toast");if(!el)return;el.textContent=m;el.classList.add("on");
@@ -1306,7 +1428,7 @@ const TIERDESC={bhakt:"Free — japa, Phase 1 mantras, 1 daily personalized affi
   pro:"Pro — 40-day course, all 21 mantras, 3 personalized affirmations, yoga, Mahadev Mondays & all future features. One-time purchase, yours forever."};
 var profileGoalPillar=null;
 function renderMore(){const names={bhakt:"Bhakt · Free",pro:"Pro · Unlocked ✦"};
-  document.getElementById("moreTier").textContent=names[S.tier]||names.bhakt;document.getElementById("moreTierDesc").textContent=TIERDESC[S.tier]||TIERDESC.bhakt;
+  document.getElementById("moreTier").textContent=names[S.tier]||names.bhakt;document.getElementById("moreTierDesc").textContent=TIERDESC[S.tier]||TIERDESC.bhakt;renderAccount();
   document.getElementById("moreUpgrade").style.display=isPro()?"none":"block";
   document.getElementById("mondaySw").classList.toggle("on",S.monday&&isPro());
   document.getElementById("setName").value=S.name||"";
@@ -1325,7 +1447,9 @@ function syncTier(){const c=document.getElementById("tierchip");document.getElem
 function openPaywall(){document.getElementById("paywall").classList.add("on");}
 function closePaywall(){document.getElementById("paywall").classList.remove("on");}
 function buyPro(){setTier("pro");closePaywall();playDamaru();}
-function wipe(){if(confirm("Reset all progress and data?")){localStorage.removeItem("kailasa");S={...DEFAULT};save();location.reload();}}
+function wipe(){if(confirm("Reset all progress and data?")){localStorage.removeItem("kailasa");S={...DEFAULT};
+  if(sb&&currentUser){sb.from('profiles').update({name:'',primary_goal:'dhan_samriddhi',mantra:'ons',tier:'bhakt',streak:0,completed_days:[],journal:[],count:0,onboarded:false}).eq('id',currentUser.id);}
+  save();location.reload();}}
 
 /* ===== ONBOARDING ===== */
 let onbMantra="ons";let onbGoalPillar="dhan_samriddhi";
@@ -1348,7 +1472,8 @@ function replayOnb(){S.onboarded=false;onbMantra=S.mantra;startOnb();}
 
 /* ===== INIT ===== */
 function boot(){S.chant=false;syncTier();renderJapa();renderHome();document.getElementById("brandSub").textContent=S.name?S.name+" · Manifest":"Shiva · Manifest";go("home");
-  if(!S.tipSeen){S.tipSeen=true;save();setTimeout(()=>toast("💡 Tip: 'More' tab shows how to install on your phone"),1400);}}
+  if(!S.tipSeen){S.tipSeen=true;save();setTimeout(()=>toast("💡 Tip: 'More' tab shows how to install on your phone"),1400);}
+  initAuth().then(function(){renderAccount();if(S.onboarded){syncTier();renderHome();}});}
 (function init(){
   /* migration: sadhu/mahayogi → pro */
   if(S.tier==="sadhu"||S.tier==="mahayogi"){S.tier="pro";save();}

@@ -1,0 +1,8 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+        "namespace": "android_app",
+        "package_name": "com.kailasa.shiva",
+        "sha256_cert_fingerprints": ["58:5C:D2:28:5A:B3:5A:57:5F:01:2D:A2:B2:BE:BF:7B:4D:34:6A:95:DB:45:64:37:07:65:E8:EE:7C:97:CC:28"]
+    }
+}]

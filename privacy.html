@@ -38,12 +38,13 @@ li{margin-bottom:6px}
 <p>Kailāsa is a spiritual wellness app built around Shiva bhakti. It offers japa mala counting, a 40-day manifestation course, daily affirmations, mantras, guided breathing, journaling, and virtual pooja — all within a single self-contained progressive web app.</p>
 
 <h2>Data we collect</h2>
-<p>Kailāsa stores your data locally on your device using your browser's localStorage. This includes your name, chosen manifestation goal, mantra preference, course progress, streak count, journal entries, and Pro status. This data never leaves your device.</p>
-<p>We do not collect, transmit, or store any personal data on external servers. There is no account creation, no email collection, no analytics tracking, no advertising, and no third-party SDKs embedded in the app.</p>
+<p>Kailāsa stores your data locally on your device using your browser's localStorage. This includes your name, chosen manifestation goal, mantra preference, course progress, streak count, journal entries, and Pro status.</p>
+<p>If you choose to create an account, your email address and the data listed above are also stored on our cloud database (hosted by Supabase in the Mumbai region) to enable cross-device sync. Account creation is entirely optional — the app works fully without it.</p>
+<p>We do not use analytics tracking, advertising, or third-party SDKs beyond our cloud database provider.</p>
 
 <h2>Data we do not collect</h2>
 <ul>
-  <li>Email address, phone number, or government ID</li>
+  <li>Phone number or government ID</li>
   <li>Location data</li>
   <li>Contacts, photos, or files</li>
   <li>Device identifiers or advertising IDs</li>
@@ -58,7 +59,10 @@ li{margin-bottom:6px}
 <p>If you purchase Kailāsa Pro through the Google Play Store, payment processing is handled entirely by Google. We do not see or store your payment details. Google's handling of your data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
 
 <h2>Journal entries</h2>
-<p>Your Sankalpa Journal entries are stored only in your browser's local storage on your device. They are never transmitted to any server. If you clear your browser data or use the "Reset all data" option in the app, your journal entries will be permanently deleted.</p>
+<p>Your Sankalpa Journal entries are stored in your browser's local storage. If you have an account, they are also synced to our cloud database. If you clear your browser data or use the "Reset all data" option in the app, your journal entries will be permanently deleted from both your device and the cloud.</p>
+
+<h2>Cloud data storage</h2>
+<p>If you create an account, your profile and progress data are stored on Supabase servers in the Mumbai (ap-south-1) region. Your password is hashed and never stored in plain text. We do not share your data with any third parties. Supabase's handling of infrastructure security is governed by <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase's Privacy Policy</a>.</p>
 
 <h2>Children's privacy</h2>
 <p>Kailāsa is not directed at children under the age of 13. We do not knowingly collect any personal information from children.</p>
@@ -67,7 +71,7 @@ li{margin-bottom:6px}
 <p>Kailāsa is a spiritual practice companion and is not a substitute for professional mental health support. If you are experiencing a mental health crisis, please contact Tele-MANAS at <a href="tel:14416">14416</a> (India's free, confidential, 24/7 mental health helpline) or your local emergency services.</p>
 
 <h2>Data deletion</h2>
-<p>You can delete all your data at any time by opening the app, going to More, and tapping "Reset all data." Since all data is stored locally on your device, this permanently removes everything. There is no server-side data to request deletion of.</p>
+<p>You can delete all your data at any time by opening the app, going to More, and tapping "Reset all data." This removes your local data and, if you are signed in, also clears your cloud profile. To delete your account entirely, contact us at the email below.</p>
 
 <h2>Changes to this policy</h2>
 <p>If we update this privacy policy, the revised version will be posted here with an updated date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>

@@ -179,10 +179,10 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
 .aff-pillar .ap-eng{font-size:11px;color:var(--ink3);letter-spacing:1.2px;text-transform:uppercase;margin-top:2px}
 
 /* ===== onboarding ===== */
-#onb{position:fixed;inset:0;z-index:100;display:none;flex-direction:column;padding:calc(var(--safe-t) + 30px) 26px calc(var(--safe-b) + 26px);
+#onb{position:fixed;inset:0;z-index:100;display:none;flex-direction:column;overflow:hidden;padding:calc(var(--safe-t) + 30px) 26px calc(var(--safe-b) + 26px);
   background:radial-gradient(900px 500px at 70% 0%,rgba(139,156,255,.22),transparent 60%),linear-gradient(180deg,#0a1421,#060a11)}
 #onb.on{display:flex}
-.onb-step{display:none;flex:1;flex-direction:column;animation:fade .4s}
+.onb-step{display:none;flex:1;flex-direction:column;min-height:0;animation:fade .4s}
 .onb-step.on{display:flex}
 .onb-logo{width:78px;height:78px;border-radius:24px;background:var(--grad);display:grid;place-items:center;font-size:40px;margin:0 auto 26px;box-shadow:0 14px 40px rgba(106,214,232,.4)}
 .onb-step h2{font-size:28px;font-weight:800;letter-spacing:-.5px;line-height:1.2;text-align:center}
@@ -360,7 +360,7 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
   </div>
   <!-- step 2: name + goal pillar -->
   <div class="onb-step" id="onb2">
-    <div style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:12px">
+    <div style="flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:12px">
       <div style="text-align:center;font-size:32px;margin-bottom:16px">🪷</div>
       <h2 style="font-size:22px;text-align:center">What shall we call you?</h2>
       <div class="label">Your name</div>
@@ -369,8 +369,8 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
       <p class="muted" style="text-align:left;margin-top:2px;margin-bottom:4px">Pick your goal. Affirmations are personalized to it.</p>
       <div class="goal-grid" id="onbGoalGrid"></div>
     </div>
-    <div class="dots"><i></i><i class="on"></i><i></i></div>
-    <div class="row"><button class="btn ghost" style="flex:.5" onclick="onbGo(1)">Back</button><button class="btn" id="onbStep2Btn" onclick="onbGo(3)">Continue</button></div>
+    <div class="dots" style="flex-shrink:0"><i></i><i class="on"></i><i></i></div>
+    <div class="row" style="flex-shrink:0"><button class="btn ghost" style="flex:.5" onclick="onbGo(1)">Back</button><button class="btn" id="onbStep2Btn" onclick="onbGo(3)">Continue</button></div>
   </div>
   <!-- step 3: mantra -->
   <div class="onb-step" id="onb3">

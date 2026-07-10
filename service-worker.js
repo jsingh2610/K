@@ -1,9 +1,9 @@
-/*  Kailāsa · Service Worker v7
+/*  Kailāsa · Service Worker v8
     - network-first for HTML (always fresh)
     - cache-first for static assets (fast offline)
     - auto-update: new SW activates immediately, old caches purged  */
 
-const CACHE = 'kailasa-v7';
+const CACHE = 'kailasa-v8';
 const ASSETS = [
   './',
   './index.html',

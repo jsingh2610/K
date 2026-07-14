@@ -435,7 +435,7 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
       <div class="grid">
         <div class="tile free" onclick="go('japa')"><div class="ic">📿</div><h3>Japa Mala</h3><p>108-bead counter, haptic</p><div class="lock">Open</div></div>
         <div class="tile free" onclick="go('affirm')"><div class="ic">🪷</div><h3>Affirmations</h3><p>Personalized daily</p><div class="lock">Open</div></div>
-        <div class="tile" onclick="go('course')"><div class="ic">🏔️</div><h3>40-Day Path</h3><p>Self-mastery sadhana</p><div class="lock" id="courseLock">Pro</div></div>
+        <div class="tile" onclick="go('course')"><div class="ic">🏔️</div><h3>40-Day Path</h3><p>Self-mastery sadhana</p><div class="lock" id="courseLock">Sadhu</div></div>
         <div class="tile free" onclick="go('journal')"><div class="ic">📖</div><h3>Sankalpa Journal</h3><p>Track your manifestations</p><div class="lock">Open</div></div>
         <div class="tile free" onclick="go('mantras')"><div class="ic">🕉️</div><h3>Sacred Mantras</h3><p>Phase 1 free · 21 total</p><div class="lock">Open</div></div>
         <div class="tile free" onclick="go('yoga')"><div class="ic">🧘</div><h3>Yoga & Pranayama</h3><p>Asana & breath</p><div class="lock">Open</div></div>
@@ -603,7 +603,7 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
         <div style="font-size:13px;color:var(--ink3);letter-spacing:.5px">CURRENT PLAN</div>
         <div style="font-size:22px;font-weight:800;margin-top:4px" id="moreTier">Bhakt · Free</div>
         <p class="subtle" style="font-size:13px;margin-top:6px" id="moreTierDesc"></p>
-        <button class="btn gold" style="margin-top:14px" id="moreUpgrade" onclick="openPaywall()">Unlock Pro · ₹499</button>
+        <button class="btn gold" style="margin-top:14px" id="moreUpgrade" onclick="openPaywall()">Unlock Sadhu · ₹499</button>
       </div>
       <h2 class="sec">📲 Put this on your home screen</h2>
       <div class="card">
@@ -629,8 +629,8 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
       </div>
       <h2 class="sec">Notifications</h2>
       <div class="audio-toggle"><div class="lab"><b>🥁 Damaru daily reminder</b><span>Authentic damaru sound</span></div><div class="sw on" id="notifSw" onclick="this.classList.toggle('on');playDamaru()"></div></div>
-      <div style="height:11px"></div>
-      <div class="audio-toggle" id="mondayRow"><div class="lab"><b>🌑 Mahadev Mondays</b><span>Weekly Shiva tasks · Pro</span></div><div class="sw" id="mondaySw" onclick="mondayToggle()"></div></div>
+      <h2 class="sec">Daily Sacred Ritual</h2>
+      <div class="card" id="ritualCard"></div>
       <h2 class="sec">Account</h2>
       <div class="card" id="accountCard">
         <p class="subtle" style="font-size:13.5px">Sign in to sync your progress across devices and keep it safe.</p>
@@ -669,14 +669,14 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
       <div class="f"><div class="fi">✨</div><div><b>Personalized affirmations</b><p>3 affirmations daily, tuned to your Sankalpa</p></div></div>
       <div class="f"><div class="fi">🧘</div><div><b>Yoga & pranayama library</b><p>Asanas & breathwork for each phase of your journey</p></div></div>
       <div class="f"><div class="fi">🕉️</div><div><b>Full 21-mantra protocol</b><p>Unlocks Phases 2–4: Wealth, Vitality & Home</p></div></div>
-      <div class="f"><div class="fi">🌑</div><div><b>Mahadev Mondays + all future features</b><p>Weekly tasks & everything we ship, forever</p></div></div>
+      <div class="f"><div class="fi">📿</div><div><b>Daily Sacred Rituals + all future features</b><p>Weekly deity rituals & everything we ship, forever</p></div></div>
     </div>
     <div class="plan best" onclick="buyPro()" style="text-align:center;cursor:pointer">
       <div class="badge">One-time · yours forever</div>
       <div style="margin-top:8px"><span class="pr" style="font-size:28px;font-weight:800">₹499</span></div>
       <p style="font-size:13px;color:var(--ink2);margin-top:6px">Less than a meal out. No recurring charges, ever.</p>
     </div>
-    <p class="muted">Prototype — “purchase” unlocks Pro locally. Real billing routes through Google Play.</p>
+    <p class="muted">Prototype — “purchase” unlocks Sadhu locally. Real billing routes through Google Play.</p>
   </div>
 </div>
 
@@ -1027,10 +1027,10 @@ function renderAffirm(){var d=new Date();document.getElementById("affDate").text
     `<div class="aff"><span class="tag">Today's Affirmation</span><div class="q">\u201C${esc(pool[idx])}\u201D</div></div>`;
   var pro=document.getElementById("affPro");
   if(isPro()){var idx2=(idx+1)%pool.length;var idx3=(idx+2)%pool.length;
-    pro.innerHTML=`<div class="aff" style="margin-top:13px"><span class="tag" style="color:var(--violet)">✦ Pro Affirmation 2</span><div class="q">\u201C${esc(pool[idx2])}\u201D</div></div>`+
-      `<div class="aff" style="margin-top:13px"><span class="tag" style="color:var(--violet)">✦ Pro Affirmation 3</span><div class="q">\u201C${esc(pool[idx3])}\u201D</div></div>`+
+    pro.innerHTML=`<div class="aff" style="margin-top:13px"><span class="tag" style="color:var(--violet)">✦ Sadhu Affirmation 2</span><div class="q">\u201C${esc(pool[idx2])}\u201D</div></div>`+
+      `<div class="aff" style="margin-top:13px"><span class="tag" style="color:var(--violet)">✦ Sadhu Affirmation 3</span><div class="q">\u201C${esc(pool[idx3])}\u201D</div></div>`+
       `<div class="card" style="margin-top:14px;cursor:pointer" onclick="go('more')"><div style="display:flex;align-items:center;gap:10px"><div style="font-size:22px">🎯</div><div><b style="font-size:14px">Change your Sankalpa</b><p class="subtle" style="font-size:12px">Update your goal in Profile to refresh affirmations.</p></div></div></div>`;}
-  else{pro.innerHTML=`<div class="card glass" style="margin-top:20px;text-align:center"><div style="font-size:30px">✨</div><b style="font-size:16px;display:block;margin:8px 0 4px">Get 2 more daily affirmations</b><p class="subtle" style="font-size:13px">Pro unlocks 3 personalized affirmations daily from your ${enName} pillar.</p><button class="btn gold" style="margin-top:14px" onclick="openPaywall()">Unlock with Pro</button></div>`;}}
+  else{pro.innerHTML=`<div class="card glass" style="margin-top:20px;text-align:center"><div style="font-size:30px">✨</div><b style="font-size:16px;display:block;margin:8px 0 4px">Get 2 more daily affirmations</b><p class="subtle" style="font-size:13px">Sadhu unlocks 3 personalized affirmations daily from your ${enName} pillar.</p><button class="btn gold" style="margin-top:14px" onclick="openPaywall()">Unlock with Sadhu</button></div>`;}}
 
 /* ===== 40-DAY COURSE CONTENT ===== */
 const PHASES=[
@@ -1200,15 +1200,15 @@ function toggleVidhi(){const b=document.getElementById("vidhiBody");const open=b
   b.style.display=open?"none":"block";document.getElementById("vidhiChevron").style.transform=open?"":"rotate(90deg)";}
 function renderMantras(){const done=S.mantraDoneToday||[];const pro=isPro();
   let html=`<div class="card glass" style="text-align:center"><b style="font-size:16px">${done.length} / ${MANTRA_PROTOCOL.length} mantras done today</b><p class="subtle" style="font-size:12.5px;margin-top:4px">Full protocol · ~45 minutes across 4 phases</p></div>`;
-  if(!pro)html+=`<div class="card" style="margin-top:14px;text-align:center"><div style="font-size:24px">🔱</div><b style="font-size:14.5px;display:block;margin:6px 0 3px">Phase 1 is free forever</b><p class="subtle" style="font-size:12.5px">Unlock Phases 2–4 — Wealth, Vitality & Home & Spaces — with Pro.</p><button class="btn gold" style="margin-top:12px" onclick="openPaywall()">Unlock with Pro</button></div>`;
+  if(!pro)html+=`<div class="card" style="margin-top:14px;text-align:center"><div style="font-size:24px">🔱</div><b style="font-size:14.5px;display:block;margin:6px 0 3px">Phase 1 is free forever</b><p class="subtle" style="font-size:12.5px">Unlock Phases 2–4 — Wealth, Vitality & Home & Spaces — with Sadhu.</p><button class="btn gold" style="margin-top:12px" onclick="openPaywall()">Unlock with Sadhu</button></div>`;
   MANTRA_PHASES.forEach(ph=>{const locked=ph.n>1&&!pro;
-    html+=`<h2 class="sec">Phase ${ph.n} · ${ph.name} <span style="opacity:.55;font-weight:400;text-transform:none;letter-spacing:0"> — ${ph.dur}</span>${locked?' <span style="color:var(--gold)">🔒 Pro</span>':''}</h2>
+    html+=`<h2 class="sec">Phase ${ph.n} · ${ph.name} <span style="opacity:.55;font-weight:400;text-transform:none;letter-spacing:0"> — ${ph.dur}</span>${locked?' <span style="color:var(--gold)">🔒 Sadhu</span>':''}</h2>
       <p class="subtle" style="font-size:12.5px;margin:-6px 2px 12px">${ph.focus}</p>`;
     MANTRA_PROTOCOL.filter(m=>m.phase===ph.n).forEach(m=>{const c=mCount(m.id),isDone=done.includes(m.id);
       html+=`<div class="track" onclick="${locked?'openPaywall()':`openMCounter('${m.id}')`}">
         <div class="pp" style="font-weight:800">${locked?'🔒':isDone?'✓':m.id}</div>
         <div class="ti"><b${locked?' class="mblur"':''}>${m.n}${m.sub?' <span style="font-weight:400;color:var(--ink3)">· '+m.sub+'</span>':''}</b><div${locked?' class="mblur"':''} style="font-size:13px;color:var(--ice);margin:2px 0 1px">${m.sk}</div><span>${m.target}</span></div>
-        <div class="locktag" style="font-size:12.5px;opacity:.85;font-weight:700">${locked?'Pro':c+'/'+m.count}</div>
+        <div class="locktag" style="font-size:12.5px;opacity:.85;font-weight:700">${locked?'Sadhu':c+'/'+m.count}</div>
       </div>`;});
   });
   document.getElementById("mantraBody").innerHTML=html;}
@@ -1254,7 +1254,7 @@ function renderYoga(){const b=document.getElementById("yogaBody");
   if(isPro()){b.innerHTML=free+`<h2 class="sec">Personalized for you</h2><div class="grid">
     ${[["Padmasana","Lotus seat — stable base for long sittings","Padmasana lotus pose"],["Bhramari","Bee breath — calms the nervous system","Bhramari pranayama bee breath"],["Kapalabhati","Skull-shine — energizing breath of fire","Kapalabhati pranayama skull shining breath"],["Shavasana","Deep rest — integration & visualization","Shavasana corpse pose relaxation"]].map(x=>`<div class="tile" onclick="window.open('${ytUrl(x[2])}','_blank')"><div class="ic">🌀</div><h3>${x[0]}</h3><p>${x[1]}</p><div class="lock free">▶ Watch</div></div>`).join("")}
     </div><p class="muted">Asanas & pranayama adapt to your level as you progress.</p>`;}
-  else{b.innerHTML=free+`<div class="card" style="margin-top:18px;text-align:center"><div style="font-size:28px">🧘</div><b style="font-size:15px;display:block;margin:6px 0">Personalized asana & pranayama</b><p class="subtle" style="font-size:13px">Pro tailors postures and breathwork to your exact level.</p><button class="btn gold" style="margin-top:13px" onclick="openPaywall()">Unlock with Pro</button></div>`;}}
+  else{b.innerHTML=free+`<div class="card" style="margin-top:18px;text-align:center"><div style="font-size:28px">🧘</div><b style="font-size:15px;display:block;margin:6px 0">Personalized asana & pranayama</b><p class="subtle" style="font-size:13px">Sadhu unlocks postures and breathwork to your exact level.</p><button class="btn gold" style="margin-top:13px" onclick="openPaywall()">Unlock with Sadhu</button></div>`;}}
 let breathT=null,breathCD=null;
 const BREATH_SECS=120;
 function breathTimerEl(){return document.getElementById("breathTimer");}
@@ -1307,7 +1307,7 @@ function renderDarshan(){
 /* ===== VIRTUAL POOJA (abhishekam) ===== */
 const OFFERINGS=[
   {id:"jal",n:"Jal",sub:"Gangājal",ic:"💧",color:"#bfe9ff",type:"liquid",free:true,mean:"Gangājal abhishek — cooling Mahādev's tej and washing away all impurity. Om Namah Shivaya."},
-  {id:"doodh",n:"Doodh",sub:"Milk",ic:"🥛",color:"#f4f8ff",type:"liquid",free:false,mean:"Dugdha abhishek — milk of the Panchāmrit, for purity and nourishment."},
+  {id:"doodh",n:"Doodh",sub:"Milk",ic:"🥛",color:"#f4f8ff",type:"liquid",free:true,mean:"Dugdha abhishek — milk of the Panchāmrit, for purity and nourishment."},
   {id:"madhu",n:"Madhu",sub:"Honey",ic:"🍯",color:"#f3c969",type:"liquid",free:false,mean:"Madhu abhishek — honey, the sweetness of pure devotion."},
   {id:"chandan",n:"Chandan",sub:"Tripundra",ic:"🟡",color:"#e8c87a",type:"paste",free:false,mean:"Chandan tripundra — the three sacred lines drawn upon Lord Shiva."},
   {id:"bilva",n:"Bilva",sub:"Bel patra",ic:"☘️",color:"#7fd99b",type:"leaf",free:false,mean:"Bilva patra — Mahādev's most beloved leaf; its three leaflets are His three eyes."},
@@ -1323,8 +1323,8 @@ function renderPooja(){
     return `<div class="offer ${done?'done':''} ${locked?'locked':''}" id="off-${o.id}" onclick="offer('${o.id}')"><span class="tick">✓</span>${locked?'<span class="prolock">🔒</span>':''}<div class="oic">${o.ic}</div><b>${o.n}</b><span>${o.sub}</span></div>`;}).join("");
   const tri=document.getElementById("triGroup");if(tri)tri.style.opacity=S.poojaToday.includes("chandan")?"1":"0";
   const note=document.getElementById("poojaNote");
-  if(note)note.textContent=pro?"Offer in the sacred order, then complete the aarti. Om Namah Shivaya 🔱":"Jal abhishek is free for all. Milk, honey, chandan, bilva, flowers & the aarti await with Pro.";
-  const ab=document.getElementById("aartiBtn");if(ab)ab.textContent=pro?"🪔 Complete the Aarti":"🔒 Complete the Aarti · Pro";
+  if(note)note.textContent=pro?"Offer in the sacred order, then complete the aarti. Om Namah Shivaya 🔱":"Jal & doodh abhishek are free for all. Honey, chandan, bilva, flowers & the aarti await with Sadhu.";
+  const ab=document.getElementById("aartiBtn");if(ab)ab.textContent=pro?"🪔 Complete the Aarti":"🔒 Complete the Aarti · Sadhu";
   poojaStatus();}
 function poojaStatus(){const n=S.poojaToday.length;
   document.getElementById("offerStatus").textContent=`${n} of ${OFFERINGS.length} offerings made`+(S.poojaCount?` · ${S.poojaCount} pooja${S.poojaCount>1?'s':''} completed`:"");
@@ -1425,12 +1425,12 @@ function renderHome(){document.getElementById("homeRounds").textContent=S.rounds
     hr<5?"The brahma muhurta is the most sacred hour for sadhana.":hr<12?"A still morning mind manifests the clearest intentions.":
     hr<17?"Pause. One conscious breath returns you to center.":hr<21?"As the day dissolves, offer your practice to Mahadev.":"Night is Shiva's hour — let stillness guide your manifestation.";}
 const TIERDESC={bhakt:"Free — japa, Phase 1 mantras, 1 daily personalized affirmation, journal & pooja.",
-  pro:"Pro — 40-day course, all 21 mantras, 3 personalized affirmations, yoga, Mahadev Mondays & all future features. One-time purchase, yours forever."};
+  pro:"Sadhu — 40-day course, all 21 mantras, 3 personalized affirmations, yoga, Daily Sacred Rituals & all future features. One-time purchase, yours forever."};
 var profileGoalPillar=null;
-function renderMore(){const names={bhakt:"Bhakt · Free",pro:"Pro · Unlocked ✦"};
+function renderMore(){const names={bhakt:"Bhakt · Free",pro:"Sadhu · Unlocked ✦"};
   document.getElementById("moreTier").textContent=names[S.tier]||names.bhakt;document.getElementById("moreTierDesc").textContent=TIERDESC[S.tier]||TIERDESC.bhakt;renderAccount();
   document.getElementById("moreUpgrade").style.display=isPro()?"none":"block";
-  document.getElementById("mondaySw").classList.toggle("on",S.monday&&isPro());
+  renderDailyRitual();
   document.getElementById("setName").value=S.name||"";
   profileGoalPillar=S.primaryGoal||"dhan_samriddhi";
   buildGoalGrid("profileGoalGrid",profileGoalPillar,function(k){profileGoalPillar=k;});
@@ -1438,12 +1438,37 @@ function renderMore(){const names={bhakt:"Bhakt · Free",pro:"Pro · Unlocked �
 function saveProfile(){S.name=document.getElementById("setName").value.trim();
   if(profileGoalPillar){S.primaryGoal=profileGoalPillar;S.goal=PILLAR_NAMES_EN[profileGoalPillar]||"";}
   save();document.getElementById("brandSub").textContent=S.name?S.name+" · Manifest":"Shiva · Manifest";renderHome();renderJapa();toast("✅ Profile saved · Affirmations updated");}
-function mondayToggle(){if(!isPro()){openPaywall();return;}S.monday=!S.monday;document.getElementById("mondaySw").classList.toggle("on",S.monday);save();toast(S.monday?"🌑 Mahadev Mondays on":"Off");}
-function setTier(t){S.tier=t;save();syncTier();toast(t==="bhakt"?"Switched to Bhakt (Free)":"✦ Pro unlocked — yours forever");
+function renderDailyRitual(){
+  var card=document.getElementById("ritualCard");if(!card)return;
+  var RITUALS=[
+    {day:1,name:"Milk Abhishek",icon:"🥛",desc:"Pour milk on a Shivling — at your nearest temple or at home.",deity:"Lord Shiva"},
+    {day:2,name:"Light a Diya",icon:"🪔",desc:"Light a diya at a Hanuman temple or before His image.",deity:"Hanuman Ji"},
+    {day:3,name:"Tulsi in Wallet",icon:"🌿",desc:"Place 5 fresh tulsi leaves in your wallet for prosperity.",deity:"Tulsi Devi"},
+    {day:4,name:"Donate Yellow Dal",icon:"🫘",desc:"Donate yellow dal (moong or chana) to someone in need.",deity:"Brihaspati Dev"},
+    {day:5,name:"Ghee Diya",icon:"🪔",desc:"Light a ghee diya in the evening for Lakshmi Ji.",deity:"Lakshmi Ji"},
+    {day:6,name:"Mustard Oil Offering",icon:"🛢️",desc:"Offer mustard oil at a Shani temple or light a mustard oil lamp.",deity:"Shani Dev"},
+    {day:0,name:"Water to Surya Dev",icon:"☀️",desc:"Offer water to the rising sun while chanting Om Suryaya Namaha.",deity:"Surya Dev"}
+  ];
+  var today=new Date().getDay();
+  var ritual=RITUALS.find(function(r){return r.day===today;});
+  if(!isPro()){
+    card.innerHTML='<div style="display:flex;align-items:center;gap:14px"><div style="font-size:30px">📿</div><div style="flex:1"><b style="font-size:15px">Weekly Deity Rituals</b><p class="subtle" style="font-size:12.5px">7 sacred rituals — one for each day. A Sadhu feature.</p></div></div><button class="btn gold" style="margin-top:13px" onclick="openPaywall()">Unlock with Sadhu</button>';
+    return;}
+  var days=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  var dayNames=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  var html='<div style="display:flex;align-items:center;gap:14px;margin-bottom:14px"><div style="font-size:34px">'+ritual.icon+'</div><div><div style="font-size:11px;letter-spacing:1.2px;color:var(--gold);font-weight:700;text-transform:uppercase">'+dayNames[today]+' \u00b7 '+ritual.deity+'</div><b style="font-size:18px;display:block;margin-top:3px">'+ritual.name+'</b><p class="subtle" style="font-size:13px;margin-top:4px">'+ritual.desc+'</p></div></div>';
+  html+='<div style="display:flex;gap:6px;margin-top:6px">';
+  [1,2,3,4,5,6,0].forEach(function(d){
+    var r=RITUALS.find(function(x){return x.day===d;});var isToday=d===today;
+    html+='<div style="flex:1;text-align:center;padding:8px 2px;border-radius:12px;font-size:10px;font-weight:700;'+(isToday?'background:var(--grad-soft);border:1px solid rgba(232,200,122,.4);color:var(--gold)':'border:1px solid var(--line);color:var(--ink3)')+'"><div style="font-size:15px;margin-bottom:2px">'+r.icon+'</div>'+days[d]+'</div>';
+  });
+  html+='</div>';
+  card.innerHTML=html;}
+function setTier(t){S.tier=t;save();syncTier();toast(t==="bhakt"?"Switched to Bhakt (Free)":"✦ Sadhu unlocked — yours forever");
   const cur=document.querySelector(".screen.on").id.replace("s-","");go(cur);}
-function syncTier(){const c=document.getElementById("tierchip");document.getElementById("tiername").textContent=isPro()?"Pro":"Bhakt";
-  c.classList.toggle("pro",isPro());document.getElementById("courseLock").textContent=isPro()?"Open":"Pro";
-  const u=document.getElementById("upsellHome");u.innerHTML=isPro()?"":`<div class="card glass" style="margin-top:22px;text-align:center"><div style="font-size:28px">🔱</div><b style="font-size:16px;display:block;margin:7px 0 3px">Unlock the full path</b><p class="subtle" style="font-size:13px">40-day course, 3 daily affirmations, all mantras & more. One-time ₹499.</p><button class="btn gold" style="margin-top:13px" onclick="openPaywall()">Unlock Pro · ₹499</button></div>`;}
+function syncTier(){const c=document.getElementById("tierchip");document.getElementById("tiername").textContent=isPro()?"Sadhu":"Bhakt";
+  c.classList.toggle("pro",isPro());document.getElementById("courseLock").textContent=isPro()?"Open":"Sadhu";
+  const u=document.getElementById("upsellHome");u.innerHTML=isPro()?"":`<div class="card glass" style="margin-top:22px;text-align:center"><div style="font-size:28px">🔱</div><b style="font-size:16px;display:block;margin:7px 0 3px">Unlock the full path</b><p class="subtle" style="font-size:13px">40-day course, 3 daily affirmations, all mantras & more. One-time ₹499.</p><button class="btn gold" style="margin-top:13px" onclick="openPaywall()">Unlock Sadhu · ₹499</button></div>`;}
 function openPaywall(){document.getElementById("paywall").classList.add("on");}
 function closePaywall(){document.getElementById("paywall").classList.remove("on");}
 function buyPro(){setTier("pro");closePaywall();playDamaru();}

@@ -1,5 +1,5 @@
-// Kailāsa Service Worker · v8 (Sadhu + Weekly Rituals release)
-const CACHE_NAME = 'kailasa-v8';
+// Kailasa Service Worker · v9 (Streak badges release)
+const CACHE_NAME = 'kailasa-v9';
 const ASSETS = [
   './',
   './index.html',

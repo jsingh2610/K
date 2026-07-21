@@ -945,10 +945,29 @@ function syncToCloud(){
   clearTimeout(_syncTO);
   _syncTO=setTimeout(async function(){
     try{await sb.from('profiles').update({
-      name:S.name,primary_goal:S.primaryGoal,mantra:S.mantra,tier:S.tier,
-      streak:S.streak,completed_days:S.courseDone||[],journal:S.journal||[],
-      count:S.count||0,onboarded:S.onboarded,updated_at:new Date().toISOString()
-    }).eq('id',currentUser.id);}catch(e){/* non-critical — data safe in localStorage */}
+      name:S.name,
+      primary_goal:S.primaryGoal,
+      mantra:S.mantra,
+      tier:S.tier,
+      streak:S.streak,
+      completed_days:S.courseDone||[],
+      journal:S.journal||[],
+      count:S.count||0,
+      onboarded:S.onboarded,
+      rounds:S.rounds||0,
+      total:S.total||0,
+      best_streak:S.bestStreak||1,
+      pooja_count:S.poojaCount||0,
+      course_day:S.courseDay||1,
+      badges_earned:S.badgesEarned||[],
+      badge_seen:S.badgeSeen||[],
+      mantra_count:S.mantraCount||{},
+      last_day:S.lastDay||null,
+      pooja_today:S.poojaToday||[],
+      mantra_done_today:S.mantraDoneToday||[],
+      tip_seen:!!S.tipSeen,
+      updated_at:new Date().toISOString()
+    }).eq('id',currentUser.id);}catch(e){/* offline — localStorage is safe */}
   },2000);
 }
 
@@ -956,20 +975,54 @@ async function syncFromCloud(){
   if(!sb||!currentUser)return;
   try{
     var r=await sb.from('profiles').select('*').eq('id',currentUser.id).single();
-    if(r.error||!r.data)return;var d=r.data;
+    if(r.error||!r.data)return;
+    var d=r.data;
+
     if(d.onboarded){
-      S.name=d.name||S.name;S.primaryGoal=d.primary_goal||S.primaryGoal;
-      S.goal=PILLAR_NAMES_EN[S.primaryGoal]||S.goal;S.mantra=d.mantra||S.mantra;
-      S.tier=d.tier||S.tier;S.streak=Math.max(d.streak||0,S.streak);
-      S.count=Math.max(d.count||0,S.count);S.onboarded=true;
-      if(Array.isArray(d.completed_days)&&d.completed_days.length>0){
-        var merged=[...new Set([...(S.courseDone||[]),...d.completed_days])];
-        S.courseDone=merged.sort(function(a,b){return a-b;});
-        S.courseDay=Math.max.apply(null,S.courseDone.concat([0]))+1;
+      S.name=d.name||S.name;
+      S.primaryGoal=d.primary_goal||S.primaryGoal;
+      S.goal=PILLAR_NAMES_EN[S.primaryGoal]||S.goal;
+      S.mantra=d.mantra||S.mantra;
+      S.onboarded=true;
+
+      S.tier=d.tier||S.tier;
+
+      S.streak=Math.max(d.streak||0,S.streak||0);
+      S.count=Math.max(d.count||0,S.count||0);
+      S.rounds=Math.max(d.rounds||0,S.rounds||0);
+      S.total=Math.max(d.total||0,S.total||0);
+      S.bestStreak=Math.max(d.best_streak||1,S.bestStreak||1);
+      S.poojaCount=Math.max(d.pooja_count||0,S.poojaCount||0);
+      S.courseDay=Math.max(d.course_day||1,S.courseDay||1);
+
+      S.tipSeen=d.tip_seen||S.tipSeen;
+      S.lastDay=S.lastDay||d.last_day;
+
+      S.courseDone=[...new Set([...(S.courseDone||[]),...(d.completed_days||[])])].sort(function(a,b){return a-b;});
+      S.badgesEarned=[...new Set([...(S.badgesEarned||[]),...(d.badges_earned||[])])];
+      S.badgeSeen=[...new Set([...(S.badgeSeen||[]),...(d.badge_seen||[])])];
+
+      if(S.lastDay&&S.lastDay===d.last_day){
+        S.poojaToday=[...new Set([...(S.poojaToday||[]),...(d.pooja_today||[])])];
+        S.mantraDoneToday=[...new Set([...(S.mantraDoneToday||[]),...(d.mantra_done_today||[])])];
       }
-      if(Array.isArray(d.journal)&&d.journal.length>=(S.journal||[]).length){S.journal=d.journal;}
+
+      var mc=d.mantra_count||{};
+      S.mantraCount=S.mantraCount||{};
+      Object.keys(mc).forEach(function(k){
+        S.mantraCount[k]=Math.max(mc[k]||0,S.mantraCount[k]||0);
+      });
+      Object.keys(S.mantraCount).forEach(function(k){
+        if(!(k in mc))mc[k]=S.mantraCount[k];
+      });
+
+      S.journal=mergeJournals(S.journal||[],d.journal||[]);
+
       localStorage.setItem("kailasa",JSON.stringify(S));
-    }else if(S.onboarded){syncToCloud();}
+
+    }else if(S.onboarded){
+      syncToCloud();
+    }
   }catch(e){console.error('cloud pull error',e);}
 }
 
@@ -977,9 +1030,16 @@ async function initAuth(){
   if(!sb)return;
   try{
     var r=await sb.auth.getSession();
-    if(r.data&&r.data.session){currentUser=r.data.session.user;await syncFromCloud();}
+    if(r.data&&r.data.session){
+      currentUser=r.data.session.user;
+      await syncFromCloud();
+      restorePurchases();
+    }
   }catch(e){console.error('initAuth',e);}
-  sb.auth.onAuthStateChange(function(ev,session){currentUser=session?session.user:null;renderAccount();});
+  sb.auth.onAuthStateChange(function(ev,session){
+    currentUser=session?session.user:null;
+    renderAccount();
+  });
 }
 
 function openAuth(){document.getElementById('authModal').classList.add('on');authMode='signin';renderAuthMode();document.getElementById('authError').textContent='';}
@@ -1247,12 +1307,45 @@ function renderJournal(){const mr=document.getElementById("moodRow");
   mr.innerHTML=MOODS.map((m,i)=>`<div class="mood ${i===selMood?'sel':''}" onclick="selMood=${i};renderJournal()">${m}</div>`).join("");
   const list=document.getElementById("journalList");
   list.innerHTML=S.journal.length?S.journal.map(e=>`<div class="jentry"><div class="jh"><span class="je">${e.m}</span><span class="jd">${e.d}</span></div>${e.t?`<div class="jt">${esc(e.t)}</div>`:""}${e.g?`<div class="jg">🙏 ${esc(e.g)}</div>`:""}</div>`).join("")
-    :`<div class="empty">No reflections yet.<br>Your manifestation journey starts with one honest line.</div>`;}
-function addJournal(){const t=document.getElementById("jText").value.trim(),g=document.getElementById("jGrat").value.trim();
+    :`<div class="empty">No reflections yet.<br>Your manifestation journey starts with one honest line.</div>`;}  
+function _jid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
+function ensureJournalIds(arr){
+  return(arr||[]).map(function(e,i){
+    if(!e._id)e._id=(e.ts||Date.now()-(arr.length-i)*60000).toString(36)+i.toString(36);
+    if(!e.ts)e.ts=Date.now()-(arr.length-i)*60000;
+    return e;
+  });
+}
+
+function mergeJournals(local,cloud){
+  var l=ensureJournalIds(local);
+  var c=ensureJournalIds(cloud);
+  var map={};
+  c.forEach(function(e){map[e._id]=e;});
+  l.forEach(function(e){map[e._id]=e;});
+  return Object.keys(map).map(function(k){return map[k];})
+    .sort(function(a,b){return(b.ts||0)-(a.ts||0);});
+}                                                                                                                                                                                                
+function addJournal(){
+  var t=document.getElementById("jText").value.trim();
+  var g=document.getElementById("jGrat").value.trim();
   if(!t&&!g){toast("Write a reflection or gratitude first");return;}
-  S.journal.unshift({m:MOODS[selMood],t,g,d:new Date().toLocaleDateString(undefined,{month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"})});
-  save();document.getElementById("jText").value="";document.getElementById("jGrat").value="";renderJournal();
-  if(navigator.vibrate)navigator.vibrate(15);toast("📖 Reflection saved");}
+  var now=Date.now();
+  S.journal.unshift({
+    _id:_jid(),
+    ts:now,
+    m:MOODS[selMood],
+    t:t,
+    g:g,
+    d:new Date().toLocaleDateString(undefined,{month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"})
+  });
+  save();
+  document.getElementById("jText").value="";
+  document.getElementById("jGrat").value="";
+  renderJournal();
+  if(navigator.vibrate)navigator.vibrate(15);
+  toast("📖 Reflection saved");
+}
 function esc(s){return s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
 
 /* ===== MANTRAS (replaces Sound Library) — Shiva Mantra Practice Protocol v2 ===== */
@@ -1575,10 +1668,90 @@ function syncTier(){const c=document.getElementById("tierchip");document.getElem
   const u=document.getElementById("upsellHome");u.innerHTML=isPro()?"":`<div class="card glass" style="margin-top:22px;text-align:center"><div style="font-size:28px">🔱</div><b style="font-size:16px;display:block;margin:7px 0 3px">Unlock the full path</b><p class="subtle" style="font-size:13px">40-day course, 3 daily affirmations, all mantras & more. One-time ₹499.</p><button class="btn gold" style="margin-top:13px" onclick="openPaywall()">Unlock Sadhu · ₹499</button></div>`;}
 function openPaywall(){document.getElementById("paywall").classList.add("on");}
 function closePaywall(){document.getElementById("paywall").classList.remove("on");}
-function buyPro(){setTier("pro");closePaywall();playDamaru();}
-function wipe(){if(confirm("Reset all progress and data?")){localStorage.removeItem("kailasa");S={...DEFAULT};
-  if(sb&&currentUser){sb.from('profiles').update({name:'',primary_goal:'dhan_samriddhi',mantra:'ons',tier:'bhakt',streak:0,completed_days:[],journal:[],count:0,onboarded:false}).eq('id',currentUser.id);}
-  save();location.reload();}}
+async function verifyPurchase(purchaseToken,productId){
+  try{
+    var session=await sb.auth.getSession();
+    if(!session.data||!session.data.session)throw new Error('no session');
+    var res=await fetch(SB_URL+'/functions/v1/verify-purchase',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'Authorization':'Bearer '+session.data.session.access_token
+      },
+      body:JSON.stringify({
+        purchase_token:purchaseToken,
+        product_id:productId,
+        package_name:'com.kailasa.shiva'
+      })
+    });
+    var data=await res.json();
+    return data.verified===true;
+  }catch(e){console.error('verifyPurchase',e);return false;}
+}
+
+async function restorePurchases(){
+  if(!('getDigitalGoodsService' in window)||!currentUser)return;
+  try{
+    var service=await window.getDigitalGoodsService('https://play.google.com/billing');
+    var purchases=await service.listPurchases();
+    for(var i=0;i<purchases.length;i++){
+      var p=purchases[i];
+      if(p.itemId==='sadhu_unlock'&&S.tier!=='pro'){
+        var ok=await verifyPurchase(p.purchaseToken,'sadhu_unlock');
+        if(ok){S.tier='pro';save();syncTier();toast('✦ Sadhu purchase restored');return;}
+      }
+    }
+  }catch(e){console.error('restorePurchases',e);}
+}
+async function buyPro(){
+  if('getDigitalGoodsService' in window){
+    if(!currentUser){
+      toast('Sign in first to secure your purchase');
+      closePaywall();openAuth();return;
+    }
+    try{
+      var service=await window.getDigitalGoodsService('https://play.google.com/billing');
+      var details=await service.getDetails(['sadhu_unlock']);
+      if(!details||details.length===0)throw new Error('Product not found in Play Console');
+      var request=new PaymentRequest([{
+        supportedMethods:'https://play.google.com/billing',
+        data:{sku:'sadhu_unlock'}
+      }]);
+      var response=await request.show();
+      var purchaseToken=response.details.purchaseToken;
+      var ok=await verifyPurchase(purchaseToken,'sadhu_unlock');
+      if(ok){
+        await response.complete('success');
+        S.tier='pro';save();syncTier();closePaywall();playDamaru();
+        toast('✦ Sadhu unlocked — yours forever');
+      }else{
+        await response.complete('fail');
+        toast('Verification failed — try again or contact support');
+      }
+    }catch(e){
+      console.error('Play Billing',e);
+      if(e.name!=='AbortError')toast('Purchase failed — '+(e.message||'try again'));
+    }
+    return;
+  }
+  S.tier='pro';save();syncTier();closePaywall();playDamaru();
+  toast('✦ Sadhu unlocked (prototype)');
+}
+function wipe(){
+  if(!confirm("Reset all progress and data?"))return;
+  localStorage.removeItem("kailasa");
+  S={...DEFAULT};
+  if(sb&&currentUser){
+    sb.from('profiles').update({
+      name:'',primary_goal:'dhan_samriddhi',mantra:'ons',tier:'bhakt',
+      streak:0,completed_days:[],journal:[],count:0,onboarded:false,
+      rounds:0,total:0,best_streak:1,pooja_count:0,course_day:1,
+      badges_earned:[],badge_seen:[],mantra_count:{},last_day:null,
+      pooja_today:[],mantra_done_today:[],tip_seen:false
+    }).eq('id',currentUser.id);
+  }
+  save();location.reload();
+}
 
 /* ===== ONBOARDING ===== */
 let onbMantra="ons";let onbGoalPillar="dhan_samriddhi";

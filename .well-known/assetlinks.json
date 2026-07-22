@@ -1,8 +1,11 @@
-[{
+[
+  {
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
-        "namespace": "android_app",
-        "package_name": "com.kailasa.shiva",
-        "sha256_cert_fingerprints": ["58:5C:D2:28:5A:B3:5A:57:5F:01:2D:A2:B2:BE:BF:7B:4D:34:6A:95:DB:45:64:37:07:65:E8:EE:7C:97:CC:28"]
+      "namespace": "android_app",
+      "package_name": "dev.pages.k_ejr2.twa",
+      "sha256_cert_fingerprints":
+        ["F6:D6:3D:4B:40:3B:9A:7D:49:5C:07:43:4B:64:D4:97:C2:CB:8F:B3:AE:43:B7:73:B0:4F:9C:E2:12:22:77:1A"]
     }
-}]
+  }
+]

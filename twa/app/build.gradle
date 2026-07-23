@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "dev.pages.k_ejr2.twa"
-        minSdk 19
+        minSdk 21
         targetSdk 36
 
         // BUMP THESE FOR EACH PLAY STORE UPDATE

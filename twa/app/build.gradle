@@ -2,21 +2,26 @@ plugins {
     id 'com.android.application'
 }
 
+
 android {
     namespace 'dev.pages.k_ejr2.twa'
     compileSdk 36
+
 
     defaultConfig {
         applicationId "dev.pages.k_ejr2.twa"
         minSdk 21
         targetSdk 36
 
+
         // BUMP THESE FOR EACH PLAY STORE UPDATE
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.0.2"
+
 
         resValue "string", "asset_statements", '[{"relation": ["delegate_permission/common.handle_all_urls"], "target": {"namespace": "web", "site": "https://k-er2.pages.dev"}}]'
     }
+
 
     signingConfigs {
         release {
@@ -27,19 +32,21 @@ android {
         }
     }
 
+
     buildTypes {
         release {
             signingConfig signingConfigs.release
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+            minifyEnabled false
         }
     }
+
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
 }
+
 
 dependencies {
     implementation 'androidx.browser:browser:1.8.0'

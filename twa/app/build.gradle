@@ -11,8 +11,8 @@ android {
         minSdk 23
         targetSdk 36
 
-        versionCode 8
-        versionName "1.0.7"
+        versionCode 10
+        versionName "1.0.9"
 
         resValue "string", "asset_statements", '[{"relation": ["delegate_permission/common.handle_all_urls"], "target": {"namespace": "web", "site": "https://k-er2.pages.dev"}}]'
     }
@@ -40,5 +40,5 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.browser:browser:1.8.0'
+    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.7.2'
 }

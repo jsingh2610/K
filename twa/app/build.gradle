@@ -2,20 +2,25 @@ plugins {
     id 'com.android.application'
 }
 
+
 android {
     namespace 'dev.pages.k_ejr2.twa'
     compileSdk 36
+
 
     defaultConfig {
         applicationId "dev.pages.k_ejr2.twa"
         minSdk 23
         targetSdk 36
 
+
         versionCode 10
         versionName "1.0.9"
 
+
         resValue "string", "asset_statements", '[{"relation": ["delegate_permission/common.handle_all_urls"], "target": {"namespace": "web", "site": "https://k-er2.pages.dev"}}]'
     }
+
 
     signingConfigs {
         release {
@@ -26,6 +31,7 @@ android {
         }
     }
 
+
     buildTypes {
         release {
             signingConfig signingConfigs.release
@@ -33,11 +39,13 @@ android {
         }
     }
 
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
 }
+
 
 dependencies {
     implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.7.2'

@@ -1,4 +1,4 @@
-// Kailasa Service Worker · v10 (Healing sounds)
+// Kailasa Service Worker · v9 
 const CACHE_NAME = 'kailasa-v9';
 const ASSETS = [
   './',

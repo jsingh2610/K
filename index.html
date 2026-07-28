@@ -1142,15 +1142,14 @@ function stopChant(){if(!chantNodes)return;const c=ac();chantNodes.master.gain.l
 
 /* ===== HEALING BACKGROUND SOUND ===== */
 const healingAudio=new Audio('audio/healing.mp3');
-healingAudio.loop=true;healingAudio.volume=0.5;healingAudio.preload='auto';
+healingAudio.loop=true;healingAudio.volume=0.5;
 
 function tryStartHealing(){
+  document.removeEventListener('click',tryStartHealing);
+  document.removeEventListener('touchstart',tryStartHealing);
   if(localStorage.getItem('healingSound')==='off')return;
   if(!healingAudio.paused)return;
-  healingAudio.play().then(function(){
-    document.removeEventListener('click',tryStartHealing);
-    document.removeEventListener('touchstart',tryStartHealing);
-  }).catch(function(){healingAudio.load();});}
+  healingAudio.play().catch(function(){});}
 
 function initHealingSound(){
   var sw=document.getElementById('healingSw');
@@ -1162,7 +1161,6 @@ function toggleHealingSound(){
   var sw=document.getElementById('healingSw');
   var pref=localStorage.getItem('healingSound');
   if(pref==='off'){
-    healingAudio.load();
     healingAudio.play().catch(function(){});
     localStorage.setItem('healingSound','on');
     if(sw)sw.classList.add('on');

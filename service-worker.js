@@ -1,11 +1,12 @@
-// Kailasa Service Worker · v9 (Streak badges release)
-const CACHE_NAME = 'kailasa-v9';
+// Kailasa Service Worker · v10 (Healing sounds)
+const CACHE_NAME = 'kailasa-v10';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './privacy.html',
-  './affirmations.json'
+  './affirmations.json',
+  './audio/healing.mp3'
 ];
 
 // Install — cache shell

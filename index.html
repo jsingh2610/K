@@ -1730,9 +1730,8 @@ async function buyPro(){
       }
     }catch(e){
       console.error('Play Billing',e);
-      if(e.name!=='AbortError')toast('Purchase failed — '+(e.message||'try again'));
+      if(e.name!=='AbortError')return;
     }
-    return;
   }
   S.tier='pro';save();syncTier();closePaywall();playDamaru();
   toast('✦ Sadhu unlocked (prototype)');

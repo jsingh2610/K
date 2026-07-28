@@ -1,12 +1,11 @@
 // Kailasa Service Worker · v10 (Healing sounds)
-const CACHE_NAME = 'kailasa-v10';
+const CACHE_NAME = 'kailasa-v9';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './privacy.html',
   './affirmations.json',
-  './audio/healing.mp3'
 ];
 
 // Install — cache shell

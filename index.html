@@ -1688,9 +1688,9 @@ async function verifyPurchase(purchaseToken,productId){
     return data.verified===true;
   }catch(e){console.error('verifyPurchase',e);return false;}
 }
-
+var BILLING_LIVE=false;
 async function restorePurchases(){
-  if(!('getDigitalGoodsService' in window)||!currentUser)return;
+  if(!BILLING_LIVE||!('getDigitalGoodsService' in window)||!currentUser)return;
   try{
     var service=await window.getDigitalGoodsService('https://play.google.com/billing');
     var purchases=await service.listPurchases();
@@ -1704,7 +1704,7 @@ async function restorePurchases(){
   }catch(e){console.error('restorePurchases',e);}
 }
 async function buyPro(){
-  if('getDigitalGoodsService' in window){
+  if(BILLING_LIVE&&'getDigitalGoodsService' in window){
     if(!currentUser){
       toast('Sign in first to secure your purchase');
       closePaywall();openAuth();return;
@@ -1730,8 +1730,9 @@ async function buyPro(){
       }
     }catch(e){
       console.error('Play Billing',e);
-      if(e.name!=='AbortError')return;
+      if(e.name!=='AbortError')toast('Purchase failed — '+(e.message||'try again'));
     }
+    return;
   }
   S.tier='pro';save();syncTier();closePaywall();playDamaru();
   toast('✦ Sadhu unlocked (prototype)');

@@ -1,11 +1,11 @@
-// Kailasa Service Worker · v9 
+// Kailasa Service Worker · v9 (Streak badges release)
 const CACHE_NAME = 'kailasa-v9';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './privacy.html',
-  './affirmations.json',
+  './affirmations.json'
 ];
 
 // Install — cache shell

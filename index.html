@@ -676,10 +676,12 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
       <div class="audio-toggle"><div class="lab"><b>🥁 Damaru daily reminder</b><span>Authentic damaru sound</span></div><div class="sw on" id="notifSw" onclick="this.classList.toggle('on');playDamaru()"></div></div>
       <h2 class="sec">Daily Sacred Ritual</h2>
       <div class="card" id="ritualCard"></div>
+      <h2 class="sec">Healing Sounds</h2>
+      <div class="audio-toggle" onclick="toggleHealingSound()"><div class="lab"><b>🕉️ Sacred Healing Chant</b><span>Om Namah Shivaya · 432 Hz loop</span></div><div class="sw on" id="healingSw"></div></div>
       <h2 class="sec">Account</h2>
       <div class="card" id="accountCard">
-        <p class="subtle" style="font-size:13.5px">Sign in to sync your progress across devices and keep it safe.</p>
-        <button class="btn" style="margin-top:12px" onclick="openAuth()">Sign in / Create account</button>
+        <p class="subtle" style="font-size:13.5px">Create an account to sync your progress across devices and keep it safe.</p>
+        <button class="btn" style="margin-top:12px" onclick="openAuth()">Create account / Sign in</button>
       </div>
       <h2 class="sec">Support</h2>
       <div class="card" style="border-color:rgba(255,184,107,.35)">
@@ -730,17 +732,17 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
   <div class="sheet">
     <div class="grab"></div>
     <div style="text-align:center;margin-bottom:16px"><div style="font-size:38px">🔐</div>
-    <h2 style="font-size:22px;font-weight:800;margin-top:6px" id="authTitle">Sign In</h2>
+    <h2 style="font-size:22px;font-weight:800;margin-top:6px" id="authTitle">Create Account</h2>
     <p class="subtle" style="font-size:13px;margin-top:4px">Sync progress across devices</p></div>
     <div class="label" style="margin-top:0">Email</div>
     <input class="field" id="authEmail" type="email" placeholder="your@email.com" autocomplete="email">
     <div class="label">Password</div>
     <input class="field" id="authPass" type="password" placeholder="Min 6 characters" autocomplete="current-password">
     <p class="subtle" id="authError" style="color:var(--warn);font-size:12.5px;min-height:18px;margin-top:6px"></p>
-    <button class="btn" id="authBtn" onclick="doAuth()" style="width:100%;margin-top:4px">Sign In</button>
+    <button class="btn" id="authBtn" onclick="doAuth()" style="width:100%;margin-top:4px">Create Account</button>
     <p class="subtle" style="text-align:center;margin-top:14px;font-size:13px">
-      <span id="authToggleText">No account?</span>
-      <a href="#" onclick="toggleAuthMode();return false" style="color:var(--ice)" id="authToggleLink">Create one</a>
+      <span id="authToggleText">Already have an account?</span>
+      <a href="#" onclick="toggleAuthMode();return false" style="color:var(--ice)" id="authToggleLink">Sign in</a>
     </p>
   </div>
 </div>
@@ -1042,14 +1044,14 @@ async function initAuth(){
   });
 }
 
-function openAuth(){document.getElementById('authModal').classList.add('on');authMode='signin';renderAuthMode();document.getElementById('authError').textContent='';}
+function openAuth(){document.getElementById('authModal').classList.add('on');authMode='signup';renderAuthMode();document.getElementById('authError').textContent='';}
 function closeAuth(){document.getElementById('authModal').classList.remove('on');document.getElementById('authError').textContent='';}
 function toggleAuthMode(){authMode=authMode==='signin'?'signup':'signin';renderAuthMode();}
 function renderAuthMode(){
-  document.getElementById('authTitle').textContent=authMode==='signin'?'Sign In':'Create Account';
-  document.getElementById('authBtn').textContent=authMode==='signin'?'Sign In':'Create Account';
-  document.getElementById('authToggleText').textContent=authMode==='signin'?'No account? ':'Have an account? ';
-  document.getElementById('authToggleLink').textContent=authMode==='signin'?'Create one':'Sign in';
+  document.getElementById('authTitle').textContent=authMode==='signup'?'Create Account':'Sign In';
+  document.getElementById('authBtn').textContent=authMode==='signup'?'Create Account':'Sign In';
+  document.getElementById('authToggleText').textContent=authMode==='signup'?'Already have an account? ':'No account? ';
+  document.getElementById('authToggleLink').textContent=authMode==='signup'?'Sign in':'Create one';
   document.getElementById('authBtn').disabled=false;}
 
 async function doAuth(){
@@ -1084,7 +1086,7 @@ function renderAccount(){
   if(currentUser){
     card.innerHTML='<div style="display:flex;align-items:center;gap:12px"><div style="font-size:28px">👤</div><div><b style="font-size:14px">'+currentUser.email+'</b><p class="subtle" style="font-size:12.5px">Progress synced to cloud ☁️</p></div></div><button class="btn ghost" style="margin-top:12px" onclick="doSignOut()">Sign out</button>';
   }else{
-    card.innerHTML='<p class="subtle" style="font-size:13.5px">Sign in to sync your progress across devices and keep it safe.</p><button class="btn" style="margin-top:12px" onclick="openAuth()">Sign in / Create account</button>';
+    card.innerHTML='<p class="subtle" style="font-size:13.5px">Create an account to sync your progress across devices and keep it safe.</p><button class="btn" style="margin-top:12px" onclick="openAuth()">Create account / Sign in</button>';
   }
 }
 /* toast notifications (the #toast pill) — used app-wide */
@@ -1137,6 +1139,36 @@ function startChant(){if(chantNodes)return;const c=ac();const fs=[136.1,272.2,40
     o.connect(g).connect(master);o.start();oscs.push(o,lfo);});master.gain.linearRampToValueAtTime(.5,c.currentTime+1.2);chantNodes={master,oscs};}
 function stopChant(){if(!chantNodes)return;const c=ac();chantNodes.master.gain.linearRampToValueAtTime(0,c.currentTime+.8);
   const n=chantNodes;chantNodes=null;setTimeout(()=>n.oscs.forEach(o=>{try{o.stop();}catch(e){}}),900);}
+
+/* ===== HEALING BACKGROUND SOUND ===== */
+const healingAudio=new Audio('audio/healing.mp3');
+healingAudio.loop=true;healingAudio.volume=0.5;
+
+function tryStartHealing(){
+  document.removeEventListener('click',tryStartHealing);
+  document.removeEventListener('touchstart',tryStartHealing);
+  if(localStorage.getItem('healingSound')==='off')return;
+  if(!healingAudio.paused)return;
+  healingAudio.play().catch(function(){});}
+
+function initHealingSound(){
+  var sw=document.getElementById('healingSw');
+  if(sw)sw.classList.toggle('on',localStorage.getItem('healingSound')!=='off');
+  document.addEventListener('click',tryStartHealing);
+  document.addEventListener('touchstart',tryStartHealing);}
+
+function toggleHealingSound(){
+  var sw=document.getElementById('healingSw');
+  var pref=localStorage.getItem('healingSound');
+  if(pref==='off'){
+    healingAudio.play().catch(function(){});
+    localStorage.setItem('healingSound','on');
+    if(sw)sw.classList.add('on');
+  }else{
+    healingAudio.pause();
+    localStorage.setItem('healingSound','off');
+    if(sw)sw.classList.remove('on');
+  }}
 
 
 /* ===== NAV ===== */
@@ -1628,6 +1660,7 @@ function renderMore(){const names={bhakt:"Bhakt · Free",pro:"Sadhu · Unlocked 
   document.getElementById("moreTier").textContent=names[S.tier]||names.bhakt;document.getElementById("moreTierDesc").textContent=TIERDESC[S.tier]||TIERDESC.bhakt;renderAccount();
   document.getElementById("moreUpgrade").style.display=isPro()?"none":"block";
   renderDailyRitual();
+  var hsw=document.getElementById('healingSw');if(hsw)hsw.classList.toggle('on',localStorage.getItem('healingSound')!=='off');
   document.getElementById("setName").value=S.name||"";
   profileGoalPillar=S.primaryGoal||"dhan_samriddhi";
   buildGoalGrid("profileGoalGrid",profileGoalPillar,function(k){profileGoalPillar=k;});
@@ -1740,6 +1773,7 @@ async function buyPro(){
 function wipe(){
   if(!confirm("Reset all progress and data?"))return;
   localStorage.removeItem("kailasa");
+  localStorage.removeItem("healingSound");
   S={...DEFAULT};
   if(sb&&currentUser){
     sb.from('profiles').update({
@@ -1777,6 +1811,7 @@ function boot(){S.chant=false;syncTier();renderJapa();renderHome();document.getE
   if(!S.tipSeen){S.tipSeen=true;save();setTimeout(()=>toast("💡 Tip: 'More' tab shows how to install on your phone"),1400);}
   /* check for new badge milestones 1.5s after boot */
   setTimeout(checkNewBadges,1500);
+  initHealingSound();
   initAuth().then(function(){renderAccount();if(S.onboarded){syncTier();renderHome();}});}
 (function init(){
   /* migration: sadhu/mahayogi → pro */

@@ -1830,8 +1830,15 @@ if('serviceWorker' in navigator){
  * SETUP REQUIRED — fill in your Firebase config below after creating your Firebase project.
  * See SETUP.md for step-by-step instructions.
  */
-var FIREBASE_CONFIG = null; /* Set to { apiKey:"...", authDomain:"...", projectId:"...", messagingSenderId:"...", appId:"..." } */
-var VAPID_KEY = null;       /* Set to your VAPID public key from Firebase Console → Cloud Messaging */
+var FIREBASE_CONFIG = {
+  apiKey: "AIzaSyAXBsng1x4F3DN8saATTMLLWVpIge3PoR0",
+  authDomain: "kailasa-noti.firebaseapp.com",
+  projectId: "kailasa-noti",
+  storageBucket: "kailasa-noti.firebasestorage.app",
+  messagingSenderId: "360418331163",
+  appId: "1:360418331163:web:9a8a24f80cd866dd8fc6be"
+};
+var VAPID_KEY = "BJ8fq9jYT-TDAODXPZdzayn1ABMqOvOoF_sfE_Y9T5oZU3JmSXs9sfiCBElibECN9UnIAsiIjEnDqzO-Rr8glH4" ;
 
 var notifPrefs = JSON.parse(localStorage.getItem('kailasa_notif') || '{"brahma_muhurta":true,"streak_saver":true,"ritual_reminder":true,"token":null}');
 function saveNotifPrefs(){localStorage.setItem('kailasa_notif',JSON.stringify(notifPrefs));}

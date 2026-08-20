@@ -362,6 +362,21 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
 .celeb-title{font-size:28px;font-weight:900;margin-top:18px;background:linear-gradient(135deg,#e8c87a,#ffb347);-webkit-background-clip:text;background-clip:text;color:transparent}
 .celeb-sub{font-size:14px;color:var(--ink2);margin-top:8px;line-height:1.5}
 .celeb-days{font-size:13px;color:var(--gold);font-weight:700;letter-spacing:.5px;margin-top:6px}
+
+/* ===== SW UPDATE BANNER ===== */
+.update-bar{position:fixed;top:0;left:0;right:0;z-index:250;padding:calc(var(--safe-t) + 10px) 18px 12px;display:none;align-items:center;gap:12px;
+  background:linear-gradient(135deg,rgba(106,214,232,.22),rgba(139,156,255,.18));backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line2);box-shadow:0 4px 20px rgba(0,0,0,.4);animation:slideDown .4s cubic-bezier(.2,.9,.2,1)}
+.update-bar.on{display:flex}
+@keyframes slideDown{from{transform:translateY(-100%)}to{transform:none}}
+.update-bar p{flex:1;font-size:13px;font-weight:600;color:var(--ink)}
+.update-bar button{appearance:none;border:none;padding:9px 16px;border-radius:10px;font-family:inherit;font-weight:700;font-size:12.5px;
+  background:var(--grad);color:#06121c;cursor:pointer;white-space:nowrap}
+
+/* ===== Day 0 key-info highlights ===== */
+.key-highlight{color:var(--gold);font-weight:700}
+.key-block{background:linear-gradient(160deg,rgba(232,200,122,.08),rgba(183,148,255,.04));border:1px solid rgba(232,200,122,.25);border-radius:var(--r2);padding:14px 16px;margin-top:10px}
+.key-block b{color:var(--gold)}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
@@ -650,20 +665,6 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
         <p class="subtle" style="font-size:13px;margin-top:6px" id="moreTierDesc"></p>
         <button class="btn gold" style="margin-top:14px" id="moreUpgrade" onclick="openPaywall()">Unlock Sadhu · ₹499</button>
       </div>
-      <h2 class="sec">📲 Put this on your home screen</h2>
-      <div class="card">
-        <p class="subtle" style="font-size:13.5px">Install Kailasa as a real app — full-screen, with its own icon, works offline. No app store needed.</p>
-        <div style="margin-top:14px">
-          <b style="font-size:14px"> iPhone (Safari)</b>
-          <p class="subtle" style="font-size:13px;margin-top:4px">Tap the <b>Share</b> button (□↑) at the bottom → scroll down → <b>Add to Home Screen</b> → <b>Add</b>.</p>
-        </div>
-        <div class="divider" style="margin:14px 0"></div>
-        <div>
-          <b style="font-size:14px">🤖 Android (Chrome)</b>
-          <p class="subtle" style="font-size:13px;margin-top:4px">Tap the <b>⋮</b> menu (top-right) → <b>Add to Home screen</b> (or <b>Install app</b>) → <b>Add</b>.</p>
-        </div>
-        <p class="muted" style="margin-top:14px;text-align:left">Then open it from the new 🔱 icon — it launches like a normal app.</p>
-      </div>
       <h2 class="sec">Profile</h2>
       <div class="card">
         <div class="label" style="margin-top:0">Name</div><input class="field" id="setName" placeholder="Your name">
@@ -673,7 +674,12 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
         <button class="btn" style="margin-top:12px" onclick="saveProfile()">Save profile</button>
       </div>
       <h2 class="sec">Notifications</h2>
-      <div class="audio-toggle"><div class="lab"><b>🥁 Damaru daily reminder</b><span>Authentic damaru sound</span></div><div class="sw on" id="notifSw" onclick="this.classList.toggle('on');playDamaru()"></div></div>
+      <div id="notifSection">
+        <div class="audio-toggle" style="margin-bottom:8px"><div class="lab"><b>🕉️ Brahma Muhurta (4:30 AM)</b><span>Wake up call for sadhana</span></div><div class="sw" id="notifBrahma" onclick="toggleNotifPref('brahma_muhurta',this)"></div></div>
+        <div class="audio-toggle" style="margin-bottom:8px"><div class="lab"><b>🔥 Streak saver (8 PM)</b><span>Nudge if you haven't practiced today</span></div><div class="sw" id="notifStreak" onclick="toggleNotifPref('streak_saver',this)"></div></div>
+        <div class="audio-toggle"><div class="lab"><b>🪔 Ritual reminder (7 AM)</b><span>Today's sacred ritual</span></div><div class="sw" id="notifRitual" onclick="toggleNotifPref('ritual_reminder',this)"></div></div>
+        <p class="muted" id="notifStatus" style="margin-top:8px"></p>
+      </div>
       <h2 class="sec">Daily Sacred Ritual</h2>
       <div class="card" id="ritualCard"></div>
       <h2 class="sec">Account</h2>
@@ -721,7 +727,7 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
       <div style="margin-top:8px"><span class="pr" style="font-size:28px;font-weight:800">₹499</span></div>
       <p style="font-size:13px;color:var(--ink2);margin-top:6px">Less than a meal out. No recurring charges, ever.</p>
     </div>
-    <p class="muted">Prototype — “purchase” unlocks Sadhu locally. Real billing routes through Google Play.</p>
+    <p class="muted">Secure one-time purchase via Google Play. No subscription, no recurring charges.</p>
   </div>
 </div>
 
@@ -743,6 +749,12 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
       <a href="#" onclick="toggleAuthMode();return false" style="color:var(--ice)" id="authToggleLink">Create one</a>
     </p>
   </div>
+</div>
+
+<!-- SW UPDATE BANNER -->
+<div class="update-bar" id="updateBar">
+  <p>🔱 New version available</p>
+  <button onclick="location.reload()">Refresh</button>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -1237,11 +1249,11 @@ function renderCourse(){const b=document.getElementById("courseBody");
   const done=S.courseDone.filter(n=>n>=1).length,pct=Math.round(done/40*100),zeroDone=S.courseDone.includes(0);
   var nextB=BADGES.find(function(b){return S.streak<b.days;});var nbTxt=nextB?nextB.ic+' '+nextB.name+' in '+(nextB.days-S.streak)+' days':'🕉️ Shivoham achieved!';
   let html=`<div class="streak"><div class="fire">🔥</div><div><b>${S.streak}-day streak</b><br><span>${done}/40 lessons · ${pct}% complete</span><br><span style="color:var(--gold);font-size:11px">Next badge: ${nbTxt}</span></div></div><div class="card glass" style="margin:10px 0 16px;padding:14px 16px"><b style="font-size:13.5px">🕉️ Your Daily Ritual</b><p class="subtle" style="font-size:12.5px;line-height:1.6;margin-top:6px"><b>Movement</b> (15 min asana &amp; breath) → <b>Vibration</b> (10 min mantra &amp; affirmation) → <b>Stillness</b> (15 min Shiva meditation). The same frame every day; the focus evolves.</p></div>`;
-  html+=`<h2 class="sec">Foundation · Day 0</h2>
+  html+=`<h2 class="sec">Pashupatinath · Day 0</h2>
     <p style="margin:-2px 0 12px;font-size:12px;line-height:1.55;color:rgba(232,200,122,.75);max-width:560px">Read this before Day 1. The fine print of abundance — the daily habit that makes everything that follows possible.</p>
     <div class="path"><div class="node ${zeroDone?'done':'cur'}" onclick="openDayZero()">
       <div class="orb" style="background:linear-gradient(135deg,#e8c87a,#caa24e);color:#3a2c0a;border-color:transparent;box-shadow:0 8px 22px rgba(232,200,122,.4)">${zeroDone?'✓':'☀'}</div>
-      <div class="meta"><h4>The Fine Print of Abundance</h4><p>${zeroDone?'Foundation set ✓':'Tap to read the disclaimer'}</p></div>
+      <div class="meta"><h4>Pashupatinath — The Fine Print of Abundance</h4><p>${zeroDone?'Foundation set ✓':'Tap to begin'}</p></div>
       ${zeroDone?'':'<div style="font-size:11px;font-weight:800;color:var(--gold);letter-spacing:.5px">START ›</div>'}</div></div>`;
   let lastWeek=-1;html+='<div class="path">';
   for(let d=1;d<=40;d++){const wk=Math.floor((d-1)/10);if(wk!==lastWeek){lastWeek=wk;html+=`</div><h2 class="sec">Phase ${wk+1} · ${PHASES[wk].n}</h2><p style="margin:-2px 0 12px;font-size:12px;line-height:1.55;color:rgba(210,228,255,.6);max-width:560px">${PHASES[wk].f}</p><div class="path">`;}
@@ -1270,30 +1282,31 @@ function completeLesson(){const d=activeLesson;if(S.courseDone.includes(d))retur
 function openDayZero(){activeLesson=0;
   document.getElementById("lprogBar").style.width="2%";
   document.getElementById("lessonBody").innerHTML=
-    `<div class="ltheme" style="color:var(--gold)">Day 0 · The Foundation</div>
-     <div class="ltitle">Manifestation Disclaimer:<br>The Fine Print of Abundance</div>
+    `<div class="ltheme" style="color:var(--gold)">Pashupatinath · Day 0</div>
+     <div class="ltitle">The Fine Print<br>of Abundance</div>
      <div class="lblock" style="border-color:rgba(232,200,122,.3)">
        <div class="bh">📜 Please Read Carefully</div>
-       <div class="bt">Materializing your dream life does not default to a mansion on day one. Manifestation operates on a <b>“start small, scale up”</b> frequency. If you cannot manage the current of a small stream, you aren’t ready for the ocean.</div>
+       <div class="bt">Materializing your dream life does not default to a mansion on day one. Manifestation operates on a <b class="key-highlight">"start small, scale up"</b> frequency. If you cannot manage the current of a small stream, you aren’t ready for the ocean.</div>
      </div>
      <div class="lblock">
        <div class="bh">🐄 The Micro-Abundance Clause</div>
        <div class="bt">Before the universe hands you the keys to the kingdom, it watches how you treat the kingdom’s smallest citizens. True wealth is an energetic loop — and it begins with intentional, small-scale micro-actions.</div>
-       <div class="bt" style="margin-top:11px"><b>The Catalyst —</b> Abundance is a habit, not just a destination. It starts by sharing what you have right now: feeding the <b>cows, birds, and ants</b> in your daily path.</div>
-       <div class="bt" style="margin-top:9px"><b>The Generosity Logic —</b> By feeding creatures who can never text you a thank-you note or pay you back, you strip away selfish attachment. You signal to the cosmos that you are a <i>source of supply</i>, not a pit of scarcity.</div>
-       <div class="bt" style="margin-top:9px"><b>The Energetic Return Policy —</b> Energy cannot be destroyed, only transferred. The life and nourishment you pour into the ecosystem inevitably loops back to you — multiplied in velocity and volume, returning as unexpected opportunities, peace, and financial flow.</div>
+       <div class="key-block" style="margin-top:11px"><b>The Catalyst —</b> Abundance is a habit, not just a destination. It starts by sharing what you have right now: feeding the <span class="key-highlight">cows, birds, and ants</span> in your daily path.</div>
+       <div class="key-block"><b>The Generosity Logic —</b> By feeding creatures who can never pay you back, you strip away selfish attachment. You signal to the cosmos that you are a <span class="key-highlight">source of supply</span>, not a pit of scarcity.</div>
+       <div class="key-block"><b>The Energetic Return Policy —</b> Energy cannot be destroyed, only transferred. The life and nourishment you pour into the ecosystem <span class="key-highlight">inevitably loops back to you</span> — multiplied in velocity and volume.</div>
      </div>
      <div class="lblock" style="border-color:rgba(232,200,122,.3)">
        <div class="bh">⚖️ Official Verdict</div>
-       <div class="laff">"If you want the universe to open the floodgates of massive abundance, start by filling the bird feeder and respecting the anthill. Big shifts hide in tiny, selfless acts of kindness."</div>
+       <div class="laff" style="border:1px solid rgba(232,200,122,.3);background:linear-gradient(155deg,rgba(232,200,122,.06),var(--bg2))">"​If you want the universe to open the floodgates of massive abundance, <span class="key-highlight">start by filling the bird feeder and respecting the anthill.</span> Big shifts hide in tiny, selfless acts of kindness.​"</div>
      </div>
      <div class="lblock">
        <div class="bh">🌊 The Rhythm Rule</div>
-       <div class="bt">The universe does not reward occasional bursts of panic-induced generosity — it rewards <b>rhythm</b>. When you make feeding these creatures a daily habit, you invest small change into the cosmic bank. Daily repetition turns a minor ripple of kindness into a massive tidal wave of financial return.</div>
+       <div class="bt">The universe does not reward occasional bursts of panic-induced generosity — it rewards <b class="key-highlight">rhythm</b>. When you make feeding these creatures a daily habit, you invest small change into the cosmic bank. <span class="key-highlight">Daily repetition turns a minor ripple of kindness into a massive tidal wave of financial return.</span></div>
      </div>
-     <div class="lblock" style="background:var(--grad-soft);border-color:rgba(232,200,122,.35)">
-       <div class="bh">🌱 Today's Foundation Practice</div>
-       <div class="bt">Pick one and do it with no expectation of return: leave grains for the <b>birds</b>, a little flour or sugar near an <b>anthill</b>, or feed a <b>cow</b>. This is Day 0 — keep repeating it through all 40 days.</div>
+     <div class="lblock" style="background:var(--grad-soft);border:1px solid rgba(232,200,122,.35);border-radius:var(--r)">
+       <div class="bh" style="color:var(--gold)">🌱 Today’s Foundation Practice</div>
+       <div class="bt" style="font-size:16px;line-height:1.7">Pick one and do it with <span class="key-highlight">no expectation of return</span>:<br>🕊️ Leave grains for the <b>birds</b><br>🐜 A little flour or sugar near an <b>anthill</b><br>🐄 Feed a <b>cow</b></div>
+       <div class="bt" style="margin-top:10px;color:var(--gold);font-weight:700;font-size:13px">This is Day 0 — keep repeating it through all 40 days.</div>
      </div>`;
   const btn=document.getElementById("lessonBtn");const done=S.courseDone.includes(0);
   btn.textContent=done?"Foundation set ✓":"I accept the foundation ✓";btn.disabled=done;btn.style.opacity=done?".5":"1";btn.onclick=completeDayZero;
@@ -1774,7 +1787,7 @@ function replayOnb(){S.onboarded=false;onbMantra=S.mantra;startOnb();}
 
 /* ===== INIT ===== */
 function boot(){S.chant=false;syncTier();renderJapa();renderHome();document.getElementById("brandSub").textContent=S.name?S.name+" · Manifest":"Shiva · Manifest";go("home");
-  if(!S.tipSeen){S.tipSeen=true;save();setTimeout(()=>toast("💡 Tip: 'More' tab shows how to install on your phone"),1400);}
+  if(!S.tipSeen){S.tipSeen=true;save();setTimeout(()=>toast('🔱 Welcome — explore your practice'),1400);}
   /* check for new badge milestones 1.5s after boot */
   setTimeout(checkNewBadges,1500);
   initAuth().then(function(){renderAccount();if(S.onboarded){syncTier();renderHome();}});}
@@ -1787,11 +1800,118 @@ function boot(){S.chant=false;syncTier();renderJapa();renderHome();document.getE
 })();
 /* hide the opening / splash screen once the app is ready */
 setTimeout(function(){var sp=document.getElementById("splash");if(sp)sp.classList.add("hide");},2000);
+/* ===== SERVICE WORKER: registration + update detection + self-healing ===== */
 if('serviceWorker' in navigator){
   window.addEventListener('load',function(){
-    navigator.serviceWorker.register('./service-worker.js').catch(function(e){console.error('SW registration failed',e);});
+    navigator.serviceWorker.register('./service-worker.js').then(function(reg){
+      /* Check for updates every 30 minutes */
+      setInterval(function(){reg.update();},1800000);
+      /* Detect new SW waiting */
+      reg.addEventListener('updatefound',function(){
+        var nw=reg.installing;
+        if(!nw)return;
+        nw.addEventListener('statechange',function(){
+          if(nw.state==='installed'&&navigator.serviceWorker.controller){
+            document.getElementById('updateBar').classList.add('on');
+          }
+        });
+      });
+    }).catch(function(e){console.error('SW reg failed',e);});
+    /* Listen for SW messages (update notification, cache nuke) */
+    navigator.serviceWorker.addEventListener('message',function(e){
+      if(e.data&&e.data.type==='SW_UPDATED'){document.getElementById('updateBar').classList.add('on');}
+      if(e.data&&e.data.type==='CACHE_NUKED'){location.reload();}
+    });
   });
 }
+
+/* ===== PUSH NOTIFICATIONS (Firebase Cloud Messaging) ===== */
+/*
+ * SETUP REQUIRED — fill in your Firebase config below after creating your Firebase project.
+ * See SETUP.md for step-by-step instructions.
+ */
+var FIREBASE_CONFIG = null; /* Set to { apiKey:"...", authDomain:"...", projectId:"...", messagingSenderId:"...", appId:"..." } */
+var VAPID_KEY = null;       /* Set to your VAPID public key from Firebase Console → Cloud Messaging */
+
+var notifPrefs = JSON.parse(localStorage.getItem('kailasa_notif') || '{"brahma_muhurta":true,"streak_saver":true,"ritual_reminder":true,"token":null}');
+function saveNotifPrefs(){localStorage.setItem('kailasa_notif',JSON.stringify(notifPrefs));}
+function renderNotifToggles(){
+  var b=document.getElementById('notifBrahma'),s=document.getElementById('notifStreak'),r=document.getElementById('notifRitual');
+  if(b)b.classList.toggle('on',!!notifPrefs.brahma_muhurta);
+  if(s)s.classList.toggle('on',!!notifPrefs.streak_saver);
+  if(r)r.classList.toggle('on',!!notifPrefs.ritual_reminder);
+  var st=document.getElementById('notifStatus');
+  if(st){
+    if(!FIREBASE_CONFIG){st.textContent='Notifications coming soon — Firebase setup pending.';}
+    else if(Notification.permission==='denied'){st.textContent='Notifications blocked — enable in your device settings.';}
+    else if(notifPrefs.token){st.textContent='Notifications active ✓';}
+    else{st.textContent='Tap a toggle to enable notifications.';}
+  }
+}
+function toggleNotifPref(key,el){
+  notifPrefs[key]=!notifPrefs[key];
+  el.classList.toggle('on',notifPrefs[key]);
+  saveNotifPrefs();
+  /* If enabling any pref and no token yet, request permission */
+  if(notifPrefs[key]&&!notifPrefs.token){requestPushPermission();}
+  /* Sync prefs to Supabase if we have a token */
+  if(notifPrefs.token&&sb&&currentUser){syncNotifPrefs();}
+  renderNotifToggles();
+}
+async function requestPushPermission(){
+  if(!FIREBASE_CONFIG||!VAPID_KEY){toast('Notifications not configured yet');return;}
+  try{
+    var perm=await Notification.requestPermission();
+    if(perm!=='granted'){toast('Notification permission denied');renderNotifToggles();return;}
+    /* Dynamically load Firebase SDK */
+    if(!window.firebase){
+      await loadScript('https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js');
+      await loadScript('https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js');
+    }
+    if(!firebase.apps.length)firebase.initializeApp(FIREBASE_CONFIG);
+    var messaging=firebase.messaging();
+    /* Use existing SW registration for Firebase */
+    var swReg=await navigator.serviceWorker.getRegistration();
+    var token=await messaging.getToken({vapidKey:VAPID_KEY,serviceWorkerRegistration:swReg});
+    if(token){
+      notifPrefs.token=token;saveNotifPrefs();
+      await syncNotifPrefs();
+      toast('🔔 Notifications enabled');
+    }
+  }catch(e){console.error('Push setup error',e);toast('Could not enable notifications');}
+  renderNotifToggles();
+}
+function loadScript(src){return new Promise(function(ok,fail){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=fail;document.head.appendChild(s);});}
+async function syncNotifPrefs(){
+  if(!sb||!currentUser||!notifPrefs.token)return;
+  try{
+    var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'Asia/Kolkata';
+    await sb.from('push_tokens').upsert({
+      user_id:currentUser.id,
+      token:notifPrefs.token,
+      timezone:tz,
+      brahma_muhurta:!!notifPrefs.brahma_muhurta,
+      streak_saver:!!notifPrefs.streak_saver,
+      ritual_reminder:!!notifPrefs.ritual_reminder,
+      updated_at:new Date().toISOString()
+    },{onConflict:'user_id'});
+  }catch(e){console.error('syncNotifPrefs',e);}
+}
+/* Render toggles on More screen */
+var _origRenderMore=renderMore;
+renderMore=function(){_origRenderMore();renderNotifToggles();};
+
+/* ===== EMERGENCY SELF-HEAL: clear all caches ===== */
+function nukeCache(){
+  if(!confirm('Clear all cached data and reload? This fixes "app won\'t open" issues.'))return;
+  if(navigator.serviceWorker&&navigator.serviceWorker.controller){
+    navigator.serviceWorker.controller.postMessage('NUKE_CACHE');
+  }else{
+    caches.keys().then(function(keys){return Promise.all(keys.map(function(k){return caches.delete(k);}));}).then(function(){location.reload();});
+  }
+}
 </script>
+</body>
+</html>
 </body>
 </html>

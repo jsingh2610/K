@@ -673,14 +673,7 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
         <div class="label">Daily mantra</div><div class="choices" id="setMantra"></div>
         <button class="btn" style="margin-top:12px" onclick="saveProfile()">Save profile</button>
       </div>
-      <h2 class="sec">Notifications</h2>
-      <div id="notifSection">
-        <div class="audio-toggle" style="margin-bottom:8px"><div class="lab"><b>🕉️ Brahma Muhurta (4:30 AM)</b><span>Wake up call for sadhana</span></div><div class="sw" id="notifBrahma" onclick="toggleNotifPref('brahma_muhurta',this)"></div></div>
-        <div class="audio-toggle" style="margin-bottom:8px"><div class="lab"><b>🔥 Streak saver (8 PM)</b><span>Nudge if you haven't practiced today</span></div><div class="sw" id="notifStreak" onclick="toggleNotifPref('streak_saver',this)"></div></div>
-        <div class="audio-toggle"><div class="lab"><b>🪔 Ritual reminder (7 AM)</b><span>Today's sacred ritual</span></div><div class="sw" id="notifRitual" onclick="toggleNotifPref('ritual_reminder',this)"></div></div>
-        <p class="muted" id="notifStatus" style="margin-top:8px"></p>
-      </div>
-      <h2 class="sec">Daily Sacred Ritual</h2>
+            <h2 class="sec">Daily Sacred Ritual</h2>
       <div class="card" id="ritualCard"></div>
       <h2 class="sec">Account</h2>
       <div class="card" id="accountCard">
@@ -1824,89 +1817,6 @@ if('serviceWorker' in navigator){
     });
   });
 }
-
-/* ===== PUSH NOTIFICATIONS (Firebase Cloud Messaging) ===== */
-/*
- * SETUP REQUIRED — fill in your Firebase config below after creating your Firebase project.
- * See SETUP.md for step-by-step instructions.
- */
-var FIREBASE_CONFIG = {
-  apiKey: "AIzaSyAXBsng1x4F3DN8saATTMLLWVpIge3PoR0",
-  authDomain: "kailasa-noti.firebaseapp.com",
-  projectId: "kailasa-noti",
-  storageBucket: "kailasa-noti.firebasestorage.app",
-  messagingSenderId: "360418331163",
-  appId: "1:360418331163:web:9a8a24f80cd866dd8fc6be"
-};
-var VAPID_KEY = "BJ8fq9jYT-TDAODXPZdzayn1ABMqOvOoF_sfE_Y9T5oZU3JmSXs9sfiCBElibECN9UnIAsiIjEnDqzO-Rr8glH4" ;
-
-var notifPrefs = JSON.parse(localStorage.getItem('kailasa_notif') || '{"brahma_muhurta":true,"streak_saver":true,"ritual_reminder":true,"token":null}');
-function saveNotifPrefs(){localStorage.setItem('kailasa_notif',JSON.stringify(notifPrefs));}
-function renderNotifToggles(){
-  var b=document.getElementById('notifBrahma'),s=document.getElementById('notifStreak'),r=document.getElementById('notifRitual');
-  if(b)b.classList.toggle('on',!!notifPrefs.brahma_muhurta);
-  if(s)s.classList.toggle('on',!!notifPrefs.streak_saver);
-  if(r)r.classList.toggle('on',!!notifPrefs.ritual_reminder);
-  var st=document.getElementById('notifStatus');
-  if(st){
-    if(!FIREBASE_CONFIG){st.textContent='Notifications coming soon — Firebase setup pending.';}
-    else if(Notification.permission==='denied'){st.textContent='Notifications blocked — enable in your device settings.';}
-    else if(notifPrefs.token){st.textContent='Notifications active ✓';}
-    else{st.textContent='Tap a toggle to enable notifications.';}
-  }
-}
-function toggleNotifPref(key,el){
-  notifPrefs[key]=!notifPrefs[key];
-  el.classList.toggle('on',notifPrefs[key]);
-  saveNotifPrefs();
-  /* If enabling any pref and no token yet, request permission */
-  if(notifPrefs[key]&&!notifPrefs.token){requestPushPermission();}
-  /* Sync prefs to Supabase if we have a token */
-  if(notifPrefs.token&&sb&&currentUser){syncNotifPrefs();}
-  renderNotifToggles();
-}
-async function requestPushPermission(){
-  if(!FIREBASE_CONFIG||!VAPID_KEY){toast('Notifications not configured yet');return;}
-  try{
-    var perm=await Notification.requestPermission();
-    if(perm!=='granted'){toast('Notification permission denied');renderNotifToggles();return;}
-    /* Dynamically load Firebase SDK */
-    if(!window.firebase){
-      await loadScript('https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js');
-      await loadScript('https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js');
-    }
-    if(!firebase.apps.length)firebase.initializeApp(FIREBASE_CONFIG);
-    var messaging=firebase.messaging();
-    /* Use existing SW registration for Firebase */
-    var swReg=await navigator.serviceWorker.getRegistration();
-    var token=await messaging.getToken({vapidKey:VAPID_KEY,serviceWorkerRegistration:swReg});
-    if(token){
-      notifPrefs.token=token;saveNotifPrefs();
-      await syncNotifPrefs();
-      toast('🔔 Notifications enabled');
-    }
-  }catch(e){console.error('Push setup error',e);toast('Could not enable notifications');}
-  renderNotifToggles();
-}
-function loadScript(src){return new Promise(function(ok,fail){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=fail;document.head.appendChild(s);});}
-async function syncNotifPrefs(){
-  if(!sb||!currentUser||!notifPrefs.token)return;
-  try{
-    var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'Asia/Kolkata';
-    await sb.from('push_tokens').upsert({
-      user_id:currentUser.id,
-      token:notifPrefs.token,
-      timezone:tz,
-      brahma_muhurta:!!notifPrefs.brahma_muhurta,
-      streak_saver:!!notifPrefs.streak_saver,
-      ritual_reminder:!!notifPrefs.ritual_reminder,
-      updated_at:new Date().toISOString()
-    },{onConflict:'user_id'});
-  }catch(e){console.error('syncNotifPrefs',e);}
-}
-/* Render toggles on More screen */
-var _origRenderMore=renderMore;
-renderMore=function(){_origRenderMore();renderNotifToggles();};
 
 /* ===== EMERGENCY SELF-HEAL: clear all caches ===== */
 function nukeCache(){

@@ -1,4 +1,4 @@
-// Kailasa Service Worker · v10 (Self-healing + Push notifications)
+// Kailasa Service Worker · v10 (Self-healing cache)
 const CACHE_NAME = 'kailasa-v10';
 const ASSETS = [
   './',
@@ -51,7 +51,6 @@ self.addEventListener('fetch', e => {
   const isHTML = req.headers.get('accept') && req.headers.get('accept').includes('text/html');
 
   if (isHTML) {
-    // HTML: network-first with 4s timeout, cache fallback, root fallback
     e.respondWith(
       Promise.race([
         fetch(req).then(res => {
@@ -76,7 +75,7 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // Assets: stale-while-revalidate — fast from cache, fresh in background
+  // Assets: stale-while-revalidate
   e.respondWith(
     caches.open(CACHE_NAME).then(cache =>
       cache.match(req).then(cached => {
@@ -88,41 +87,5 @@ self.addEventListener('fetch', e => {
         return cached || fetchPromise || new Response('', { status: 404 });
       })
     )
-  );
-});
-
-// Push notifications
-self.addEventListener('push', e => {
-  let title = 'Kailasa', body = '', data = {};
-  try {
-    const payload = e.data ? e.data.json() : {};
-    title = (payload.notification && payload.notification.title) || title;
-    body = (payload.notification && payload.notification.body) || '';
-    data = payload.data || {};
-  } catch (err) {
-    body = e.data ? e.data.text() : '';
-  }
-  e.waitUntil(
-    self.registration.showNotification(title, {
-      body: body,
-      icon: './icon-192.png',
-      badge: './icon-192.png',
-      vibrate: [100, 50, 100],
-      data: data,
-      actions: [{ action: 'open', title: 'Open Kailasa' }]
-    })
-  );
-});
-
-// Notification click — open app
-self.addEventListener('notificationclick', e => {
-  e.notification.close();
-  e.waitUntil(
-    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(cls => {
-      for (const c of cls) {
-        if (c.url.includes(self.location.origin) && 'focus' in c) return c.focus();
-      }
-      return self.clients.openWindow('./');
-    })
   );
 });

@@ -1,5 +1,5 @@
-// Kailasa Service Worker · v10 (Self-healing cache)
-const CACHE_NAME = 'kailasa-v10';
+// Kailasa Service Worker · v11 (Self-healing cache)
+const CACHE_NAME = 'kailasa-v11';
 const ASSETS = [
   './',
   './index.html',

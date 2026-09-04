@@ -932,7 +932,7 @@ const PILLAR_AFFIRMATIONS={
     "Negative energies and harmful intentions dissolve before they reach me or my loved ones.",
     "I walk through life with courage and peace, knowing I am divinely protected always."]};
 let S=load();
-function todayKey(){return new Date().toISOString().slice(0,10);}
+function todayKey(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function load(){try{return Object.assign({},DEFAULT,JSON.parse(localStorage.getItem("kailasa"))||{});}catch(e){return {...DEFAULT};}}
 function save(){localStorage.setItem("kailasa",JSON.stringify(S));syncToCloud();}
 function isPro(){return S.tier==="pro";}
@@ -1169,8 +1169,8 @@ function toggleChant(){S.chant=!S.chant;document.getElementById("chantSw").class
 
 function getPillarDayIndex(pillarKey){
   var pool=PILLAR_AFFIRMATIONS[pillarKey];if(!pool)return 0;
-  var now=new Date(),start=new Date(now.getFullYear(),0,0);
-  var dayOfYear=Math.floor((now-start)/86400000);
+  var d=new Date();
+  var dayOfYear=Math.floor((Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())-Date.UTC(d.getFullYear(),0,0))/86400000);
   return dayOfYear%pool.length;}
 function renderAffirm(){var d=new Date();document.getElementById("affDate").textContent=d.toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"});
   var pk=S.primaryGoal||"dhan_samriddhi";

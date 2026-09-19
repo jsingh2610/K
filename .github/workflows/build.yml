@@ -1,0 +1,80 @@
+name: Build Kailasa AAB
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Add Android platform
+        run: npx cap add android
+
+      - name: Sync Capacitor
+        run: npx cap sync android
+
+      - name: Set version code and name
+        run: |
+          sed -i 's/versionCode [0-9]*/versionCode 13/' android/app/build.gradle
+          sed -i 's/versionName "[^"]*"/versionName "2.0.0"/' android/app/build.gradle
+
+      - name: Decode keystore
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/signing.keystore
+
+      - name: Add signing config to Gradle
+        run: |
+          cat > android/app/signing.gradle << 'EOF'
+          android {
+              signingConfigs {
+                  release {
+                      storeFile file("signing.keystore")
+                      storePassword System.getenv("KEYSTORE_PASSWORD") ?: ""
+                      keyAlias System.getenv("KEY_ALIAS") ?: ""
+                      keyPassword System.getenv("KEY_PASSWORD") ?: ""
+                  }
+              }
+              buildTypes {
+                  release {
+                      signingConfig signingConfigs.release
+                  }
+              }
+          }
+          EOF
+          echo 'apply from: "signing.gradle"' >> android/app/build.gradle
+
+      - name: Build release AAB
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew bundleRelease
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: kailasa-release-aab
+          path: android/app/build/outputs/bundle/release/*.aab
+          if-no-files-found: error

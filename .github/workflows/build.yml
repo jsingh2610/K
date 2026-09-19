@@ -23,6 +23,11 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - name: Install Android SDK platform 35
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null 2>&1 || true
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-35" "build-tools;35.0.0"
+
       - name: Install dependencies
         run: npm install
 
@@ -32,8 +37,13 @@ jobs:
       - name: Sync Capacitor
         run: npx cap sync android
 
-      - name: Bump minSdkVersion for billing library
-        run: sed -i 's/minSdkVersion = 22/minSdkVersion = 23/' android/variables.gradle
+      - name: Fix SDK versions for billing library
+        run: |
+          sed -i 's/minSdkVersion = .*/minSdkVersion = 24/' android/variables.gradle
+          sed -i 's/compileSdkVersion = .*/compileSdkVersion = 35/' android/variables.gradle
+          sed -i 's/targetSdkVersion = .*/targetSdkVersion = 35/' android/variables.gradle
+          echo "--- variables.gradle ---"
+          cat android/variables.gradle
 
       - name: Set version code and name
         run: |

@@ -55,6 +55,8 @@ jobs:
           cp resources/android/values/colors.xml android/app/src/main/res/values/colors.xml
           cp resources/android/values/styles.xml android/app/src/main/res/values/styles.xml
 
+          # Remove Capacitor-generated ic_launcher_background.xml to avoid duplicate resource
+          rm -f android/app/src/main/res/values/ic_launcher_background.xml
           echo "--- Custom icons and theme applied ---"
 
       - name: Fix SDK versions for billing library

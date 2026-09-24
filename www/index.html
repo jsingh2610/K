@@ -1740,7 +1740,7 @@ function initBilling(){
   try{
     var store=CdvPurchase.store;
     store.register([{
-      id:'sadhu_unlock',
+      id:'sadhu.unlock',
       type:CdvPurchase.ProductType.NON_CONSUMABLE,
       platform:CdvPurchase.Platform.GOOGLE_PLAY
     }]);
@@ -1748,7 +1748,7 @@ function initBilling(){
       .approved(function(transaction){
         var token=transaction.nativePurchase?transaction.nativePurchase.purchaseToken:null;
         if(token&&currentUser){
-          verifyPurchase(token,'sadhu_unlock').then(function(ok){
+          verifyPurchase(token,'sadhu.unlock').then(function(ok){
             transaction.finish();
             if(ok||true){S.tier='pro';save();syncTier();closePaywall();playDamaru();toast('✦ Sadhu unlocked — yours forever');}
           });
@@ -1779,7 +1779,7 @@ async function buyPro(){
       closePaywall();openAuth();return;
     }
     try{
-      var product=CdvPurchase.store.get('sadhu_unlock',CdvPurchase.Platform.GOOGLE_PLAY);
+      var product=CdvPurchase.store.get('sadhu.unlock',CdvPurchase.Platform.GOOGLE_PLAY);
       if(!product){toast('Product not available — try again later');return;}
       var offer=product.getOffer();
       if(!offer){toast('No offers available — try again later');return;}

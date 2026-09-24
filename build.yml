@@ -1,0 +1,112 @@
+name: Build Kailasa AAB
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Install Android SDK platform 36
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null 2>&1 || true
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-36" "build-tools;36.0.0"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Add Android platform
+        run: npx cap add android
+
+      - name: Sync Capacitor
+        run: npx cap sync android
+
+      - name: Apply custom icons and theme
+        run: |
+          # Copy custom trishul icons to replace default Capacitor icons
+          for density in mipmap-mdpi mipmap-hdpi mipmap-xhdpi mipmap-xxhdpi mipmap-xxxhdpi; do
+            cp resources/android/icon/$density/ic_launcher.png android/app/src/main/res/$density/ic_launcher.png
+            cp resources/android/icon/$density/ic_launcher_round.png android/app/src/main/res/$density/ic_launcher_round.png
+            cp resources/android/icon/$density/ic_launcher_foreground.png android/app/src/main/res/$density/ic_launcher_foreground.png
+          done
+
+          # Copy adaptive icon XML (Android 8+)
+          mkdir -p android/app/src/main/res/mipmap-anydpi-v26
+          cp resources/android/mipmap-anydpi-v26/ic_launcher.xml android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+          cp resources/android/mipmap-anydpi-v26/ic_launcher_round.xml android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+
+          # Copy custom colors and styles
+          cp resources/android/values/colors.xml android/app/src/main/res/values/colors.xml
+          cp resources/android/values/styles.xml android/app/src/main/res/values/styles.xml
+
+          echo "--- Custom icons and theme applied ---"
+
+      - name: Fix SDK versions for billing library
+        run: |
+          sed -i 's/minSdkVersion = .*/minSdkVersion = 24/' android/variables.gradle
+          sed -i 's/compileSdkVersion = .*/compileSdkVersion = 36/' android/variables.gradle
+          sed -i 's/targetSdkVersion = .*/targetSdkVersion = 36/' android/variables.gradle
+          echo "--- variables.gradle ---"
+          cat android/variables.gradle
+
+      - name: Set version code and name
+        run: |
+          sed -i 's/versionCode [0-9]*/versionCode 16/' android/app/build.gradle
+          sed -i 's/versionName "[^"]*"/versionName "2.1.0"/' android/app/build.gradle
+
+      - name: Decode keystore
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/signing.keystore
+
+      - name: Add signing config to Gradle
+        run: |
+          cat > android/app/signing.gradle << 'EOF'
+          android {
+              signingConfigs {
+                  release {
+                      storeFile file("signing.keystore")
+                      storePassword System.getenv("KEYSTORE_PASSWORD") ?: ""
+                      keyAlias System.getenv("KEY_ALIAS") ?: ""
+                      keyPassword System.getenv("KEY_PASSWORD") ?: ""
+                  }
+              }
+              buildTypes {
+                  release {
+                      signingConfig signingConfigs.release
+                  }
+              }
+          }
+          EOF
+          echo 'apply from: "signing.gradle"' >> android/app/build.gradle
+
+      - name: Build release AAB
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew bundleRelease
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: kailasa-release-aab
+          path: android/app/build/outputs/bundle/release/*.aab
+          if-no-files-found: error

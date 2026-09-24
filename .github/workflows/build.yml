@@ -37,6 +37,26 @@ jobs:
       - name: Sync Capacitor
         run: npx cap sync android
 
+      - name: Apply custom icons and theme
+        run: |
+          # Copy custom trishul icons to replace default Capacitor icons
+          for density in mipmap-mdpi mipmap-hdpi mipmap-xhdpi mipmap-xxhdpi mipmap-xxxhdpi; do
+            cp resources/android/icon/$density/ic_launcher.png android/app/src/main/res/$density/ic_launcher.png
+            cp resources/android/icon/$density/ic_launcher_round.png android/app/src/main/res/$density/ic_launcher_round.png
+            cp resources/android/icon/$density/ic_launcher_foreground.png android/app/src/main/res/$density/ic_launcher_foreground.png
+          done
+
+          # Copy adaptive icon XML (Android 8+)
+          mkdir -p android/app/src/main/res/mipmap-anydpi-v26
+          cp resources/android/mipmap-anydpi-v26/ic_launcher.xml android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+          cp resources/android/mipmap-anydpi-v26/ic_launcher_round.xml android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+
+          # Copy custom colors and styles
+          cp resources/android/values/colors.xml android/app/src/main/res/values/colors.xml
+          cp resources/android/values/styles.xml android/app/src/main/res/values/styles.xml
+
+          echo "--- Custom icons and theme applied ---"
+
       - name: Fix SDK versions for billing library
         run: |
           sed -i 's/minSdkVersion = .*/minSdkVersion = 24/' android/variables.gradle
@@ -47,8 +67,8 @@ jobs:
 
       - name: Set version code and name
         run: |
-          sed -i 's/versionCode [0-9]*/versionCode 15/' android/app/build.gradle
-          sed -i 's/versionName "[^"]*"/versionName "2.0.0"/' android/app/build.gradle
+          sed -i 's/versionCode [0-9]*/versionCode 16/' android/app/build.gradle
+          sed -i 's/versionName "[^"]*"/versionName "2.1.0"/' android/app/build.gradle
 
       - name: Decode keystore
         run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/signing.keystore

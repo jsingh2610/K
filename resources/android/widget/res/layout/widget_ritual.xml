@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/w_root"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:gravity="center" android:padding="12dp"
+    android:background="@drawable/widget_bg">
+    <TextView android:id="@+id/w_day"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="SOMVAR" android:textColor="#FFE8C87A" android:textSize="11sp"
+        android:textStyle="bold" android:letterSpacing="0.2" />
+    <TextView android:id="@+id/w_icon"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="4dp" android:text="🥛" android:textSize="30sp" />
+    <TextView android:id="@+id/w_name"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="4dp" android:gravity="center"
+        android:text="Milk Abhishek" android:textColor="#FFF1E6CC" android:textSize="15sp"
+        android:textStyle="bold" android:maxLines="2" android:ellipsize="end" />
+    <TextView android:id="@+id/w_deity"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="2dp" android:text="Lord Shiva"
+        android:textColor="#FF8FA6BC" android:textSize="11sp" />
+</LinearLayout>

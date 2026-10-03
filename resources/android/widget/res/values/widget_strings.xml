@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="w_affirmation_label">Daily Affirmation</string>
+    <string name="w_affirmation_desc">Today\'s affirmation for your sankalp</string>
+    <string name="w_ritual_label">Today\'s Ritual</string>
+    <string name="w_ritual_desc">Today\'s sacred ritual and its devta</string>
+    <string name="w_streak_label">Sadhana Streak</string>
+    <string name="w_streak_desc">Your streak, next badge and japa today</string>
+</resources>

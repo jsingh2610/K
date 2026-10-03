@@ -673,6 +673,8 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
         <div class="label">Daily mantra</div><div class="choices" id="setMantra"></div>
         <button class="btn" style="margin-top:12px" onclick="saveProfile()">Save profile</button>
       </div>
+      <h2 class="sec">Reminders</h2>
+      <div class="card" id="remindCard"></div>
             <h2 class="sec">Daily Sacred Ritual</h2>
       <div class="card" id="ritualCard"></div>
       <h2 class="sec">Account</h2>
@@ -702,6 +704,15 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
 </div>
 
 <!-- PAYWALL -->
+<div class="sheet-bg" id="remindAsk" onclick="if(event.target===this)closeRemindAsk()">
+  <div class="sheet" style="text-align:center;padding-top:26px">
+    <div style="font-size:40px">🔔</div>
+    <b style="font-size:19px;display:block;margin-top:8px">Want a gentle reminder tomorrow?</b>
+    <p class="subtle" style="font-size:13.5px;margin-top:8px;line-height:1.55">A Brahma Muhurta call, a streak saver if you miss a day, and your daily ritual. You can change or turn them off anytime in More.</p>
+    <button class="btn gold" style="margin-top:16px" onclick="closeRemindAsk();KN.enable()">Yes, remind me</button>
+    <button class="btn ghost" style="margin-top:10px" onclick="closeRemindAsk()">Not now</button>
+  </div>
+</div>
 <div class="sheet-bg" id="paywall" onclick="if(event.target===this)closePaywall()">
   <div class="sheet">
     <div class="grab"></div>
@@ -963,7 +974,7 @@ const PILLAR_AFFIRMATIONS={
 let S=load();
 function todayKey(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function load(){try{return Object.assign({},DEFAULT,JSON.parse(localStorage.getItem("kailasa"))||{});}catch(e){return {...DEFAULT};}}
-function save(){localStorage.setItem("kailasa",JSON.stringify(S));syncToCloud();}
+function save(){localStorage.setItem("kailasa",JSON.stringify(S));syncToCloud();if(typeof KN!=="undefined"&&KN)KN.onSave();}
 function isPro(){return S.tier==="pro";}
 
 /* ===== SUPABASE CLOUD SYNC ===== */
@@ -1190,7 +1201,8 @@ function go(s,skipHistory){document.querySelectorAll(".screen").forEach(e=>e.cla
 /* ===== JAPA ===== */
 const CIRC=2*Math.PI*112;
 function tapBead(){if(navigator.vibrate)navigator.vibrate(18);S.count++;S.total++;
-  if(S.count>=108){S.count=0;S.rounds++;if(navigator.vibrate)navigator.vibrate([40,30,40]);toast("🔱 Mala complete — "+S.rounds+" rounds");playDamaru();}
+  var _tk=todayKey();if(S.beadsDay!==_tk){S.beadsDay=_tk;S.beadsToday=0;}S.beadsToday++;KN.markPractice();
+  if(S.count>=108){S.count=0;S.rounds++;if(navigator.vibrate)navigator.vibrate([40,30,40]);toast("🔱 Mala complete — "+S.rounds+" rounds");playDamaru();KN.maybeAsk();}
   save();renderJapa();}
 function renderJapa(){document.getElementById("beadCount").textContent=S.count;document.getElementById("stRounds").textContent=S.rounds;
   document.getElementById("stTotal").textContent=S.total;document.getElementById("stStreak").textContent=S.streak;
@@ -1303,7 +1315,7 @@ function openLesson(d){if(!isPro()){openPaywall();return;}activeLesson=d;const L
   document.getElementById("lesson").classList.add("on");document.getElementById("lessonBody").scrollTop=0;navPush("lesson");}
 function closeLesson(){document.getElementById("lesson").classList.remove("on");renderCourse();}
 function completeLesson(){const d=activeLesson;if(S.courseDone.includes(d))return;
-  S.courseDone.push(d);S.courseDone.sort((a,b)=>a-b);if(d===S.courseDay&&S.courseDay<40)S.courseDay++;save();
+  S.courseDone.push(d);S.courseDone.sort((a,b)=>a-b);KN.markPractice();if(d===S.courseDay&&S.courseDay<40)S.courseDay++;save();
   if(navigator.vibrate)navigator.vibrate([30,20,30]);playDamaru();toast("✅ Lesson "+d+" complete! +1 day");closeLesson();}
 function openDayZero(){activeLesson=0;
   document.getElementById("lprogBar").style.width="2%";
@@ -1666,7 +1678,7 @@ var profileGoalPillar=null;
 function renderMore(){const names={bhakt:"Bhakt · Free",pro:"Sadhu · Unlocked ✦"};
   document.getElementById("moreTier").textContent=names[S.tier]||names.bhakt;document.getElementById("moreTierDesc").textContent=TIERDESC[S.tier]||TIERDESC.bhakt;renderAccount();
   document.getElementById("moreUpgrade").style.display=isPro()?"none":"block";
-  renderDailyRitual();
+  renderDailyRitual();renderReminders();
   document.getElementById("setName").value=S.name||"";
   profileGoalPillar=S.primaryGoal||"dhan_samriddhi";
   buildGoalGrid("profileGoalGrid",profileGoalPillar,function(k){profileGoalPillar=k;});
@@ -1829,6 +1841,131 @@ function finishOnb(){S.name=document.getElementById("onbName").value.trim();S.pr
   document.getElementById("onb").classList.remove("on");boot();playDamaru();toast("🔱 Welcome to Kailasa");}
 function replayOnb(){S.onboarded=false;onbMantra=S.mantra;startOnb();}
 
+/* ===== NATIVE: REMINDERS + HOME-SCREEN WIDGETS (v2.3) ===== */
+var KN=(function(){
+  var C=window.Capacitor;
+  var native=!!(C&&typeof C.nativePromise==="function"&&((C.isNativePlatform&&C.isNativePlatform())||(C.getPlatform&&C.getPlatform()==="android")));
+  function plugin(name){
+    if(!native)return null;
+    if(C.Plugins&&C.Plugins[name])return C.Plugins[name];
+    return new Proxy({},{get:function(_,m){return function(o){return C.nativePromise(name,m,o||{});};}});
+  }
+  var LN=plugin("LocalNotifications"),WB=plugin("WidgetBridge");
+  var RITUALS={0:{n:"Water to Surya Dev",i:"☀️",d:"Surya Dev"},1:{n:"Milk Abhishek",i:"🥛",d:"Lord Shiva"},2:{n:"Light a Diya",i:"🪔",d:"Hanuman Ji"},
+    3:{n:"Tulsi in Wallet",i:"🌿",d:"Tulsi Devi"},4:{n:"Donate Yellow Dal",i:"🫘",d:"Brihaspati Dev"},5:{n:"Ghee Diya",i:"🪔",d:"Lakshmi Ji"},6:{n:"Mustard Oil Offering",i:"🛢️",d:"Shani Dev"}};
+  var DAYS=["Ravivar","Somvar","Mangalvar","Budhvar","Guruvar","Shukravar","Shanivar"];
+  var BRAHMA=["Mahadev is waiting for your sadhana 🙏","The most sacred hour has begun. One mala is enough.","Rise with Shiva. Your sankalp grows in stillness.",
+    "Brahma muhurta is here. Sit for 5 minutes with Om Namah Shivaya.","The world sleeps. This hour belongs to you and Mahadev."];
+  var STREAK=["Don't break your {n}-day streak 🔥 One mala is enough.","{n} days of sadhana. Keep the flame alive tonight 🪔",
+    "Bholenath noticed your {n}-day streak. Two minutes keeps it going 🔱","Your {n}-day streak ends at midnight. A few beads saves it 📿",
+    "One mantra before sleep keeps your {n}-day streak alive 🌙"];
+  var AFF_TEASE=["🌅 Your affirmation for today is ready","🌅 A new sankalp affirmation awaits you","🌅 Today's words of strength are ready"];
+  function pick(arr,seed){return arr[Math.abs(seed)%arr.length];}
+  function practicedToday(){var t=todayKey();
+    return S.lastPractice===t||(S.poojaToday||[]).length>0||(S.mantraDoneToday||[]).length>0;}
+  function rs(){if(!S.reminders)S.reminders={on:false,asked:false,brahma:true,brahmaT:"04:30",streak:true,streakT:"20:00",morning:true};return S.reminders;}
+  function atTime(dayOffset,hhmm){var p=hhmm.split(":"),d=new Date();d.setDate(d.getDate()+dayOffset);d.setHours(+p[0],+p[1],0,0);return d;}
+  function affFor(date){var pk=S.primaryGoal||"dhan_samriddhi";var pool=PILLAR_AFFIRMATIONS[pk]||PILLAR_AFFIRMATIONS.dhan_samriddhi;
+    var doy=Math.floor((Date.UTC(date.getFullYear(),date.getMonth(),date.getDate())-Date.UTC(date.getFullYear(),0,0))/86400000);return pool[doy%pool.length];}
+  function keyOf(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+
+  /* ---------- reminders ---------- */
+  var lastSig="",schedTO=null;
+  function buildSchedule(){
+    var r=rs(),list=[],now=Date.now(),pro=isPro(),done=practicedToday();
+    for(var d=0;d<7;d++){
+      var day=new Date();day.setDate(day.getDate()+d);var wd=day.getDay();
+      if(r.brahma){var b=atTime(d,r.brahmaT);if(b>now)list.push({id:1000+d,title:"🔱 Brahma Muhurta",body:pick(BRAHMA,day.getDate()),at:b});}
+      if(r.streak&&!(d===0&&done)){var s=atTime(d,r.streakT);if(s>now){var n=(S.streak||1)+d;
+        list.push({id:1100+d,title:"Keep your sadhana alive",body:pick(STREAK,day.getDate()).replace("{n}",n),at:s});}}
+      if(r.morning){var m=atTime(d,"07:00");if(m>now){
+        if(pro){var ri=RITUALS[wd];list.push({id:1200+d,title:ri.i+" "+DAYS[wd]+": "+ri.n,body:"Today's ritual for "+ri.d+". Tap to see how.",at:m});}
+        else list.push({id:1200+d,title:pick(AFF_TEASE,day.getDate()),body:"“"+affFor(day)+"”",at:m});}}
+    }
+    return list;
+  }
+  function sig(){var r=rs();return [todayKey(),r.on,r.brahma,r.brahmaT,r.streak,r.streakT,r.morning,practicedToday(),S.streak,S.tier,S.primaryGoal].join("|");}
+  function reschedule(force){
+    if(!LN)return;var r=rs();var s=sig();if(!force&&s===lastSig)return;lastSig=s;
+    var ids=[];for(var d=0;d<7;d++){ids.push({id:1000+d},{id:1100+d},{id:1200+d});}
+    LN.cancel({notifications:ids}).catch(function(){}).then(function(){
+      if(!r.on)return;
+      var list=buildSchedule().map(function(n){return {id:n.id,title:n.title,body:n.body,channelId:"sadhana",
+        smallIcon:"ic_stat_trishul",iconColor:"#E8C87A",schedule:{at:n.at.toISOString(),allowWhileIdle:true}};});
+      if(list.length)return LN.schedule({notifications:list});
+    }).catch(function(e){console.error("reschedule",e);});
+  }
+  function enable(){
+    if(!LN){toast("Reminders work in the Kailasa app");return Promise.resolve(false);}
+    var r=rs();r.asked=true;
+    return LN.requestPermissions().then(function(p){
+      var ok=p&&p.display==="granted";r.on=ok;save();renderReminders();
+      if(ok){LN.createChannel({id:"sadhana",name:"Sadhana reminders",description:"Brahma Muhurta, streak and ritual reminders",importance:4,vibration:true}).catch(function(){});
+        reschedule(true);toast("🔱 Reminders on");}
+      else toast("Allow notifications in phone settings to get reminders");
+      return ok;}).catch(function(){return false;});
+  }
+  function disable(){var r=rs();r.on=false;save();renderReminders();reschedule(true);toast("Reminders off");}
+
+  /* ---------- widgets ---------- */
+  var widgetTO=null;
+  function pushWidget(){
+    if(!WB)return;
+    var nb=BADGES.find(function(b){return (S.streak||1)<b.days;});
+    var aff={};for(var d=0;d<7;d++){var day=new Date();day.setDate(day.getDate()+d);aff[keyOf(day)]=affFor(day);}
+    var pk=S.primaryGoal||"dhan_samriddhi";
+    var data={v:1,date:todayKey(),tier:isPro()?"pro":"bhakt",streak:S.streak||1,
+      next:nb?(nb.ic+" "+nb.name+" in "+(nb.days-(S.streak||1))+"d"):"🕉️ Shivoham achieved",
+      japa:S.beadsDay===todayKey()?(S.beadsToday||0):0,
+      pillar:(PILLAR_NAMES[pk]||"")+" · "+(PILLAR_NAMES_EN[pk]||""),aff:aff};
+    WB.update({data:JSON.stringify(data)}).catch(function(e){console.error("widget",e);});
+  }
+  function consumeLaunch(){
+    if(!WB||!S.onboarded)return;
+    WB.consumeLaunchScreen().then(function(r){var s=r&&r.screen;if(!s)return;
+      if(s==="ritual"){go("more");if(!isPro())openPaywall();else setTimeout(function(){var c=document.getElementById("ritualCard");if(c)c.scrollIntoView({behavior:"smooth",block:"center"});},350);}
+      else if(document.getElementById("s-"+s))go(s);}).catch(function(){});
+  }
+
+  /* ---------- hooks ---------- */
+  function onSave(){
+    if(!native)return;
+    clearTimeout(widgetTO);widgetTO=setTimeout(pushWidget,1500);
+    clearTimeout(schedTO);schedTO=setTimeout(function(){reschedule(false);},2500);
+  }
+  function markPractice(){var t=todayKey();if(S.lastPractice!==t){S.lastPractice=t;}}
+  function maybeAsk(){var r=rs();if(!native||r.on||r.asked)return;
+    r.asked=true;save();setTimeout(function(){document.getElementById("remindAsk").classList.add("on");navPush("remindAsk");},900);}
+  function init(){
+    if(!native)return;
+    var r=rs();
+    if(r.on&&LN){LN.checkPermissions().then(function(p){if(!p||p.display!=="granted"){r.on=false;save();renderReminders();}else reschedule(true);}).catch(function(){});}
+    pushWidget();consumeLaunch();
+    document.addEventListener("resume",function(){consumeLaunch();pushWidget();reschedule(false);},false);
+    document.addEventListener("visibilitychange",function(){if(!document.hidden){consumeLaunch();reschedule(false);}});
+  }
+  return {native:native,init:init,checkLaunch:consumeLaunch,onSave:onSave,enable:enable,disable:disable,markPractice:markPractice,maybeAsk:maybeAsk,rs:rs,reschedule:reschedule};
+})();
+
+function renderReminders(){
+  var card=document.getElementById("remindCard");if(!card)return;
+  var r=KN.rs();
+  if(!KN.native){card.innerHTML='<p class="subtle" style="font-size:13px">Daily reminders are available in the Kailasa app from Google Play.</p>';return;}
+  if(!r.on){card.innerHTML='<div style="display:flex;align-items:center;gap:14px"><div style="font-size:30px">🔔</div><div style="flex:1"><b style="font-size:15px">Gentle daily reminders</b><p class="subtle" style="font-size:12.5px">Brahma Muhurta, streak saver and your morning ritual.</p></div></div><button class="btn gold" style="margin-top:12px" onclick="KN.enable()">Turn on reminders</button>';return;}
+  function row(key,icon,title,sub,timeKey,opts){
+    var sel=timeKey?'<select class="field" style="margin-top:8px;padding:8px 10px;font-size:13px" onchange="KN.rs().'+timeKey+'=this.value;save();KN.reschedule(true)">'+
+      opts.map(function(o){return '<option value="'+o[0]+'"'+(r[timeKey]===o[0]?' selected':'')+'>'+o[1]+'</option>';}).join("")+'</select>':'';
+    return '<div style="padding:12px 0;border-bottom:1px solid var(--line)"><div class="audio-toggle" style="margin:0"><div class="lab"><b>'+icon+' '+title+'</b><span>'+sub+'</span></div>'+
+      '<div class="sw'+(r[key]?' on':'')+'" onclick="KN.rs().'+key+'=!KN.rs().'+key+';save();renderReminders();KN.reschedule(true)"></div></div>'+(r[key]?sel:'')+'</div>';}
+  card.innerHTML=
+    row("brahma","🔱","Brahma Muhurta","Daily call to sadhana","brahmaT",[["04:00","4:00 AM"],["04:30","4:30 AM"],["05:00","5:00 AM"],["05:30","5:30 AM"],["06:00","6:00 AM"]])+
+    row("streak","🔥","Streak saver","Only if you haven't practised today","streakT",[["19:00","7:00 PM"],["20:00","8:00 PM"],["21:00","9:00 PM"],["22:00","10:00 PM"]])+
+    row("morning","🌅",isPro()?"Daily sacred ritual":"Daily affirmation",isPro()?"7:00 AM · today's deity ritual":"7:00 AM · your affirmation of the day",null,null)+
+    '<p class="subtle" style="font-size:12px;margin-top:12px">On Xiaomi, Vivo or Oppo phones, allow Kailasa to run in the background (Settings → Battery) so reminders arrive on time.</p>'+
+    '<button class="btn ghost" style="margin-top:10px" onclick="KN.disable()">Turn off all reminders</button>';
+}
+function closeRemindAsk(){document.getElementById("remindAsk").classList.remove("on");}
+
 /* ===== INIT ===== */
 function boot(){S.chant=false;syncTier();renderJapa();renderHome();document.getElementById("brandSub").textContent=S.name?S.name+" · Manifest":"Shiva · Manifest";go("home");
   if(!S.tipSeen){S.tipSeen=true;save();setTimeout(()=>toast('🔱 Welcome — explore your practice'),1400);}
@@ -1836,7 +1973,8 @@ function boot(){S.chant=false;syncTier();renderJapa();renderHome();document.getE
   setTimeout(checkNewBadges,1500);
   initAuth().then(function(){renderAccount();if(S.onboarded){syncTier();renderHome();}});
   /* init billing after a short delay to let plugins load */
-  setTimeout(initBilling,1000);}
+  setTimeout(initBilling,1000);
+  KN.init();}
 (function init(){
   /* migration: sadhu/mahayogi → pro */
   if(S.tier==="sadhu"||S.tier==="mahayogi"){S.tier="pro";save();}
@@ -1862,6 +2000,8 @@ window.addEventListener("popstate",function(e){
   var mc=document.getElementById("mcounter");
   var pm=document.getElementById("privacyModal");
   var bc=document.getElementById("badgeCelebration");
+  var ra=document.getElementById("remindAsk");
+  if(ra&&ra.classList.contains("on")){closeRemindAsk();navHandlingPop=false;return;}
   if(pm&&pm.classList.contains("on")){closePrivacy();navHandlingPop=false;return;}
   if(pw&&pw.classList.contains("on")){closePaywall();navHandlingPop=false;return;}
   if(am&&am.classList.contains("on")){closeAuth();navHandlingPop=false;return;}

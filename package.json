@@ -1,6 +1,6 @@
 {
   "name": "kailasa",
-  "version": "2.0.0",
+  "version": "2.3.0",
   "private": true,
   "description": "Kailasa - Shiva Manifestation App",
   "scripts": {
@@ -11,7 +11,8 @@
   "dependencies": {
     "@capacitor/android": "^6.1.0",
     "@capacitor/core": "^6.1.0",
-    "cordova-plugin-purchase": "^13.11.0"
+    "cordova-plugin-purchase": "^13.11.0",
+    "@capacitor/local-notifications": "^6.1.3"
   },
   "devDependencies": {
     "@capacitor/cli": "^6.1.0",

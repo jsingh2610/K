@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/w_root"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="16dp"
+    android:background="@drawable/widget_bg">
+    <TextView android:id="@+id/w_pillar"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="विद्या · Knowledge &amp; Education"
+        android:textColor="#FFE8C87A" android:textSize="11sp" android:textStyle="bold"
+        android:letterSpacing="0.08" android:maxLines="1" android:ellipsize="end" />
+    <TextView android:id="@+id/w_text"
+        android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+        android:layout_marginTop="6dp" android:gravity="center_vertical"
+        android:text="“I am a vessel of divine abundance, and prosperity flows to me effortlessly.”"
+        android:textColor="#FFF1E6CC" android:textSize="15sp" android:fontFamily="serif"
+        android:lineSpacingMultiplier="1.15" android:maxLines="4" android:ellipsize="end" />
+    <TextView
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="🔱 KAILASA" android:textColor="#FF8FA6BC" android:textSize="10sp"
+        android:letterSpacing="0.3" />
+</LinearLayout>

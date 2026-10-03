@@ -1750,14 +1750,16 @@ async function verifyPurchase(purchaseToken,productId){
 }
 var BILLING_LIVE=true;
 var billingReady=false;
+var billingStarted=false;
 
 /* ===== CAPACITOR BILLING (cordova-plugin-purchase) ===== */
 function initBilling(){
-  if(!BILLING_LIVE)return;
+  if(!BILLING_LIVE||billingStarted)return;
   if(!window.CdvPurchase){
-    console.log('CdvPurchase not available yet — billing in prototype mode');
+    console.log('CdvPurchase not available yet');
     return;
   }
+  billingStarted=true;
   try{
     var store=CdvPurchase.store;
     store.register([{
@@ -1811,9 +1813,9 @@ async function buyPro(){
     }
     return;
   }
-  /* prototype fallback — works when billing plugin not loaded or product not in Play Console */
-  S.tier='pro';save();syncTier();closePaywall();playDamaru();
-  toast('✦ Sadhu unlocked (prototype)');
+  /* never unlock without a real Google Play purchase */
+  if(!window.CdvPurchase){toast('Sadhu can be unlocked in the Kailasa app on Google Play');return;}
+  if(!billingReady){initBilling();toast('Connecting to Google Play… tap again in a moment');return;}
 }
 function wipe(){
   if(!confirm("Reset all progress and data?"))return;

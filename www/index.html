@@ -1140,13 +1140,19 @@ let _toastTO=null;
 function toast(m){var el=document.getElementById("toast");if(!el)return;el.textContent=m;el.classList.add("on");
   clearTimeout(_toastTO);_toastTO=setTimeout(function(){el.classList.remove("on");},2200);}
 function mantraName(){return (MANTRAS.find(m=>m.id===S.mantra)||MANTRAS[0]).n;}
-(function streakCheck(){const t=todayKey();if(S.lastDay!==t){const diff=Math.round((new Date(t)-new Date(S.lastDay))/86400000);
+function streakCheck(){const t=todayKey();if(S.lastDay!==t){const diff=Math.round((new Date(t)-new Date(S.lastDay))/86400000);
   S.streak=diff===1?S.streak+1:1;S.lastDay=t;S.count=0;S.poojaToday=[];S.mantraDoneToday=[];
   if(!S.bestStreak||S.streak>S.bestStreak)S.bestStreak=S.streak;
   /* award any new badges */
   if(!S.badgesEarned)S.badgesEarned=[];if(!S.badgeSeen)S.badgeSeen=[];
   BADGES.forEach(function(b){if(S.streak>=b.days&&!S.badgesEarned.includes(b.id)){S.badgesEarned.push(b.id);}});
-  save();}})();
+  save();return true;}return false;}
+streakCheck();
+/* the app can stay open in the background past midnight — roll the day over when it comes back */
+function dayRollover(){if(!S.onboarded||!streakCheck())return;
+  var cur=document.querySelector(".screen.on");if(cur)go(cur.id.replace("s-",""),true);
+  setTimeout(checkNewBadges,800);}
+document.addEventListener("visibilitychange",function(){if(!document.hidden)dayRollover();});
 /* show unseen badge celebrations after boot */
 function checkNewBadges(){if(!S.badgesEarned||!S.badgeSeen)return;
   var unseen=S.badgesEarned.filter(function(id){return !(S.badgeSeen||[]).includes(id);});
@@ -1893,6 +1899,9 @@ var KN=(function(){
     var ids=[];for(var d=0;d<7;d++){ids.push({id:1000+d},{id:1100+d},{id:1200+d});}
     LN.cancel({notifications:ids}).catch(function(){}).then(function(){
       if(!r.on)return;
+      return LN.createChannel({id:"sadhana",name:"Sadhana reminders",description:"Brahma Muhurta, streak and ritual reminders",importance:4,vibration:true}).catch(function(){});
+    }).then(function(){
+      if(!r.on)return;
       var list=buildSchedule().map(function(n){return {id:n.id,title:n.title,body:n.body,channelId:"sadhana",
         smallIcon:"ic_stat_trishul",iconColor:"#E8C87A",schedule:{at:n.at.toISOString(),allowWhileIdle:true}};});
       if(list.length)return LN.schedule({notifications:list});
@@ -1903,8 +1912,7 @@ var KN=(function(){
     var r=rs();r.asked=true;
     return LN.requestPermissions().then(function(p){
       var ok=p&&p.display==="granted";r.on=ok;save();renderReminders();
-      if(ok){LN.createChannel({id:"sadhana",name:"Sadhana reminders",description:"Brahma Muhurta, streak and ritual reminders",importance:4,vibration:true}).catch(function(){});
-        reschedule(true);toast("🔱 Reminders on");}
+      if(ok){reschedule(true);toast("🔱 Reminders on");}
       else toast("Allow notifications in phone settings to get reminders");
       return ok;}).catch(function(){return false;});
   }
@@ -1939,15 +1947,20 @@ var KN=(function(){
   function markPractice(){var t=todayKey();if(S.lastPractice!==t){S.lastPractice=t;}}
   function maybeAsk(){var r=rs();if(!native||r.on||r.asked)return;
     r.asked=true;save();setTimeout(function(){document.getElementById("remindAsk").classList.add("on");navPush("remindAsk");},900);}
+  var lastResume=0;
+  function onResume(){var n=Date.now();if(n-lastResume<800)return;lastResume=n;
+    /* a new day may have started while the app was in the background */
+    dayRollover();
+    consumeLaunch();pushWidget();reschedule(false);}
   function init(){
     if(!native)return;
     var r=rs();
     if(r.on&&LN){LN.checkPermissions().then(function(p){if(!p||p.display!=="granted"){r.on=false;save();renderReminders();}else reschedule(true);}).catch(function(){});}
     pushWidget();consumeLaunch();
-    document.addEventListener("resume",function(){consumeLaunch();pushWidget();reschedule(false);},false);
+    document.addEventListener("resume",onResume,false);
     document.addEventListener("visibilitychange",function(){if(!document.hidden){consumeLaunch();reschedule(false);}});
   }
-  return {native:native,init:init,checkLaunch:consumeLaunch,onSave:onSave,enable:enable,disable:disable,markPractice:markPractice,maybeAsk:maybeAsk,rs:rs,reschedule:reschedule};
+  return {native:native,init:init,onResume:onResume,checkLaunch:consumeLaunch,onSave:onSave,enable:enable,disable:disable,markPractice:markPractice,maybeAsk:maybeAsk,rs:rs,reschedule:reschedule};
 })();
 
 function renderReminders(){

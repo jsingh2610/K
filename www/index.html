@@ -1064,6 +1064,9 @@ async function syncFromCloud(){
       S.journal=mergeJournals(S.journal||[],d.journal||[]);
 
       localStorage.setItem("kailasa",JSON.stringify(S));
+      /* refresh tier-dependent UI (chip, upgrade buttons, locks) after pulling cloud data */
+      syncTier();
+      var curScr=document.querySelector(".screen.on");if(curScr)go(curScr.id.replace("s-",""),true);
 
     }else if(S.onboarded){
       syncToCloud();
@@ -1717,7 +1720,7 @@ function setTier(t){S.tier=t;save();syncTier();toast(t==="bhakt"?"Switched to Bh
 function syncTier(){const c=document.getElementById("tierchip");document.getElementById("tiername").textContent=isPro()?"Sadhu":"Bhakt";
   c.classList.toggle("pro",isPro());document.getElementById("courseLock").textContent=isPro()?"Open":"Sadhu";
   const u=document.getElementById("upsellHome");u.innerHTML=isPro()?"":`<div class="card glass" style="margin-top:22px;text-align:center"><div style="font-size:28px">🔱</div><b style="font-size:16px;display:block;margin:7px 0 3px">Unlock the full path</b><p class="subtle" style="font-size:13px">40-day course, 3 daily affirmations, all mantras & more. One-time ₹499.</p><button class="btn gold" style="margin-top:13px" onclick="openPaywall()">Unlock Sadhu · ₹499</button></div>`;}
-function openPaywall(){document.getElementById("paywall").classList.add("on");navPush("paywall");}
+function openPaywall(){if(isPro()){toast("✦ Sadhu is already unlocked — enjoy your full path");return;}document.getElementById("paywall").classList.add("on");navPush("paywall");}
 function closePaywall(){document.getElementById("paywall").classList.remove("on");}
 async function verifyPurchase(purchaseToken,productId){
   try{

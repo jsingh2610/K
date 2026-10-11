@@ -51,14 +51,18 @@
 
   var go = document.getElementById('go');
   document.getElementById('web').href = WEB;
-  go.href = isAndroid ? INTENT : WEB;
+  // Inside Instagram/FB/Threads: plain https Play link (Android hands it to the Play Store app,
+  // no "You're leaving our app" warning). Normal Android browsers: intent:// straight into Play.
+  go.href = (isAndroid && !inApp) ? INTENT : WEB;
 
   if (isIOS) document.getElementById('ios').classList.remove('hide');
   if (inApp) document.getElementById('ig').classList.remove('hide');
 
-  // Auto-launch Play Store app on Android (button stays as backup if the in-app browser blocks it)
-  if (isAndroid) setTimeout(function(){ location.href = INTENT; }, 300);
-  else if (!isIOS) setTimeout(function(){ location.href = WEB; }, 300);
+  // Auto-launch only outside in-app browsers (auto intent:// is what triggers Instagram's warning)
+  if (!inApp) {
+    if (isAndroid) setTimeout(function(){ location.href = INTENT; }, 300);
+    else if (!isIOS) setTimeout(function(){ location.href = WEB; }, 300);
+  }
 </script>
 </body>
 </html>

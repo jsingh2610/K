@@ -6,4 +6,6 @@
     <string name="w_ritual_desc">Today\'s sacred ritual and its devta</string>
     <string name="w_streak_label">Sadhana Streak</string>
     <string name="w_streak_desc">Your streak, next badge and japa today</string>
+    <string name="w_nandi_label">Nandi Streak</string>
+    <string name="w_nandi_desc">Nandi cheers your sadhana streak and reacts to today\'s practice</string>
 </resources>

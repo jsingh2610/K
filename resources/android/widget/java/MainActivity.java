@@ -11,6 +11,10 @@ public class MainActivity extends BridgeActivity {
     public void onCreate(Bundle savedInstanceState) {
         registerPlugin(WidgetBridge.class);
         super.onCreate(savedInstanceState);
+        // let the opening titles play with sound on launch
+        if (getBridge() != null && getBridge().getWebView() != null) {
+            getBridge().getWebView().getSettings().setMediaPlaybackRequiresUserGesture(false);
+        }
         WidgetBridge.captureLaunch(this, getIntent());
     }
 

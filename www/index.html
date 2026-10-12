@@ -356,6 +356,57 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
 .badge .b-day{font-size:8px;font-weight:800;letter-spacing:.3px;color:var(--ink3);margin-top:2px}
 .badge.earned .b-day{color:var(--gold)}
 
+
+/* ===== GAMIFIED COURSE (Duolingo-style path) + NANDI ===== */
+.gstats{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:4px 2px 14px;font-weight:800;font-size:16px;font-variant-numeric:tabular-nums}
+.gstats span{display:flex;align-items:center;gap:6px}
+.gstats .fire{color:#ff9b3d}.gstats .les{color:var(--ice)}.gstats .bdg{color:var(--gold);font-size:13px;font-weight:700}
+.coach{display:flex;align-items:center;gap:10px;margin:0 0 18px}
+.coach img{width:92px;height:92px;flex:none;filter:drop-shadow(0 8px 16px rgba(0,0,0,.45));animation:nbob 3.2s ease-in-out infinite}
+.coach .say{position:relative;flex:1;min-width:0;background:var(--glass);border:1px solid var(--line2);border-radius:18px;padding:12px 14px;font-size:13.5px;line-height:1.45;color:var(--ink)}
+.coach .say::before{content:"";position:absolute;left:-7px;top:50%;width:12px;height:12px;background:inherit;border-left:1px solid var(--line2);border-bottom:1px solid var(--line2);transform:translateY(-50%) rotate(45deg)}
+.coach .say b{color:var(--gold)}
+@keyframes nbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.unit{display:flex;justify-content:space-between;align-items:center;gap:10px;border-radius:18px;padding:14px 16px;margin:20px 0 6px;color:#06121c;box-shadow:0 5px 0 rgba(0,0,0,.25)}
+.unit small{display:block;font-size:11px;font-weight:800;letter-spacing:1px;opacity:.75;text-transform:uppercase}
+.unit b{display:block;font-size:17px;font-weight:800;margin-top:2px;line-height:1.25}
+.unit .uic{font-size:26px;flex:none}
+.gpath{position:relative;display:flex;flex-direction:column;align-items:center;gap:20px;padding:22px 0 10px}
+.gnode{position:relative;width:72px;height:72px;border:0;border-radius:50%;cursor:pointer;display:grid;place-items:center;font-size:26px;font-weight:900;color:#fff;
+  background:var(--nc,#3fb8d4);box-shadow:0 7px 0 var(--nd,#1d6f86),inset 0 -4px 0 rgba(0,0,0,.08),inset 0 4px 0 rgba(255,255,255,.25);transition:transform .12s}
+.gnode:active{transform:translateY(5px);box-shadow:0 2px 0 var(--nd,#1d6f86)}
+.gnode.lock{--nc:#2a3a4c;--nd:#18232f;color:#5d7186;font-size:22px}
+.gnode.done::after{content:"";position:absolute;inset:9px;border-radius:50%;border:2px solid rgba(255,255,255,.28)}
+.gnode.cur{animation:none}
+.gnode.cur::before{content:"";position:absolute;inset:-11px;border-radius:50%;border:5px solid var(--nc);opacity:.45}
+.gnode.big{width:84px;height:84px;font-size:32px}
+.gstart{position:absolute;bottom:calc(100% + 16px);left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--panel);border:2px solid var(--line2);color:var(--nc);font-size:13px;font-weight:900;letter-spacing:.8px;padding:8px 13px;border-radius:12px;animation:gbob 1.6s ease-in-out infinite;pointer-events:none}
+.gstart::after{content:"";position:absolute;top:100%;left:50%;width:10px;height:10px;background:var(--panel);border-right:2px solid var(--line2);border-bottom:2px solid var(--line2);transform:translate(-50%,-5px) rotate(45deg)}
+@keyframes gbob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-5px)}}
+.gnandi{position:absolute;width:96px;height:96px;top:50%;transform:translateY(-55%);pointer-events:none;filter:drop-shadow(0 6px 12px rgba(0,0,0,.5));animation:nbob 3s ease-in-out infinite}
+.gpop{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);width:min(280px,78vw);z-index:5;background:var(--nc);color:#06121c;border-radius:18px;padding:14px 16px;box-shadow:0 10px 30px rgba(0,0,0,.45);text-align:left;animation:gpop .22s cubic-bezier(.2,.9,.2,1)}
+.gpop::before{content:"";position:absolute;bottom:100%;left:50%;width:14px;height:14px;background:var(--nc);transform:translate(-50%,7px) rotate(45deg)}
+.gpop small{display:block;font-size:11px;font-weight:800;letter-spacing:.8px;opacity:.7;text-transform:uppercase}
+.gpop b{display:block;font-size:16px;font-weight:800;margin:3px 0 12px;line-height:1.3}
+.gpop button{width:100%;border:0;border-radius:13px;padding:12px;font:800 14px inherit;font-family:inherit;letter-spacing:.4px;background:#fff;color:var(--nd);box-shadow:0 4px 0 rgba(0,0,0,.18);cursor:pointer}
+@keyframes gpop{from{opacity:0;transform:translate(-50%,-6px) scale(.96)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
+/* Nandi celebration */
+#nandiCeleb{position:fixed;inset:0;z-index:160;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 24px calc(30px + var(--safe-b));background:radial-gradient(600px 420px at 50% 38%,rgba(232,200,122,.22),transparent 70%),rgba(4,8,14,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+#nandiCeleb.on{display:flex}
+#ncConf{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#nandiCeleb .nimg{width:210px;height:210px;filter:drop-shadow(0 14px 30px rgba(0,0,0,.5));animation:ncIn .7s cubic-bezier(.2,1.4,.4,1) both,nbob 2.6s 0.8s ease-in-out infinite}
+@keyframes ncIn{from{opacity:0;transform:scale(.3) translateY(60px)}to{opacity:1;transform:none}}
+#nandiCeleb h2{font-size:32px;font-weight:900;margin-top:10px;background:linear-gradient(135deg,#e8c87a,#ffb347);-webkit-background-clip:text;background-clip:text;color:transparent;animation:ncUp .5s .35s both}
+#nandiCeleb p{font-size:15px;color:var(--ink2);margin-top:6px;line-height:1.5;max-width:320px;animation:ncUp .5s .45s both}
+@keyframes ncUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.ncchips{display:flex;gap:10px;margin-top:20px;animation:ncUp .5s .55s both}
+.ncchips div{min-width:92px;border-radius:16px;padding:10px 12px;border:2px solid var(--line2);background:var(--panel)}
+.ncchips small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.8px;color:var(--ink3)}
+.ncchips b{display:block;font-size:20px;font-weight:900;margin-top:2px;font-variant-numeric:tabular-nums}
+.ncbar{width:min(300px,80vw);height:12px;border-radius:99px;background:rgba(255,255,255,.08);margin-top:20px;overflow:hidden;animation:ncUp .5s .6s both}
+.ncbar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#e8c87a,#ffb347);transition:width 1s cubic-bezier(.2,.8,.2,1) .9s}
+#nandiCeleb .btn{max-width:320px;margin-top:26px;animation:ncUp .5s .7s both}
+
 /* badge celebration overlay */
 #badgeCelebration{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;background:rgba(4,8,14,.75);backdrop-filter:blur(10px);animation:fade .3s}
 #badgeCelebration.on{display:flex}
@@ -796,6 +847,18 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
 </div>
 
 <div class="toast" id="toast"></div>
+
+
+<!-- NANDI CELEBRATION -->
+<div id="nandiCeleb">
+  <canvas id="ncConf"></canvas>
+  <img class="nimg" id="ncImg" src="nandi/nandi_congrats.webp" alt="Nandi celebrating">
+  <h2 id="ncTitle">Shabash!</h2>
+  <p id="ncSub"></p>
+  <div class="ncchips"><div><small>STREAK</small><b id="ncStreak" style="color:#ff9b3d">🔥 1</b></div><div><small>LESSONS</small><b id="ncLes" style="color:var(--ice)">1/40</b></div></div>
+  <div class="ncbar"><i id="ncBar" style="width:0%"></i></div>
+  <button class="btn gold" onclick="closeNandiCeleb()">Continue</button>
+</div>
 
 <!-- BADGE CELEBRATION -->
 <div id="badgeCelebration" onclick="closeCeleb()">
@@ -1296,25 +1359,62 @@ const LESSONS=[
  {t:"Living the Vision",y:"Garland Pose (Malasana) deep squat.",yq:"Garland pose Malasana squat",m:"Om Tryambakam… (Maha Mrityunjaya)",a:"The best version of me is no longer a dream; it is my active daily reality.",med:"Mentally walk through a standard day as your transformed self — how you speak, work, exercise, and carry yourself."},
  {t:"The Ultimate Offering",y:"Perfect Sitting Pose (Sukhasana), followed by a full 5-minute Shavasana.",yq:"Sukhasana easy pose meditation",m:"Chant \"Om Namah Shivaya\" 108 times (mala or mental count)",a:"I offer this transformed self to the service of the higher good. Shivoham.",med:"The Infinite Self — rest in total silence. No visualizations, no techniques. Sit as pure, boundless awareness for 15 full minutes."}
 ];
+const PCOL=[["#3fb8d4","#1c6e86","🌊"],["#8b9cff","#4c58b8","🔥"],["#e8b84a","#9a7419","✨"],["#ff8a4c","#b4471a","🕉️"]];
+const GOFF=[0,52,78,52,0,-52,-78,-52];
+function nandiMood(){var t=todayKey(),y=new Date();y.setDate(y.getDate()-1);var yk=y.getFullYear()+'-'+String(y.getMonth()+1).padStart(2,'0')+'-'+String(y.getDate()).padStart(2,'0');
+  var done=S.lastPractice===t,alive=done||S.lastPractice===yk,h=new Date().getHours(),n=S.streak||1;
+  if(!S.lastPractice)return{img:"surprised",say:"Pranam! I'm <b>Nandi</b>. Let's start your sadhana together 🔱"};
+  if(done)return{img:"congrats",say:"Shabash! Today's sadhana is <b>done</b>. "+n+"-day streak 🔥"};
+  if(!alive)return{img:"scared",say:"Your streak slipped… <b>start again today</b>, Mahadev is patient 🙏"};
+  if(h<4)return{img:"sleepy",say:"Zzz… rest now. We meet at <b>Brahma Muhurta</b> 🌙"};
+  if(h<12)return{img:"surprised",say:"C'mon, let's do it! Keep your <b>"+n+"-day streak</b> alive 🔥"};
+  if(h<17)return{img:"sad",say:"Mahadev is waiting… just <b>one lesson</b> today? 🥺"};
+  if(h<22)return{img:"angry",say:"Don't break the <b>"+n+"-day streak</b>! Do today's lesson 😤"};
+  return{img:"nervous",say:"Last call before midnight! <b>Save your streak</b> 😰"};}
+let gOpen=null;
 function renderCourse(){const b=document.getElementById("courseBody");
   if(!isPro()){b.innerHTML=`<div class="locked-veil"><div class="bigic">🏔️</div><h3>The 40-Day Path awaits</h3><p>A 40-day path to self-improvement — a traditional Shiva sadhana blending yoga, breathwork, mantra and meditation to rewrite old patterns and build the best version of you. Bite-sized daily rituals, with streaks and progress.</p><button class="btn gold" onclick="openPaywall()">Unlock the Course</button></div>`;return;}
-  const done=S.courseDone.filter(n=>n>=1).length,pct=Math.round(done/40*100),zeroDone=S.courseDone.includes(0);
-  var nextB=BADGES.find(function(b){return S.streak<b.days;});var nbTxt=nextB?nextB.ic+' '+nextB.name+' in '+(nextB.days-S.streak)+' days':'🕉️ Shivoham achieved!';
-  let html=`<div class="streak"><div class="fire">🔥</div><div><b>${S.streak}-day streak</b><br><span>${done}/40 lessons · ${pct}% complete</span><br><span style="color:var(--gold);font-size:11px">Next badge: ${nbTxt}</span></div></div><div class="card glass" style="margin:10px 0 16px;padding:14px 16px"><b style="font-size:13.5px">🕉️ Your Daily Ritual</b><p class="subtle" style="font-size:12.5px;line-height:1.6;margin-top:6px"><b>Movement</b> (15 min asana &amp; breath) → <b>Vibration</b> (10 min mantra &amp; affirmation) → <b>Stillness</b> (15 min Shiva meditation). The same frame every day; the focus evolves.</p></div>`;
-  html+=`<h2 class="sec">Pashupatinath · Day 0</h2>
-    <p style="margin:-2px 0 12px;font-size:12px;line-height:1.55;color:rgba(232,200,122,.75);max-width:560px">Read this before Day 1. The fine print of abundance — the daily habit that makes everything that follows possible.</p>
-    <div class="path"><div class="node ${zeroDone?'done':'cur'}" onclick="openDayZero()">
-      <div class="orb" style="background:linear-gradient(135deg,#e8c87a,#caa24e);color:#3a2c0a;border-color:transparent;box-shadow:0 8px 22px rgba(232,200,122,.4)">${zeroDone?'✓':'☀'}</div>
-      <div class="meta"><h4>Pashupatinath — The Fine Print of Abundance</h4><p>${zeroDone?'Foundation set ✓':'Tap to begin'}</p></div>
-      ${zeroDone?'':'<div style="font-size:11px;font-weight:800;color:var(--gold);letter-spacing:.5px">START ›</div>'}</div></div>`;
-  let lastWeek=-1;html+='<div class="path">';
-  for(let d=1;d<=40;d++){const wk=Math.floor((d-1)/10);if(wk!==lastWeek){lastWeek=wk;html+=`</div><h2 class="sec">Phase ${wk+1} · ${PHASES[wk].n}</h2><p style="margin:-2px 0 12px;font-size:12px;line-height:1.55;color:rgba(210,228,255,.6);max-width:560px">${PHASES[wk].f}</p><div class="path">`;}
-    const isDone=S.courseDone.includes(d),isCur=d===S.courseDay&&!isDone,locked=d>S.courseDay;const L=LESSONS[d-1];
-    const cls=isDone?"done":isCur?"cur":locked?"lock":"";
-    html+=`<div class="node ${cls}" onclick="${(isCur||isDone)?`openLesson(${d})`:`toast('Complete day ${S.courseDay} first 🔒')`}">
-      <div class="orb">${isDone?"✓":d}</div><div class="meta"><h4>${L.t}</h4><p>${isDone?"Completed ✓":isCur?"Tap to begin today's lesson":"Locked"}</p></div>
-      ${isCur?'<div style="font-size:11px;font-weight:800;color:var(--ice);letter-spacing:.5px">START ›</div>':''}</div>`;}
-  html+='</div>';b.innerHTML=html;}
+  const done=S.courseDone.filter(n=>n>=1).length,zeroDone=S.courseDone.includes(0);
+  var nextB=BADGES.find(function(b){return S.streak<b.days;});
+  const m=nandiMood();
+  let html=`<div class="gstats"><span class="fire">🔥 ${S.streak}</span><span class="les">✅ ${done}/40</span><span class="bdg">${nextB?nextB.ic+' '+nextB.name+' in '+(nextB.days-S.streak)+'d':'🕉️ Shivoham'}</span></div>
+    <div class="coach"><img src="nandi/nandi_${m.img}.webp" alt="Nandi"><div class="say">${m.say}</div></div>`;
+  // Day 0
+  html+=`<div class="unit" style="background:linear-gradient(135deg,#e8c87a,#caa24e)"><div><small>Day 0 · Pashupatinath</small><b>The Fine Print of Abundance</b></div><div class="uic">☀️</div></div>
+    <div class="gpath"><div style="position:relative">${zeroDone?'':'<div class="gstart" style="--nc:#caa24e">START</div>'}
+      <button class="gnode big ${zeroDone?'done':'cur'}" style="--nc:#e8c87a;--nd:#9a7419" onclick="openDayZero()">${zeroDone?'✓':'★'}</button></div></div>`;
+  for(let wk=0;wk<4;wk++){const c=PCOL[wk];
+    html+=`<div class="unit" style="background:${c[0]}"><div><small>Phase ${wk+1} · Days ${wk*10+1}–${wk*10+10}</small><b>${PHASES[wk].n}</b></div><div class="uic">${c[2]}</div></div><div class="gpath">`;
+    for(let d=wk*10+1;d<=wk*10+10;d++){const isDone=S.courseDone.includes(d),isCur=d===S.courseDay&&!isDone,locked=!isDone&&!isCur;const L=LESSONS[d-1];
+      const off=GOFF[(d-1)%8],last=d%10===0;const icon=isDone?"✓":last?"🏆":locked?"🔒":"★";
+      html+=`<div style="position:relative;transform:translateX(${off}px);${gOpen===d?"z-index:20":""}" id="gn-${d}">
+        ${isCur&&gOpen!==d?`<div class="gstart" style="--nc:${c[0]}">START</div>`:''}
+        <button class="gnode ${isDone?'done':isCur?'cur':'lock'} ${last?'big':''}" style="${locked?'':'--nc:'+c[0]+';--nd:'+c[1]}" onclick="gTap(${d})" aria-label="Day ${d}: ${L.t.replace(/"/g,'')}">${icon}</button>
+        ${isCur?`<img class="gnandi" src="nandi/nandi_${m.img==='congrats'?'congrats':'surprised'}.webp" alt="" style="${off>=0?'right:calc(100% + 18px)':'left:calc(100% + 18px)'}">`:''}
+        ${gOpen===d?`<div class="gpop" style="--nc:${c[0]};--nd:${c[1]}"><small>Day ${d} · Phase ${wk+1}</small><b>${L.t}</b><button onclick="event.stopPropagation();gOpen=null;openLesson(${d})">${isDone?'REVIEW':'START · +1 DAY'}</button></div>`:''}
+      </div>`;}
+    html+='</div>';}
+  b.innerHTML=html;}
+function gTap(d){const isDone=S.courseDone.includes(d),isCur=d===S.courseDay&&!isDone;
+  if(!isDone&&!isCur){toast('Complete day '+S.courseDay+' first 🔒');return;}
+  if(navigator.vibrate)navigator.vibrate(10);gOpen=gOpen===d?null:d;renderCourse();}
+/* Nandi celebration with confetti */
+function showNandiCeleb(d){const el=document.getElementById("nandiCeleb");const done=S.courseDone.filter(n=>n>=1).length;
+  document.getElementById("ncTitle").textContent=d===0?"Foundation set!":(d%10===0?"Phase complete!":"Shabash!");
+  document.getElementById("ncSub").textContent=d===0?"Day 0 complete. Nandi is proud of you. Your 40-day path begins now 🔱":"Day "+d+" complete. Nandi is proud of you. Har Har Mahadev 🔱";
+  document.getElementById("ncStreak").textContent="🔥 "+(S.streak||1);document.getElementById("ncLes").textContent=done+"/40";
+  const bar=document.getElementById("ncBar");bar.style.transition="none";bar.style.width=Math.max(0,(done-1)/40*100)+"%";
+  const img=document.getElementById("ncImg");img.style.animation="none";void img.offsetWidth;img.style.animation="";
+  el.classList.add("on");requestAnimationFrame(function(){bar.style.transition="";bar.style.width=(done/40*100)+"%";});
+  if(navigator.vibrate)navigator.vibrate([30,40,30,40,80]);playBell();setTimeout(playDamaru,350);confetti();}
+function closeNandiCeleb(){document.getElementById("nandiCeleb").classList.remove("on");gOpen=null;renderCourse();
+  setTimeout(function(){var n=document.getElementById("gn-"+S.courseDay);if(n)n.scrollIntoView({behavior:"smooth",block:"center"});},120);}
+function confetti(){const cv=document.getElementById("ncConf"),x=cv.getContext("2d"),W=cv.width=innerWidth,H=cv.height=innerHeight;
+  const cols=["#e8c87a","#ffb347","#6ad6e8","#8b9cff","#ff6b8b","#67e0a3"];const P=[];
+  for(let i=0;i<140;i++)P.push({x:W/2+(Math.random()-.5)*60,y:H*.38,vx:(Math.random()-.5)*14,vy:-Math.random()*16-4,r:Math.random()*Math.PI,vr:(Math.random()-.5)*.3,w:6+Math.random()*6,h:4+Math.random()*4,c:cols[i%cols.length]});
+  let t0=performance.now();(function f(now){const k=(now-t0)/1000;x.clearRect(0,0,W,H);
+    P.forEach(p=>{p.vy+=.45;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.globalAlpha=Math.max(0,1-k/3.2);x.fillStyle=p.c;x.fillRect(-p.w/2,-p.h/2,p.w,p.h);x.restore();});
+    if(k<3.3&&document.getElementById("nandiCeleb").classList.contains("on"))requestAnimationFrame(f);else x.clearRect(0,0,W,H);})(t0);}
 let activeLesson=null;
 function openLesson(d){if(!isPro()){openPaywall();return;}activeLesson=d;const L=LESSONS[d-1];const wk=Math.floor((d-1)/10);
   document.getElementById("lprogBar").style.width=Math.round(d/40*100)+"%";
@@ -1330,7 +1430,7 @@ function openLesson(d){if(!isPro()){openPaywall();return;}activeLesson=d;const L
 function closeLesson(){document.getElementById("lesson").classList.remove("on");renderCourse();}
 function completeLesson(){const d=activeLesson;if(S.courseDone.includes(d))return;
   S.courseDone.push(d);S.courseDone.sort((a,b)=>a-b);KN.markPractice();if(d===S.courseDay&&S.courseDay<40)S.courseDay++;save();
-  if(navigator.vibrate)navigator.vibrate([30,20,30]);playDamaru();toast("✅ Lesson "+d+" complete! +1 day");closeLesson();}
+  closeLesson();showNandiCeleb(d);}
 function openDayZero(){activeLesson=0;
   document.getElementById("lprogBar").style.width="2%";
   document.getElementById("lessonBody").innerHTML=
@@ -1364,7 +1464,7 @@ function openDayZero(){activeLesson=0;
   btn.textContent=done?"Foundation set ✓":"I accept the foundation ✓";btn.disabled=done;btn.style.opacity=done?".5":"1";btn.onclick=completeDayZero;
   document.getElementById("lesson").classList.add("on");document.getElementById("lessonBody").scrollTop=0;navPush("lesson");}
 function completeDayZero(){if(S.courseDone.includes(0))return;S.courseDone.unshift(0);save();
-  if(navigator.vibrate)navigator.vibrate([30,20,30]);playDamaru();toast("☀ Foundation set — now begin Day 1");closeLesson();}
+  closeLesson();showNandiCeleb(0);}
 
 /* ===== JOURNAL ===== */
 const MOODS=["😌","🙏","🔥","🌊","😔","✨"];let selMood=1;
@@ -1927,7 +2027,7 @@ var KN=(function(){
     var nb=BADGES.find(function(b){return (S.streak||1)<b.days;});
     var aff={};for(var d=0;d<7;d++){var day=new Date();day.setDate(day.getDate()+d);aff[keyOf(day)]=affFor(day);}
     var pk=S.primaryGoal||"dhan_samriddhi";
-    var data={v:1,date:todayKey(),tier:isPro()?"pro":"bhakt",streak:S.streak||1,
+    var data={v:1,date:todayKey(),practice:S.lastPractice||"",tier:isPro()?"pro":"bhakt",streak:S.streak||1,
       next:nb?(nb.ic+" "+nb.name+" in "+(nb.days-(S.streak||1))+"d"):"🕉️ Shivoham achieved",
       japa:S.beadsDay===todayKey()?(S.beadsToday||0):0,
       pillar:(PILLAR_NAMES[pk]||"")+" · "+(PILLAR_NAMES_EN[pk]||""),aff:aff};

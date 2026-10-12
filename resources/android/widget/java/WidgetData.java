@@ -49,7 +49,7 @@ final class WidgetData {
 
     static void refreshAll(Context c) {
         AppWidgetManager m = AppWidgetManager.getInstance(c);
-        Class<?>[] kinds = {AffirmationWidget.class, RitualWidget.class, StreakWidget.class};
+        Class<?>[] kinds = {AffirmationWidget.class, RitualWidget.class, StreakWidget.class, NandiWidget.class};
         for (Class<?> k : kinds) {
             int[] ids = m.getAppWidgetIds(new ComponentName(c, k));
             if (ids == null || ids.length == 0) continue;

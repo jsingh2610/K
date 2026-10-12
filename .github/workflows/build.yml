@@ -65,7 +65,7 @@ jobs:
           PKG=$(dirname "$MAIN")
           echo "Java package dir: $PKG"
           cp resources/android/widget/java/*.java "$PKG/"
-          for d in drawable layout xml values; do
+          for d in drawable drawable-nodpi layout xml values; do
             mkdir -p android/app/src/main/res/$d
             cp resources/android/widget/res/$d/* android/app/src/main/res/$d/
           done
@@ -91,8 +91,8 @@ jobs:
 
       - name: Set version code and name
         run: |
-          sed -i 's/versionCode [0-9]*/versionCode 20/' android/app/build.gradle
-          sed -i 's/versionName "[^"]*"/versionName "2.3.1"/' android/app/build.gradle
+          sed -i 's/versionCode [0-9]*/versionCode 21/' android/app/build.gradle
+          sed -i 's/versionName "[^"]*"/versionName "2.3.2"/' android/app/build.gradle
 
       - name: Decode keystore
         run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/signing.keystore

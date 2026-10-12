@@ -407,6 +407,38 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
 .ncbar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#e8c87a,#ffb347);transition:width 1s cubic-bezier(.2,.8,.2,1) .9s}
 #nandiCeleb .btn{max-width:320px;margin-top:26px;animation:ncUp .5s .7s both}
 
+
+/* ===== KAILASH CLIMB (course as a mountain ascent) ===== */
+.gstats.sticky{position:sticky;top:calc(var(--safe-t) - 8px);z-index:30;margin:0 -18px 0;padding:10px 18px;background:linear-gradient(180deg,rgba(7,14,22,.96),rgba(7,14,22,.82));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.mtn{position:relative;margin:6px -18px 0;overflow:hidden}
+.mtn::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(40% 6% at 20% 30%,rgba(220,232,246,.18),transparent 70%),radial-gradient(45% 5% at 80% 55%,rgba(220,232,246,.16),transparent 70%),radial-gradient(40% 5% at 30% 78%,rgba(220,232,246,.14),transparent 70%);animation:mistDrift 18s ease-in-out infinite alternate}
+@keyframes mistDrift{from{transform:translateX(-6%)}to{transform:translateX(6%)}}
+.mtn canvas.pix{position:absolute;inset:0;width:100%;height:100%;display:block;image-rendering:pixelated;image-rendering:crisp-edges}
+.stop{position:absolute;transform:translate(-50%,-50%)}
+.stone{width:56px;height:56px;border:0;border-radius:14px;display:grid;place-items:center;cursor:pointer;font-size:20px;font-weight:900;color:#5f7287;
+  background:radial-gradient(circle at 35% 30%,#4a5b6e,#2a3746 70%);box-shadow:0 6px 0 #18222d,0 10px 18px rgba(0,0,0,.45),inset 0 2px 0 rgba(255,255,255,.12)}
+.stone.done{color:#3a2a06;background:radial-gradient(circle at 35% 30%,#ffe7a6,#e8b84a 60%,#b9882b);box-shadow:0 6px 0 #7d5b17,0 0 18px rgba(232,200,122,.45),inset 0 2px 0 rgba(255,255,255,.4)}
+.stone.cur{color:#06121c;background:radial-gradient(circle at 35% 30%,#d9fbff,#6ad6e8 55%,#3fb8d4);box-shadow:0 6px 0 #1c6e86,0 0 0 8px rgba(106,214,232,.18),0 0 34px rgba(106,214,232,.6);animation:stonePulse 2.2s ease-in-out infinite}
+@keyframes stonePulse{50%{box-shadow:0 6px 0 #1c6e86,0 0 0 14px rgba(106,214,232,.06),0 0 44px rgba(106,214,232,.75)}}
+.stone:active{transform:translateY(4px);box-shadow:0 2px 0 #18222d}
+.stone .dn{position:absolute;top:100%;margin-top:9px;left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:800;letter-spacing:.6px;color:#dbe6f2;white-space:nowrap;text-shadow:0 1px 2px #000,0 0 6px rgba(0,0,0,.9)}
+.stone.done .dn{color:rgba(232,200,122,.85)}.stone.cur .dn{color:var(--ice)}
+.climb{position:absolute;top:50%;left:calc(100% + 12px);transform:translateY(-50%);background:var(--ice);color:#06121c;font-size:11.5px;font-weight:900;letter-spacing:1px;padding:6px 11px;border-radius:99px;white-space:nowrap;animation:cbob 1.6s ease-in-out infinite;pointer-events:none;box-shadow:0 6px 16px rgba(106,214,232,.4)}
+.climb.l{left:auto;right:calc(100% + 12px)}
+@keyframes cbob{0%,100%{transform:translate(0,-50%)}50%{transform:translate(4px,-50%)}}
+.camp{display:flex;align-items:center;gap:6px}
+.camp img{width:86px;height:86px;flex:none;filter:drop-shadow(0 8px 12px rgba(0,0,0,.55));animation:nbob 3s ease-in-out infinite}
+.camp .flag{min-width:0;max-width:210px;border-radius:16px;padding:10px 13px;color:#06121c;box-shadow:0 5px 0 rgba(0,0,0,.28),0 10px 24px rgba(0,0,0,.35)}
+.camp .flag small{display:block;font-size:10px;font-weight:900;letter-spacing:1px;opacity:.7;text-transform:uppercase}
+.camp .flag b{display:block;font-size:14px;font-weight:800;line-height:1.25;margin-top:2px}
+.camp .flag span{display:block;font-size:11.5px;font-weight:600;margin-top:4px;opacity:.85}
+.summit{display:flex;flex-direction:column;align-items:center;text-align:center}
+.summit img{width:118px;height:118px;filter:drop-shadow(0 10px 16px rgba(0,0,0,.5));animation:nbob 3s ease-in-out infinite}
+.summit b,.summit small{background-color:rgba(8,14,26,.72);padding:3px 10px;border-radius:10px}
+.summit b{font-size:18px;font-weight:900;color:#f6e2ae;margin-top:4px}
+.summit small{font-size:11.5px;color:var(--ink2);margin-top:2px;letter-spacing:.4px}
+.gpop.mt{top:calc(100% + 26px)}
+
 /* badge celebration overlay */
 #badgeCelebration{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;background:rgba(4,8,14,.75);backdrop-filter:blur(10px);animation:fade .3s}
 #badgeCelebration.on{display:flex}
@@ -1269,7 +1301,7 @@ function go(s,skipHistory){document.querySelectorAll(".screen").forEach(e=>e.cla
   const next=document.getElementById("s-"+s);next.classList.add("on");
   document.querySelectorAll(".nav-i").forEach(n=>n.classList.toggle("on",n.dataset.s===s));
   document.getElementById("scroll").scrollTop=0;
-  if(s==="affirm")renderAffirm();if(s==="course")renderCourse();if(s==="mantras")renderMantras();
+  if(s==="affirm")renderAffirm();if(s==="course"){renderCourse();setTimeout(scrollToClimber,380);}if(s==="mantras")renderMantras();
   if(s==="yoga")renderYoga();if(s==="more")renderMore();if(s==="journal")renderJournal();if(s==="home")renderHome();
   if(s==="pooja")renderPooja();if(s==="darshan")renderDarshan();if(s==="japa")renderJapa();
   animateIn(next);
@@ -1359,45 +1391,138 @@ const LESSONS=[
  {t:"Living the Vision",y:"Garland Pose (Malasana) deep squat.",yq:"Garland pose Malasana squat",m:"Om Tryambakam… (Maha Mrityunjaya)",a:"The best version of me is no longer a dream; it is my active daily reality.",med:"Mentally walk through a standard day as your transformed self — how you speak, work, exercise, and carry yourself."},
  {t:"The Ultimate Offering",y:"Perfect Sitting Pose (Sukhasana), followed by a full 5-minute Shavasana.",yq:"Sukhasana easy pose meditation",m:"Chant \"Om Namah Shivaya\" 108 times (mala or mental count)",a:"I offer this transformed self to the service of the higher good. Shivoham.",med:"The Infinite Self — rest in total silence. No visualizations, no techniques. Sit as pure, boundless awareness for 15 full minutes."}
 ];
-const PCOL=[["#3fb8d4","#1c6e86","🌊"],["#8b9cff","#4c58b8","🔥"],["#e8b84a","#9a7419","✨"],["#ff8a4c","#b4471a","🕉️"]];
-const GOFF=[0,52,78,52,0,-52,-78,-52];
+const PCOL=[["#3fb8d4","#1c6e86","🌲"],["#8b9cff","#4c58b8","🔥"],["#e8b84a","#9a7419","✨"],["#ff8a4c","#b4471a","🕉️"]];
 function nandiMood(){var t=todayKey(),y=new Date();y.setDate(y.getDate()-1);var yk=y.getFullYear()+'-'+String(y.getMonth()+1).padStart(2,'0')+'-'+String(y.getDate()).padStart(2,'0');
   var done=S.lastPractice===t,alive=done||S.lastPractice===yk,h=new Date().getHours(),n=S.streak||1;
-  if(!S.lastPractice)return{img:"surprised",say:"Pranam! I'm <b>Nandi</b>. Let's start your sadhana together 🔱"};
-  if(done)return{img:"congrats",say:"Shabash! Today's sadhana is <b>done</b>. "+n+"-day streak 🔥"};
-  if(!alive)return{img:"scared",say:"Your streak slipped… <b>start again today</b>, Mahadev is patient 🙏"};
-  if(h<4)return{img:"sleepy",say:"Zzz… rest now. We meet at <b>Brahma Muhurta</b> 🌙"};
-  if(h<12)return{img:"surprised",say:"C'mon, let's do it! Keep your <b>"+n+"-day streak</b> alive 🔥"};
-  if(h<17)return{img:"sad",say:"Mahadev is waiting… just <b>one lesson</b> today? 🥺"};
-  if(h<22)return{img:"angry",say:"Don't break the <b>"+n+"-day streak</b>! Do today's lesson 😤"};
-  return{img:"nervous",say:"Last call before midnight! <b>Save your streak</b> 😰"};}
+  if(!S.lastPractice)return{img:"surprised",say:"Pranam! I'm Nandi. Let's climb together 🔱"};
+  if(done)return{img:"congrats",say:"Shabash! Today's climb is done 🔥"};
+  if(!alive)return{img:"scared",say:"Your streak slipped… climb again today 🙏"};
+  if(h<4)return{img:"sleepy",say:"Zzz… we climb at Brahma Muhurta 🌙"};
+  if(h<12)return{img:"surprised",say:"C'mon, let's climb! "+n+"-day streak 🔥"};
+  if(h<17)return{img:"sad",say:"Mahadev is waiting up there… 🥺"};
+  if(h<22)return{img:"angry",say:"Don't break the "+n+"-day streak! 😤"};
+  return{img:"nervous",say:"Last call before midnight! 😰"};}
 let gOpen=null;
 function renderCourse(){const b=document.getElementById("courseBody");
   if(!isPro()){b.innerHTML=`<div class="locked-veil"><div class="bigic">🏔️</div><h3>The 40-Day Path awaits</h3><p>A 40-day path to self-improvement — a traditional Shiva sadhana blending yoga, breathwork, mantra and meditation to rewrite old patterns and build the best version of you. Bite-sized daily rituals, with streaks and progress.</p><button class="btn gold" onclick="openPaywall()">Unlock the Course</button></div>`;return;}
   const done=S.courseDone.filter(n=>n>=1).length,zeroDone=S.courseDone.includes(0);
-  var nextB=BADGES.find(function(b){return S.streak<b.days;});
-  const m=nandiMood();
-  let html=`<div class="gstats"><span class="fire">🔥 ${S.streak}</span><span class="les">✅ ${done}/40</span><span class="bdg">${nextB?nextB.ic+' '+nextB.name+' in '+(nextB.days-S.streak)+'d':'🕉️ Shivoham'}</span></div>
-    <div class="coach"><img src="nandi/nandi_${m.img}.webp" alt="Nandi"><div class="say">${m.say}</div></div>`;
-  // Day 0
-  html+=`<div class="unit" style="background:linear-gradient(135deg,#e8c87a,#caa24e)"><div><small>Day 0 · Pashupatinath</small><b>The Fine Print of Abundance</b></div><div class="uic">☀️</div></div>
-    <div class="gpath"><div style="position:relative">${zeroDone?'':'<div class="gstart" style="--nc:#caa24e">START</div>'}
-      <button class="gnode big ${zeroDone?'done':'cur'}" style="--nc:#e8c87a;--nd:#9a7419" onclick="openDayZero()">${zeroDone?'✓':'★'}</button></div></div>`;
-  for(let wk=0;wk<4;wk++){const c=PCOL[wk];
-    html+=`<div class="unit" style="background:${c[0]}"><div><small>Phase ${wk+1} · Days ${wk*10+1}–${wk*10+10}</small><b>${PHASES[wk].n}</b></div><div class="uic">${c[2]}</div></div><div class="gpath">`;
-    for(let d=wk*10+1;d<=wk*10+10;d++){const isDone=S.courseDone.includes(d),isCur=d===S.courseDay&&!isDone,locked=!isDone&&!isCur;const L=LESSONS[d-1];
-      const off=GOFF[(d-1)%8],last=d%10===0;const icon=isDone?"✓":last?"🏆":locked?"🔒":"★";
-      html+=`<div style="position:relative;transform:translateX(${off}px);${gOpen===d?"z-index:20":""}" id="gn-${d}">
-        ${isCur&&gOpen!==d?`<div class="gstart" style="--nc:${c[0]}">START</div>`:''}
-        <button class="gnode ${isDone?'done':isCur?'cur':'lock'} ${last?'big':''}" style="${locked?'':'--nc:'+c[0]+';--nd:'+c[1]}" onclick="gTap(${d})" aria-label="Day ${d}: ${L.t.replace(/"/g,'')}">${icon}</button>
-        ${isCur?`<img class="gnandi" src="nandi/nandi_${m.img==='congrats'?'congrats':'surprised'}.webp" alt="" style="${off>=0?'right:calc(100% + 18px)':'left:calc(100% + 18px)'}">`:''}
-        ${gOpen===d?`<div class="gpop" style="--nc:${c[0]};--nd:${c[1]}"><small>Day ${d} · Phase ${wk+1}</small><b>${L.t}</b><button onclick="event.stopPropagation();gOpen=null;openLesson(${d})">${isDone?'REVIEW':'START · +1 DAY'}</button></div>`:''}
+  var nextB=BADGES.find(function(b){return S.streak<b.days;});const m=nandiMood();
+  const W=Math.max(320,b.clientWidth+36||360),cx=W/2;
+  // build the stops from base camp (bottom) to the summit (top)
+  const stops=[];stops.push({k:"day",d:0});
+  for(let wk=0;wk<4;wk++){stops.push({k:"camp",wk});for(let d=wk*10+1;d<=wk*10+10;d++)stops.push({k:"day",d});}
+  stops.push({k:"summit"});
+  const gap={day:92,camp:150,summit:0};let H=560;stops.forEach(st=>H+=gap[st.k]);H+=150;
+  let y=H-80,i=0;const pts=[];
+  stops.forEach((st,idx)=>{const prog=1-(y/H);const A=(W*.29)*(1-prog*.45);
+    st.x=st.k==="summit"?cx:cx+A*Math.sin(i*0.95+0.4);if(st.k==="camp")st.x=cx+A*.55*Math.sin(i*0.95+0.4);
+    st.y=y;pts.push([st.x,st.y]);y-=gap[st.k==="summit"?"day":st.k]||92;if(idx<stops.length-1&&stops[idx+1].k==="summit")y-=150;if(st.k==="day")i++;else i+=.5;});
+  const sumY=stops[stops.length-1].y;
+  // how far the climber has come (index of current stop)
+  let curIdx=0;stops.forEach((st,idx)=>{if(st.k==="day"&&(S.courseDone.includes(st.d)))curIdx=idx;});
+  const curDay=zeroDone?S.courseDay:0;
+  // smooth trail path
+  function trail(a,bn){let d="";const P=pts.slice(a,bn+1);if(P.length<2)return"";d="M"+P[0][0].toFixed(1)+" "+P[0][1].toFixed(1);
+    for(let j=1;j<P.length;j++){const p0=P[j-1],p1=P[j],my=(p0[1]+p1[1])/2;d+=` C${p0[0].toFixed(1)} ${my.toFixed(1)} ${p1[0].toFixed(1)} ${my.toFixed(1)} ${p1[0].toFixed(1)} ${p1[1].toFixed(1)}`;}return d;}
+  // mountain silhouette (widest at the base, peak at the summit)
+  function ridge(seed,spread,top){let d=`M0 ${H} L0 ${H*.55}`;const N=26;for(let j=0;j<=N;j++){const t=j/N;const xx=t*W;const peakness=1-Math.abs(t-.5)*2;
+      const yy=top+(H-top)*(1-Math.pow(peakness,spread))*.98+Math.sin(j*2.7+seed)*14+Math.sin(j*1.3+seed*2)*20;d+=` L${xx.toFixed(1)} ${Math.max(top,yy).toFixed(1)}`;}return d+` L${W} ${H} Z`;}
+  const snowY=stops.find(st=>st.k==="camp"&&st.wk===2).y+60;
+  const PXS=5;
+  let html=`<div class="gstats sticky"><span class="fire">🔥 ${S.streak}</span><span class="les">⛰️ Day ${done}/40</span><span class="bdg">${nextB?nextB.ic+' '+nextB.name+' in '+(nextB.days-S.streak)+'d':'🕉️ Shivoham'}</span></div>
+    <div class="mtn" id="mtn" style="height:${H}px"><canvas class="pix" id="pixMtn" width="${Math.ceil(W/PXS)}" height="${Math.ceil(H/PXS)}"></canvas>`;
+  stops.forEach(st=>{
+    if(st.k==="day"){const d=st.d,isDone=S.courseDone.includes(d),isCur=d===curDay&&!isDone,L=d?LESSONS[d-1]:null;
+      const wk=d?Math.floor((d-1)/10):0,c=d?PCOL[wk]:["#e8c87a","#9a7419"];
+      html+=`<div class="stop" id="gn-${d}" style="left:${st.x.toFixed(1)}px;top:${st.y.toFixed(1)}px;${gOpen===d?'z-index:25':''}">
+        <button class="stone ${isDone?'done':isCur?'cur':''}" onclick="gTap(${d})" aria-label="Day ${d}">${isDone?'✓':d%10===0&&d?'🏆':d===0?'☀':isCur?'▲':d}${d?`<span class="dn">DAY ${d}</span>`:'<span class="dn">BASE CAMP</span>'}</button>
+        ${isCur&&gOpen!==d?(st.x>cx?'<div class="climb l">CLIMB ▶</div>':'<div class="climb">◀ CLIMB</div>'):''}
+        ${gOpen===d?`<div class="gpop mt" style="--nc:${c[0]};--nd:${c[1]}"><small>${d?'Day '+d+' · Phase '+(wk+1):'Day 0 · Pashupatinath'}</small><b>${d?L.t:'The Fine Print of Abundance'}</b><button onclick="event.stopPropagation();gOpen=null;${d?'openLesson('+d+')':'openDayZero()'}">${isDone?'REVIEW':'CLIMB · +1 DAY'}</button></div>`:''}
       </div>`;}
-    html+='</div>';}
-  b.innerHTML=html;}
-function gTap(d){const isDone=S.courseDone.includes(d),isCur=d===S.courseDay&&!isDone;
-  if(!isDone&&!isCur){toast('Complete day '+S.courseDay+' first 🔒');return;}
+    else if(st.k==="camp"){const wk=st.wk,c=PCOL[wk],first=wk*10+1;const reached=zeroDone&&(S.courseDay>first||S.courseDone.includes(first)||S.courseDay===first);
+      const nextCamp=!reached&&(wk===0||S.courseDay>=first-10);
+      const img=reached?(S.courseDone.includes(first+9)?'congrats':m.img):nextCamp?'surprised':'sleepy';
+      const say=reached?(S.courseDone.includes(first+9)?'Phase complete! 🏆':m.say):nextCamp?'Waiting for you here!':'Zzz… see you up here';
+      const left=st.x>cx;
+      html+=`<div class="stop camp" style="left:${st.x.toFixed(1)}px;top:${st.y.toFixed(1)}px;flex-direction:${left?'row-reverse':'row'}">
+        <img src="nandi/nandi_${img}.webp" alt="Nandi">
+        <div class="flag" style="background:${c[0]}"><small>Camp ${wk+1} · Days ${first}–${first+9}</small><b>${PHASES[wk].n}</b><span>${say}</span></div></div>`;}
+    else{const top=S.courseDone.includes(40);
+      html+=`<div class="stop summit" style="left:${st.x.toFixed(1)}px;top:${(st.y-10).toFixed(1)}px">
+        <div style="font-size:30px;filter:drop-shadow(0 0 12px rgba(255,255,255,.6))">🔱</div>
+        <img src="nandi/nandi_${top?'congrats':'sleepy'}.webp" alt="Nandi at the summit">
+        <b>Kailash · Day 40</b><small>${top?'Shivoham. You made it 🕉️':'Nandi waits for you at the summit'}</small></div>`;}
+  });
+  html+='</div>';b.innerHTML=html;drawPixMountain(document.getElementById('pixMtn'),W,H,PXS,stops,curIdx);}
+
+/* ===== pixel-art Himalayan ridge climb (rock + snow, misty chasms), drawn at 1/5 res and scaled up crisp ===== */
+function drawPixMountain(cv,W,H,PX,stops,curIdx){if(!cv)return;const w=cv.width,h=cv.height,ctx=cv.getContext('2d'),img=ctx.createImageData(w,h),D=img.data;
+  const R=(i)=>{const v=Math.sin(i*127.1+311.7)*43758.5453;return v-Math.floor(v);};
+  const N2=(px,py)=>{const ix=Math.floor(px),iy=Math.floor(py),fx=px-ix,fy=py-iy,u=fx*fx*(3-2*fx),v=fy*fy*(3-2*fy);
+    const a=R(ix+iy*57),b=R(ix+1+iy*57),c=R(ix+(iy+1)*57),d=R(ix+1+(iy+1)*57);return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v;};
+  const fbm=(px,py)=>N2(px,py)*.55+N2(px*2.1+7,py*2.1)*.3+N2(px*4.3,py*4.3+3)*.15;
+  const B=(x,y)=>((x&1)^(y&1));                       // 2x2 dither
+  const C={sky:[[18,20,52],[34,32,78],[62,54,112],[112,92,152],[178,140,182],[232,182,196]],
+    pk:[[238,242,248],[200,206,228],[150,142,186],[112,102,152],[82,72,120],[58,50,94]],
+    mist:[[214,224,236],[186,200,220],[156,172,198],[124,142,172]],deep:[[26,34,58],[34,44,72],[44,56,88]],
+    top:[[132,140,156],[112,120,138],[94,100,118],[74,80,98]],mortar:[52,56,72],
+    cliff:[[104,108,126],[84,88,106],[66,68,86],[50,52,68],[36,38,52]],
+    snow:[[244,248,253],[218,230,244],[188,204,228],[160,178,208]],
+    slab:[[170,174,186],[146,150,164]],gold:[[255,214,120],[214,160,60]],flag:[[214,60,60],[240,190,70]]};
+  const put=(i,c)=>{D[i]=c[0];D[i+1]=c[1];D[i+2]=c[2];D[i+3]=255;};
+  // ---- rasterise the ridge (walkable top) along the trail, plateaus at camps & summit, rock pillars in the mist
+  const top=new Uint8Array(w*h),path=new Int16Array(w*h).fill(-1),alt=(y)=>1-y/h;
+  const disc=(cx,cy,r,mark)=>{for(let y=Math.floor(cy-r-2);y<=cy+r+2;y++)for(let x=Math.floor(cx-r-2);x<=cx+r+2;x++){if(x<0||y<0||x>=w||y>=h)continue;
+      const dx=x-cx,dy=(y-cy)*1.25,rr=r+(fbm(x*.31,y*.31)-.5)*5;if(dx*dx+dy*dy<=rr*rr)top[y*w+x]=mark;}};
+  const P=stops.map(s=>[s.x/PX,s.y/PX,s.k]);
+  for(let j=1;j<P.length;j++){const a=P[j-1],b=P[j],my=(a[1]+b[1])/2;
+    for(let t=0;t<=1;t+=.008){const u=1-t,bx=u*u*u*a[0]+3*u*u*t*a[0]+3*u*t*t*b[0]+t*t*t*b[0],by=u*u*u*a[1]+3*u*u*t*my+3*u*t*t*my+t*t*t*b[1];
+      disc(bx,by,10.5-alt(by)*3,1);
+      for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const xx=Math.round(bx)+dx,yy=Math.round(by)+dy;if(xx>=0&&yy>=0&&xx<w&&yy<h)path[yy*w+xx]=j;}}}
+  P.forEach(p=>{if(p[2]==='camp')disc(p[0],p[1],19,1);if(p[2]==='summit')disc(p[0],p[1]+4,24,1);if(p[2]==='day'&&p===P[0])disc(p[0],p[1],17,1);});
+  for(let k=0;k<16;k++){const px=(R(k*3.1)<.5?R(k*5.7)*w*.22:w-R(k*5.7)*w*.22),py=h*.22+R(k*9.3)*h*.72;disc(px,py,3+R(k)*5,2);}
+  // ---- Kailash peak behind the summit (banded pixel shading)
+  const sum=P[P.length-1],peakBase=sum[1]-16,apex=Math.max(14,peakBase-72),pcx=sum[0];
+  for(let y=0;y<h;y++){const a=alt(y);
+    for(let x=0;x<w;x++){const i=(y*w+x)*4,id=y*w+x;
+      if(top[id]){ // walkable rock / snow surface
+        const fx=x*.34,fy=y*.44;let best=9,sec=9;for(let gy=Math.floor(fy)-1;gy<=Math.floor(fy)+1;gy++)for(let gx=Math.floor(fx)-1;gx<=Math.floor(fx)+1;gx++){
+          const qx=gx+R(gx*13+gy*71),qy=gy+R(gx*29+gy*7),d=(qx-fx)*(qx-fx)+(qy-fy)*(qy-fy);if(d<best){sec=best;best=d;}else if(d<sec)sec=d;}
+        const edge=Math.sqrt(sec)-Math.sqrt(best)<.16;const n=fbm(x*.18,y*.1);
+        const lit=(top[id-1]?0:1)*.25+(top[id-w]?0:1)*.35;   // edges facing the light
+        const snow=a*1.55+(n-.5)*.9-.55+(top[id]===2?.15:0);
+        if(path[id]>=0&&top[id]===1){const climbed=path[id]<=curIdx;put(i,climbed?C.gold[B(x,y)&&n>.5?1:0]:(snow>.35?C.snow[B(x,y)?1:0]:C.slab[(n>.55)|0]));continue;}
+        if(snow>.35){put(i,edge&&snow<.75?C.snow[2]:C.snow[lit>0?0:(n>.62?1:0)]);continue;}
+        if(edge){put(i,C.mortar);continue;}
+        const v=Math.min(3,Math.max(0,Math.floor((1-n)*3.2-lit*3)));put(i,C.top[v]);continue;}
+      // cliff wall under a ledge (3/4 top-down view)
+      let k=0;for(let d=1;d<=11;d++){if(y-d>=0&&top[id-d*w]){k=d;break;}}
+      if(k){const stripe=(fbm(x*.9,y*.05)>.55)?1:0,side=(x>0&&!top[id-d1(k)])?0:0;const sh=Math.min(4,Math.floor(k/2.6)+stripe+(x%5===0?1:0));
+        let c=C.cliff[Math.min(4,sh)];if(k<=1&&a>.55)c=C.snow[1];put(i,c);
+        // mist creeping up the base of the cliff
+        if(k>7&&fbm(x*.08+3,y*.04)>.5&&B(x,y))put(i,C.mist[2]);continue;}
+      // background: sky + Kailash at the top, misty chasm everywhere else
+      if(y<peakBase+4){const t=y/(peakBase+4);
+        const halfw=(y-apex)*.6+Math.sin(y*.7)*.8;const inPk=y>=apex&&Math.abs(x-pcx)<halfw;
+        if(inPk){const rel=(x-pcx)/Math.max(1,halfw);const band=Math.floor((y-apex+fbm(x*.25,y*.12)*6)/8)%3;const snowy=(y-apex)<18+fbm(x*.3,y*.2)*8||band===0||(band===1&&fbm(x*.4,y*.3)>.62);
+          let v=rel<-.05?(snowy?0:2):(snowy?1:3);if(Math.abs(rel)<.06)v=Math.min(5,v+1);if(!snowy&&rel>.4)v=Math.min(5,v+1);put(i,C.pk[v]);continue;}
+        const si=Math.min(5,Math.floor(t*6+(B(x,y)?.35:0)));let c=C.sky[si];
+        const streak=Math.sin((y*1.3+x*.35)*.22+fbm(x*.05,y*.08)*6);if(t>.35&&streak>.82)c=C.sky[Math.min(5,si+1)];
+        if(t<.45&&R(x*13.7+y*7.1)>.985)c=[240,240,255];put(i,c);continue;}
+      const m=fbm(x*.07,y*.035+a*3),m2=fbm(x*.15+9,y*.07);
+      let c=C.deep[m>.55?2:m>.42?1:0];
+      const mm=m2+m*.4;if(mm>.97)c=C.mist[2];else if(mm>.92)c=C.mist[3];else if(mm>.88&&B(x,y))c=C.mist[3];
+      const ray=((x*.6-y*.35)%34+34)%34;if(ray<2&&m>.5&&B(x,y))c=C.deep[2];
+      put(i,c);}}
+  function d1(){return 1;}
+  // prayer flags at camps & summit
+  P.forEach(p=>{if(p[2]!=='camp'&&p[2]!=='summit')return;const fx0=Math.round(p[0]-14),fy0=Math.round(p[1]-10);
+    for(let k=0;k<26;k++){const x=fx0+k,y=fy0+Math.round(Math.sin(k*.25)*2);if(x<0||x>=w||y<0||y>=h)continue;put((y*w+x)*4,k%4===3?[60,60,70]:[[214,60,60],[240,190,70],[70,140,220],[80,170,110],[240,240,240]][Math.floor(k/4)%5]);}});
+  ctx.putImageData(img,0,0);}
+function gTap(d){const zeroDone=S.courseDone.includes(0),isDone=S.courseDone.includes(d),isCur=d===(zeroDone?S.courseDay:0)&&!isDone;
+  if(!isDone&&!isCur){toast(zeroDone?'Climb Day '+S.courseDay+' first 🔒':'Start at Base Camp (Day 0) 🔒');return;}
   if(navigator.vibrate)navigator.vibrate(10);gOpen=gOpen===d?null:d;renderCourse();}
+function scrollToClimber(){var zd=S.courseDone.includes(0);var n=document.getElementById("gn-"+(zd?S.courseDay:0));if(n)n.scrollIntoView({behavior:"smooth",block:"center"});}
 /* Nandi celebration with confetti */
 function showNandiCeleb(d){const el=document.getElementById("nandiCeleb");const done=S.courseDone.filter(n=>n>=1).length;
   document.getElementById("ncTitle").textContent=d===0?"Foundation set!":(d%10===0?"Phase complete!":"Shabash!");
@@ -1408,7 +1533,7 @@ function showNandiCeleb(d){const el=document.getElementById("nandiCeleb");const 
   el.classList.add("on");requestAnimationFrame(function(){bar.style.transition="";bar.style.width=(done/40*100)+"%";});
   if(navigator.vibrate)navigator.vibrate([30,40,30,40,80]);playBell();setTimeout(playDamaru,350);confetti();}
 function closeNandiCeleb(){document.getElementById("nandiCeleb").classList.remove("on");gOpen=null;renderCourse();
-  setTimeout(function(){var n=document.getElementById("gn-"+S.courseDay);if(n)n.scrollIntoView({behavior:"smooth",block:"center"});},120);}
+  setTimeout(scrollToClimber,120);}
 function confetti(){const cv=document.getElementById("ncConf"),x=cv.getContext("2d"),W=cv.width=innerWidth,H=cv.height=innerHeight;
   const cols=["#e8c87a","#ffb347","#6ad6e8","#8b9cff","#ff6b8b","#67e0a3"];const P=[];
   for(let i=0;i<140;i++)P.push({x:W/2+(Math.random()-.5)*60,y:H*.38,vx:(Math.random()-.5)*14,vy:-Math.random()*16-4,r:Math.random()*Math.PI,vr:(Math.random()-.5)*.3,w:6+Math.random()*6,h:4+Math.random()*4,c:cols[i%cols.length]});

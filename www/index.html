@@ -438,6 +438,8 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
 .summit b{font-size:18px;font-weight:900;color:#f6e2ae;margin-top:4px}
 .summit small{font-size:11.5px;color:var(--ink2);margin-top:2px;letter-spacing:.4px}
 .gpop.mt{top:calc(100% + 26px)}
+.gpop.r{left:auto;right:-16px;transform:none;animation:none}.gpop.r::before{left:auto;right:28px;transform:translate(0,7px) rotate(45deg)}
+.gpop.l{left:-16px;transform:none;animation:none}.gpop.l::before{left:28px;transform:translate(0,7px) rotate(45deg)}
 
 /* badge celebration overlay */
 #badgeCelebration{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;background:rgba(4,8,14,.75);backdrop-filter:blur(10px);animation:fade .3s}
@@ -1437,7 +1439,7 @@ function renderCourse(){const b=document.getElementById("courseBody");
       html+=`<div class="stop" id="gn-${d}" style="left:${st.x.toFixed(1)}px;top:${st.y.toFixed(1)}px;${gOpen===d?'z-index:25':''}">
         <button class="stone ${isDone?'done':isCur?'cur':''}" onclick="gTap(${d})" aria-label="Day ${d}">${isDone?'✓':d%10===0&&d?'🏆':d===0?'☀':isCur?'▲':d}${d?`<span class="dn">DAY ${d}</span>`:'<span class="dn">BASE CAMP</span>'}</button>
         ${isCur&&gOpen!==d?(st.x>cx?'<div class="climb l">CLIMB ▶</div>':'<div class="climb">◀ CLIMB</div>'):''}
-        ${gOpen===d?`<div class="gpop mt" style="--nc:${c[0]};--nd:${c[1]}"><small>${d?'Day '+d+' · Phase '+(wk+1):'Day 0 · Pashupatinath'}</small><b>${d?L.t:'The Fine Print of Abundance'}</b><button onclick="event.stopPropagation();gOpen=null;${d?'openLesson('+d+')':'openDayZero()'}">${isDone?'REVIEW':'CLIMB · +1 DAY'}</button></div>`:''}
+        ${gOpen===d?`<div class="gpop mt ${st.x>cx+40?'r':st.x<cx-40?'l':''}" style="--nc:${c[0]};--nd:${c[1]}"><small>${d?'Day '+d+' · Phase '+(wk+1):'Day 0 · Pashupatinath'}</small><b>${d?L.t:'The Fine Print of Abundance'}</b><button onclick="event.stopPropagation();gOpen=null;${d?'openLesson('+d+')':'openDayZero()'}">${isDone?'REVIEW':'CLIMB · +1 DAY'}</button></div>`:''}
       </div>`;}
     else if(st.k==="camp"){const wk=st.wk,c=PCOL[wk],first=wk*10+1;const reached=zeroDone&&(S.courseDay>first||S.courseDone.includes(first)||S.courseDay===first);
       const nextCamp=!reached&&(wk===0||S.courseDay>=first-10);

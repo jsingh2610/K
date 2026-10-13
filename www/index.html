@@ -410,6 +410,44 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
 
 /* ===== KAILASH CLIMB (course as a mountain ascent) ===== */
 .gstats.sticky{position:sticky;top:calc(var(--safe-t) - 8px);z-index:30;margin:0 -18px 0;padding:10px 18px;background:linear-gradient(180deg,rgba(7,14,22,.96),rgba(7,14,22,.82));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.rdg{position:relative;margin:6px -18px 0;overflow:hidden;background:#0c1630}
+.rdg canvas{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.rdg canvas.pix{image-rendering:pixelated;image-rendering:crisp-edges}
+.rmoon{position:absolute;top:34px;right:16%;width:74px;height:74px;border-radius:50%;pointer-events:none;z-index:1;
+  background:radial-gradient(circle at 42% 40%,#fbfdff 0,#e6eefa 45%,#c4d2ea 70%,#aebfe0 100%);box-shadow:0 0 30px 10px rgba(200,220,255,.45),0 0 90px 40px rgba(150,180,240,.22)}
+.rmoon::before{content:"";position:absolute;width:16px;height:12px;left:22px;top:30px;border-radius:50%;background:rgba(150,168,204,.45);box-shadow:20px -12px 0 -2px rgba(150,168,204,.35),14px 16px 0 -3px rgba(150,168,204,.3)}
+.rclouds{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+.rclouds i{position:absolute;border-radius:50%;filter:blur(1.5px);will-change:transform;animation:cdrift 50s ease-in-out infinite alternate;
+  background:radial-gradient(ellipse 38% 55% at 28% 58%,rgba(206,222,250,.9),transparent 70%),radial-gradient(ellipse 34% 62% at 52% 44%,rgba(226,236,255,.95),transparent 72%),radial-gradient(ellipse 36% 50% at 76% 60%,rgba(196,214,246,.85),transparent 70%),radial-gradient(ellipse 60% 26% at 50% 78%,rgba(150,176,226,.6),transparent 75%)}
+.rclouds i.st{filter:blur(1px);background:radial-gradient(ellipse 50% 60% at 50% 50%,rgba(220,232,255,.95),transparent 72%),radial-gradient(ellipse 22% 80% at 30% 40%,rgba(236,242,255,.9),transparent 70%)}
+@keyframes cdrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(var(--dx),0,0)}}
+.snowfx{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden;animation:snowcycle 48s ease-in-out infinite}
+.snowfx i{position:absolute;left:0;right:0;top:-100%;height:200%;background-image:radial-gradient(1.6px 1.6px at 40px 60px,#fff,transparent),radial-gradient(1.2px 1.2px at 210px 190px,#e8f0ff,transparent),radial-gradient(1.8px 1.8px at 130px 330px,#fff,transparent);background-size:280px 420px;opacity:.7;animation:snowfall 18s linear infinite;will-change:transform}
+.snowfx i+i{background-size:360px 520px;opacity:.4;animation-duration:26s;filter:blur(.6px)}
+@keyframes snowfall{from{transform:translate3d(0,0,0)}to{transform:translate3d(-30px,50%,0)}}
+@keyframes snowcycle{0%,52%{opacity:0}64%,86%{opacity:1}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.snowfx{display:none}.rclouds i{animation:none}}
+.rp{position:absolute;transform:translate(-50%,-50%);z-index:4}
+.rp>button{display:grid;place-items:center;border:0;padding:0;cursor:pointer;font:800 13px inherit;font-family:inherit;border-radius:50%}
+.rp.done>button{width:26px;height:26px;background:transparent}
+.rp.done>button::after{content:"";width:12px;height:12px;border-radius:50%;background:#f4d28c;box-shadow:0 0 0 2px #121a30,0 0 12px rgba(255,214,140,.9)}
+.rp.lock>button{width:26px;height:26px;background:rgba(10,18,40,.72);color:#c9d8f2;font-size:11px;box-shadow:inset 0 0 0 1.5px rgba(200,220,255,.55)}
+.rp.cur>button{width:46px;height:46px;font-size:17px;color:#2a1c04;background:radial-gradient(circle at 35% 30%,#fff6dc,#f2cc78 60%,#c8922e);box-shadow:0 0 0 2px #121a30,0 4px 0 #6d4e14,0 0 0 7px rgba(255,236,190,.2),0 0 32px rgba(255,214,140,.85);animation:stonePulse 2.2s ease-in-out infinite}
+/* RPG Maker window skin */
+.rl,.rcamp div,.rsum{background:linear-gradient(180deg,rgba(38,58,104,.94),rgba(14,24,52,.94));border:2px solid #dfe8fa;border-radius:5px;box-shadow:0 0 0 2px #0a1128,0 6px 14px rgba(0,0,0,.45);color:#fff;font-family:"Courier New",ui-monospace,monospace}
+.rl{position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%);white-space:nowrap;padding:5px 10px;pointer-events:none}
+.rl.l{left:auto;right:calc(100% + 10px);text-align:right}
+.rl b{display:block;font-size:12.5px;letter-spacing:2px}.rl span{display:block;font-size:9.5px;letter-spacing:1.5px;color:#f4d28c;margin-top:1px;animation:blink 1.2s steps(2) infinite}
+@keyframes blink{50%{opacity:.35}}
+.rcamp{position:absolute;transform:translate(-50%,-62%);display:flex;align-items:flex-end;gap:2px;z-index:3;pointer-events:none}
+.rcamp.l{flex-direction:row-reverse;text-align:right}
+.rcamp img{width:62px;height:62px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.5));animation:nbob 3s ease-in-out infinite}
+.rcamp div{padding:4px 9px;margin-bottom:6px}
+.rcamp small{display:block;font-size:9.5px;letter-spacing:2px;color:#f4d28c;font-weight:800}.rcamp b{display:block;font-size:11.5px;font-weight:700;max-width:130px;line-height:1.25}
+.rsum{position:absolute;transform:translate(-50%,calc(-100% - 200px));padding:5px 12px;text-align:center;z-index:3;pointer-events:none;white-space:nowrap}
+.rsum b{display:block;font-size:13px;letter-spacing:4px}.rsum small{display:block;font-size:10px;color:#f4d28c;letter-spacing:.5px}
+.rsn{position:absolute;width:64px;height:64px;transform:translate(-50%,-100%);z-index:3;pointer-events:none;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5));animation:nbob 3s ease-in-out infinite}
+.rdg .gpop{border:2px solid #dfe8fa;box-shadow:0 0 0 2px #0a1128,0 10px 30px rgba(0,0,0,.5);border-radius:6px}
 .mtn{position:relative;margin:6px -18px 0;overflow:hidden}
 .mtn::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(40% 6% at 20% 30%,rgba(220,232,246,.18),transparent 70%),radial-gradient(45% 5% at 80% 55%,rgba(220,232,246,.16),transparent 70%),radial-gradient(40% 5% at 30% 78%,rgba(220,232,246,.14),transparent 70%);animation:mistDrift 18s ease-in-out infinite alternate}
 @keyframes mistDrift{from{transform:translateX(-6%)}to{transform:translateX(6%)}}
@@ -1408,130 +1446,141 @@ function nandiMood(){var t=todayKey(),y=new Date();y.setDate(y.getDate()-1);var 
 let gOpen=null;
 function renderCourse(){const b=document.getElementById("courseBody");
   if(!isPro()){b.innerHTML=`<div class="locked-veil"><div class="bigic">🏔️</div><h3>The 40-Day Path awaits</h3><p>A 40-day path to self-improvement — a traditional Shiva sadhana blending yoga, breathwork, mantra and meditation to rewrite old patterns and build the best version of you. Bite-sized daily rituals, with streaks and progress.</p><button class="btn gold" onclick="openPaywall()">Unlock the Course</button></div>`;return;}
-  const done=S.courseDone.filter(n=>n>=1).length,zeroDone=S.courseDone.includes(0);
-  var nextB=BADGES.find(function(b){return S.streak<b.days;});const m=nandiMood();
+  const done=S.courseDone.filter(n=>n>=1).length,zeroDone=S.courseDone.includes(0),curDay=zeroDone?S.courseDay:0;
+  const nextB=BADGES.find(x=>S.streak<x.days),m=nandiMood();
   const W=Math.max(320,b.clientWidth+36||360),cx=W/2;
-  // build the stops from base camp (bottom) to the summit (top)
-  const stops=[];stops.push({k:"day",d:0});
-  for(let wk=0;wk<4;wk++){stops.push({k:"camp",wk});for(let d=wk*10+1;d<=wk*10+10;d++)stops.push({k:"day",d});}
-  stops.push({k:"summit"});
-  const gap={day:92,camp:150,summit:0};let H=560;stops.forEach(st=>H+=gap[st.k]);H+=150;
-  let y=H-80,i=0;const pts=[];
-  stops.forEach((st,idx)=>{const prog=1-(y/H);const A=(W*.29)*(1-prog*.45);
-    st.x=st.k==="summit"?cx:cx+A*Math.sin(i*0.95+0.4);if(st.k==="camp")st.x=cx+A*.55*Math.sin(i*0.95+0.4);
-    st.y=y;pts.push([st.x,st.y]);y-=gap[st.k==="summit"?"day":st.k]||92;if(idx<stops.length-1&&stops[idx+1].k==="summit")y-=150;if(st.k==="day")i++;else i+=.5;});
-  const sumY=stops[stops.length-1].y;
-  // how far the climber has come (index of current stop)
-  let curIdx=0;stops.forEach((st,idx)=>{if(st.k==="day"&&(S.courseDone.includes(st.d)))curIdx=idx;});
-  const curDay=zeroDone?S.courseDay:0;
-  // smooth trail path
-  function trail(a,bn){let d="";const P=pts.slice(a,bn+1);if(P.length<2)return"";d="M"+P[0][0].toFixed(1)+" "+P[0][1].toFixed(1);
-    for(let j=1;j<P.length;j++){const p0=P[j-1],p1=P[j],my=(p0[1]+p1[1])/2;d+=` C${p0[0].toFixed(1)} ${my.toFixed(1)} ${p1[0].toFixed(1)} ${my.toFixed(1)} ${p1[0].toFixed(1)} ${p1[1].toFixed(1)}`;}return d;}
-  // mountain silhouette (widest at the base, peak at the summit)
-  function ridge(seed,spread,top){let d=`M0 ${H} L0 ${H*.55}`;const N=26;for(let j=0;j<=N;j++){const t=j/N;const xx=t*W;const peakness=1-Math.abs(t-.5)*2;
-      const yy=top+(H-top)*(1-Math.pow(peakness,spread))*.98+Math.sin(j*2.7+seed)*14+Math.sin(j*1.3+seed*2)*20;d+=` L${xx.toFixed(1)} ${Math.max(top,yy).toFixed(1)}`;}return d+` L${W} ${H} Z`;}
-  const snowY=stops.find(st=>st.k==="camp"&&st.wk===2).y+60;
-  const PXS=3;
+  // stops from base camp (bottom) up to the cave at the summit (top)
+  const stops=[{k:"day",d:0}];for(let wk=0;wk<4;wk++){stops.push({k:"camp",wk});for(let d=wk*10+1;d<=wk*10+10;d++)stops.push({k:"day",d});}stops.push({k:"summit"});
+  const GAP={day:84,camp:118,summit:0},SKY=300;let H=330+170+SKY;stops.forEach(s=>H+=GAP[s.k]);
+  let y=H-120,i=0;stops.forEach((s,idx)=>{const A=W*.15;
+    if(s.k==="summit"){s.x=cx;s.y=y-40;}else{s.x=cx+A*Math.sin(i*1.05+.3)*(s.k==="camp"?.6:1);s.y=y;}
+    y-=GAP[s.k];if(s.k==="day")i++;else i+=.6;});
+  let curIdx=0;stops.forEach((s,idx)=>{if(s.k!=="day")return;if(S.courseDone.includes(s.d))curIdx=idx;if(s.d===curDay&&!S.courseDone.includes(s.d))curIdx=idx;});
+  const PX=3;
   let html=`<div class="gstats sticky"><span class="fire">🔥 ${S.streak}</span><span class="les">⛰️ Day ${done}/40</span><span class="bdg">${nextB?nextB.ic+' '+nextB.name+' in '+(nextB.days-S.streak)+'d':'🕉️ Shivoham'}</span></div>
-    <div class="mtn" id="mtn" style="height:${H}px"><canvas class="pix" id="pixMtn" width="${Math.ceil(W/PXS)}" height="${Math.ceil(H/PXS)}"></canvas><canvas class="fog" id="fogMtn" width="${Math.ceil(W/2)}" height="${Math.ceil(H/2)}"></canvas>`;
-  stops.forEach(st=>{
-    if(st.k==="day"){const d=st.d,isDone=S.courseDone.includes(d),isCur=d===curDay&&!isDone,L=d?LESSONS[d-1]:null;
-      const wk=d?Math.floor((d-1)/10):0,c=d?PCOL[wk]:["#e8c87a","#9a7419"];
-      html+=`<div class="stop" id="gn-${d}" style="left:${st.x.toFixed(1)}px;top:${st.y.toFixed(1)}px;${gOpen===d?'z-index:25':''}">
-        <button class="stone ${isDone?'done':isCur?'cur':''}" onclick="gTap(${d})" aria-label="Day ${d}">${isDone?'✓':d%10===0&&d?'🏆':d===0?'☀':isCur?'▲':d}${d?`<span class="dn">DAY ${d}</span>`:'<span class="dn">BASE CAMP</span>'}</button>
-        ${isCur&&gOpen!==d?(st.x>cx?'<div class="climb l">CLIMB ▶</div>':'<div class="climb">◀ CLIMB</div>'):''}
-        ${gOpen===d?`<div class="gpop mt ${st.x>cx+40?'r':st.x<cx-40?'l':''}" style="--nc:${c[0]};--nd:${c[1]}"><small>${d?'Day '+d+' · Phase '+(wk+1):'Day 0 · Pashupatinath'}</small><b>${d?L.t:'The Fine Print of Abundance'}</b><button onclick="event.stopPropagation();gOpen=null;${d?'openLesson('+d+')':'openDayZero()'}">${isDone?'REVIEW':'CLIMB · +1 DAY'}</button></div>`:''}
+    <div class="rdg" id="mtn" style="height:${H}px"><canvas class="bgf" id="rgBg" width="${Math.ceil(W/2)}" height="${Math.ceil(H/2)}"></canvas><canvas class="pix" id="pixMtn" width="${Math.ceil(W/PX)}" height="${Math.ceil(H/PX)}"></canvas><canvas class="fog" id="fogMtn" width="${Math.ceil(W/2)}" height="${Math.ceil(H/2)}"></canvas><div class="rmoon"></div><div class="rclouds">${ridgeClouds(W,H)}</div><div class="snowfx"><i></i><i></i></div>`;
+  stops.forEach(s=>{const L=s.x>cx;
+    if(s.k==="day"){const d=s.d,isDone=S.courseDone.includes(d),isCur=d===curDay&&!isDone,wk=d?Math.floor((d-1)/10):0,c=d?PCOL[wk]:["#e8c87a","#9a7419"];
+      html+=`<div class="rp ${isDone?'done':isCur?'cur':'lock'}" id="gn-${d}" style="left:${s.x.toFixed(1)}px;top:${s.y.toFixed(1)}px;${gOpen===d?'z-index:25':''}">
+        <button onclick="gTap(${d})" aria-label="Day ${d}">${isDone?'':isCur?(d||'☀'):d}</button>
+        ${isCur?`<div class="rl ${L?'l':''}"><b>${d?'DAY '+d:'BASE CAMP'}</b><span>TAP TO CLIMB</span></div>`:''}
+        ${gOpen===d?`<div class="gpop mt ${s.x>cx+30?'r':s.x<cx-30?'l':''}" style="--nc:${c[0]};--nd:${c[1]}"><small>${d?'Day '+d+' · Camp '+(wk+1):'Day 0 · Pashupatinath'}</small><b>${d?LESSONS[d-1].t:'The Fine Print of Abundance'}</b><button onclick="event.stopPropagation();gOpen=null;${d?'openLesson('+d+')':'openDayZero()'}">${isDone?'REVIEW':'CLIMB · +1 DAY'}</button></div>`:''}
       </div>`;}
-    else if(st.k==="camp"){const wk=st.wk,c=PCOL[wk],first=wk*10+1;const reached=zeroDone&&(S.courseDay>first||S.courseDone.includes(first)||S.courseDay===first);
-      const nextCamp=!reached&&(wk===0||S.courseDay>=first-10);
-      const img=reached?(S.courseDone.includes(first+9)?'congrats':m.img):nextCamp?'surprised':'sleepy';
-      const say=reached?(S.courseDone.includes(first+9)?'Phase complete! 🏆':m.say):nextCamp?'Waiting for you here!':'Zzz… see you up here';
-      const left=st.x>cx;
-      html+=`<div class="stop camp" style="left:${st.x.toFixed(1)}px;top:${st.y.toFixed(1)}px;flex-direction:${left?'row-reverse':'row'}">
-        <img src="nandi/nandi_${img}.webp" alt="Nandi">
-        <div class="flag" style="background:${c[0]}"><small>Camp ${wk+1} · Days ${first}–${first+9}</small><b>${PHASES[wk].n}</b><span>${say}</span></div></div>`;}
+    else if(s.k==="camp"){const wk=s.wk,first=wk*10+1,reached=zeroDone&&S.courseDay>=first,next=!reached&&(wk===0||S.courseDay>=first-10);
+      const img=reached?(S.courseDone.includes(first+9)?'congrats':m.img):next?'surprised':'sleepy';
+      html+=`<div class="rcamp ${L?'l':''}" style="left:${s.x.toFixed(1)}px;top:${s.y.toFixed(1)}px"><img src="nandi/nandi_${img}.webp" alt="Nandi"><div><small>CAMP ${wk+1}</small><b>${PHASES[wk].n}</b></div></div>`;}
     else{const top=S.courseDone.includes(40);
-      html+=`<div class="stop summit" style="left:${st.x.toFixed(1)}px;top:${(st.y-10).toFixed(1)}px">
-        <div style="font-size:30px;filter:drop-shadow(0 0 12px rgba(255,255,255,.6))">🔱</div>
-        <img src="nandi/nandi_${top?'congrats':'sleepy'}.webp" alt="Nandi at the summit">
-        <b>Kailash · Day 40</b><small>${top?'Shivoham. You made it 🕉️':'Nandi waits for you at the summit'}</small></div>`;}
-  });
-  html+='</div>';b.innerHTML=html;drawPixMountain(document.getElementById('pixMtn'),W,H,PXS,stops,curIdx);}
+      html+=`<img class="rsn" src="nandi/nandi_${top?'congrats':'sleepy'}.webp" alt="Nandi" style="left:${(s.x-78).toFixed(1)}px;top:${(s.y-6).toFixed(1)}px"><div class="rsum" style="left:${s.x.toFixed(1)}px;top:${(s.y-10).toFixed(1)}px"><b>THE SUMMIT</b><small>${top?'Day 40 · Shivoham 🔱':'Day 40 · Nandi waits'}</small></div>`;}});
+  html+='</div>';b.innerHTML=html;drawRidge(W,H,PX,stops,curIdx,Math.max(140,stops[stops.length-1].y-150));}
 
-/* ===== pixel-art Himalayan ridge climb: cobblestone ridge, columned cliffs, rock pillars, soft fog & light rays ===== */
-function drawPixMountain(cv,W,H,PX,stops,curIdx){if(!cv)return;const w=cv.width,h=cv.height,ctx=cv.getContext('2d'),img=ctx.createImageData(w,h),D=img.data;
-  const R=(i)=>{const v=Math.sin(i*127.1+311.7)*43758.5453;return v-Math.floor(v);};
-  const N2=(px,py)=>{const ix=Math.floor(px),iy=Math.floor(py),fx=px-ix,fy=py-iy,u=fx*fx*(3-2*fx),v=fy*fy*(3-2*fy);
-    const a=R(ix+iy*57),b=R(ix+1+iy*57),c=R(ix+(iy+1)*57),d=R(ix+1+(iy+1)*57);return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v;};
-  const fbm=(px,py)=>N2(px,py)*.55+N2(px*2.1+7,py*2.1)*.3+N2(px*4.3,py*4.3+3)*.15;
-  const C={sky:[[18,20,52],[34,32,78],[62,54,112],[112,92,152],[178,140,182],[232,182,196]],
-    pk:[[238,242,248],[200,206,228],[150,142,186],[112,102,152],[82,72,120],[58,50,94]],
-    chasm:[[16,22,38],[22,30,50],[30,40,64]],
-    stone:[[150,158,174],[128,136,154],[108,116,134],[88,96,114]],outline:[44,48,62],
-    cliff:[[118,122,140],[98,102,120],[80,84,102],[64,68,86],[50,52,70],[38,40,56]],
-    snow:[[246,249,253],[222,232,244],[192,206,228]],
-    track:[[176,180,192],[156,160,174],[198,202,212]],gold:[[255,216,124],[226,172,72],[255,236,170]]};
-  const put=(i,c)=>{D[i]=c[0];D[i+1]=c[1];D[i+2]=c[2];D[i+3]=255;};
-  const top=new Uint8Array(w*h),trk=new Int16Array(w*h).fill(-1),alt=(y)=>1-y/h;
-  const disc=(cx,cy,r,mark)=>{for(let y=Math.floor(cy-r-3);y<=cy+r+3;y++)for(let x=Math.floor(cx-r-3);x<=cx+r+3;x++){if(x<0||y<0||x>=w||y>=h)continue;
-      const dx=x-cx,dy=(y-cy)*1.18,rr=r+(fbm(x*.22,y*.22)-.5)*4;if(dx*dx+dy*dy<=rr*rr&&top[y*w+x]!==1)top[y*w+x]=mark;}};
+function ridgeClouds(W,H){const R=i=>{const v=Math.sin(i*91.7+17.3)*43758.5453;return v-Math.floor(v);};let o='';const n=Math.round(H/130);o+=[[.05,150,.9],[.45,250,.75],[.1,330,.8]].map(([fx,y,f],k)=>`<i class="st" style="left:${(fx*W).toFixed(0)}px;top:${y}px;width:${(W*f).toFixed(0)}px;height:${(W*f*.09).toFixed(0)}px;opacity:.6;--dx:${k%2?-46:46}px;animation-duration:${40+k*9}s"></i>`).join('');
+  for(let k=0;k<n;k++){const y=(k+.3+R(k)*.6)/n*H,sky=y<420,cw=(sky?240:200)+R(k*3)*200,x=R(k*7)*(W+cw*.6)-cw*.6,dur=34+R(k*5)*40,op=sky?.5+R(k*9)*.2:.34+R(k*9)*.24,dx=(R(k*11)<.5?-1:1)*(30+R(k*13)*50);
+    o+=`<i style="left:${x.toFixed(0)}px;top:${y.toFixed(0)}px;width:${cw.toFixed(0)}px;height:${(cw*(sky?.18:.32)).toFixed(0)}px;opacity:${op.toFixed(2)};--dx:${dx.toFixed(0)}px;animation-duration:${dur.toFixed(0)}s;animation-delay:-${(R(k*17)*dur).toFixed(1)}s"></i>`;}return o;}
+/* ===== RPG-style winter ridge: moonlit cobblestone plateaus, columned cliffs in blue night fog, Kailash under the moon ===== */
+function drawRidge(W,H,PX,stops,curIdx,skyPx){const cv=document.getElementById('pixMtn');if(!cv)return;const w=cv.width,h=cv.height,ctx=cv.getContext('2d'),img=ctx.createImageData(w,h),D=img.data;
+  const R=i=>{const v=Math.sin(i*127.1+311.7)*43758.5453;return v-Math.floor(v);};
+  const N2=(px,py)=>{const ix=Math.floor(px),iy=Math.floor(py),fx=px-ix,fy=py-iy,u=fx*fx*(3-2*fx),v=fy*fy*(3-2*fy);const a=R(ix+iy*57),b=R(ix+1+iy*57),c=R(ix+(iy+1)*57),d=R(ix+1+(iy+1)*57);return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v;};
+  // palette lifted from the moonlit Shivling: navy night, ice-blue snow, slate stone, one warm lamp
+  const C={top:[[118,132,160],[98,112,140],[80,92,120],[64,74,100]],joint:[28,34,52],rim:[166,182,212],line:[18,22,38],
+    wall:[[84,98,128],[68,80,108],[54,64,90],[42,50,74],[32,38,60]],
+    path:[[150,168,206],[122,142,184],[178,194,226]],gold:[[244,210,140],[220,178,98],[255,232,176]],
+    snow:[[244,248,255],[218,230,248],[184,202,232]],snowSh:[128,150,192],snowLine:[96,116,160],
+    sky:[[8,16,40],[12,24,56],[18,34,72],[26,46,90],[36,60,108]],
+    pkLit:[[232,240,252],[196,212,238],[150,172,212]],pkSh:[[98,122,170],[70,92,140],[48,66,110]],pkRock:[[40,50,82],[30,38,66]]};
+  const put=(i,c,a)=>{D[i]=c[0];D[i+1]=c[1];D[i+2]=c[2];D[i+3]=a===undefined?255:a;};
+  const top=new Uint8Array(w*h),lv=new Uint16Array(w*h);let LV=1;
+  const plate=(cx,cy,r,mark,L)=>{L=L||LV;for(let y=Math.floor(cy-r-4);y<=cy+r+4;y++)for(let x=Math.floor(cx-r-4);x<=cx+r+4;x++){if(x<0||y<0||x>=w||y>=h)continue;
+      const dx=Math.abs(x-cx),dy=Math.abs(y-cy)*1.25,rr=r+(N2(x*.3,y*.3)-.5)*2;if(Math.max(dx,dy,(dx+dy)*.74)<=rr&&L>=lv[y*w+x]){top[y*w+x]=mark;lv[y*w+x]=L;}}};
   const P=stops.map(s=>[s.x/PX,s.y/PX,s.k]);
-  // ridge: chunky stacked rock plateaus along the trail
-  for(let j=1;j<P.length;j++){const a=P[j-1],b=P[j],my=(a[1]+b[1])/2;let lastBump=-99;
-    for(let t=0;t<=1;t+=.004){const u=1-t,bx=u*u*u*a[0]+3*u*u*t*a[0]+3*u*t*t*b[0]+t*t*t*b[0],by=u*u*u*a[1]+3*u*u*t*my+3*u*t*t*my+t*t*t*b[1];
-      disc(bx,by,15-alt(by)*4,1);
-      if(by<lastBump-9){lastBump=by;const side=R(j*31+t*997)<.5?-1:1;disc(bx+side*(11+R(j+t*53)*5),by+2,6+R(j*7+t*91)*4,1);}
-      const jx=bx+(fbm(by*.08,j)-.5)*6;for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){if(dx*dx+dy*dy>5)continue;const xx=Math.round(jx)+dx,yy=Math.round(by)+dy;if(xx>=0&&yy>=0&&xx<w&&yy<h)trk[yy*w+xx]=j;}}}
-  P.forEach((p,k)=>{if(p[2]==='camp')disc(p[0],p[1],30,1);if(p[2]==='summit')disc(p[0],p[1]+6,38,1);if(k===0)disc(p[0],p[1],28,1);});
-  // rock pillars rising out of the fog
-  for(let k=0;k<14;k++){const left=R(k*3.1)<.5,px=left?6+R(k*5.7)*w*.2:w-6-R(k*5.7)*w*.2,py=h*.2+R(k*9.3)*h*.74;disc(px,py,5+R(k)*8,2);}
-  const sum=P[P.length-1],peakBase=sum[1]-28,apex=Math.max(18,peakBase-130),pcx=sum[0];
-  for(let y=0;y<h;y++){const a=alt(y);
-    for(let x=0;x<w;x++){const i=(y*w+x)*4,id=y*w+x,tp=top[id];
-      if(tp){// cobblestones: voronoi cells with dark joints and a lit top-left on every stone
-        const fx=x/3.4,fy=y/2.9;let b1=9,b2=9,cxq=0,cyq=0;for(let gy=Math.floor(fy)-1;gy<=Math.floor(fy)+1;gy++)for(let gx=Math.floor(fx)-1;gx<=Math.floor(fx)+1;gx++){
-          const qx=gx+.15+R(gx*13+gy*71)*.7,qy=gy+.15+R(gx*29+gy*7)*.7,d=(qx-fx)*(qx-fx)+(qy-fy)*(qy-fy);if(d<b1){b2=b1;b1=d;cxq=qx;cyq=qy;}else if(d<b2)b2=d;}
-        const joint=Math.sqrt(b2)-Math.sqrt(b1)<.13;const sh=(fx-cxq)+(fy-cyq);const n=fbm(x*.12,y*.07);
-        const rim=!top[id-w]||!top[id-1]||!top[id+1];          // edge of the ledge catches light
-        const snowy=a*1.7+(n-.5)*1.1-.62+(tp===2?.1:0);
-        const onTrack=trk[id]>=0&&tp===1;
-        if(onTrack){const climbed=trk[id]<=curIdx;const tc=climbed?C.gold:(snowy>.4?[C.snow[1],C.snow[2],C.snow[0]]:C.track);const v=R(x*7.1+y*3.3);put(i,v>.86?tc[2]:v>.6?tc[1]:tc[0]);continue;}
-        if(snowy>.55&&!joint){put(i,sh<-.15?C.snow[0]:sh<.2?C.snow[1]:C.snow[2]);continue;}
-        if(joint){put(i,snowy>.3?C.snow[2]:C.outline);continue;}
-        let v=sh<-.22?0:sh<.08?1:sh<.32?2:3;if(rim&&v>0)v--;const sc=R(Math.floor(cxq*13)+Math.floor(cyq*31));if(sc>.82&&v<3)v++;
-        put(i,(snowy>.25&&sh<-.1)?C.snow[1]:C.stone[v]);continue;}
-      // tall columned cliff wall below a ledge
-      let k=0,mk=0;for(let d=1;d<=60;d++){if(y-d<0)break;const t2=top[id-d*w];if(t2){k=d;mk=t2;break;}}
-      const depth=mk===2?60:34;
-      if(k&&k<=depth){const col=(x+Math.floor(fbm(x*.3,y*.02)*3));const groove=col%4===0,lit=col%4===1;
-        let v=Math.min(5,Math.floor(k/depth*5.2)+(groove?1:0)-(lit?1:0)+(fbm(x*.5,y*.12)>.62?1:0));v=Math.max(0,v);
-        let c=C.cliff[v];if(k<=2)c=a>.5?C.snow[1]:C.stone[1];put(i,c);continue;}
-      // sky + Kailash at the very top
-      if(y<peakBase+6){const t=y/(peakBase+6);const halfw=(y-apex)*.58+Math.sin(y*.5)*.6;
-        if(y>=apex&&Math.abs(x-pcx)<halfw){const rel=(x-pcx)/Math.max(1,halfw);const band=Math.floor((y-apex+fbm(x*.25,y*.12)*7)/11)%3;
-          const snowy=(y-apex)<26+fbm(x*.3,y*.2)*10||band===0||(band===1&&fbm(x*.4,y*.3)>.62);let v=rel<-.05?(snowy?0:2):(snowy?1:3);if(Math.abs(rel)<.05)v=Math.min(5,v+1);put(i,C.pk[v]);continue;}
-        const si=Math.min(5,Math.floor(t*6+(((x^y)&1)?.3:0)));let c=C.sky[si];if(t<.45&&R(x*13.7+y*7.1)>.988)c=[240,240,255];put(i,c);continue;}
-      const m=fbm(x*.04,y*.025);put(i,C.chasm[m>.6?2:m>.45?1:0]);}}
-  // prayer flags at camps & summit
-  P.forEach(p=>{if(p[2]!=='camp'&&p[2]!=='summit')return;const fx0=Math.round(p[0]-22),fy0=Math.round(p[1]-16);
-    for(let k=0;k<44;k++){const x=fx0+k,y=fy0+Math.round(Math.sin(k*.15)*3);if(x<0||x>=w||y<1||y>=h)continue;const c=k%6===5?[70,70,80]:[[214,60,60],[240,190,70],[70,140,220],[230,230,240],[200,90,40]][Math.floor(k/6)%5];put((y*w+x)*4,c);put(((y+1)*w+x)*4,c);}});
+  for(let j=1;j<P.length;j++){const a=P[j-1],b=P[j];const n=Math.ceil(Math.abs(b[1]-a[1])/9);
+    for(let k=0;k<=n;k++){const t=k/n,e=t*t*(3-2*t),bx=a[0]+(b[0]-a[0])*e,by=a[1]+(b[1]-a[1])*t;
+      if(R(j*11+k*7)>.45)LV++;plate(bx+(R(j*17+k*3)-.5)*8,by,11+R(j*7+k)*3,1);
+      if(R(j*31+k*13)>.72){const side=R(j+k*5)<.5?-1:1;plate(bx+side*(15+R(j*3+k)*5),by+4,6+R(j*5+k*9)*4,1,LV-1);}}}
+  const shrineAt=k=>{const p=P[k],side=P[k+1][0]>p[0]?-1:1;return [Math.round(p[0]+side*17),Math.round(p[1]-24),side];};
+  P.forEach((p,k)=>{if(p[2]==='camp'){plate(p[0]+(p[0]>W/PX/2?-12:12),p[1],22,1);const q=shrineAt(k);LV++;plate(q[0],q[1]-3,12,1);}if(k===0)plate(p[0],p[1]+6,26,1);});
+  // summit shelf (band) with the Himalaya rising behind it
+  const S0=P[P.length-1],shelfY=S0[1]-6,skyEnd=Math.round(skyPx/PX);
+  const edgeAt=x=>shelfY-8+N2(x*.12,3)*10+Math.abs(x-S0[0])*.04,shelfTopAt=x=>skyEnd+Math.round(N2(x*.09,9)*5);
+  for(let x=0;x<w;x++){const e=edgeAt(x),t0=shelfTopAt(x);for(let y=Math.max(0,t0);y<=e&&y<h;y++){top[y*w+x]=3;lv[y*w+x]=60000;}}
+  const KED=[[0,.34],[.08,.42],[.18,.56],[.27,.66],[.33,.63],[.41,.8],[.5,1],[.57,.9],[.63,.82],[.7,.78],[.78,.62],[.86,.6],[.93,.46],[1,.38]];
+  const kedH=xn=>{for(let k=1;k<KED.length;k++){if(xn<=KED[k][0]){const a=KED[k-1],b=KED[k],t=(xn-a[0])/(b[0]-a[0]);return a[1]+(b[1]-a[1])*t;}}return KED[KED.length-1][1];};
+  const pil=[[.1,.22,6],[.88,.3,8],[.82,.48,5],[.14,.56,7],[.9,.7,6],[.08,.82,8],[.84,.9,9],[.16,.38,4],[.92,.13,5]];
+  pil.forEach(([px,py,r],k)=>{const yy=skyEnd+(h-skyEnd)*py;plate(px*w,yy,r+R(k)*2,2,5);});
+  plate(w*.08,h-8,26,2);plate(w*.95,h-14,20,2);plate(w*.62,h-4,14,2);
+  const snowAt=(x,y)=>{const alt=1-(y-skyEnd)/(h-skyEnd);const n=N2(x*.05,y*.05)*.7+N2(x*.12,y*.12)*.3;return n+alt*.55>.92;};
+  for(let y=0;y<h;y++)for(let x=0;x<w;x++){const id=y*w+x,i=id*4,tp=top[id];
+    if(tp){
+      // stepped plateau face: higher step's wall hangs onto the lower one
+      let st=0;for(let d=1;d<=5;d++){const u=id-d*w;if(u<0)break;if(top[u]&&lv[u]>lv[id]){st=d;break;}}
+      if(st&&tp!==3){const g=(x+Math.floor(N2(x*.25,y*.1)*3))%5;put(i,st===1?C.rim:st>=5?C.line:g===0?C.wall[3]:g===1?C.wall[0]:C.wall[Math.min(2,st-1)]);continue;}
+      const outT=y>0&&!top[id-w],outB=y<h-1&&!top[id+w],outS=(x>0&&!top[id-1])||(x<w-1&&!top[id+1]);
+      if(outB||outS){put(i,C.line);continue;}
+      const sn=snowAt(x,y)||(tp===3&&(N2(x*.07,y*.08)*.7+N2(x*.17,y*.15)*.3)>.42);
+      if(sn){const below=y<h-1&&top[id+w]&&!(snowAt(x,y+1)||(tp===3&&(N2(x*.07,(y+1)*.08)*.7+N2(x*.17,(y+1)*.15)*.3)>.42));const above=y>0&&!(snowAt(x,y-1)||(tp===3&&(N2(x*.07,(y-1)*.08)*.7+N2(x*.17,(y-1)*.15)*.3)>.42));
+        put(i,below?C.snowLine:outT||above?C.snow[0]:(R(x*3.7+y*9.1)>.97?C.snow[2]:C.snow[1]));continue;}
+      if(outT){put(i,C.rim);continue;}
+      // RPG cobbles: even stones, dark joint, light on the upper-left, shade lower-right
+      const fx=x/4.2,fy=y/3.2;let b1=9,b2=9,qx0=0,qy0=0;for(let gy=Math.floor(fy)-1;gy<=Math.floor(fy)+1;gy++)for(let gx=Math.floor(fx)-1;gx<=Math.floor(fx)+1;gx++){
+        const qx=gx+.25+R(gx*13+gy*71)*.5,qy=gy+.25+R(gx*29+gy*7)*.5,d=(qx-fx)**2+(qy-fy)**2;if(d<b1){b2=b1;b1=d;qx0=qx;qy0=qy;}else if(d<b2)b2=d;}
+      const gap=Math.sqrt(b2)-Math.sqrt(b1);if(gap<.12){put(i,C.joint);continue;}
+      const sh=(fx-qx0)+(fy-qy0);put(i,C.top[gap<.24?(sh<0?0:3):(sh<-.25?0:sh<.25?1:2)]);continue;}
+    // columned cliff hanging below a ledge, dissolving into the night fog
+    let k=0;for(let d=1;d<=64;d++){if(y-d<0)break;if(top[id-d*w]){k=d;break;}}
+    if(k){const m=top[id-k*w],depth=m===2?64:m===3?44:52;if(k<=depth){
+      const col=x+Math.floor(N2(x*.25,y*.03)*2),g=col%5,brick=((y+Math.floor(col/5)*4)%8===0);
+      let v=g===0?3:g===1?0:g===4?2:1;if(brick)v=Math.min(4,v+1);if(k>depth*.5)v=Math.min(4,v+1);
+      const a=Math.max(0,1-Math.pow(k/depth,1.4));put(i,C.wall[v],Math.round(255*Math.min(1,a*1.3)));continue;}}
+    // night sky + snow peaks above the summit shelf
+    if(y<skyEnd+8){const xn=x/w,ph=kedH(xn)+(N2(x*.35,2)-.5)*.035,py=skyEnd+6-ph*skyEnd*.92;
+      if(y>=py){const sl=kedH(xn+.012)-kedH(xn-.012),lit=sl>0,dT=(y-py)/(skyEnd+8-py+1),gully=N2(x*.24,y*.035)>.7&&dT>.12,crest=y-py<1.2;
+        put(i,crest?C.pkLit[0]:lit?(gully?C.pkSh[0]:C.pkLit[Math.min(2,Math.floor(dT*2.6))]):(gully?C.pkRock[dT>.5?1:0]:C.pkSh[Math.min(2,Math.floor(dT*2.2))]));continue;}
+      const t=y/(skyEnd+8);let c=C.sky[Math.min(4,Math.floor(t*5+(((x+y)&1)?.35:0)))];if(R(x*13.7+y*7.1)>.985)c=R(x+y)>.5?[230,238,255]:[160,180,220];put(i,c);continue;}
+    D[i+3]=0;}
+  // packed-snow footpath, lamplight gold where already climbed
+  const tr=(x,y,j)=>{for(let dy=-2;dy<=2;dy++)for(let dx=-3;dx<=3;dx++){const r=dx*dx*.6+dy*dy;if(r>5.5)continue;const xx=Math.round(x)+dx,yy=Math.round(y)+dy;if(xx<0||yy<0||xx>=w||yy>=h||!top[yy*w+xx])continue;
+      const c=j<=curIdx?C.gold:C.path;put((yy*w+xx)*4,r>3.6?c[1]:(xx*5+yy*3)%13===0?c[2]:c[0]);}};
+  for(let j=1;j<P.length;j++){const a=P[j-1],b=P[j],len=Math.abs(b[1]-a[1]);for(let s=0;s<=len;s+=.7){const t=s/len,e=t*t*(3-2*t);const wob=Math.sin(t*Math.PI*2+j)*2.5*(1-Math.abs(t-.5)*2);tr(a[0]+(b[0]-a[0])*e+wob,a[1]+(b[1]-a[1])*t,j);}}
+  // ---- RPG summit mandir: stone hall, gabled front, tiered shikhara, golden kalash; small shrines at every camp
+  const px=(x,y,c)=>{x=Math.round(x);y=Math.round(y);if(x>=0&&y>=0&&x<w&&y<h)put((y*w+x)*4,c);};
+  const flags=(x0,y0,x1,y1)=>{const n=Math.ceil(Math.hypot(x1-x0,y1-y0));for(let k=0;k<=n;k++){const t=k/n,x=x0+(x1-x0)*t,y=y0+(y1-y0)*t+Math.sin(t*Math.PI)*3;const c=k%5===4?C.line:[[214,60,60],[240,190,70],[70,140,220],[236,236,240],[90,170,110]][Math.floor(k/5)%5];px(x,y,c);px(x,y+1,c);}};
+  const stone=(x,y,cx0,row)=>{const litS=x<cx0;const mortar=row%3===0||((x+Math.floor(row/3)*3)%6===0&&row%3!==0&&false);return mortar?(litS?C.top[2]:C.top[3]):(litS?C.top[0]:C.top[1]);};
+  const mandir=(cx,base,sc,big)=>{const U=v=>Math.round(v*sc);
+    // shikhara (behind the hall)
+    const tiers=big?8:3,th=big?4:3,hw0=big?15:6;let topY=base-U(big?20:9);
+    for(let t=0;t<tiers;t++){const hw=hw0-t*(hw0-(big?3:1.5))/(tiers-1);for(let r=0;r<th;r++){const y=topY-t*th-r;for(let x=Math.round(cx-hw);x<=Math.round(cx+hw);x++){
+      const edge=x===Math.round(cx-hw)||x===Math.round(cx+hw);px(x,y,edge?C.line:(r===th-1&&(t%2===1||!big))?C.snow[1]:r===th-1?C.line:x<cx?(r===0?C.top[1]:C.top[0]):(r===0?C.top[3]:C.top[2]));}}}
+    const sy=topY-tiers*th;for(let x=cx-(big?4:1);x<=cx+(big?4:1);x++){px(x,sy,C.line);px(x,sy+1,x<cx?C.top[0]:C.top[2]);if(big)px(x,sy+2,C.line);}
+    for(let r=0;r<(big?4:2);r++)for(let x=cx-(big?1:0);x<=cx+(big?1:0);x++)px(x,sy-1-r,r===0?C.gold[1]:C.gold[x<cx||!big?2:0]);
+    const kt=sy-1-(big?4:2);for(let r=0;r<(big?9:5);r++)px(cx,kt-r,C.line);for(let r=0;r<(big?3:2);r++)for(let q=0;q<(big?5-r:3-r);q++)px(cx+1+q,kt-(big?8:4)+r,[240,132,40]);
+    // plinth
+    const pw=big?22:8;for(let x=cx-pw;x<=cx+pw;x++){px(x,base,C.line);px(x,base-1,C.top[2]);px(x,base-2,C.rim);}
+    // hall
+    const hw=big?18:6,hh=big?15:6;for(let r=0;r<hh;r++){const y=base-3-r;for(let x=cx-hw;x<=cx+hw;x++){const e=x===cx-hw||x===cx+hw;px(x,y,e?C.line:stone(x,y,cx,r+1));}}
+    if(big){for(const q of[-14,-9,9,14])for(let r=0;r<hh-1;r++)px(cx+q,base-3-r,C.top[3]);}
+    // gabled front roof with snow
+    const gy=base-3-hh,gw=big?20:7,gh=big?9:3;for(let r=0;r<gh;r++){const ww=Math.round(gw*(1-r/gh));for(let x=cx-ww;x<=cx+ww;x++){const e=Math.abs(x-cx)===ww;px(x,gy-r,e?C.snow[0]:r===0?C.line:x<cx?C.top[1]:C.top[2]);}}
+    px(cx,gy-gh,C.snow[0]);
+    // door with lamp-light
+    const dw=big?4:1,dh=big?11:4;for(let r=0;r<dh;r++)for(let x=cx-dw;x<=cx+dw;x++){const arch=r===dh-1&&Math.abs(x-cx)===dw;px(x,base-3-r,arch?C.top[0]:Math.abs(x-cx)===dw&&big?C.line:r<(big?3:2)?[255,200,116]:r<(big?6:4)?[186,116,62]:[22,18,30]);}
+    return sy-(big?13:7);};
+  const cvx=Math.round(S0[0]),cvy=Math.round(edgeAt(cvx))+2;
+  const kt=mandir(cvx,cvy,1,true);flags(cvx,kt+8,cvx-44,cvy-18);flags(cvx,kt+8,cvx+44,cvy-18);
+  P.forEach((p,k)=>{if(p[2]!=='camp')return;const [sx,sb,side]=shrineAt(k);const t=mandir(sx,sb,1,false);flags(sx,t+5,sx+side*20,sb-2);});
   ctx.putImageData(img,0,0);
-  // ---- soft fog + light rays (smooth layer above the pixels, kept off the walkway)
-  const fc=document.getElementById('fogMtn');if(!fc)return;const fx=fc.getContext('2d'),fw=fc.width,fh=fc.height,sx=fw/w,sy=fh/h;
-  fx.clearRect(0,0,fw,fh);
-  for(let k=0;k<70;k++){const bx=R(k*4.7)*fw,by=fh*.18+R(k*8.3)*fh*.8,rr=40+R(k*2.9)*90;
-    const g=fx.createRadialGradient(bx,by,0,bx,by,rr);const al=.16+R(k*6.1)*.22;g.addColorStop(0,`rgba(206,218,236,${al})`);g.addColorStop(.6,`rgba(176,192,216,${al*.45})`);g.addColorStop(1,'rgba(176,192,216,0)');
-    fx.fillStyle=g;fx.beginPath();fx.ellipse(bx,by,rr*1.6,rr*.75,0,0,7);fx.fill();}
-  fx.save();fx.globalCompositeOperation='lighter';
-  for(let k=0;k<9;k++){const x0=R(k*9.9)*fw,y0=fh*.15+R(k*3.7)*fh*.75;const gr=fx.createLinearGradient(x0,y0,x0+120,y0+220);gr.addColorStop(0,'rgba(220,232,255,0)');gr.addColorStop(.5,'rgba(220,232,255,.10)');gr.addColorStop(1,'rgba(220,232,255,0)');
-    fx.fillStyle=gr;fx.beginPath();fx.moveTo(x0,y0);fx.lineTo(x0+40,y0);fx.lineTo(x0+200,y0+300);fx.lineTo(x0+150,y0+300);fx.closePath();fx.fill();}
+  // ---- blue night fog behind; moonlit veils + shafts in front
+  const bg=document.getElementById('rgBg'),bx=bg.getContext('2d'),fw=bg.width,fh=bg.height,sky=skyPx/2;
+  const lg=bx.createLinearGradient(0,sky,0,fh);lg.addColorStop(0,'#2a416e');lg.addColorStop(.4,'#1a2c52');lg.addColorStop(1,'#0c1630');bx.fillStyle=lg;bx.fillRect(0,0,fw,fh);
+  const blob=(c,x,y,r,al)=>{const g=c.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,al);g.addColorStop(1,'rgba(0,0,0,0)');c.fillStyle=g;c.beginPath();c.ellipse(x,y,r*1.5,r*.8,0,0,7);c.fill();};
+  for(let k=0;k<60;k++){const dark=R(k*3.3)<.4;blob(bx,R(k*4.7)*fw,sky+R(k*8.3)*(fh-sky),50+R(k*2.9)*90,dark?`rgba(4,10,28,${.3+R(k)*.2})`:`rgba(150,178,226,${.16+R(k)*.22})`);}
+  const fc=document.getElementById('fogMtn'),fx=fc.getContext('2d');fx.clearRect(0,0,fw,fh);
+  for(let k=0;k<44;k++){blob(fx,R(k*4.7+2)*fw,sky+R(k*8.3+1)*(fh-sky),40+R(k*2.9)*80,`rgba(176,200,240,${.14+R(k*6.1)*.2})`);}
+  fx.save();fx.globalCompositeOperation='lighter';const sp=Math.max(1,Math.round(fh/600));
+  for(let k=0;k<6*sp;k++){const x0=R(k*9.9)*fw*1.2-fw*.2,y0=sky+R(k*3.7)*(fh-sky);const L=380,gr=fx.createLinearGradient(x0,y0,x0-L*.45,y0+L);gr.addColorStop(0,'rgba(200,220,255,0)');gr.addColorStop(.5,'rgba(200,220,255,.09)');gr.addColorStop(1,'rgba(200,220,255,0)');
+    fx.fillStyle=gr;fx.beginPath();const ww=18+R(k*5)*40;fx.moveTo(x0,y0);fx.lineTo(x0+ww,y0);fx.lineTo(x0+ww-L*.45,y0+L);fx.lineTo(x0-L*.45,y0+L);fx.closePath();fx.fill();}
   fx.restore();
-  // clear fog off the ridge top so the path stays readable (soft edge)
   const mc=document.createElement('canvas');mc.width=w;mc.height=h;const mx=mc.getContext('2d'),mi=mx.createImageData(w,h);
-  for(let j=0;j<w*h;j++){if(top[j]===1){mi.data[j*4+3]=255;}}mx.putImageData(mi,0,0);
-  fx.save();fx.globalCompositeOperation='destination-out';fx.filter='blur(4px)';fx.drawImage(mc,0,0,fw,fh);fx.restore();
-  // keep the sky & peak clear
-  fx.save();fx.globalCompositeOperation='destination-out';const sg=fx.createLinearGradient(0,0,0,(peakBase+30)*sy);sg.addColorStop(0,'rgba(0,0,0,1)');sg.addColorStop(.85,'rgba(0,0,0,1)');sg.addColorStop(1,'rgba(0,0,0,0)');fx.fillStyle=sg;fx.fillRect(0,0,fw,(peakBase+30)*sy);fx.restore();}
+  for(let j=0;j<w*h;j++)if(top[j]===1||top[j]===3||j<(skyEnd+8)*w)mi.data[j*4+3]=240;mx.putImageData(mi,0,0);
+  fx.save();fx.globalCompositeOperation='destination-out';fx.filter='blur(5px)';fx.drawImage(mc,0,0,fw,fh);fx.restore();}
 function gTap(d){const zeroDone=S.courseDone.includes(0),isDone=S.courseDone.includes(d),isCur=d===(zeroDone?S.courseDay:0)&&!isDone;
   if(!isDone&&!isCur){toast(zeroDone?'Climb Day '+S.courseDay+' first 🔒':'Start at Base Camp (Day 0) 🔒');return;}
   if(navigator.vibrate)navigator.vibrate(10);gOpen=gOpen===d?null:d;renderCourse();}

@@ -491,6 +491,16 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
 .celeb-sub{font-size:14px;color:var(--ink2);margin-top:8px;line-height:1.5}
 .celeb-days{font-size:13px;color:var(--gold);font-weight:700;letter-spacing:.5px;margin-top:6px}
 
+/* share your sadhana */
+.sk-share{position:absolute;top:14px;right:14px;cursor:pointer;z-index:2;font-family:inherit}
+.gshare{border:1px solid var(--line2);background:rgba(255,255,255,.05);color:var(--gold);width:32px;height:32px;border-radius:50%;font:800 15px inherit;font-family:inherit;cursor:pointer;flex:none}
+.shtab{display:inline-flex;padding:4px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);margin-bottom:12px}
+.shtab button{border:0;background:transparent;color:var(--ink2);font:700 13px inherit;font-family:inherit;padding:8px 18px;border-radius:999px;cursor:pointer}
+.shtab button.on{background:var(--gold);color:#1a1306}
+.share-prev{display:block;margin:0 auto 14px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.share-prev.story{height:min(46vh,400px);aspect-ratio:9/16}
+.share-prev.sticker{height:min(36vh,300px);aspect-ratio:1;background:linear-gradient(160deg,#8a6a52,#3d4f6b 55%,#1c2433);border:1px solid var(--line2)}
+
 /* ===== SW UPDATE BANNER ===== */
 .update-bar{position:fixed;top:0;left:0;right:0;z-index:250;padding:calc(var(--safe-t) + 10px) 18px 12px;display:none;align-items:center;gap:12px;
   background:linear-gradient(135deg,rgba(106,214,232,.22),rgba(139,156,255,.18));backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
@@ -586,6 +596,7 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
       <p class="subtle" id="homeGreet"></p>
       <!-- STREAK BADGES CARD -->
       <div class="streak-card" id="streakCard">
+        <button class="tierchip sk-share" onclick="openShare()" aria-label="Share your sadhana">↗ Share</button>
         <div class="sk-top">
           <div class="sk-fire">🔥</div>
           <div>
@@ -931,6 +942,19 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
   <div class="ncchips"><div><small>STREAK</small><b id="ncStreak" style="color:#ff9b3d">🔥 1</b></div><div><small>LESSONS</small><b id="ncLes" style="color:var(--ice)">1/40</b></div></div>
   <div class="ncbar"><i id="ncBar" style="width:0%"></i></div>
   <button class="btn gold" onclick="closeNandiCeleb()">Continue</button>
+  <button class="btn ghost" style="margin-top:10px" onclick="closeNandiCeleb();openShare()">↗ Share my climb</button>
+</div>
+
+<!-- SHARE YOUR SADHANA -->
+<div class="sheet-bg" id="shareSheet" onclick="if(event.target===this)closeShare()">
+  <div class="sheet" style="text-align:center">
+    <div class="grab"></div>
+    <b style="font-size:19px;display:block">Share your sadhana</b>
+    <p class="subtle" style="font-size:13px;margin:4px 0 12px">Your practice is an achievement. Let it inspire someone.</p>
+    <div class="shtab"><button data-k="story" onclick="shareTab('story')">Story</button><button data-k="sticker" onclick="shareTab('sticker')">Sticker</button></div>
+    <img class="share-prev story" id="sharePrev" alt="Preview">
+    <button class="btn gold" onclick="doShare()">↗ Share</button>
+  </div>
 </div>
 
 <!-- BADGE CELEBRATION -->
@@ -941,6 +965,7 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
     <div class="celeb-sub" id="celebSub"></div>
     <div class="celeb-days" id="celebDays"></div>
     <button class="btn" style="margin-top:22px" onclick="closeCeleb()">Har Har Mahadev 🔱</button>
+    <button class="btn ghost" style="margin-top:10px" onclick="var id=_celebBadge;closeCeleb();openShare({badge:id})">↗ Share this achievement</button>
   </div>
 </div>
 
@@ -1298,7 +1323,8 @@ document.addEventListener("visibilitychange",function(){if(!document.hidden)dayR
 function checkNewBadges(){if(!S.badgesEarned||!S.badgeSeen)return;
   var unseen=S.badgesEarned.filter(function(id){return !(S.badgeSeen||[]).includes(id);});
   if(unseen.length>0){showBadgeCeleb(unseen[0]);}}
-function showBadgeCeleb(id){var b=BADGES.find(function(x){return x.id===id;});if(!b)return;
+var _celebBadge=null;
+function showBadgeCeleb(id){var b=BADGES.find(function(x){return x.id===id;});if(!b)return;_celebBadge=id;
   document.getElementById("celebIc").textContent=b.ic;
   document.getElementById("celebTitle").textContent=b.name;
   document.getElementById("celebSub").textContent=b.desc;
@@ -1457,7 +1483,7 @@ function renderCourse(){const b=document.getElementById("courseBody");
     y-=GAP[s.k];if(s.k==="day")i++;else i+=.6;});
   let curIdx=0;stops.forEach((s,idx)=>{if(s.k!=="day")return;if(S.courseDone.includes(s.d))curIdx=idx;if(s.d===curDay&&!S.courseDone.includes(s.d))curIdx=idx;});
   const PX=3;
-  let html=`<div class="gstats sticky"><span class="fire">🔥 ${S.streak}</span><span class="les">⛰️ Day ${done}/40</span><span class="bdg">${nextB?nextB.ic+' '+nextB.name+' in '+(nextB.days-S.streak)+'d':'🕉️ Shivoham'}</span></div>
+  let html=`<div class="gstats sticky"><span class="fire">🔥 ${S.streak}</span><span class="les">⛰️ Day ${done}/40</span><span class="bdg">${nextB?nextB.ic+' '+nextB.name+' in '+(nextB.days-S.streak)+'d':'🕉️ Shivoham'}</span><button class="gshare" onclick="openShare()" aria-label="Share your climb">↗</button></div>
     <div class="rdg" id="mtn" style="height:${H}px"><canvas class="bgf" id="rgBg" width="${Math.ceil(W/2)}" height="${Math.ceil(H/2)}"></canvas><canvas class="pix" id="pixMtn" width="${Math.ceil(W/PX)}" height="${Math.ceil(H/PX)}"></canvas><canvas class="fog" id="fogMtn" width="${Math.ceil(W/2)}" height="${Math.ceil(H/2)}"></canvas><div class="rmoon"></div><div class="rclouds">${ridgeClouds(W,H)}</div><div class="snowfx"><i></i><i></i></div>`;
   stops.forEach(s=>{const L=s.x>cx;
     if(s.k==="day"){const d=s.d,isDone=S.courseDone.includes(d),isCur=d===curDay&&!isDone,wk=d?Math.floor((d-1)/10):0,c=d?PCOL[wk]:["#e8c87a","#9a7419"];
@@ -1585,6 +1611,99 @@ function gTap(d){const zeroDone=S.courseDone.includes(0),isDone=S.courseDone.inc
   if(!isDone&&!isCur){toast(zeroDone?'Climb Day '+S.courseDay+' first 🔒':'Start at Base Camp (Day 0) 🔒');return;}
   if(navigator.vibrate)navigator.vibrate(10);gOpen=gOpen===d?null:d;renderCourse();}
 function scrollToClimber(){var zd=S.courseDone.includes(0);var n=document.getElementById("gn-"+(zd?S.courseDay:0));if(n)n.scrollIntoView({behavior:"smooth",block:"center"});}
+/* ===== SHARE YOUR SADHANA — Strava-style story card + transparent sticker, in the course's winter-RPG look ===== */
+var PLAY_URL="https://play.google.com/store/apps/details?id=dev.pages.k_ejr2.twa";
+var _shareKind="story",_shareCtx=null;
+var SH_F='-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif',SH_M='"Courier New",ui-monospace,monospace';
+function shareData(){var done=S.courseDone.filter(function(n){return n>=1;}).length,ph=Math.min(3,Math.floor(Math.max(0,done-1)/10));
+  var d=new Date(),mo=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()];
+  return {done:done,streak:S.streak||1,best:Math.max(S.bestStreak||1,S.streak||1),japa:S.total||0,phase:(typeof PHASES!=="undefined"&&PHASES[ph])?PHASES[ph].n:"",
+    date:d.getDate()+" "+mo+" "+d.getFullYear(),badge:_shareCtx&&_shareCtx.badge?BADGES.find(function(x){return x.id===_shareCtx.badge;}):null,day:_shareCtx&&_shareCtx.day!=null?_shareCtx.day:null};}
+function openShare(ctx){_shareCtx=ctx||null;shareTab(_shareKind);document.getElementById("shareSheet").classList.add("on");if(navigator.vibrate)navigator.vibrate(8);}
+function closeShare(){document.getElementById("shareSheet").classList.remove("on");}
+function shareTab(k){_shareKind=k;document.querySelectorAll("#shareSheet .shtab button").forEach(function(b){b.classList.toggle("on",b.dataset.k===k);});
+  var p=document.getElementById("sharePrev");p.className="share-prev "+k;try{p.src=drawShare(k).toDataURL("image/png");}catch(e){}}
+function shNum(n){return Number(n).toLocaleString("en-IN");}
+function shT(c,t,x,y,font,fill,ls,al){c.font=font;c.fillStyle=fill;c.textAlign=al||"left";try{c.letterSpacing=(ls||0)+"px";}catch(e){}c.fillText(t,x,y);try{c.letterSpacing="0px";}catch(e){}}
+function shRR(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
+function shBrand(c,x,y,s,light){shRR(c,x,y,s,s,s*.3);var g=c.createLinearGradient(x,y,x+s,y+s);g.addColorStop(0,"#6ad6e8");g.addColorStop(1,"#8b9cff");c.fillStyle=g;c.fill();
+  c.font=Math.round(s*.56)+'px "Noto Color Emoji","Apple Color Emoji",sans-serif';c.textAlign="center";c.textBaseline="middle";c.fillText("🔱",x+s/2,y+s/2+s*.03);c.textBaseline="alphabetic";}
+/* the climb route: 41 stops zigzagging up the mountain (same rhythm as the course map) */
+function shRoute(n){var P=[];for(var i=0;i<=n;i++){var t=i/n;P.push([.5+.2*Math.sin(t*Math.PI*6.5+.4)*(1-t*.97),1-t]);}return P;}
+/* pixel winter scene: navy night, moon, the great massif, clouds, the climb drawn as a pixel trail to the summit mandir */
+function shScene(W,H,done,sc){var w=Math.ceil(W/sc),h=Math.ceil(H/sc),o=document.createElement("canvas");o.width=w;o.height=h;var x=o.getContext("2d"),im=x.createImageData(w,h),D=im.data;
+  var R=function(i){var v=Math.sin(i*127.1+311.7)*43758.5453;return v-Math.floor(v);};
+  var N=function(px,py){var ix=Math.floor(px),iy=Math.floor(py),fx=px-ix,fy=py-iy,u=fx*fx*(3-2*fx),v=fy*fy*(3-2*fy),a=R(ix+iy*57),b=R(ix+1+iy*57),c=R(ix+(iy+1)*57),d=R(ix+1+(iy+1)*57);return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v;};
+  var put=function(px,py,c){if(px<0||py<0||px>=w||py>=h)return;var i=(py*w+px)*4;D[i]=c[0];D[i+1]=c[1];D[i+2]=c[2];D[i+3]=255;};
+  var sky=[[8,16,40],[12,24,56],[18,34,72],[26,46,90],[36,60,108]],lit=[[232,240,252],[196,212,238],[150,172,212]],sh=[[98,122,170],[70,92,140],[48,66,110]],rk=[[40,50,82],[30,38,66]];
+  var KED=[[0,.3],[.08,.38],[.18,.52],[.27,.62],[.33,.6],[.41,.76],[.5,.95],[.57,.86],[.63,.78],[.7,.74],[.78,.58],[.86,.56],[.93,.42],[1,.34]];
+  var kH=function(xn){for(var k=1;k<KED.length;k++)if(xn<=KED[k][0]){var a=KED[k-1],b=KED[k],t=(xn-a[0])/(b[0]-a[0]);return a[1]+(b[1]-a[1])*t;}return .34;};
+  var mx=w*.8,my=h*.24,mr=w*.07;
+  for(var yy=0;yy<h;yy++)for(var xx=0;xx<w;xx++){var c=sky[Math.min(4,Math.floor(yy/h*1.4*5+(((xx+yy)&1)?.35:0)))];
+    if(R(xx*13.7+yy*7.1)>.986&&yy<h*.6)c=R(xx+yy)>.5?[230,238,255]:[160,180,220];
+    var dx=xx-mx,dy=yy-my,dd=dx*dx+dy*dy;if(dd<mr*mr)c=(dd<mr*mr*.5)?[246,250,255]:[226,234,248];else if(dd<mr*mr*1.6&&((xx^yy)&1))c=[60,84,132];
+    var xn=xx/w,ph=kH(xn)+(N(xx*.35,2)-.5)*.03,py=h*(1.02-ph*.86);
+    if(yy>=py){var sl=kH(xn+.012)-kH(xn-.012),dT=(yy-py)/(h-py+1),g=N(xx*.24,yy*.035)>.7&&dT>.1;c=yy-py<1.2?lit[0]:sl>0?(g?sh[0]:lit[Math.min(2,Math.floor(dT*3))]):(g?rk[0]:sh[Math.min(2,Math.floor(dT*2.6))]);}
+    for(var k=0;k<3;k++){var cy=Math.floor(h*(.3+k*.17)+R(k*3)*6),x0=R(k*7+1)*w*1.1-w*.25,len=w*(.18+R(k*5)*.16);if(yy>=cy&&yy<cy+2+(k&1)&&xx>x0&&xx<x0+len&&!(yy===cy&&(xx<x0+3||xx>x0+len-3)))c=yy===cy?[226,236,255]:[170,192,232];}
+    put(xx,yy,c);}
+  // the trail up the face: gold where climbed, dotted snow where it is still to come
+  var P=shRoute(40).map(function(p){return [w*(.5+(p[0]-.5)*1.1),h*(.95-(1-p[1])*.7)];});
+  for(var j=1;j<P.length;j++){var a=P[j-1],b=P[j],L=Math.hypot(b[0]-a[0],b[1]-a[1]);for(var s=0;s<=L;s+=.5){var t=s/L,e=t*t*(3-2*t),px=Math.round(a[0]+(b[0]-a[0])*e),py2=Math.round(a[1]+(b[1]-a[1])*t);
+      if(j<=done){put(px,py2,[244,210,140]);put(px+1,py2,[220,178,98]);}else if(((px+py2)&1)===0)put(px,py2,[212,226,248]);}}
+  // tiny summit mandir
+  var tx=Math.round(P[40][0]),ty=Math.round(P[40][1]);for(var r=0;r<4;r++)for(var q=-3+Math.ceil(r/2);q<=3-Math.ceil(r/2);q++)put(tx+q,ty-1-r,q<0?[118,132,160]:[80,92,120]);
+  for(var q2=-4;q2<=4;q2++)put(tx+q2,ty,[166,182,212]);put(tx,ty-5,[244,210,140]);put(tx,ty-6,[28,34,52]);put(tx+1,ty-6,[240,132,40]);put(tx+2,ty-6,[240,132,40]);put(tx,ty-2,[255,200,116]);
+  x.putImageData(im,0,0);return {cv:o,pts:P.map(function(p){return [p[0]*sc,p[1]*sc];})};}
+function drawShare(kind){var d=shareData(),c,cv=document.createElement("canvas");
+  if(kind==="sticker"){cv.width=1080;cv.height=1080;c=cv.getContext("2d");c.shadowColor="rgba(0,0,0,.45)";c.shadowBlur=14;c.shadowOffsetY=3;
+    // Strava-style overlay: stacked stats + route line + wordmark, white on transparent
+    var rows=[["DAY",d.done+" / 40"],["STREAK",d.streak+(d.streak===1?" day":" days")],["JAPA",shNum(d.japa)]];
+    if(d.badge)rows[0]=[d.badge.name.toUpperCase(),d.badge.days+"-day streak"];
+    rows.forEach(function(r,i){var y=250+i*215;shT(c,r[0],120,y,"700 38px "+SH_F,"rgba(255,255,255,.85)",6);shT(c,r[1],116,y+104,"900 108px "+SH_F,"#fff",-1);});
+    var P=shRoute(40),bx=760,by=170,bw=230,bh=720;c.lineCap="round";c.lineJoin="round";
+    c.beginPath();P.forEach(function(p,i){var X=bx+p[0]*bw,Y=by+p[1]*bh;i?c.lineTo(X,Y):c.moveTo(X,Y);});c.strokeStyle="rgba(255,255,255,.4)";c.lineWidth=9;c.stroke();
+    c.beginPath();P.slice(0,d.done+1).forEach(function(p,i){var X=bx+p[0]*bw,Y=by+p[1]*bh;i?c.lineTo(X,Y):c.moveTo(X,Y);});c.strokeStyle="#fff";c.lineWidth=14;c.stroke();
+    var cp=P[Math.min(40,d.done)];c.beginPath();c.arc(bx+cp[0]*bw,by+cp[1]*bh,20,0,7);c.fillStyle="#fff";c.fill();c.shadowBlur=0;c.beginPath();c.arc(bx+cp[0]*bw,by+cp[1]*bh,9,0,7);c.fillStyle="#f2b84b";c.fill();
+    c.shadowBlur=14;var s0=P[40];shT(c,"▲",bx+s0[0]*bw,by+s0[1]*bh-18,"900 40px "+SH_F,"#fff",0,"center");
+    c.shadowBlur=10;shBrand(c,120,930,74);shT(c,"KAILASA",216,985,"900 52px "+SH_F,"#fff",10);
+    return cv;}
+  cv.width=1080;cv.height=1920;c=cv.getContext("2d");c.fillStyle="#0c1630";c.fillRect(0,0,1080,1920);
+  var sc=6,SH=1290,sn=shScene(1080,SH,Math.min(40,d.done),sc);c.imageSmoothingEnabled=false;c.drawImage(sn.cv,0,0,sn.cv.width*sc,sn.cv.height*sc);c.imageSmoothingEnabled=true;
+  var fade=c.createLinearGradient(0,SH-380,0,SH);fade.addColorStop(0,"rgba(12,22,48,0)");fade.addColorStop(1,"#0c1630");c.fillStyle=fade;c.fillRect(0,SH-380,1080,380);
+  var tg=c.createLinearGradient(0,0,0,260);tg.addColorStop(0,"rgba(6,12,30,.7)");tg.addColorStop(1,"rgba(6,12,30,0)");c.fillStyle=tg;c.fillRect(0,0,1080,260);
+  // you-are-here beacon on the trail
+  var cp2=sn.pts[Math.min(40,d.done)];var gl=c.createRadialGradient(cp2[0],cp2[1],0,cp2[0],cp2[1],70);gl.addColorStop(0,"rgba(255,226,150,.85)");gl.addColorStop(1,"rgba(255,226,150,0)");c.fillStyle=gl;c.beginPath();c.arc(cp2[0],cp2[1],70,0,7);c.fill();
+  c.beginPath();c.arc(cp2[0],cp2[1],20,0,7);c.fillStyle="#fff6dc";c.fill();c.lineWidth=6;c.strokeStyle="#c8922e";c.stroke();
+  // brand + date
+  shBrand(c,72,84,92);shT(c,"Kailasa",184,136,"800 50px "+SH_F,"#fff");shT(c,"SADHANA",186,174,"700 24px "+SH_F,"rgba(200,218,250,.8)",6);
+  shT(c,d.date,1008,140,"600 32px "+SH_F,"rgba(226,236,255,.85)",0,"right");
+  // headline
+  var title=d.badge?d.badge.name+" unlocked":(d.done>=40?"Summit reached":"Day "+d.done+" of 40");
+  shT(c,title,72,1320,"900 92px "+SH_F,"#fff",-1);
+  shT(c,d.badge?d.badge.desc||"":("Camp "+(Math.min(3,Math.floor(Math.max(0,d.done-1)/10))+1)+" · "+d.phase),74,1386,"600 36px "+SH_F,"#f4d28c");
+  // stats row (Strava splits look)
+  c.fillStyle="rgba(200,220,255,.14)";c.fillRect(72,1436,936,2);
+  [["STREAK",d.streak+(d.streak===1?" day":" days")],["BEST",d.best+(d.best===1?" day":" days")],["JAPA",shNum(d.japa)]].forEach(function(r,i){var x=72+i*320;
+    shT(c,r[0],x,1506,"700 28px "+SH_F,"rgba(160,182,222,.9)",4);shT(c,r[1],x,1590,"800 66px "+SH_F,"#fff",-1);});
+  // 40 segment progress
+  for(var i=0;i<40;i++){var x0=72+i*23.6;c.fillStyle=i<d.done?"#f2c66b":"rgba(200,220,255,.16)";shRR(c,x0,1650,17,44,5);c.fill();}
+  shT(c,d.done+" / 40 days climbed",72,1752,"600 30px "+SH_F,"rgba(200,218,250,.8)");
+  c.fillStyle="rgba(200,220,255,.14)";c.fillRect(72,1792,936,2);
+  shT(c,"40-day Shiva sadhana  ·  Free on Google Play",540,1862,"600 30px "+SH_F,"rgba(200,218,250,.75)",0,"center");
+  return cv;}
+function capPlugin(name){var C=window.Capacitor;var nat=!!(C&&typeof C.nativePromise==="function"&&((C.isNativePlatform&&C.isNativePlatform())||(C.getPlatform&&C.getPlatform()==="android")));
+  if(!nat)return null;if(C.Plugins&&C.Plugins[name])return C.Plugins[name];return {call:function(m,o){return C.nativePromise(name,m,o||{});}};}
+function capCall(p,m,o){return p.call?p.call(m,o):p[m](o);}
+function doShare(){var kind=_shareKind,cv=drawShare(kind),d=shareData();
+  var text=(d.badge?d.badge.name+" unlocked on my Shiva sadhana 🔱":"Day "+d.done+" of my 40-day Shiva sadhana · "+d.streak+"-day streak 🔥")+"\nKailasa: "+PLAY_URL;
+  var FS=capPlugin("Filesystem"),SHR=capPlugin("Share"),name="kailasa-"+kind+"-"+Date.now()+".png";
+  if(FS&&SHR){capCall(FS,"writeFile",{path:name,data:cv.toDataURL("image/png").split(",")[1],directory:"CACHE"})
+      .then(function(r){return capCall(SHR,"share",{title:"My sadhana",text:text,files:[r.uri],dialogTitle:"Share your sadhana"});})
+      .then(function(){closeShare();}).catch(function(e){if(!/cancel/i.test(String(e&&e.message||e)))toast("Couldn't open sharing — try again 🙏");});return;}
+  cv.toBlob(function(blob){var f=new File([blob],name,{type:"image/png"});
+    if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],text:text}).then(closeShare).catch(function(){});}
+    else{var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();toast("Saved — share it from your gallery 🔱");}},"image/png");}
+
 /* Nandi celebration with confetti */
 function showNandiCeleb(d){const el=document.getElementById("nandiCeleb");const done=S.courseDone.filter(n=>n>=1).length;
   document.getElementById("ncTitle").textContent=d===0?"Foundation set!":(d%10===0?"Phase complete!":"Shabash!");

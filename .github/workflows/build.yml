@@ -73,6 +73,8 @@ jobs:
           p = 'android/app/src/main/AndroidManifest.xml'
           s = open(p).read()
           r = open('resources/android/widget/manifest_receivers.xml').read()
+          if 'android.permission.VIBRATE' not in s:
+              s = s.replace('<application', '<uses-permission android:name="android.permission.VIBRATE" />\n    <application', 1)
           if 'AffirmationWidget' not in s:
               s = s.replace('</application>', r + '    </application>', 1)
           open(p, 'w').write(s)
@@ -91,8 +93,8 @@ jobs:
 
       - name: Set version code and name
         run: |
-          sed -i 's/versionCode [0-9]*/versionCode 22/' android/app/build.gradle
-          sed -i 's/versionName "[^"]*"/versionName "2.3.3"/' android/app/build.gradle
+          sed -i 's/versionCode [0-9]*/versionCode 23/' android/app/build.gradle
+          sed -i 's/versionName "[^"]*"/versionName "2.3.4"/' android/app/build.gradle
 
       - name: Decode keystore
         run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/signing.keystore

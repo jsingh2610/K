@@ -393,6 +393,32 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
 /* Nandi celebration */
 #nandiCeleb{position:fixed;inset:0;z-index:160;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 24px calc(30px + var(--safe-b));background:radial-gradient(600px 420px at 50% 38%,rgba(232,200,122,.22),transparent 70%),rgba(4,8,14,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 #nandiCeleb.on{display:flex}
+/* ===== Sadhu unlocked celebration (3s, pure CSS — instant, no video load) ===== */
+#sadhuCeleb{position:fixed;inset:0;z-index:9999;display:none;flex-direction:column;align-items:center;justify-content:center;padding:0 28px;text-align:center;
+  background:radial-gradient(90% 55% at 50% 38%,rgba(232,200,122,.20),transparent 70%),rgba(7,14,22,.97)}
+#sadhuCeleb.on{display:flex;animation:scFade 3s linear both}
+@keyframes scFade{0%{opacity:0}5%{opacity:1}86%{opacity:1}100%{opacity:0}}
+#scConf{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.sc-stage{position:relative;width:260px;height:260px;animation:scStage 3s cubic-bezier(.55,0,.2,1) both}
+@keyframes scStage{0%,30%{transform:translateY(46px) scale(1.18)}48%,100%{transform:translateY(-6px) scale(.8)}}
+.sc-rays{position:absolute;left:-130px;top:-130px;right:-130px;bottom:-130px;border-radius:50%;
+  background:repeating-conic-gradient(rgba(232,200,122,.18) 0 9deg,transparent 9deg 18deg);
+  -webkit-mask:radial-gradient(circle,#000 25%,transparent 68%);mask:radial-gradient(circle,#000 25%,transparent 68%);
+  animation:scRay .5s .05s ease-out both,scSpin 9s linear infinite}
+@keyframes scRay{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+@keyframes scSpin{to{rotate:360deg}}
+.sc-card{position:absolute;inset:26px;border-radius:42px;background:linear-gradient(140deg,#fff0c4,#e8c87a 42%,#ff9d3d);
+  box-shadow:0 30px 70px rgba(232,150,60,.45),inset 0 0 0 4px rgba(255,255,255,.4);animation:scCard .55s cubic-bezier(.2,1.5,.4,1) both}
+@keyframes scCard{0%{transform:rotate(-34deg) scale(.15);opacity:0}100%{transform:rotate(-8deg) scale(1);opacity:1}}
+.sc-n{position:absolute;left:5px;top:-18px;width:250px;filter:drop-shadow(0 16px 26px rgba(80,40,0,.45));animation:scN .7s .1s cubic-bezier(.2,1.6,.4,1) both,nbob 2.2s .9s ease-in-out infinite}
+@keyframes scN{0%{transform:translateY(90px) scale(.3);opacity:0}100%{transform:none;opacity:1}}
+.sc-sp{position:absolute;color:#ffe3a0;font-size:22px;text-shadow:0 0 12px #e8c87a;animation:scSp .6s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes scSp{0%{transform:scale(0) rotate(-90deg);opacity:0}100%{transform:scale(1);opacity:1}}
+#sadhuCeleb h2{font-size:32px;font-weight:800;letter-spacing:-.5px;color:var(--gold);margin-top:6px;animation:scUp .45s .98s cubic-bezier(.2,1.4,.4,1) both}
+#sadhuCeleb p{font-size:14.5px;color:var(--muted,#9fb0c4);margin-top:8px;animation:scUp .45s 1.12s ease-out both}
+.sc-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.sc-chips span{padding:9px 13px;border-radius:999px;border:1.5px solid rgba(232,200,122,.55);background:rgba(232,200,122,.10);color:#ffe3a0;font-size:12.5px;font-weight:700;animation:scUp .4s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes scUp{0%{transform:translateY(18px) scale(.85);opacity:0}100%{transform:none;opacity:1}}
 #ncConf{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 #nandiCeleb .nimg{width:210px;height:210px;filter:drop-shadow(0 14px 30px rgba(0,0,0,.5));animation:ncIn .7s cubic-bezier(.2,1.4,.4,1) both,nbob 2.6s 0.8s ease-in-out infinite}
 @keyframes ncIn{from{opacity:0;transform:scale(.3) translateY(60px)}to{opacity:1;transform:none}}
@@ -948,6 +974,17 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
 <div class="toast" id="toast"></div>
 
 
+<!-- SADHU UNLOCKED -->
+<div id="sadhuCeleb" onclick="this.classList.remove('on')">
+  <canvas id="scConf"></canvas>
+  <div class="sc-stage"><div class="sc-rays"></div><div class="sc-card"></div>
+    <img class="sc-n" src="nandi/nandi_congrats.webp" alt="">
+    <i class="sc-sp" style="left:-14px;top:40px;animation-delay:.35s">✦</i><i class="sc-sp" style="right:-10px;top:12px;font-size:30px;animation-delay:.45s">✦</i>
+    <i class="sc-sp" style="right:-22px;bottom:50px;animation-delay:.55s">✦</i><i class="sc-sp" style="left:6px;bottom:-4px;font-size:16px;animation-delay:.62s">✦</i></div>
+  <h2>Sadhu unlocked!</h2>
+  <p>Your full path is open. Yours forever 🔱</p>
+  <div class="sc-chips"><span style="animation-delay:1.3s">⛰️ 40-Day Path</span><span style="animation-delay:1.42s">🕉️ All 21 Mantras</span><span style="animation-delay:1.54s">🪔 Daily Rituals</span></div>
+</div>
 <!-- NANDI CELEBRATION -->
 <div id="nandiCeleb">
   <canvas id="ncConf"></canvas>
@@ -1346,7 +1383,7 @@ function showBadgeCeleb(id){var b=BADGES.find(function(x){return x.id===id;});if
   document.getElementById("celebDays").textContent=b.days+"-day streak achieved";
   document.getElementById("badgeCelebration").classList.add("on");
   if(!S.badgeSeen)S.badgeSeen=[];S.badgeSeen.push(id);save();
-  if(navigator.vibrate)navigator.vibrate([40,30,60,30,40]);playBell();}
+  hz([40,30,60,30,40]);playBell();}
 function closeCeleb(){document.getElementById("badgeCelebration").classList.remove("on");
   /* chain next unseen badge */
   setTimeout(checkNewBadges,400);}
@@ -1391,9 +1428,9 @@ function go(s,skipHistory){document.querySelectorAll(".screen").forEach(e=>e.cla
 
 /* ===== JAPA ===== */
 const CIRC=2*Math.PI*112;
-function tapBead(){if(navigator.vibrate)navigator.vibrate(18);S.count++;S.total++;
+function tapBead(){hz(18);S.count++;S.total++;
   var _tk=todayKey();if(S.beadsDay!==_tk){S.beadsDay=_tk;S.beadsToday=0;}S.beadsToday++;KN.markPractice();
-  if(S.count>=108){S.count=0;S.rounds++;if(navigator.vibrate)navigator.vibrate([40,30,40]);toast("🔱 Mala complete — "+S.rounds+" rounds");playDamaru();KN.maybeAsk();}
+  if(S.count>=108){S.count=0;S.rounds++;hz([40,30,40]);toast("🔱 Mala complete — "+S.rounds+" rounds");playDamaru();KN.maybeAsk();}
   save();renderJapa();}
 function renderJapa(){document.getElementById("beadCount").textContent=S.count;document.getElementById("stRounds").textContent=S.rounds;
   document.getElementById("stTotal").textContent=S.total;document.getElementById("stStreak").textContent=S.streak;
@@ -1624,7 +1661,7 @@ function drawRidge(W,H,PX,stops,curIdx,skyPx){const cv=document.getElementById('
   fx.save();fx.globalCompositeOperation='destination-out';fx.filter='blur(5px)';fx.drawImage(mc,0,0,fw,fh);fx.restore();}
 function gTap(d){const zeroDone=S.courseDone.includes(0),isDone=S.courseDone.includes(d),isCur=d===(zeroDone?S.courseDay:0)&&!isDone;
   if(!isDone&&!isCur){toast(zeroDone?'Climb Day '+S.courseDay+' first 🔒':'Start at Base Camp (Day 0) 🔒');return;}
-  if(navigator.vibrate)navigator.vibrate(10);gOpen=gOpen===d?null:d;renderCourse();}
+  hz(10);gOpen=gOpen===d?null:d;renderCourse();}
 function scrollToClimber(){var zd=S.courseDone.includes(0);var n=document.getElementById("gn-"+(zd?S.courseDay:0));if(n)n.scrollIntoView({behavior:"smooth",block:"center"});}
 /* ===== SHARE YOUR SADHANA — Strava-style story card + transparent sticker, in the course's winter-RPG look ===== */
 var PLAY_URL="https://play.google.com/store/apps/details?id=dev.pages.k_ejr2.twa";
@@ -1634,7 +1671,7 @@ function shareData(){var done=S.courseDone.filter(function(n){return n>=1;}).len
   var d=new Date(),mo=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()];
   return {done:done,streak:S.streak||1,best:Math.max(S.bestStreak||1,S.streak||1),japa:S.total||0,phase:(typeof PHASES!=="undefined"&&PHASES[ph])?PHASES[ph].n:"",
     date:d.getDate()+" "+mo+" "+d.getFullYear(),badge:_shareCtx&&_shareCtx.badge?BADGES.find(function(x){return x.id===_shareCtx.badge;}):null,day:_shareCtx&&_shareCtx.day!=null?_shareCtx.day:null};}
-function openShare(ctx){_shareCtx=ctx||null;shareTab(_shareKind);document.getElementById("shareSheet").classList.add("on");if(navigator.vibrate)navigator.vibrate(8);}
+function openShare(ctx){_shareCtx=ctx||null;shareTab(_shareKind);document.getElementById("shareSheet").classList.add("on");hz(8);}
 function closeShare(){document.getElementById("shareSheet").classList.remove("on");}
 function shareTab(k){_shareKind=k;document.querySelectorAll("#shareSheet .shtab button").forEach(function(b){b.classList.toggle("on",b.dataset.k===k);});
   var p=document.getElementById("sharePrev");p.className="share-prev "+k;try{p.src=drawShare(k).toDataURL("image/png");}catch(e){}}
@@ -1709,6 +1746,13 @@ function drawShare(kind){var d=shareData(),c,cv=document.createElement("canvas")
 function capPlugin(name){var C=window.Capacitor;var nat=!!(C&&typeof C.nativePromise==="function"&&((C.isNativePlatform&&C.isNativePlatform())||(C.getPlatform&&C.getPlatform()==="android")));
   if(!nat)return null;if(C.Plugins&&C.Plugins[name])return C.Plugins[name];return {call:function(m,o){return C.nativePromise(name,m,o||{});}};}
 function capCall(p,m,o){return p.call?p.call(m,o):p[m](o);}
+/* haptics: native Capacitor Haptics (WebView navigator.vibrate is silent on Android) */
+function hz(p){try{var H=capPlugin("Haptics");
+  if(H){var go=function(m,o){try{var r=capCall(H,m,o);if(r&&r.catch)r.catch(function(){});}catch(e){}};
+    if(typeof p==="number"){if(p<=12)go("impact",{style:"LIGHT"});else if(p<=22)go("impact",{style:"MEDIUM"});else go("vibrate",{duration:p});}
+    else{var t=0;for(var i=0;i<p.length;i++){if(i%2===0)(function(d,at){setTimeout(function(){go("vibrate",{duration:d});},at);})(p[i],t);t+=p[i];}}
+    return;}
+  if(navigator.vibrate)navigator.vibrate(p);}catch(e){}}
 function doShare(){var kind=_shareKind,cv=drawShare(kind),d=shareData();
   var text=(d.badge?d.badge.name+" unlocked on my Shiva sadhana 🔱":"Day "+d.done+" of my 40-day Shiva sadhana · "+d.streak+"-day streak 🔥")+"\nKailasa: "+PLAY_URL;
   var FS=capPlugin("Filesystem"),SHR=capPlugin("Share"),name="kailasa-"+kind+"-"+Date.now()+".png";
@@ -1727,15 +1771,15 @@ function showNandiCeleb(d){const el=document.getElementById("nandiCeleb");const 
   const bar=document.getElementById("ncBar");bar.style.transition="none";bar.style.width=Math.max(0,(done-1)/40*100)+"%";
   const img=document.getElementById("ncImg");img.style.animation="none";void img.offsetWidth;img.style.animation="";
   el.classList.add("on");requestAnimationFrame(function(){bar.style.transition="";bar.style.width=(done/40*100)+"%";});
-  if(navigator.vibrate)navigator.vibrate([30,40,30,40,80]);playBell();setTimeout(playDamaru,350);confetti();}
+  hz([30,40,30,40,80]);playBell();setTimeout(playDamaru,350);confetti();}
 function closeNandiCeleb(){document.getElementById("nandiCeleb").classList.remove("on");gOpen=null;renderCourse();
   setTimeout(scrollToClimber,120);}
-function confetti(){const cv=document.getElementById("ncConf"),x=cv.getContext("2d"),W=cv.width=innerWidth,H=cv.height=innerHeight;
+function confetti(cid,hid){cid=cid||"ncConf";hid=hid||"nandiCeleb";const cv=document.getElementById(cid),x=cv.getContext("2d"),W=cv.width=innerWidth,H=cv.height=innerHeight;
   const cols=["#e8c87a","#ffb347","#6ad6e8","#8b9cff","#ff6b8b","#67e0a3"];const P=[];
   for(let i=0;i<140;i++)P.push({x:W/2+(Math.random()-.5)*60,y:H*.38,vx:(Math.random()-.5)*14,vy:-Math.random()*16-4,r:Math.random()*Math.PI,vr:(Math.random()-.5)*.3,w:6+Math.random()*6,h:4+Math.random()*4,c:cols[i%cols.length]});
   let t0=performance.now();(function f(now){const k=(now-t0)/1000;x.clearRect(0,0,W,H);
     P.forEach(p=>{p.vy+=.45;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.globalAlpha=Math.max(0,1-k/3.2);x.fillStyle=p.c;x.fillRect(-p.w/2,-p.h/2,p.w,p.h);x.restore();});
-    if(k<3.3&&document.getElementById("nandiCeleb").classList.contains("on"))requestAnimationFrame(f);else x.clearRect(0,0,W,H);})(t0);}
+    if(k<3.3&&document.getElementById(hid).classList.contains("on"))requestAnimationFrame(f);else x.clearRect(0,0,W,H);})(t0);}
 let activeLesson=null;
 function openLesson(d){if(!isPro()){openPaywall();return;}activeLesson=d;const L=LESSONS[d-1];const wk=Math.floor((d-1)/10);
   document.getElementById("lprogBar").style.width=Math.round(d/40*100)+"%";
@@ -1829,7 +1873,7 @@ function addJournal(){
   document.getElementById("jText").value="";
   document.getElementById("jGrat").value="";
   renderJournal();
-  if(navigator.vibrate)navigator.vibrate(15);
+  hz(15);
   toast("📖 Reflection saved");
 }
 function esc(s){return s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
@@ -1882,7 +1926,7 @@ function renderMantras(){const done=S.mantraDoneToday||[];const pro=isPro();
       </div>`;});
   });
   document.getElementById("mantraBody").innerHTML=html;}
-function openMCounter(id){const M=MANTRA_PROTOCOL.find(x=>x.id===id);if(M.phase>1&&!isPro()){if(navigator.vibrate)navigator.vibrate(8);openPaywall();return;}
+function openMCounter(id){const M=MANTRA_PROTOCOL.find(x=>x.id===id);if(M.phase>1&&!isPro()){hz(8);openPaywall();return;}
   activeMantra=id;renderMCounter();document.getElementById("mcounter").classList.add("on");navPush("mcounter");}
 function closeMCounter(){document.getElementById("mcounter").classList.remove("on");renderMantras();}
 function renderMCounter(){const M=MANTRA_PROTOCOL.find(x=>x.id===activeMantra);const c=mCount(M.id);
@@ -1900,13 +1944,13 @@ function renderMCounter(){const M=MANTRA_PROTOCOL.find(x=>x.id===activeMantra);c
     <button class="btn ghost" style="margin-top:18px" onclick="resetMCount()">Reset this counter</button>`;
   document.getElementById("mcProgBar").style.width=(100*c/M.count)+"%";}
 function tapMCount(){const id=activeMantra;const M=MANTRA_PROTOCOL.find(x=>x.id===id);
-  if(navigator.vibrate)navigator.vibrate(18);
+  hz(18);
   S.mantraCount=S.mantraCount||{};S.mantraCount[id]=Math.min(M.count,(S.mantraCount[id]||0)+1);
   const c=S.mantraCount[id];
   document.getElementById("mcCount").textContent=c;
   document.getElementById("mcRing").style.strokeDashoffset=CIRC*(1-c/M.count);
   document.getElementById("mcProgBar").style.width=(100*c/M.count)+"%";
-  if(c>=M.count){if(navigator.vibrate)navigator.vibrate([40,30,40]);
+  if(c>=M.count){hz([40,30,40]);
     if(!(S.mantraDoneToday||[]).includes(id)){S.mantraDoneToday=(S.mantraDoneToday||[]).concat(id);toast("🔱 "+M.n+" complete");}}
   save();}
 function resetMCount(){const id=activeMantra;S.mantraCount=S.mantraCount||{};S.mantraCount[id]=0;
@@ -1934,8 +1978,8 @@ function breathEnd(msg){if(breathT){clearInterval(breathT);breathT=null;}
   const btn=document.getElementById("breathBtn");if(btn)btn.textContent="Begin guided breath";
   toast(msg);}
 function breathGuide(){if(breathT){breathEnd("Breath ended");return;}
-  const ph=["Inhale… 🌬️","Hold…","Exhale… 💨","Hold…"];let i=0;toast(ph[0]);if(navigator.vibrate)navigator.vibrate(20);
-  breathT=setInterval(()=>{i=(i+1)%4;toast(ph[i]);if(navigator.vibrate)navigator.vibrate(15);},4000);
+  const ph=["Inhale… 🌬️","Hold…","Exhale… 💨","Hold…"];let i=0;toast(ph[0]);hz(20);
+  breathT=setInterval(()=>{i=(i+1)%4;toast(ph[i]);hz(15);},4000);
   const btn=document.getElementById("breathBtn");if(btn)btn.textContent="End guided breath";
   let secsLeft=BREATH_SECS;
   const tEl=breathTimerEl();
@@ -2000,8 +2044,8 @@ function poojaStatus(){const n=S.poojaToday.length;
   document.getElementById("offerStatus").textContent=`${n} of ${OFFERINGS.length} offerings made`+(S.poojaCount?` · ${S.poojaCount} pooja${S.poojaCount>1?'s':''} completed`:"");
   document.getElementById("aartiBtn").disabled=isPro()?(n===0):false;}
 function offer(id){const o=OFFERINGS.find(x=>x.id===id);if(!o||offerBusy)return;
-  if(!o.free&&!isPro()){if(navigator.vibrate)navigator.vibrate(8);openPaywall();return;}
-  if(navigator.vibrate)navigator.vibrate(14);
+  if(!o.free&&!isPro()){hz(8);openPaywall();return;}
+  hz(14);
   const note=document.getElementById("poojaNote");if(note&&o.mean)note.textContent=o.mean;
   if(o.type==="liquid")fxLiquid(o.color,o.id==="madhu"?2.4:1);
   else if(o.type==="leaf")fxPetals("leaf",o.color);
@@ -2044,9 +2088,9 @@ function fxChandan(){var tri=document.getElementById("triGroup");if(!tri)return;
     p.style.strokeDasharray=len;p.style.strokeDashoffset=len;
     p.animate([{strokeDashoffset:len,opacity:0},{strokeDashoffset:0,opacity:1}],{duration:560,delay:i*150,easing:"ease-out",fill:"forwards"}).onfinish=function(){p.style.strokeDasharray="";p.style.strokeDashoffset="";};})(paths[i],i);}}
 function doAarti(){if(offerBusy)return;
-  if(!isPro()){if(navigator.vibrate)navigator.vibrate(8);openPaywall();return;}
+  if(!isPro()){hz(8);openPaywall();return;}
   if(S.poojaToday.length===0)return;offerBusy=true;
-  if(navigator.vibrate)navigator.vibrate([20,40,20]);
+  hz([20,40,20]);
   var btn=document.getElementById("aartiBtn");var lbl=btn.textContent;btn.disabled=true;btn.textContent="Aarti in progress…";
   playBell();
   var fx=document.getElementById("fxLayer");
@@ -2065,7 +2109,7 @@ function doAarti(){if(offerBusy)return;
   function fin(){lamp.remove();glow.remove();offerBusy=false;btn.textContent=lbl;
     S.poojaCount=(S.poojaCount||0)+1;S.poojaToday=[];save();
     var tri=document.getElementById("triGroup");if(tri)tri.style.opacity="0";
-    if(navigator.vibrate)navigator.vibrate([40,30,60]);playBell();playDamaru();
+    hz([40,30,60]);playBell();playDamaru();
     renderPooja();toast("🙏 Pooja complete · Har Har Mahadev");}
   requestAnimationFrame(step);}
 
@@ -2153,8 +2197,9 @@ async function verifyPurchase(purchaseToken,productId){
   try{
     var session=await sb.auth.getSession();
     if(!session.data||!session.data.session)throw new Error('no session');
+    var ctl=new AbortController();setTimeout(function(){ctl.abort();},8000);
     var res=await fetch(SB_URL+'/functions/v1/verify-purchase',{
-      method:'POST',
+      method:'POST',signal:ctl.signal,
       headers:{
         'Content-Type':'application/json',
         'Authorization':'Bearer '+session.data.session.access_token
@@ -2162,7 +2207,7 @@ async function verifyPurchase(purchaseToken,productId){
       body:JSON.stringify({
         purchase_token:purchaseToken,
         product_id:productId,
-        package_name:'com.kailasa.shiva'
+        package_name:'dev.pages.k_ejr2.twa'
       })
     });
     var data=await res.json();
@@ -2190,25 +2235,34 @@ function initBilling(){
     }]);
     store.when()
       .approved(function(transaction){
+        /* Google has confirmed payment: unlock instantly, verify server-side in the background */
+        grantSadhu(true);
         var token=transaction.nativePurchase?transaction.nativePurchase.purchaseToken:null;
-        if(token&&currentUser){
-          verifyPurchase(token,'sadhu.unlock').then(function(ok){
-            transaction.finish();
-            if(ok||true){S.tier='pro';save();syncTier();closePaywall();playDamaru();toast('✦ Sadhu unlocked — yours forever');}
-          });
-        }else{
-          transaction.finish();
-          S.tier='pro';save();syncTier();closePaywall();playDamaru();
-          toast('✦ Sadhu unlocked — yours forever');
-        }
+        transaction.finish();
+        if(token&&currentUser){verifyPurchase(token,'sadhu.unlock').then(function(ok){if(ok&&typeof syncToCloud==='function')try{syncToCloud();}catch(e){}});}
       })
+      .productUpdated(function(p){if(p&&p.id==='sadhu.unlock'&&p.owned)grantSadhu(false);})
+      .receiptUpdated(function(){checkOwned();})
       .finished(function(transaction){console.log('Purchase finished',transaction);});
     store.initialize([CdvPurchase.Platform.GOOGLE_PLAY])
-      .then(function(){billingReady=true;console.log('Billing ready');restorePurchases();})
+      .then(function(){billingReady=true;console.log('Billing ready');checkOwned();restorePurchases();})
       .catch(function(e){console.error('Billing init failed',e);});
   }catch(e){console.error('initBilling',e);}
 }
 
+function grantSadhu(celebrate){
+  if(isPro())return;
+  S.tier='pro';save();syncTier();closePaywall();
+  showSadhuCeleb();
+}
+function showSadhuCeleb(){var el=document.getElementById('sadhuCeleb');el.classList.remove('on');void el.offsetWidth;el.classList.add('on');
+  hz([30,40,30,40,80]);try{playBell();setTimeout(playDamaru,320);}catch(e){}
+  setTimeout(function(){confetti('scConf','sadhuCeleb');},380);
+  clearTimeout(window._scT);window._scT=setTimeout(function(){el.classList.remove('on');},3000);}
+function checkOwned(){
+  try{if(billingReady&&window.CdvPurchase&&CdvPurchase.store.owned('sadhu.unlock'))grantSadhu(false);}catch(e){}
+}
+document.addEventListener('visibilitychange',function(){if(!document.hidden)setTimeout(checkOwned,600);});
 async function restorePurchases(){
   if(!BILLING_LIVE||!currentUser)return;
   if(billingReady&&window.CdvPurchase){

@@ -95,6 +95,10 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
 .mala-stats{display:flex;gap:13px;width:100%}
 .stat{flex:1;text-align:center;background:linear-gradient(160deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:var(--r2);padding:14px 8px}
 .stat b{display:block;font-size:23px;font-weight:800;color:var(--ink)}.stat span{font-size:11px;color:var(--ink3);letter-spacing:.5px}
+.mlisten{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 auto 18px;padding:9px 18px;border-radius:999px;border:1px solid rgba(232,200,122,.45);background:rgba(232,200,122,.08);color:var(--gold);font:700 13.5px inherit;font-family:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.mlisten.on{background:var(--gold);color:#1a1306;box-shadow:0 0 18px rgba(232,200,122,.35)}
+.mlisten .eq{display:inline-flex;gap:2px;align-items:flex-end;height:12px}.mlisten .eq i{width:3px;background:currentColor;border-radius:2px;animation:eq .9s ease-in-out infinite}.mlisten .eq i:nth-child(2){animation-delay:.15s}.mlisten .eq i:nth-child(3){animation-delay:.3s}
+@keyframes eq{0%,100%{height:4px}50%{height:12px}}
 .mantra-pill{display:flex;align-items:center;gap:10px;background:var(--grad-soft);border:1px solid var(--line2);border-radius:999px;padding:11px 18px;font-weight:700;font-size:15px;letter-spacing:.5px}
 .audio-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:linear-gradient(160deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:var(--r2);padding:15px 17px}
 .audio-toggle .lab{display:flex;flex-direction:column}.audio-toggle b{font-size:14px}.audio-toggle span{font-size:11.5px;color:var(--ink3)}
@@ -687,9 +691,10 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
     <!-- JAPA -->
     <section class="screen" id="s-japa">
       <div class="hero" style="font-size:24px">Japa Mala</div>
-      <p class="subtle">Tap the bead with each repetition. Haptic feedback, no sound.</p>
+      <p class="subtle">Tap the bead with each repetition. Listen once, then chant along.</p>
       <div class="mala-wrap">
         <div class="mantra-pill">🕉️ <span id="japaMantra">Om Namah Shivaya</span></div>
+        <button class="mlisten" id="japaListen" style="margin-top:12px;margin-bottom:0" onclick="playMantra(JAPA_AUDIO[S.mantra])"></button>
         <button class="bead-btn" id="bead" onclick="tapBead()">
           <svg class="ring-svg" viewBox="0 0 240 240"><circle cx="120" cy="120" r="112" fill="none" stroke="rgba(146,180,210,.12)" stroke-width="6"/>
           <circle id="ring" cx="120" cy="120" r="112" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round" stroke-dasharray="703.7" stroke-dashoffset="703.7"/>
@@ -1003,7 +1008,6 @@ nav{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 14px calc(9
     <div class="grab"></div>
     <b style="font-size:19px;display:block">Share your sadhana</b>
     <p class="subtle" style="font-size:13px;margin:4px 0 12px">Your practice is an achievement. Let it inspire someone.</p>
-    <div class="shtab"><button data-k="story" onclick="shareTab('story')">Story</button><button data-k="sticker" onclick="shareTab('sticker')">Sticker</button></div>
     <img class="share-prev story" id="sharePrev" alt="Preview">
     <button class="btn gold" onclick="doShare()">↗ Share</button>
   </div>
@@ -1416,7 +1420,7 @@ function stopChant(){if(!chantNodes)return;const c=ac();chantNodes.master.gain.l
 var navStack=["home"];
 var navHandlingPop=false;
 function navPush(v){if(!navHandlingPop)history.pushState({v:v},"");}
-function go(s,skipHistory){document.querySelectorAll(".screen").forEach(e=>e.classList.remove("on"));
+function go(s,skipHistory){if(typeof stopMantraAudio==="function")stopMantraAudio();document.querySelectorAll(".screen").forEach(e=>e.classList.remove("on"));
   const next=document.getElementById("s-"+s);next.classList.add("on");
   document.querySelectorAll(".nav-i").forEach(n=>n.classList.toggle("on",n.dataset.s===s));
   document.getElementById("scroll").scrollTop=0;
@@ -1432,10 +1436,24 @@ function tapBead(){hz(18);S.count++;S.total++;
   var _tk=todayKey();if(S.beadsDay!==_tk){S.beadsDay=_tk;S.beadsToday=0;}S.beadsToday++;KN.markPractice();
   if(S.count>=108){S.count=0;S.rounds++;hz([40,30,40]);toast("🔱 Mala complete — "+S.rounds+" rounds");playDamaru();KN.maybeAsk();}
   save();renderJapa();}
+/* ===== MANTRA RECORDINGS — one clean recitation per mantra (www/audio/mantra/<id>.mp3) ===== */
+const JAPA_AUDIO={ons:"A",mty:"M"};
+let _mAud=null;
+function isMantraPlaying(id){return !!(_mAud&&_mAud._id===id&&!_mAud.paused);}
+function listenLabel(id){return isMantraPlaying(id)?'<span class="eq"><i></i><i></i><i></i></span> Stop':'▶ Listen';}
+function syncListen(){document.querySelectorAll(".mlisten").forEach(function(b){var id=b.dataset.id;if(!id)return;b.classList.toggle("on",isMantraPlaying(id));b.innerHTML=listenLabel(id);});}
+function stopMantraAudio(){if(_mAud){try{_mAud.pause();}catch(e){}_mAud=null;}syncListen();}
+function playMantra(id){if(!id)return;if(isMantraPlaying(id)){stopMantraAudio();return;}stopMantraAudio();
+  var a=new Audio("audio/mantra/"+id+".mp3");a._id=id;a.volume=1;_mAud=a;hz(8);
+  a.onended=function(){if(_mAud===a)_mAud=null;syncListen();};
+  a.onerror=function(){if(_mAud===a)_mAud=null;syncListen();toast("Couldn't play this recording");};
+  var p=a.play();if(p&&p.catch)p.catch(function(){if(_mAud===a)_mAud=null;syncListen();});
+  setTimeout(syncListen,30);}
 function renderJapa(){document.getElementById("beadCount").textContent=S.count;document.getElementById("stRounds").textContent=S.rounds;
   document.getElementById("stTotal").textContent=S.total;document.getElementById("stStreak").textContent=S.streak;
   document.getElementById("ring").style.strokeDashoffset=CIRC*(1-S.count/108);
   document.getElementById("japaMantra").textContent=mantraName();
+  var jl=document.getElementById("japaListen"),ja=JAPA_AUDIO[S.mantra];jl.style.display=ja?"":"none";if(ja){jl.dataset.id=ja;jl.innerHTML=listenLabel(ja);jl.classList.toggle("on",isMantraPlaying(ja));}
   document.getElementById("chantSw").classList.toggle("on",!!S.chant);}
 function resetMala(){S.count=0;save();renderJapa();toast("Mala reset");}
 function toggleChant(){S.chant=!S.chant;document.getElementById("chantSw").classList.toggle("on",S.chant);if(S.chant)startChant();else stopChant();save();}
@@ -1671,7 +1689,7 @@ function shareData(){var done=S.courseDone.filter(function(n){return n>=1;}).len
   var d=new Date(),mo=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()];
   return {done:done,streak:S.streak||1,best:Math.max(S.bestStreak||1,S.streak||1),japa:S.total||0,phase:(typeof PHASES!=="undefined"&&PHASES[ph])?PHASES[ph].n:"",
     date:d.getDate()+" "+mo+" "+d.getFullYear(),badge:_shareCtx&&_shareCtx.badge?BADGES.find(function(x){return x.id===_shareCtx.badge;}):null,day:_shareCtx&&_shareCtx.day!=null?_shareCtx.day:null};}
-function openShare(ctx){_shareCtx=ctx||null;shareTab(_shareKind);document.getElementById("shareSheet").classList.add("on");hz(8);}
+function openShare(ctx){_shareCtx=ctx||null;shareTab("story");document.getElementById("shareSheet").classList.add("on");hz(8);}
 function closeShare(){document.getElementById("shareSheet").classList.remove("on");}
 function shareTab(k){_shareKind=k;document.querySelectorAll("#shareSheet .shtab button").forEach(function(b){b.classList.toggle("on",b.dataset.k===k);});
   var p=document.getElementById("sharePrev");p.className="share-prev "+k;try{p.src=drawShare(k).toDataURL("image/png");}catch(e){}}
@@ -1753,7 +1771,7 @@ function hz(p){try{var H=capPlugin("Haptics");
     else{var t=0;for(var i=0;i<p.length;i++){if(i%2===0)(function(d,at){setTimeout(function(){go("vibrate",{duration:d});},at);})(p[i],t);t+=p[i];}}
     return;}
   if(navigator.vibrate)navigator.vibrate(p);}catch(e){}}
-function doShare(){var kind=_shareKind,cv=drawShare(kind),d=shareData();
+function doShare(){var kind="story",cv=drawShare(kind),d=shareData();
   var text=(d.badge?d.badge.name+" unlocked on my Shiva sadhana 🔱":"Day "+d.done+" of my 40-day Shiva sadhana · "+d.streak+"-day streak 🔥")+"\nKailasa: "+PLAY_URL;
   var FS=capPlugin("Filesystem"),SHR=capPlugin("Share"),name="kailasa-"+kind+"-"+Date.now()+".png";
   if(FS&&SHR){capCall(FS,"writeFile",{path:name,data:cv.toDataURL("image/png").split(",")[1],directory:"CACHE"})
@@ -1928,10 +1946,11 @@ function renderMantras(){const done=S.mantraDoneToday||[];const pro=isPro();
   document.getElementById("mantraBody").innerHTML=html;}
 function openMCounter(id){const M=MANTRA_PROTOCOL.find(x=>x.id===id);if(M.phase>1&&!isPro()){hz(8);openPaywall();return;}
   activeMantra=id;renderMCounter();document.getElementById("mcounter").classList.add("on");navPush("mcounter");}
-function closeMCounter(){document.getElementById("mcounter").classList.remove("on");renderMantras();}
+function closeMCounter(){stopMantraAudio();document.getElementById("mcounter").classList.remove("on");renderMantras();}
 function renderMCounter(){const M=MANTRA_PROTOCOL.find(x=>x.id===activeMantra);const c=mCount(M.id);
   document.getElementById("mcBody").innerHTML=`
-    <div class="mantra-pill" style="margin:0 auto 22px">🕉️ ${M.n}</div>
+    <div class="mantra-pill" style="margin:0 auto 14px">🕉️ ${M.n}</div>
+    <button class="mlisten" data-id="${M.id}" onclick="playMantra('${M.id}')">${listenLabel(M.id)}</button>
     <button class="bead-btn" id="mcBead" onclick="tapMCount()">
       <svg class="ring-svg" viewBox="0 0 240 240"><defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6ad6e8"/><stop offset="1" stop-color="#8b9cff"/></linearGradient></defs>
       <circle cx="120" cy="120" r="112" fill="none" stroke="rgba(146,180,210,.12)" stroke-width="6"/>

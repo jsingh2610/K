@@ -1,5 +1,6 @@
 package dev.pages.k_ejr2.twa;
 
+import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
@@ -57,6 +58,26 @@ final class WidgetData {
             i.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
             i.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
             c.sendBroadcast(i);
+        }
+        scheduleNext(c);
+    }
+
+    /** Next refresh: top of the next hour (covers midnight and every mood change). Non-wakeup:
+     *  if the phone sleeps it fires the moment the screen comes back on, so Nandi is never stale. */
+    static void scheduleNext(Context c) {
+        try {
+            AlarmManager am = (AlarmManager) c.getSystemService(Context.ALARM_SERVICE);
+            if (am == null) return;
+            Calendar n = Calendar.getInstance();
+            n.add(Calendar.HOUR_OF_DAY, 1);
+            n.set(Calendar.MINUTE, 0);
+            n.set(Calendar.SECOND, 5);
+            n.set(Calendar.MILLISECOND, 0);
+            Intent i = new Intent(c, WidgetTick.class).setAction("kailasa.WIDGET_TICK");
+            PendingIntent pi = PendingIntent.getBroadcast(c, 77, i,
+                    PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+            am.setAndAllowWhileIdle(AlarmManager.RTC, n.getTimeInMillis(), pi);
+        } catch (Exception ignored) {
         }
     }
 }

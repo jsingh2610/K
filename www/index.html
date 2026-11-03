@@ -1230,7 +1230,6 @@ function cloudRow(){
       name:S.name,
       primary_goal:S.primaryGoal,
       mantra:S.mantra,
-      tier:S.tier,
       streak:S.streak,
       completed_days:S.courseDone||[],
       journal:S.journal||[],
@@ -1248,7 +1247,9 @@ function cloudRow(){
       pooja_today:S.poojaToday||[],
       mantra_done_today:S.mantraDoneToday||[],
       tip_seen:!!S.tipSeen,
-      updated_at:new Date(S.savedAt||Date.now()).toISOString()
+      updated_at:new Date(S.savedAt||Date.now()).toISOString(),
+      /* Sadhu lives on the account: only ever upgrade it, never write Bhakt over it */
+      ...(isPro()?{tier:'pro'}:{})
     };
 }
 var _syncPending=false;
@@ -1279,7 +1280,6 @@ async function syncFromCloud(){
       S.mantra=d.mantra||S.mantra;
       S.onboarded=true;
 
-      S.tier=d.tier||S.tier;
 
       var cloudRev=Date.parse(d.updated_at)||0,localRev=S.savedAt||0,cloudNewer=cloudRev>localRev,t=todayKey();
       var mc=Object.assign({},d.mantra_count||{}),pd=typeof mc.__pd==="string"&&mc.__pd?mc.__pd.split(","):[];delete mc.__pd;
@@ -1319,9 +1319,23 @@ async function syncFromCloud(){
     }else if(S.onboarded){
       syncToCloud();
     }
+    /* after merging progress, so the tier change can't make stale local data look newer */
+    applyAccountTier(d.tier);
   }catch(e){console.error('cloud pull error',e);}
 }
 
+/* Sadhu follows the signed-in email: an account with Sadhu unlocks instantly on any phone;
+   Sadhu that came from another account never leaks into this one. A Google Play purchase on
+   this phone always counts (and is attached to the account). */
+function applyAccountTier(t){
+  if(t==='pro'){if(!isPro())grantSadhu(true,'acct');return;}
+  if(isPro()){
+    if(S.proSrc==='play'){syncToCloud();return;}
+    S.tier='bhakt';S.proSrc='';save();syncTier();
+    var cur=document.querySelector('.screen.on');if(cur)go(cur.id.replace('s-',''),true);
+    setTimeout(checkOwned,300);
+  }
+}
 async function initAuth(){
   if(!sb)return;
   try{
@@ -1373,7 +1387,9 @@ async function doAuth(){
 }
 
 async function doSignOut(){
-  if(!sb)return;await sb.auth.signOut();currentUser=null;renderAccount();toast('Signed out');}
+  if(!sb)return;flushCloud();await sb.auth.signOut();currentUser=null;
+  if(isPro()&&S.proSrc!=='play'){S.tier='bhakt';S.proSrc='';save();syncTier();var cur=document.querySelector('.screen.on');if(cur)go(cur.id.replace('s-',''),true);setTimeout(checkOwned,300);}
+  renderAccount();toast('Signed out');}
 
 function renderAccount(){
   var card=document.getElementById('accountCard');if(!card)return;
@@ -2291,10 +2307,12 @@ function initBilling(){
   }catch(e){console.error('initBilling',e);}
 }
 
-function grantSadhu(celebrate){
-  if(isPro())return;
-  S.tier='pro';save();syncTier();closePaywall();
-  showSadhuCeleb();
+function grantSadhu(celebrate,src){
+  src=src||'play';
+  if(isPro()){if(src==='play'&&S.proSrc!=='play'){S.proSrc='play';save();}return;}
+  S.tier='pro';S.proSrc=src;save();syncTier();closePaywall();
+  var cur=document.querySelector('.screen.on');if(cur)go(cur.id.replace('s-',''),true);
+  if(celebrate){showSadhuCeleb();if(src==='acct')toast('✦ Sadhu restored from your account');}
 }
 function showSadhuCeleb(){var el=document.getElementById('sadhuCeleb');el.classList.remove('on');void el.offsetWidth;el.classList.add('on');
   hz([30,40,30,40,80]);try{playBell();setTimeout(playDamaru,320);}catch(e){}
@@ -2339,7 +2357,7 @@ function wipe(){
   S={...DEFAULT};
   if(sb&&currentUser){
     sb.from('profiles').update({
-      name:'',primary_goal:'dhan_samriddhi',mantra:'ons',tier:'bhakt',
+      name:'',primary_goal:'dhan_samriddhi',mantra:'ons',
       streak:0,completed_days:[],journal:[],count:0,onboarded:false,
       rounds:0,total:0,best_streak:1,pooja_count:0,course_day:1,
       badges_earned:[],badge_seen:[],mantra_count:{},last_day:null,

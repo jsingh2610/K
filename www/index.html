@@ -1196,7 +1196,24 @@ const PILLAR_AFFIRMATIONS={
 let S=load();
 function todayKey(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function load(){try{return Object.assign({},DEFAULT,JSON.parse(localStorage.getItem("kailasa"))||{});}catch(e){return {...DEFAULT};}}
-function save(){localStorage.setItem("kailasa",JSON.stringify(S));syncToCloud();if(typeof KN!=="undefined"&&KN)KN.onSave();}
+var _booting=true;
+function save(){if(!_booting)S.savedAt=Date.now();localStorage.setItem("kailasa",JSON.stringify(S));syncToCloud();if(typeof KN!=="undefined"&&KN)KN.onSave();}
+/* ===== PRACTICE-BASED STREAK (v2.3.6) — a day counts only when you actually practise ===== */
+function dayKey(off){var d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()+(off||0));return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function practiced(k){return (S.practiceDays||[]).indexOf(k)>=0;}
+/* consecutive practised days ending today (if done) or yesterday (still alive until midnight) */
+function curStreak(){var n=0,o=practiced(dayKey(0))?0:-1;while(practiced(dayKey(o))){n++;o--;}return n;}
+function awardBadges(){if(!S.badgesEarned)S.badgesEarned=[];if(!S.badgeSeen)S.badgeSeen=[];var got=false;
+  BADGES.forEach(function(b){if(S.streak>=b.days&&!S.badgesEarned.includes(b.id)){S.badgesEarned.push(b.id);got=true;}});return got;}
+function refreshStreak(){S.streak=curStreak();if(!S.bestStreak||S.streak>S.bestStreak)S.bestStreak=S.streak;return awardBadges();}
+function markPractice(){var t=todayKey();S.lastPractice=t;if(!S.practiceDays)S.practiceDays=[];
+  if(!practiced(t)){S.practiceDays.push(t);S.practiceDays.sort();if(S.practiceDays.length>400)S.practiceDays=S.practiceDays.slice(-400);
+    if(refreshStreak()&&typeof checkNewBadges==="function")setTimeout(checkNewBadges,900);}}
+/* one-time migration: keep the streak people already have */
+(function(){if(S.practiceDays)return;S.practiceDays=[];var lp=S.lastPractice;if(!lp)return;
+  var base=lp===dayKey(0)?0:(lp===dayKey(-1)?-1:null);
+  if(base===null){S.practiceDays.push(lp);return;}
+  for(var i=0;i<Math.max(1,S.streak||1);i++)S.practiceDays.push(dayKey(base-i));S.practiceDays.sort();})();
 function isPro(){return S.tier==="pro";}
 
 /* ===== SUPABASE CLOUD SYNC ===== */
@@ -1207,11 +1224,9 @@ let currentUser=null;
 let _syncTO=null;
 let authMode='signin';
 
-function syncToCloud(){
-  if(!sb||!currentUser)return;
-  clearTimeout(_syncTO);
-  _syncTO=setTimeout(async function(){
-    try{await sb.from('profiles').update({
+function cloudRow(){
+  var mc=Object.assign({},S.mantraCount||{});mc.__pd=(S.practiceDays||[]).slice(-120).join(",");
+  return {
       name:S.name,
       primary_goal:S.primaryGoal,
       mantra:S.mantra,
@@ -1228,15 +1243,27 @@ function syncToCloud(){
       course_day:S.courseDay||1,
       badges_earned:S.badgesEarned||[],
       badge_seen:S.badgeSeen||[],
-      mantra_count:S.mantraCount||{},
+      mantra_count:mc,
       last_day:S.lastDay||null,
       pooja_today:S.poojaToday||[],
       mantra_done_today:S.mantraDoneToday||[],
       tip_seen:!!S.tipSeen,
-      updated_at:new Date().toISOString()
-    }).eq('id',currentUser.id);}catch(e){/* offline — localStorage is safe */}
-  },2000);
+      updated_at:new Date(S.savedAt||Date.now()).toISOString()
+    };
 }
+var _syncPending=false;
+async function pushNow(){if(!sb||!currentUser)return;_syncPending=false;
+  try{await sb.from('profiles').update(cloudRow()).eq('id',currentUser.id);}catch(e){/* offline — localStorage is safe */}}
+function syncToCloud(){
+  if(!sb||!currentUser)return;
+  clearTimeout(_syncTO);_syncPending=true;
+  _syncTO=setTimeout(pushNow,1200);
+}
+/* send pending progress right away when the app is closed or backgrounded */
+function flushCloud(){if(!_syncPending)return;clearTimeout(_syncTO);pushNow();}
+document.addEventListener("visibilitychange",function(){if(document.hidden)flushCloud();});
+document.addEventListener("pause",flushCloud,false);
+window.addEventListener("pagehide",flushCloud);
 
 async function syncFromCloud(){
   if(!sb||!currentUser)return;
@@ -1254,8 +1281,17 @@ async function syncFromCloud(){
 
       S.tier=d.tier||S.tier;
 
-      S.streak=Math.max(d.streak||0,S.streak||0);
-      S.count=Math.max(d.count||0,S.count||0);
+      var cloudRev=Date.parse(d.updated_at)||0,localRev=S.savedAt||0,cloudNewer=cloudRev>localRev,t=todayKey();
+      var mc=Object.assign({},d.mantra_count||{}),pd=typeof mc.__pd==="string"&&mc.__pd?mc.__pd.split(","):[];delete mc.__pd;
+      Object.keys(mc).forEach(function(k){if(typeof mc[k]!=="number")delete mc[k];});
+      S.practiceDays=[...new Set([...(S.practiceDays||[]),...pd])].filter(Boolean).sort().slice(-400);
+      if(S.practiceDays.length&&(!S.lastPractice||S.practiceDays[S.practiceDays.length-1]>S.lastPractice))S.lastPractice=S.practiceDays[S.practiceDays.length-1];
+      if(cloudNewer){
+        /* live counters: the most recent save wins, so a finished mala or a reset never comes back */
+        S.count=d.last_day===t?(d.count||0):0;
+        S.mantraCount=mc;
+        if(d.last_day===t){S.poojaToday=d.pooja_today||[];S.mantraDoneToday=d.mantra_done_today||[];}
+      }
       S.rounds=Math.max(d.rounds||0,S.rounds||0);
       S.total=Math.max(d.total||0,S.total||0);
       S.bestStreak=Math.max(d.best_streak||1,S.bestStreak||1);
@@ -1264,28 +1300,18 @@ async function syncFromCloud(){
 
       S.tipSeen=d.tip_seen||S.tipSeen;
       S.lastDay=S.lastDay||d.last_day;
+      refreshStreak();
 
       S.courseDone=[...new Set([...(S.courseDone||[]),...(d.completed_days||[])])].sort(function(a,b){return a-b;});
       S.badgesEarned=[...new Set([...(S.badgesEarned||[]),...(d.badges_earned||[])])];
       S.badgeSeen=[...new Set([...(S.badgeSeen||[]),...(d.badge_seen||[])])];
 
-      if(S.lastDay&&S.lastDay===d.last_day){
-        S.poojaToday=[...new Set([...(S.poojaToday||[]),...(d.pooja_today||[])])];
-        S.mantraDoneToday=[...new Set([...(S.mantraDoneToday||[]),...(d.mantra_done_today||[])])];
-      }
-
-      var mc=d.mantra_count||{};
-      S.mantraCount=S.mantraCount||{};
-      Object.keys(mc).forEach(function(k){
-        S.mantraCount[k]=Math.max(mc[k]||0,S.mantraCount[k]||0);
-      });
-      Object.keys(S.mantraCount).forEach(function(k){
-        if(!(k in mc))mc[k]=S.mantraCount[k];
-      });
 
       S.journal=mergeJournals(S.journal||[],d.journal||[]);
 
       localStorage.setItem("kailasa",JSON.stringify(S));
+      /* local was newer (e.g. app closed before the last upload) — send it up so both sides agree */
+      if(!cloudNewer)syncToCloud();
       /* refresh tier-dependent UI (chip, upgrade buttons, locks) after pulling cloud data */
       syncTier();
       var curScr=document.querySelector(".screen.on");if(curScr)go(curScr.id.replace("s-",""),true);
@@ -1362,12 +1388,8 @@ let _toastTO=null;
 function toast(m){var el=document.getElementById("toast");if(!el)return;el.textContent=m;el.classList.add("on");
   clearTimeout(_toastTO);_toastTO=setTimeout(function(){el.classList.remove("on");},2200);}
 function mantraName(){return (MANTRAS.find(m=>m.id===S.mantra)||MANTRAS[0]).n;}
-function streakCheck(){const t=todayKey();if(S.lastDay!==t){const diff=Math.round((new Date(t)-new Date(S.lastDay))/86400000);
-  S.streak=diff===1?S.streak+1:1;S.lastDay=t;S.count=0;S.poojaToday=[];S.mantraDoneToday=[];
-  if(!S.bestStreak||S.streak>S.bestStreak)S.bestStreak=S.streak;
-  /* award any new badges */
-  if(!S.badgesEarned)S.badgesEarned=[];if(!S.badgeSeen)S.badgeSeen=[];
-  BADGES.forEach(function(b){if(S.streak>=b.days&&!S.badgesEarned.includes(b.id)){S.badgesEarned.push(b.id);}});
+function streakCheck(){const t=todayKey();refreshStreak();if(S.lastDay!==t){
+  S.lastDay=t;S.count=0;S.poojaToday=[];S.mantraDoneToday=[];
   save();return true;}return false;}
 streakCheck();
 /* the app can stay open in the background past midnight — roll the day over when it comes back */
@@ -1433,7 +1455,7 @@ function go(s,skipHistory){if(typeof stopMantraAudio==="function")stopMantraAudi
 /* ===== JAPA ===== */
 const CIRC=2*Math.PI*112;
 function tapBead(){hz(18);S.count++;S.total++;
-  var _tk=todayKey();if(S.beadsDay!==_tk){S.beadsDay=_tk;S.beadsToday=0;}S.beadsToday++;KN.markPractice();
+  var _tk=todayKey();if(S.beadsDay!==_tk){S.beadsDay=_tk;S.beadsToday=0;}S.beadsToday++;markPractice();
   if(S.count>=108){S.count=0;S.rounds++;hz([40,30,40]);toast("🔱 Mala complete — "+S.rounds+" rounds");playDamaru();KN.maybeAsk();}
   save();renderJapa();}
 /* ===== MANTRA RECORDINGS — one clean recitation per mantra (www/audio/mantra/<id>.mp3) ===== */
@@ -1785,7 +1807,7 @@ function doShare(){var kind="story",cv=drawShare(kind),d=shareData();
 function showNandiCeleb(d){const el=document.getElementById("nandiCeleb");const done=S.courseDone.filter(n=>n>=1).length;
   document.getElementById("ncTitle").textContent=d===0?"Foundation set!":(d%10===0?"Phase complete!":"Shabash!");
   document.getElementById("ncSub").textContent=d===0?"Day 0 complete. Nandi is proud of you. Your 40-day path begins now 🔱":"Day "+d+" complete. Nandi is proud of you. Har Har Mahadev 🔱";
-  document.getElementById("ncStreak").textContent="🔥 "+(S.streak||1);document.getElementById("ncLes").textContent=done+"/40";
+  document.getElementById("ncStreak").textContent="🔥 "+(S.streak||0);document.getElementById("ncLes").textContent=done+"/40";
   const bar=document.getElementById("ncBar");bar.style.transition="none";bar.style.width=Math.max(0,(done-1)/40*100)+"%";
   const img=document.getElementById("ncImg");img.style.animation="none";void img.offsetWidth;img.style.animation="";
   el.classList.add("on");requestAnimationFrame(function(){bar.style.transition="";bar.style.width=(done/40*100)+"%";});
@@ -1812,7 +1834,7 @@ function openLesson(d){if(!isPro()){openPaywall();return;}activeLesson=d;const L
   document.getElementById("lesson").classList.add("on");document.getElementById("lessonBody").scrollTop=0;navPush("lesson");}
 function closeLesson(){document.getElementById("lesson").classList.remove("on");renderCourse();}
 function completeLesson(){const d=activeLesson;if(S.courseDone.includes(d))return;
-  S.courseDone.push(d);S.courseDone.sort((a,b)=>a-b);KN.markPractice();if(d===S.courseDay&&S.courseDay<40)S.courseDay++;save();
+  S.courseDone.push(d);S.courseDone.sort((a,b)=>a-b);markPractice();if(d===S.courseDay&&S.courseDay<40)S.courseDay++;save();
   closeLesson();showNandiCeleb(d);}
 function openDayZero(){activeLesson=0;
   document.getElementById("lprogBar").style.width="2%";
@@ -1964,7 +1986,7 @@ function renderMCounter(){const M=MANTRA_PROTOCOL.find(x=>x.id===activeMantra);c
   document.getElementById("mcProgBar").style.width=(100*c/M.count)+"%";}
 function tapMCount(){const id=activeMantra;const M=MANTRA_PROTOCOL.find(x=>x.id===id);
   hz(18);
-  S.mantraCount=S.mantraCount||{};S.mantraCount[id]=Math.min(M.count,(S.mantraCount[id]||0)+1);
+  S.mantraCount=S.mantraCount||{};S.mantraCount[id]=Math.min(M.count,(S.mantraCount[id]||0)+1);markPractice();
   const c=S.mantraCount[id];
   document.getElementById("mcCount").textContent=c;
   document.getElementById("mcRing").style.strokeDashoffset=CIRC*(1-c/M.count);
@@ -2071,7 +2093,7 @@ function offer(id){const o=OFFERINGS.find(x=>x.id===id);if(!o||offerBusy)return;
   else if(o.type==="flower")fxPetals("flower",o.color);
   else if(o.type==="paste")fxChandan();
   playTing(o.type==="liquid"?640:880);
-  if(!S.poojaToday.includes(id)){S.poojaToday.push(id);save();
+  if(!S.poojaToday.includes(id)){S.poojaToday.push(id);markPractice();save();
     const e=document.getElementById("off-"+id);if(e)e.classList.add("done");poojaStatus();}}
 function fxLiquid(color,k){k=k||1;var thick=k>1;
   var fx=document.getElementById("fxLayer");if(!fx)return;
@@ -2367,7 +2389,7 @@ var KN=(function(){
   var AFF_TEASE=["🌅 Your affirmation for today is ready","🌅 A new sankalp affirmation awaits you","🌅 Today's words of strength are ready"];
   function pick(arr,seed){return arr[Math.abs(seed)%arr.length];}
   function practicedToday(){var t=todayKey();
-    return S.lastPractice===t||(S.poojaToday||[]).length>0||(S.mantraDoneToday||[]).length>0;}
+    return practiced(t)||S.lastPractice===t;}
   function rs(){if(!S.reminders)S.reminders={on:false,asked:false,brahma:true,brahmaT:"04:30",streak:true,streakT:"20:00",morning:true};return S.reminders;}
   function atTime(dayOffset,hhmm){var p=hhmm.split(":"),d=new Date();d.setDate(d.getDate()+dayOffset);d.setHours(+p[0],+p[1],0,0);return d;}
   function affFor(date){var pk=S.primaryGoal||"dhan_samriddhi";var pool=PILLAR_AFFIRMATIONS[pk]||PILLAR_AFFIRMATIONS.dhan_samriddhi;
@@ -2421,7 +2443,8 @@ var KN=(function(){
     var nb=BADGES.find(function(b){return (S.streak||1)<b.days;});
     var aff={};for(var d=0;d<7;d++){var day=new Date();day.setDate(day.getDate()+d);aff[keyOf(day)]=affFor(day);}
     var pk=S.primaryGoal||"dhan_samriddhi";
-    var data={v:1,date:todayKey(),practice:S.lastPractice||"",tier:isPro()?"pro":"bhakt",streak:S.streak||1,
+    S.streak=curStreak();
+    var data={v:2,date:todayKey(),practice:S.lastPractice||"",tier:isPro()?"pro":"bhakt",streak:S.streak,
       next:nb?(nb.ic+" "+nb.name+" in "+(nb.days-(S.streak||1))+"d"):"🕉️ Shivoham achieved",
       japa:S.beadsDay===todayKey()?(S.beadsToday||0):0,
       pillar:(PILLAR_NAMES[pk]||"")+" · "+(PILLAR_NAMES_EN[pk]||""),aff:aff};
@@ -2440,7 +2463,7 @@ var KN=(function(){
     clearTimeout(widgetTO);widgetTO=setTimeout(pushWidget,1500);
     clearTimeout(schedTO);schedTO=setTimeout(function(){reschedule(false);},2500);
   }
-  function markPractice(){var t=todayKey();if(S.lastPractice!==t){S.lastPractice=t;}}
+  function knMark(){markPractice();}
   function maybeAsk(){var r=rs();if(!native||r.on||r.asked)return;
     r.asked=true;save();setTimeout(function(){document.getElementById("remindAsk").classList.add("on");navPush("remindAsk");},900);}
   var lastResume=0;
@@ -2456,7 +2479,7 @@ var KN=(function(){
     document.addEventListener("resume",onResume,false);
     document.addEventListener("visibilitychange",function(){if(!document.hidden){consumeLaunch();reschedule(false);}});
   }
-  return {native:native,init:init,onResume:onResume,checkLaunch:consumeLaunch,onSave:onSave,enable:enable,disable:disable,markPractice:markPractice,maybeAsk:maybeAsk,rs:rs,reschedule:reschedule};
+  return {native:native,init:init,onResume:onResume,checkLaunch:consumeLaunch,onSave:onSave,enable:enable,disable:disable,markPractice:knMark,maybeAsk:maybeAsk,rs:rs,reschedule:reschedule};
 })();
 
 function renderReminders(){
@@ -2493,6 +2516,8 @@ function boot(){S.chant=false;syncTier();renderJapa();renderHome();document.getE
   /* migration: existing users who onboarded before pillar system must re-pick their goal */
   if(S.onboarded && !S.primaryGoal){S.onboarded=false;save();}
   if(!S.onboarded){startOnb();}else{boot();}
+  /* boot-time housekeeping saves are not user progress — from here on every save is */
+  _booting=false;
 })();
 /* opening titles: plays fully on every launch (not skippable), then fades into the app.
    Falls back to the classic splash if the video can't play, and never blocks longer than 8s. */

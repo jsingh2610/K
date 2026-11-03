@@ -42,12 +42,12 @@ public class NandiWidget extends AppWidgetProvider {
         Calendar now = Calendar.getInstance();
         String today = WidgetData.day(0), yest = WidgetData.day(-1);
         String practice = d == null ? "" : d.optString("practice", "");
-        String opened = d == null ? "" : d.optString("date", "");
         int streak = d == null ? 0 : Math.max(0, d.optInt("streak", 0));
+        // practice-based: opening the app no longer counts, only real sadhana does
         boolean done = today.equals(practice);
-        boolean activeToday = done || today.equals(opened);
-        boolean alive = activeToday || yest.equals(opened) || yest.equals(practice);
+        boolean alive = done || yest.equals(practice);
         if (!alive) streak = 0;
+        else if (done) streak = Math.max(streak, 1);
         int hour = now.get(Calendar.HOUR_OF_DAY);
         int left = 24 - hour;
         int seed = now.get(Calendar.DAY_OF_YEAR);
@@ -88,7 +88,7 @@ public class NandiWidget extends AppWidgetProvider {
                 new SimpleDateFormat("EEE · d MMM", Locale.US).format(now.getTime()).toUpperCase(Locale.US));
 
         // last 7 days: practiced (gold), today pending (gold ring), missed (dim)
-        int runEnd = activeToday ? 0 : -1;
+        int runEnd = done ? 0 : -1;
         int runStart = runEnd - Math.max(streak, 0) + 1;
         SimpleDateFormat letter = new SimpleDateFormat("EEEEE", Locale.US);
         for (int i = 0; i < 7; i++) {

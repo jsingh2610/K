@@ -1,0 +1,255 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/goat_king.json",
+"wav": "public/katha/goat_king.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "WHY DOES THIS *KING HAVE A *GOAT'S HEAD?",
+"title": "31 · goat_king · The Goat-Headed King",
+"lines": [
+[
+"n",
+[
+[
+"There is a king in the old stories with the head of a goat.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"It was the kindest thing anyone ever did for him.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Daksha had insulted Shiva,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"driven his own daughter into the fire,",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"and lost his head for it.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The worlds stopped. No sacrifice. No rain.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The gods walked to Kailash on foot to beg.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"They expected rage.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva was sitting quietly.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"His anger had been spent in a single night.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"s",
+[
+[
+"He was a foolish father. Not an evil one. Bring him back.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"But the king's own head was ash.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"So they used the head of the goat meant for his sacrifice.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Daksha opened his eyes.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The first thing he saw was the god he had hated.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The proud voice was gone. All that came out was a bleat.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And then, tears.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The sacrifice was finished properly this time.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"With the first share set aside for Shiva.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"You do not get your old head back. You get a humbler one. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

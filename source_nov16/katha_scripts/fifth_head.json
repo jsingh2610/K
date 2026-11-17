@@ -1,0 +1,247 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/fifth_head.json",
+"wav": "public/katha/fifth_head.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "BRAHMA ONCE HAD *FIVE HEADS",
+"title": "15 · fifth_head · The Fifth Head",
+"lines": [
+[
+"n",
+[
+[
+"Brahma, the creator, once had five heads.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Count them in any temple today. There are four.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The fifth head had only one habit.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"It looked down on everyone.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"I made everything, it said. I am above Shiva himself.",
+"\"I made everything,\" it said. \"I am above Shiva himself.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva's anger took a form.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Dark as midnight, with a dog at his side.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"Bhairava.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"With the nail of his left thumb,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"he removed the proud head.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"And the skull stuck to his hand.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Even for a god, a deed has a weight.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He walked the earth as a beggar,",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"the skull as his bowl.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Twelve years. Every holy place. It would not fall.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Then he stepped into Kashi.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And the skull dropped from his hand.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He never left. He is still the guardian of that city.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Even the right thing leaves a weight. Carry it until it falls. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

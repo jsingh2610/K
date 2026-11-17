@@ -1,0 +1,160 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/dinner_phones.json",
+"wav": "public/katha/dinner_phones.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "*SIX PEOPLE AT DINNER. *NOBODY IS THERE.",
+"title": "F48 · dinner_phones · Six People, Six Screens",
+"lines": [
+[
+"n",
+[
+[
+"Dinner time. Six people at one table.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Papa is on the news. Mummy is on the family group. Kabir is on a game.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Even Dadi has learned reels.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Pass the dal. Nobody hears.",
+"\"Pass the dal.\" Nobody hears.",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Pari climbed onto her chair,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and blew out the lamp on the shelf.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"If Shivji does not get any light, you do not get any either.",
+"\"If Shivji does not get any light, you do not get any either.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Six phones went into the steel dabba. The lid went on.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"It was the loudest dinner they had had in a year.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Put a lid on it for one meal a day. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

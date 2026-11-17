@@ -1,0 +1,242 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/moon.json",
+"wav": "public/katha/moon.wav",
+"bell": [
+0
+],
+"flute": [
+[
+9,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "THE *MOON WAS *CURSED TO DISAPPEAR",
+"title": "05 · moon · The Moon in His Hair",
+"lines": [
+[
+"n",
+[
+[
+"The moon was once cursed to vanish forever.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Look at Shiva's hair, and you will see how that ended.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Chandra, the moon, married twenty-seven sisters.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The stars.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"But he loved only one. Rohini.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And the other twenty-six went home in tears.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Their father was Daksha.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"You will fade, he said. Night by night. Until nothing is left.",
+"\"You will fade,\" he said. \"Night by night. Until nothing is left.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"And the moon began to die.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The tides stopped. The herbs withered. The nights went black.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"With the last of his light,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Chandra fell at Shiva's feet.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"s",
+[
+[
+"A curse spoken cannot be unspoken.",
+null,
+0.8,
+1,
+0,
+0.35
+],
+[
+"But you will not end.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva lifted the last sliver of the moon,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and set it in his own hair.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"So the moon still fades. Fifteen nights.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And then, from Shiva's head, it grows back. Fifteen nights.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"You will have dark nights. You are not ending. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

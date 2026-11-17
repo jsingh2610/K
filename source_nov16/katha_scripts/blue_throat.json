@@ -1,0 +1,289 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/blue_throat.json",
+"wav": "public/katha/blue_throat.wav",
+"bell": [
+0
+],
+"flute": [
+[
+9,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm",
+"hˌælɐhˈɑːlə": "hˌɑːlɑːhˈʌlə"
+},
+"hook": "WHY IS SHIVA'S *THROAT *BLUE?",
+"title": "04 · blue_throat · The Blue Throat",
+"lines": [
+[
+"n",
+[
+[
+"Look at Shiva's throat.",
+null,
+0.95,
+1,
+0.5,
+0.25
+],
+[
+"Why is it blue?",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Something is still trapped in there.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Gods and demons once churned the ocean together,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"for the nectar that ends death.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"They pulled for a thousand years.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"But nectar did not come first.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Poison did.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Halahala.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"Enough to burn the three worlds to nothing.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The gods ran. The demons ran.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Nobody wanted the first gift of their own work.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva gathered it in his palm,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and drank.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Parvati caught his throat with both hands.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"If it went down, it would destroy him.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"If it came out, it would destroy the world.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"So it stays there.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Forever.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"Held, and never swallowed.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Some pain you cannot throw at the world,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and you must not take into your heart.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"You hold it.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"That is sadhana.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+],
+"swell": [
+[
+5,
+0.0
+]
+]
+}

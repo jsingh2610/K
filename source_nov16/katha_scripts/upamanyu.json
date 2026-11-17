@@ -1,0 +1,263 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/upamanyu.json",
+"wav": "public/katha/upamanyu.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "HE ASKED FOR *ONE CUP OF MILK",
+"title": "18 · upamanyu · The Boy Who Asked for Milk",
+"lines": [
+[
+"n",
+[
+[
+"A poor boy once asked God for a cup of milk.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"He was given an ocean.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"At his uncle's house,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"little Upamanyu tasted real milk for the first time.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"At home he asked for more.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"His mother stirred flour into water, and smiled.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He took one sip.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"This is not milk.",
+"\"This is not milk.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She cried. We have nothing, my son.",
+"She cried. \"We have nothing, my son.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Only Shiva can give you what I cannot.",
+"Only Shiva can give you what I cannot.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Then I will ask Shiva.",
+"\"Then I will ask Shiva.\"",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He was six. He walked into the forest and sat down.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"A king of the gods appeared.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Ask me. Gold. A kingdom. Anything.",
+"\"Ask me. Gold. A kingdom. Anything.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"I do not want you, said the boy.",
+"\"I do not want you,\" said the boy.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"I am waiting for Shiva.",
+"\"I am waiting for Shiva.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"And the king laughed,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and his crown became a crescent moon.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva gave him milk.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"All of it. A whole ocean. And a place at his side forever.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Do not settle for the first thing that offers. Ask the right one. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

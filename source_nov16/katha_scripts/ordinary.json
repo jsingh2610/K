@@ -1,0 +1,163 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/ordinary.json",
+"wav": "public/katha/ordinary.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "WHAT IF YOU ARE JUST *ORDINARY?",
+"title": "F10 · ordinary · What If I Am Ordinary",
+"lines": [
+[
+"n",
+[
+[
+"What if you are not special?",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Not the topper. Not the star. Just a boy in the middle of the list.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Everyone online seems to be the best at something.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He went to the roof to be nobody for a while.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"And he noticed, for the first time, a small white calf by the water tank.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Just sitting. Looking at one thing.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"It did not do anything impressive.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"It simply did not look away.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Kabir sat down beside it.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And for ten minutes, he did one thing: he breathed.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"You do not have to be extraordinary. You have to be steady. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

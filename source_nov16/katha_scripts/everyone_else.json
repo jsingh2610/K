@@ -1,0 +1,163 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/everyone_else.json",
+"wav": "public/katha/everyone_else.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "EVERYONE IS *AHEAD OF YOU",
+"title": "F15 · everyone_else · Everyone Is Getting Married",
+"lines": [
+[
+"n",
+[
+[
+"Engaged. Promoted. New flat. Baby.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"You are twenty-three, and somehow already late.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"At the wedding an aunty asks, kindly,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And you, beta? When is your good news?",
+"\"And you, beta? When is your good news?\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She smiled until her face hurt.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"That night she remembered a story her grandmother told. A princess in a forest, and a stranger saying: you could have done better by now.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She did not argue with him. She did not hurry.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"She simply kept going at her own speed.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Ananya muted forty accounts.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Then opened the one thing she was actually building.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"There is no late. There is only your own fire. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

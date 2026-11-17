@@ -1,0 +1,168 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/cheated.json",
+"wav": "public/katha/cheated.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "YOUR *FRIEND TOOK THE MONEY AND *VANISHED",
+"title": "F26 · cheated · The Friend Who Did Not Return It",
+"lines": [
+[
+"n",
+[
+[
+"Two lakh rupees. Thirty-one calls. No answer.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"They had been friends since school.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He replays every conversation, looking for the moment he was a fool.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Some nights he plans what he will say.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"It always ends with him shouting, and nothing changing.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"On the roof, he said it all out loud to nobody.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"s",
+[
+[
+"I forgave the man who cost me everything. It did not undo what he did. It gave me back my sleep.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"Papa filed the complaint. That part was right.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And he stopped calling.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He slept through the night for the first time in a month.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Go after what is yours. Put down what is burning you. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

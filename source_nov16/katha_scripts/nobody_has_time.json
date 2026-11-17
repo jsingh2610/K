@@ -1,0 +1,160 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/nobody_has_time.json",
+"wav": "public/katha/nobody_has_time.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "SHE WAITS ALL DAY FOR *SOMEONE TO *TALK",
+"title": "F39 · nobody_has_time · Dadi's Phone Never Rings",
+"lines": [
+[
+"n",
+[
+[
+"Everyone leaves by nine. They come back at seven.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"That is ten hours. She has counted.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She has stories. Nobody has time.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"So she tells them to the only one who is always home.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"You will not believe what the vegetable man charged today.",
+"\"You will not believe what the vegetable man charged today.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She talks. He listens. It is the oldest friendship in the house.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Kabir came home early that day and stood in the hall, hearing her.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He sat down in the empty chair.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Then what did the vegetable man say?",
+"\"Then what did the vegetable man say?\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Being listened to is the whole prayer. Be the one who listens. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

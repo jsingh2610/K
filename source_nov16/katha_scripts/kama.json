@@ -1,0 +1,255 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/kama.json",
+"wav": "public/katha/kama.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "HE SHOT *SHIVA WITH A *LOVE ARROW",
+"title": "06 · kama · Kama's One Arrow",
+"lines": [
+[
+"n",
+[
+[
+"The god of love once shot an arrow at Shiva.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"He only ever got to fire one.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"A demon ruled the worlds,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and only a son of Shiva could end him.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"But Shiva had lost Sati,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and sat frozen in grief. He wanted no one.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Parvati served him every day. He never opened his eyes.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"So the gods sent Kama.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"One arrow. Make him look at her.",
+"\"One arrow. Make him look at her.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Spring came to the frozen mountain.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The arrow struck.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"And Shiva's eyes opened.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He saw Parvati.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And for one breath, he was moved.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Then he looked for who had done this to him.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"One glance from the third eye.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And love itself was ash.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva did marry Parvati.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"But for her own fire. Not for an arrow.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"What is forced on you is not love. What you choose is. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

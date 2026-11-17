@@ -1,0 +1,279 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/tripura.json",
+"wav": "public/katha/tripura.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "*ONE ARROW. *THREE FLYING CITIES.",
+"title": "14 · tripura · One Arrow, Three Cities",
+"lines": [
+[
+"n",
+[
+[
+"Three cities flew through the sky.",
+null,
+0.95,
+1,
+0.5,
+0.25
+],
+[
+"One arrow destroyed all of them.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The archer had waited a thousand years to shoot it.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Three demon brothers asked for a boon.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Give us three cities that fly. Gold, silver and iron.",
+"\"Give us three cities that fly. Gold, silver and iron.",
+0.9,
+1,
+0,
+0.32
+],
+[
+"That no weapon can break.",
+"That no weapon can break.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Everything ends, said Brahma. Choose how.",
+"\"Everything ends,\" said Brahma. \"Choose how.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"They smiled.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Only if one arrow hits all three at once.",
+"\"Only if one arrow hits all three at once.",
+0.9,
+1,
+0,
+0.32
+],
+[
+"And they line up for one moment, every thousand years.",
+"And they line up for one moment, every thousand years.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"For centuries they were untouchable.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And being untouchable made them cruel.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The gods built Shiva a chariot.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The earth was its floor. The sun and moon were its wheels.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He climbed on.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And then he did nothing.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Years passed. The gods begged him to shoot.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He watched the sky.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"And when the three cities drifted into one line, for a single breath,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"he smiled, and let go.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"One arrow.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Three cities.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Power is patience that knows its moment. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

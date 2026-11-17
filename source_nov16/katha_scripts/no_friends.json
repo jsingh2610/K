@@ -1,0 +1,160 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/no_friends.json",
+"wav": "public/katha/no_friends.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "*NOBODY PICKED HER FOR THE *TEAM",
+"title": "F45 · no_friends · Nobody Picked Her",
+"lines": [
+[
+"n",
+[
+[
+"They picked teams. And then there was one left.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"You can be extra, they said.",
+"\"You can be extra,\" they said.",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"At lunch she ate by the wall, and told her tiffin a story.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She told Mummy school was fine.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Outside the gate, the ice-cream man was giving the broken cones to a row of crows, a three-legged dog, and one very strange cat.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"s",
+[
+[
+"The ones nobody picks are my favourite team.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"Next day at lunch there was a new girl by the wall. Also not picked.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Pari slid over.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"I have a team, she said. Do you want to be in it?",
+"\"I have a team,\" she said. \"Do you want to be in it?\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"If nobody picks you, start the team. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

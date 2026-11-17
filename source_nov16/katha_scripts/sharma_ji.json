@@ -1,0 +1,155 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/sharma_ji.json",
+"wav": "public/katha/sharma_ji.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "\"LOOK AT *THEIR SON\"",
+"title": "F03 · sharma_ji · Somebody Else's Son",
+"lines": [
+[
+"n",
+[
+[
+"Look at their son.",
+"\"Look at their son.\"",
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"You have heard it your whole life.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"First in class. Captain. Coding since he was nine.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Kabir looked at his own hands.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He could not think of one thing they were first at.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"That evening Dadi was telling Pari a story.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"One brother went around the whole world.",
+"\"One brother went around the whole world.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The other knew what his world was. Guess who won?",
+"The other knew what his world was. Guess who won?\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Kabir got up and helped his mother carry the chai.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Their race is theirs. Know what your world is. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

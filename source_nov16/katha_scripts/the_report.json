@@ -1,0 +1,160 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/the_report.json",
+"wav": "public/katha/the_report.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "THE *REPORT COMES IN ONE *HOUR",
+"title": "F25 · the_report · Waiting for the Report",
+"lines": [
+[
+"n",
+[
+[
+"Token seventeen. The board says fifteen.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"The doctor said, Probably nothing. Let us check.",
+"The doctor said, \"Probably nothing. Let us check.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"In one hour, their life could be the same, or completely different.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"His mind has already lived through every bad ending.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The man on the next chair was holding a small pouch of ash from a temple.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"s",
+[
+[
+"Everyone in this corridor has the same amount of time. Now.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"Papa stopped looking at the board.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He looked at his wife's hand, and took it.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Seventeen.",
+"\"Seventeen.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"You cannot live the next hour yet. Live this one. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

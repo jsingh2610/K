@@ -1,0 +1,171 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/tired.json",
+"wav": "public/katha/tired.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "HE HAS NOT SAID \"I AM *TIRED\" IN TWENTY *YEARS",
+"title": "F23 · tired · I Am Fine",
+"lines": [
+[
+"n",
+[
+[
+"He stops on the stairs, where nobody can see.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Ten seconds. Then he will go in smiling.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"How was your day? Fine.",
+"\"How was your day?\" \"Fine.\"",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"It has been fine for twenty years.",
+"It has been \"fine\" for twenty years.",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Men like him were taught that tired is something you hide.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"At dinner, Dadi told a story to nobody in particular.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Even Shiva once stood at a kitchen door with an empty bowl.",
+"\"Even Shiva once stood at a kitchen door with an empty bowl.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He learned you cannot call the body an illusion.",
+"He learned you cannot call the body an illusion.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Papa looked at his plate.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"I am tired, he said.",
+"\"I am tired,\" he said.",
+0.9,
+1,
+0,
+0.32
+],
+[
+"The room went quiet. Then his wife put her hand on his.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Saying it is not weakness. It is where rest begins. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

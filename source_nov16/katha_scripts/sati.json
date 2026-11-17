@@ -1,0 +1,256 @@
+{
+"key": 62,
+"bell": [],
+"swell": [
+[
+3,
+5.0
+],
+[
+5,
+0.2
+]
+],
+"flute": [
+[
+6,
+1.0
+]
+],
+"drum": [
+[
+5,
+0.2,
+84,
+7
+]
+],
+"fix": {
+"sɐtˈiː": "sˈʌtiː",
+"dˈækʃə": "dˈʌkʃə",
+"tændˈɑːvə": "tˈɑːndəvə"
+},
+"lines": [
+[
+"n",
+[
+[
+"There was one day, when Shiva himself... broke.",
+"There was one day when Shiva himself broke.",
+0.84,
+0.92,
+-0.5,
+0.5
+],
+[
+"This is that day.",
+null,
+0.8,
+0.9,
+-1,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Sati loved Shiva.",
+null,
+0.9,
+1,
+0.5,
+0.4
+],
+[
+"Her father, King Daksha, despised him.",
+null,
+0.92,
+1,
+-1,
+0.5
+]
+]
+],
+[
+"n",
+[
+[
+"Daksha held a great fire ceremony, and invited every god.",
+null,
+0.98,
+1,
+0.5,
+0.4
+],
+[
+"Except one.",
+null,
+0.78,
+0.9,
+-1,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Sati went anyway.",
+null,
+0.92,
+1,
+0,
+0.35
+],
+[
+"Her father mocked Shiva, before them all.",
+"Her father mocked Shiva before them all.",
+0.95,
+1.05,
+0.5,
+0.45
+],
+[
+"Heartbroken...",
+"Heartbroken,",
+0.78,
+0.85,
+-1,
+0.3
+],
+[
+"she gave her life, to the sacred fire.",
+"she gave her life to the sacred fire.",
+0.8,
+0.85,
+-1,
+0.9
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva felt it, from Kailash.",
+"Shiva felt it from Kailash.",
+0.86,
+0.9,
+-0.5,
+0.45
+],
+[
+"He lifted her in his arms...",
+"He lifted her in his arms,",
+0.84,
+0.92,
+0,
+0.3
+],
+[
+"and walked. Across the whole world.",
+"and walked across the whole world.",
+0.8,
+0.9,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"His grief became the Tandava!",
+"His grief became the Tandava.",
+0.95,
+1.12,
+1,
+0.35
+],
+[
+"The dance that shakes creation.",
+null,
+0.88,
+1.08,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"And when the storm was spent...",
+"And when the storm was spent,",
+0.84,
+0.88,
+-0.5,
+0.35
+],
+[
+"he sat down on Kailash,",
+null,
+0.84,
+0.88,
+0,
+0.25
+],
+[
+"closed his eyes,",
+null,
+0.8,
+0.85,
+-0.5,
+0.3
+],
+[
+"and went still.",
+null,
+0.74,
+0.8,
+-1,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"Even Shiva, had to sit with his pain.",
+"Even Shiva had to sit with his pain.",
+0.84,
+0.92,
+-0.5,
+0.5
+],
+[
+"That, is where meditation begins.",
+"That is where meditation begins.",
+0.8,
+0.92,
+0,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

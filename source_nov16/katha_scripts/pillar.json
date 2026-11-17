@@ -1,0 +1,189 @@
+{
+"key": 64,
+"bell": [
+5
+],
+"swell": [
+[
+2,
+0.2
+]
+],
+"flute": [
+[
+4,
+0.2
+]
+],
+"fix": {},
+"lines": [
+[
+"n",
+[
+[
+"Two gods once raced to find the end of a pillar of fire.",
+null,
+1.0,
+1,
+0.5,
+0.35
+],
+[
+"Neither of them... ever did.",
+"Neither of them ever did.",
+0.84,
+0.92,
+-0.5,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Brahma and Vishnu were arguing.",
+null,
+0.98,
+1,
+0,
+0.3
+],
+[
+"Which of us is the greatest?",
+null,
+1.0,
+1.08,
+1.5,
+0.5
+]
+]
+],
+[
+"n",
+[
+[
+"Suddenly! A pillar of fire split the darkness between them.",
+"Suddenly, a pillar of fire split the darkness between them.",
+1.0,
+1.1,
+1,
+0.4
+],
+[
+"No top.",
+null,
+0.85,
+0.95,
+0,
+0.3
+],
+[
+"No bottom.",
+null,
+0.8,
+0.9,
+-1,
+0.55
+]
+]
+],
+[
+"n",
+[
+[
+"Brahma became a swan, and flew up.",
+null,
+0.98,
+1,
+1,
+0.35
+],
+[
+"Vishnu became a boar, and dug down.",
+null,
+0.95,
+1,
+-1,
+0.5
+]
+]
+],
+[
+"n",
+[
+[
+"A thousand years passed.",
+null,
+0.84,
+0.9,
+-0.5,
+0.45
+],
+[
+"The fire... just kept going.",
+"The fire just kept going.",
+0.82,
+0.92,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Then, the pillar opened.",
+"Then the pillar opened.",
+0.88,
+1,
+0,
+0.4
+],
+[
+"And Shiva stepped out. Smiling.",
+"And Shiva stepped out, smiling.",
+0.86,
+1.05,
+0.5,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"You cannot measure the infinite.",
+null,
+0.88,
+0.95,
+-0.5,
+0.45
+],
+[
+"You can only bow to it.",
+null,
+0.8,
+0.95,
+0,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

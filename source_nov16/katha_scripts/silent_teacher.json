@@ -1,0 +1,255 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/silent_teacher.json",
+"wav": "public/katha/silent_teacher.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "THE *YOUNGEST ONE TAUGHT THE *OLDEST",
+"title": "29 · silent_teacher · The Teacher Who Never Speaks",
+"lines": [
+[
+"n",
+[
+[
+"Four old sages sat at the feet of a boy.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"He taught them everything. He never said a word.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"They had read every scripture.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"They had asked every teacher.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"And one question still would not let them sleep.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Who am I?",
+"\"Who am I?\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"They were told: go south. Find the one under the banyan tree.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"They expected an ancient master.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"They found a young man, sitting in silence,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"with a smile like he was keeping a secret.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"They asked their question.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He said nothing.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"They asked again. He said nothing.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"So, with nothing left to do,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"they sat down,",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"and were quiet with him.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"And one by one, the questions went out. Like lamps at dawn.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Some answers cannot be said.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"You catch them, like warmth, from sitting near the one who knows.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Sit. Be quiet. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

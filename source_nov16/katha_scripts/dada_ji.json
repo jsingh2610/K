@@ -1,0 +1,160 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/dada_ji.json",
+"wav": "public/katha/dada_ji.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "FIFTY *YEARS TOGETHER. NOW THE BED IS *HALF EMPTY.",
+"title": "F40 · dada_ji · His Side of the Bed",
+"lines": [
+[
+"n",
+[
+[
+"She still makes two cups.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Fifty-one years of mornings. Then one morning, not.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"People say, He had a full life. As if that makes the bed smaller.",
+"People say, \"He had a full life.\" As if that makes the bed smaller.",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Some mornings she is angry at him for going first.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She cannot climb to the roof any more. So that morning, the one on the roof came down.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He did not tell her it was all right.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He knew what it is to carry someone long after they are gone.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"They sat together until the tea went cold.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Then she drank her cup. And gave the second to the tulsi.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Grief is love with nowhere to go. Give it somewhere. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

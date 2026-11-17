@@ -1,0 +1,255 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/nandi_faces.json",
+"wav": "public/katha/nandi_faces.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "THE BULL *NEVER LOOKS AWAY. *WHY?",
+"title": "08 · nandi_faces · Why Nandi Faces the Shrine",
+"lines": [
+[
+"n",
+[
+[
+"In every Shiva temple, the bull looks at only one thing.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"He has not looked away in thousands of years.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Nandi was once a boy.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The only child of an old sage who had prayed his whole life for a son.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Then two wise men looked at the child and went quiet.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He will not live to see his eighth year.",
+"\"He will not live to see his eighth year.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"His father wept.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The boy did not.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He walked to the river, sat down,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and began to say one name.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He did not ask to live.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He just did not want to stop looking.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"s",
+[
+[
+"Ask.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"Let me stay near you. Always.",
+"\"Let me stay near you. Always.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"That is all.",
+"That is all.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"So Shiva made him the keeper of his door,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and gave him his own form to carry him.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Now whatever you whisper in his ear, he carries inside.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Because he is the one who never looks away.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Attention is devotion. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

@@ -1,0 +1,155 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/empty_room.json",
+"wav": "public/katha/empty_room.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "HER *DAUGHTER LEFT. THE ROOM IS *SILENT.",
+"title": "F35 · empty_room · The Empty Room",
+"lines": [
+[
+"n",
+[
+[
+"She still cooks for six.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"She still listens for the key at seven.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The room is so tidy it hurts.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She is doing well, she tells everyone.",
+"\"She is doing well,\" she tells everyone.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And then she sits on the bed, in the dark.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"In the window glass, a river was pouring down out of the sky, and a pair of hands was catching it.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He did not keep her. He held her until she could go gently.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Then he let her run.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Her phone lit up. A photo: her daughter, laughing, with new friends, wearing the earrings she had packed for her.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"You held her so she could flow. This is what it was for. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

@@ -1,0 +1,160 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/emi.json",
+"wav": "public/katha/emi.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "THE *EMI IS DUE. THE ACCOUNT IS *NOT ENOUGH.",
+"title": "F21 · emi · The Fifth of the Month",
+"lines": [
+[
+"n",
+[
+[
+"The EMI is twenty-three thousand. The balance is nine.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"He has done the sum four times. It comes out the same.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"School fees next week. His mother's medicines. The shop rent.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"In the morning he will tell them all that everything is fine.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He looked up at the shelf. The little lingam. The throat of the god in the picture above it, dark blue.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He had always thought it was just the colour.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He did not swallow the poison. He did not spit it on anyone. He held it.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He woke his wife,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and for the first time, showed her the ledger.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Carry it. But you were never meant to carry it alone. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

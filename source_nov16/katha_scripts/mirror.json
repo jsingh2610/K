@@ -1,0 +1,184 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/mirror.json",
+"wav": "public/katha/mirror.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "YOU *HATE WHAT YOU SEE IN THE *MIRROR",
+"title": "F17 · mirror · The Mirror",
+"lines": [
+[
+"n",
+[
+[
+"She has been in front of the mirror for twenty minutes.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Changing. Checking. Changing again.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The filter on her phone knows a prettier girl.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"She wishes she could send that one to the party.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She sat down on the edge of the bath, and decided not to go.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"When she looked up,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"the mirror was full of the strangest wedding party she had ever seen.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Every odd, unlovely creature in the world.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And the groom had left out none of them.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The labels were still there.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"She wiped the steam off the glass, and they went with it.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She went to the party as herself.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He takes you as you are. Start by doing the same. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

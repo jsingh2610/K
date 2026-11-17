@@ -1,0 +1,168 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/breakup.json",
+"wav": "public/katha/breakup.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "THREE *YEARS. ENDED IN ONE *TEXT.",
+"title": "F14 · breakup · Three Years",
+"lines": [
+[
+"n",
+[
+[
+"Three years. Ended in six words.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"She has not eaten since yesterday.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Everything in the room is his. The mug. The hoodie. The song.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"At four in the morning she went up to the roof,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"because she could not breathe downstairs.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Someone was sitting very still, with snow on his shoulders, in the middle of summer.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She knew that stillness. It was not peace. It was grief that had not moved yet.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"They watched the sun come up.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And she noticed that he let it.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She went down, and ate one roti.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"You do not get over it. You let the morning come. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

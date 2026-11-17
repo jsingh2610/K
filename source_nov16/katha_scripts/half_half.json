@@ -1,0 +1,247 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/half_half.json",
+"wav": "public/katha/half_half.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "HE REFUSED TO *BOW TO *PARVATI",
+"title": "10 · half_half · Half Him, Half Her",
+"lines": [
+[
+"n",
+[
+[
+"A devotee once walked around Shiva,",
+null,
+0.95,
+1,
+0.5,
+0.25
+],
+[
+"and refused to walk around Parvati.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Right in front of her.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"His name was Bhringi.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He loved Shiva so much, there was no room in him for anyone else.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"I worship the Lord, he said. Only the Lord.",
+"\"I worship the Lord,\" he said. \"Only the Lord.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"So Parvati sat closer. On Shiva's lap.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Bhringi turned into a bee, and tried to fly between them.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"So they closed the gap completely.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"One body. Half him. Half her.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And the bee tried to bore through the middle.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"f",
+[
+[
+"Then keep only what came from your father.",
+null,
+0.88,
+1,
+0,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Bone comes from the father. Flesh and blood from the mother.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Bhringi collapsed. A skeleton that could not stand.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He understood.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And Shiva, out of pity, gave him a third leg to stand on.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"There is no Shiva without Shakti.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"No strength without the one who gave you your body.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Honour both. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

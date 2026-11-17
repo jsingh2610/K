@@ -1,0 +1,168 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/atm.json",
+"wav": "public/katha/atm.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "THEY ONLY CALL WHEN THEY NEED *MONEY",
+"title": "F27 · atm · Everybody Needs Something",
+"lines": [
+[
+"n",
+[
+[
+"He has not taken his shoes off yet.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Fees. Groceries. A new phone screen.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Papa, twenty rupees?",
+"\"Papa, twenty rupees?\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He pays. He always pays.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Lying awake, he wonders if they would notice him at all, without the wallet.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The next evening he came home with nothing in his hands. A bad day. Not one sale.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Pari ran to him anyway.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"She did not check his pockets.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"His wife had kept his tea hot. His son moved over on the sofa.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Nobody asked for anything. They had only ever wanted him home.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"You are not what you provide. You are who comes through the door. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

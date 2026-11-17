@@ -1,0 +1,163 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/first_salary.json",
+"wav": "public/katha/first_salary.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "YOUR *FIRST SALARY FELT TOO *SMALL",
+"title": "F12 · first_salary · Eighteen Thousand",
+"lines": [
+[
+"n",
+[
+[
+"Eighteen thousand rupees.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"She had imagined this day for years. It did not feel like this.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"After rent and the train pass,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"there was barely enough for one gift.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She bought her grandmother a shawl. Three hundred and fifty rupees.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And felt ashamed of it.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Dadi put it on at once.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Then she walked to the shelf, and showed it to Shiva.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"My granddaughter's own money, she told him. Twice.",
+"\"My granddaughter's own money,\" she told him. Twice.",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Ananya stood in the doorway and understood something about size.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"A handful, given with love, fills more than a palace. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

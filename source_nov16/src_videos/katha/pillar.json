@@ -1,0 +1,149 @@
+{
+ "lines": [
+  {
+   "t": 0.12,
+   "d": 5.616,
+   "text": "Two gods once raced to find the end of a pillar of fire. Neither of them ever did.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 0.12,
+     "d": 3.479,
+     "text": "Two gods once raced to find the end of a pillar of fire."
+    },
+    {
+     "t": 3.949,
+     "d": 1.787,
+     "text": "Neither of them ever did."
+    }
+   ]
+  },
+  {
+   "t": 6.336,
+   "d": 4.093,
+   "text": "Brahma and Vishnu were arguing. Which of us is the greatest?",
+   "who": "n",
+   "parts": [
+    {
+     "t": 6.336,
+     "d": 1.985,
+     "text": "Brahma and Vishnu were arguing."
+    },
+    {
+     "t": 8.621,
+     "d": 1.808,
+     "text": "Which of us is the greatest?"
+    }
+   ]
+  },
+  {
+   "t": 10.928,
+   "d": 6.264,
+   "text": "Suddenly, a pillar of fire split the darkness between them. No top. No bottom.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 10.928,
+     "d": 3.404,
+     "text": "Suddenly, a pillar of fire split the darkness between them."
+    },
+    {
+     "t": 14.732,
+     "d": 1.044,
+     "text": "No top."
+    },
+    {
+     "t": 16.076,
+     "d": 1.116,
+     "text": "No bottom."
+    }
+   ]
+  },
+  {
+   "t": 17.742,
+   "d": 4.598,
+   "text": "Brahma became a swan, and flew up. Vishnu became a boar, and dug down.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 17.742,
+     "d": 2.02,
+     "text": "Brahma became a swan, and flew up."
+    },
+    {
+     "t": 20.112,
+     "d": 2.228,
+     "text": "Vishnu became a boar, and dug down."
+    }
+   ]
+  },
+  {
+   "t": 22.839,
+   "d": 4.223,
+   "text": "A thousand years passed. The fire just kept going.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 22.839,
+     "d": 1.803,
+     "text": "A thousand years passed."
+    },
+    {
+     "t": 25.093,
+     "d": 1.969,
+     "text": "The fire just kept going."
+    }
+   ]
+  },
+  {
+   "t": 27.662,
+   "d": 4.193,
+   "text": "Then the pillar opened. And Shiva stepped out, smiling.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 27.662,
+     "d": 1.607,
+     "text": "Then the pillar opened."
+    },
+    {
+     "t": 29.669,
+     "d": 2.186,
+     "text": "And Shiva stepped out, smiling."
+    }
+   ]
+  },
+  {
+   "t": 32.455,
+   "d": 4.039,
+   "text": "You cannot measure the infinite. You can only bow to it.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 32.455,
+     "d": 1.851,
+     "text": "You cannot measure the infinite."
+    },
+    {
+     "t": 34.756,
+     "d": 1.738,
+     "text": "You can only bow to it."
+    }
+   ]
+  },
+  {
+   "t": 37.194,
+   "d": 1.833,
+   "text": "Kailasa. On Google Play.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 37.194,
+     "d": 1.832,
+     "text": "Kailasa. On Google Play."
+    }
+   ]
+  }
+ ],
+ "dur": 39.625
+}

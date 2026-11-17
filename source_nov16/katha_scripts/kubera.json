@@ -1,0 +1,247 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/kubera.json",
+"wav": "public/katha/kubera.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "HE ATE THE *RICHEST GOD'S ENTIRE *PALACE",
+"title": "12 · kubera · Kubera's Dinner Guest",
+"lines": [
+[
+"n",
+[
+[
+"A child once ate the richest god's dinner.",
+null,
+0.95,
+1,
+0.5,
+0.25
+],
+[
+"Then the plates. Then the palace.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"And he was still hungry.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Kubera, the treasurer of the gods,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"wanted Shiva to see how rich he had become.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Come to dinner, he said. I can feed anyone.",
+"\"Come to dinner,\" he said. \"I can feed anyone.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva smiled. I cannot come.",
+"Shiva smiled. \"I cannot come.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Take my little boy.",
+"Take my little boy.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Ganesha ate the feast.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Then the food for the other guests. Then the kitchens.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Then he looked up.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The plates. The tables. The golden pillars.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"I am still hungry, he said. Shall I eat you?",
+"\"I am still hungry,\" he said. \"Shall I eat you?\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Kubera ran all the way to Kailash and fell at Shiva's feet.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva gave him a handful of plain puffed rice.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Offer him this. With humility.",
+"\"Offer him this. With humility.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Ganesha ate one handful.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And he was full.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"You cannot fill anyone with what you are showing off. Only with what you give. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

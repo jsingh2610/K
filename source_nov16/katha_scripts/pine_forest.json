@@ -1,0 +1,234 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/pine_forest.json",
+"wav": "public/katha/pine_forest.wav",
+"bell": [
+0
+],
+"flute": [
+[
+9,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "WHY DOES SHIVA WEAR A *TIGER'S SKIN?",
+"title": "19 · pine_forest · The Beggar in the Pine Forest",
+"lines": [
+[
+"n",
+[
+[
+"A tiger once leapt out of a fire to kill a beggar.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"The beggar did not even turn his head.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"In the pine forest lived sages who had mastered every ritual.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"They believed their rituals ran the universe. Not God.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"One morning a beggar wandered in.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Almost naked. A bowl in his hand. A deer at his heel.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"And every person in the forest stopped what they were doing, and followed him.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The sages were furious.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"They poured their anger into the fire, and a tiger came out.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He caught it with one hand,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and wrapped its skin around his waist.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"They sent a serpent. He hung it round his neck.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"They sent a demon dwarf. He stepped on it.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"And then, standing on that dwarf,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"he began to dance.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The sages fell to their knees.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Every weapon they had thrown, he was now wearing.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"What the world throws at you can become what you wear. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

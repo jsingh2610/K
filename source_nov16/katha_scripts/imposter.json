@@ -1,0 +1,155 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/imposter.json",
+"wav": "public/katha/imposter.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "YOU THINK THEY WILL *FIND OUT YOU ARE A *FRAUD",
+"title": "F18 · imposter · Any Questions?",
+"lines": [
+[
+"n",
+[
+[
+"Any second now, they will realise you do not belong here.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Everyone at this table went to a better college.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Any questions?",
+"\"Any questions?\"",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Please, no questions.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The senior director frowned at slide four.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"On her desk that morning, her grandmother's tiny Shiva had fallen over. She had stood it back up.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"A six-year-old once told a king: I am not here for you.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"This number is wrong, he said.",
+"\"This number is wrong,\" he said.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"It is right, she said. Here is where it comes from.",
+"\"It is right,\" she said. \"Here is where it comes from.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"You are not in the room by accident. Stand like it. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

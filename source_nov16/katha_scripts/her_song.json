@@ -1,0 +1,160 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/her_song.json",
+"wav": "public/katha/her_song.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "SHE GAVE UP HER *DREAM FOR THIS *FAMILY",
+"title": "F32 · her_song · The Harmonium Under the Bed",
+"lines": [
+[
+"n",
+[
+[
+"She was looking for a suitcase. She found a harmonium.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"First prize. State level. Nineteen ninety-eight.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Then a wedding. Then three children. Then twenty-five years.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She pressed one key. It still worked.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Nobody was home. She did not know if she still had a voice.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She remembered a thief in a garden, caught with nothing left, who sat down and sang anyway.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She sang one line. It cracked.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"She sang it again.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"At the door, four people who had come home early stood very still, so she would not stop.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"It is not too late for the thing you put away. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

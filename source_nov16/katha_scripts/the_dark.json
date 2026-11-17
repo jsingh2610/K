@@ -1,0 +1,168 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/the_dark.json",
+"wav": "public/katha/the_dark.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "SHE IS *SCARED OF THE *DARK",
+"title": "F44 · the_dark · The Thing Under the Bed",
+"lines": [
+[
+"n",
+[
+[
+"Something is under her bed. She is sure.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"She called for Mummy three times already.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The cupboard door is open one inch. That is worse.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She pulled the blanket over her head and squeezed her eyes shut.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Something warm sat down on her feet.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"That one under the bed? He is ours, said the calf. (Only Pari heard.)",
+"\"That one under the bed? He is ours,\" said the calf. (Only Pari heard.)",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He sits above every temple door. His whole job is scaring the scary things.",
+"\"He sits above every temple door. His whole job is scaring the scary things.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Pari leaned over the edge. Hello.",
+"Pari leaned over the edge. \"Hello.\"",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The eyes crinkled.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She slept with one hand hanging down, in case he got lonely.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Not everything in the dark is against you. Some of it is on guard. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

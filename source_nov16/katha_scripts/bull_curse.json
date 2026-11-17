@@ -1,0 +1,255 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/bull_curse.json",
+"wav": "public/katha/bull_curse.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "*RAVANA LAUGHED AT HIS *FACE",
+"title": "09 · bull_curse · The Bull's Curse",
+"lines": [
+[
+"n",
+[
+[
+"Ravana once laughed at Nandi's face.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"It was the most expensive joke ever told.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The king of Lanka flew his chariot over Kailash,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and it stopped in the air.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"A small bull stood at the gate.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Shiva is with Parvati. No one passes.",
+"\"Shiva is with Parvati. No one passes.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Ravana looked him up and down.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"A god guarded by a creature with a monkey's face?",
+"\"A god guarded by a creature with a monkey's face?\"",
+0.9,
+1,
+0,
+0.32
+],
+[
+"And all ten heads laughed.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Nandi did not charge. He did not shout.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"You mock this face, he said.",
+"\"You mock this face,\" he said.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Then faces like this will end your city.",
+"\"Then faces like this will end your city.",
+0.9,
+1,
+0,
+0.32
+],
+[
+"Monkeys will burn Lanka.",
+"Monkeys will burn Lanka.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Ravana laughed harder, and flew on.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Years later,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"an army of monkeys crossed the sea.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"And one of them set the golden city on fire,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"with his own tail.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Nandi was at his gate that night too. Still watching one thing.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The quiet ones remember. Respect the gate. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

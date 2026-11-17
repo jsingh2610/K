@@ -1,0 +1,189 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/power_cut.json",
+"wav": "public/katha/power_cut.wav",
+"bell": [
+0
+],
+"flute": [
+[
+8,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "THE *POWER WENT OUT. THEN THEY *SAW HIM.",
+"title": "F50 · power_cut · The Night the Lights Went Out",
+"lines": [
+[
+"n",
+[
+[
+"The whole city went dark at nine.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"No Wi-Fi. No TV. No fan.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"They dragged the mats up to the roof, complaining.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Nobody had looked at the sky in years.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Papa told a story about his father. Mummy sang a line. Kabir pointed out a planet.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Ananya called from her city. She was on her roof too.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Pari said, He is here, you know.",
+"Pari said, \"He is here, you know.\"",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And for once, everyone looked where she was pointing.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Nobody said anything.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Dadi folded her hands. So did they.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"s",
+[
+[
+"I was always on the roof. You were always downstairs.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"When the power came back, nobody went down for an hour.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He does not come when life is fixed. He comes when you look up. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

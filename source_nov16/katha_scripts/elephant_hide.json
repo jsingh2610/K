@@ -1,0 +1,247 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/elephant_hide.json",
+"wav": "public/katha/elephant_hide.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "SHIVA DANCED *INSIDE AN *ELEPHANT",
+"title": "20 · elephant_hide · The Elephant's Hide",
+"lines": [
+[
+"n",
+[
+[
+"An elephant the size of a hill once charged a Shiva temple.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva met him from the inside.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Gajasura, the elephant demon, had a boon.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"No one driven by desire could kill him.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"So nobody could.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Gods want victory. Men want glory. Everyone wants something.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He reached Kashi.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The sages ran to the lingam and held on.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He lowered his tusks.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"And Shiva rose out of the stone.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The one who wants nothing.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He danced.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And the darkness came apart around him like a cloak.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"With his last breath, Gajasura asked for one thing.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Wear me. Let me never be far from you.",
+"\"Wear me. Let me never be far from you.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"And Shiva drew the hide around his shoulders.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"In Kashi he is still called Krittivasa:",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"the one who wears the hide.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Even what came to destroy you can end at your side. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

@@ -1,0 +1,155 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/result_day.json",
+"wav": "public/katha/result_day.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "YOUR *MARKS ARE NOT YOUR *WORTH",
+"title": "F01 · result_day · Result Day",
+"lines": [
+[
+"n",
+[
+[
+"The result is on the screen. And your parents are on the other side of that door.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Fifty-eight percent.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The family group is already asking.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Your cousin got ninety-four.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Kabir climbed to the roof so nobody would see his face.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Someone was already sitting up there, looking at the moon.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"s",
+[
+[
+"It was full two weeks ago. It will be full again.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"Kabir went down, opened the door,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and said the number out loud.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"A number is one night of the moon. Not the moon. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

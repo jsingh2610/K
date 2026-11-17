@@ -1,0 +1,168 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/bad_day_home.json",
+"wav": "public/katha/bad_day_home.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "YOU *SHOUTED AT THE ONES YOU *LOVE",
+"title": "F24 · bad_day_home · The Slammed Door",
+"lines": [
+[
+"n",
+[
+[
+"Bad day at the shop. And they were the nearest ones.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"It was about a wet towel on the bed.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"It was not about the towel.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He slammed the bedroom door.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He sat on the bed, still shaking, and hated the sound of his own voice.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Under the door, a piece of paper slid in.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"And he remembered a picture from his childhood: a goddess, mid-rage, one foot on someone who had lain down in her way.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He opened the door. Pari was lying on the floor outside it. On purpose.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He picked her up,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and said sorry to each of them. By name.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"When love lies down in your path, stop. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

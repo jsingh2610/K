@@ -1,0 +1,163 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/sunday_dread.json",
+"wav": "public/katha/sunday_dread.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "IT IS *SUNDAY EVENING AND YOUR CHEST IS *TIGHT",
+"title": "F13 · sunday_dread · Sunday, 6 p.m.",
+"lines": [
+[
+"n",
+[
+[
+"Sunday. Six p.m.",
+null,
+0.95,
+1,
+0.5,
+0.25
+],
+[
+"The weekend is over in your head already.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Tomorrow he will tear your work apart in front of everyone. Again.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Is this what you call effort?",
+"\"Is this what you call effort?\"",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"You have heard it so often you say it to yourself now.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She looked down into her tea.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"In it, a beggar was calmly tying a tiger's skin around his waist.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Everything they threw at him, he wore.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"On Monday he said it again.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"She wrote it down, word for word, and asked: Which part, exactly?",
+"She wrote it down, word for word, and asked: \"Which part, exactly?\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"You cannot stop what is thrown. You decide what it becomes. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

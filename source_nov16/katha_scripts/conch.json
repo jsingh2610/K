@@ -1,0 +1,247 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/conch.json",
+"wav": "public/katha/conch.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "NEVER OFFER *SHIVA WATER FROM A *CONCH",
+"title": "36 · conch · The Conch",
+"lines": [
+[
+"n",
+[
+[
+"In a Shiva temple, you never pour water from a conch.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Every other god loves it. Here is why he does not.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"There was a demon king named Shankhachuda. The conch-crowned.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He was not cruel. He was unbeatable.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Protected by a boon, and by a wife whose faith never wavered.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"But he drove the gods out of heaven.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And the gods went to Shiva.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva fought him for a hundred years.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"His trident could not land.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Then the protection was taken away.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Not by strength. By a trick of Vishnu's that Shiva never liked.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The trident fell.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Shankhachuda's bones dropped into the ocean,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and became every conch shell in the sea.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Vishnu holds a conch in every picture. He honours it.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"But Shiva remembers the king it once was.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He will not be bathed with the bones of one he had to kill.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"So you offer him water from your hands.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Know the story behind the rule. That is sadhana.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

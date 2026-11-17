@@ -1,0 +1,155 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/not_selected.json",
+"wav": "public/katha/not_selected.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "YOUR *NAME WAS NOT ON THE *LIST",
+"title": "F05 · not_selected · Not Selected",
+"lines": [
+[
+"n",
+[
+[
+"Eleven names on the list. Yours is not one of them.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"He had practised every morning for a year.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"They made him twelfth man.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Carrying water for the ones who got picked.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"That night, on the roof,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"he told the moon it was not fair.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"s",
+[
+[
+"The whole world once leaned on the one who was sent away from the party.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"Next match, their best bowler pulled a muscle in the first over.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Kabir was already warmed up. He always was.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Hold your corner until the world leans on it. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

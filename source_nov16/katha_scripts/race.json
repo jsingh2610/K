@@ -1,0 +1,258 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/race.json",
+"wav": "public/katha/race.wav",
+"bell": [
+0
+],
+"flute": [
+[
+9,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "HE WON A RACE *WITHOUT *MOVING",
+"title": "11 · race · The Race Around the World",
+"lines": [
+[
+"n",
+[
+[
+"Two brothers raced around the world.",
+null,
+0.95,
+1,
+0.5,
+0.25
+],
+[
+"One of them never left the room.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He won.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Narada arrived with a single golden fruit.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The fruit of all knowledge. It cannot be shared.",
+"\"The fruit of all knowledge. It cannot be shared.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Then race, said Shiva.",
+"\"Then race,\" said Shiva.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Three times around the world. The first one back takes it.",
+"\"Three times around the world. The first one back takes it.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Kartikeya was gone before the sentence ended.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"On a peacock, at the speed of thought.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Ganesha looked at his mouse.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"His mouse looked at him.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Then he stood up,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"folded his hands,",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"and walked around his mother and father. Three times.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"You are my whole world, he said.",
+"\"You are my whole world,\" he said.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"I have gone around it.",
+"\"I have gone around it.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Kartikeya landed, breathless.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"His brother was already eating the fruit.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"One of them saw the whole world.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"One of them knew what the world was.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Know what your world is. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

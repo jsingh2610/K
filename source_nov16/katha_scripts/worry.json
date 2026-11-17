@@ -1,0 +1,160 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/worry.json",
+"wav": "public/katha/worry.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "YOUR MIND WILL NOT *STOP AT *3 A.M.",
+"title": "F33 · worry · She Worries at 3 a.m.",
+"lines": [
+[
+"n",
+[
+[
+"Three a.m. Everyone else is asleep.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"What if he fails? What if she is not safe? What if. What if.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She has checked her daughter's last seen four times.",
+"She has checked her daughter's \"last seen\" four times.",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"A mother's mind does not have an off switch.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She went to the shelf and lit the diya, just for something to do with her hands.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He held the poison in his throat. He did not let it reach his heart.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She could not stop the worries coming.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"But she could stop them at the door.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"By the twentieth bead she was asleep in the chair.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"You cannot stop the thought. You can stop where it lands. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

@@ -1,0 +1,182 @@
+{
+ "lines": [
+  {
+   "t": 0.12,
+   "d": 6.004,
+   "text": "A sixteen-year-old boy was told the exact day he would die. He spent it hugging a stone.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 0.12,
+     "d": 3.576,
+     "text": "A sixteen-year-old boy was told the exact day he would die."
+    },
+    {
+     "t": 4.146,
+     "d": 1.978,
+     "text": "He spent it hugging a stone."
+    }
+   ]
+  },
+  {
+   "t": 6.723,
+   "d": 6.891,
+   "text": "Markandeya was born with a blessing, and a deadline. Sixteen years. Not a day more.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 6.723,
+     "d": 2.373,
+     "text": "Markandeya was born with a blessing,"
+    },
+    {
+     "t": 9.247,
+     "d": 1.216,
+     "text": "and a deadline."
+    },
+    {
+     "t": 10.912,
+     "d": 1.238,
+     "text": "Sixteen years."
+    },
+    {
+     "t": 12.45,
+     "d": 1.164,
+     "text": "Not a day more."
+    }
+   ]
+  },
+  {
+   "t": 14.164,
+   "d": 4.927,
+   "text": "On his last evening, he walked into a Shiva temple, and held the lingam tight.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 14.164,
+     "d": 2.993,
+     "text": "On his last evening, he walked into a Shiva temple,"
+    },
+    {
+     "t": 17.357,
+     "d": 1.734,
+     "text": "and held the lingam tight."
+    }
+   ]
+  },
+  {
+   "t": 19.641,
+   "d": 6.709,
+   "text": "Then Yama, the god of death, arrived. He threw his noose. It caught the boy, and the stone.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 19.641,
+     "d": 2.212,
+     "text": "Then Yama, the god of death, arrived."
+    },
+    {
+     "t": 22.103,
+     "d": 1.337,
+     "text": "He threw his noose."
+    },
+    {
+     "t": 23.789,
+     "d": 1.251,
+     "text": "It caught the boy,"
+    },
+    {
+     "t": 25.24,
+     "d": 1.11,
+     "text": "and the stone."
+    }
+   ]
+  },
+  {
+   "t": 26.95,
+   "d": 5.345,
+   "text": "That was his mistake. The stone split open. And Shiva stepped out.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 26.95,
+     "d": 1.676,
+     "text": "That was his mistake."
+    },
+    {
+     "t": 29.076,
+     "d": 1.485,
+     "text": "The stone split open."
+    },
+    {
+     "t": 30.811,
+     "d": 1.484,
+     "text": "And Shiva stepped out."
+    }
+   ]
+  },
+  {
+   "t": 32.744,
+   "d": 1.873,
+   "text": "This one is mine.",
+   "who": "s",
+   "parts": [
+    {
+     "t": 32.744,
+     "d": 1.873,
+     "text": "This one is mine."
+    }
+   ]
+  },
+  {
+   "t": 35.317,
+   "d": 5.599,
+   "text": "Death stepped back. And Markandeya? He stayed sixteen. Forever.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 35.317,
+     "d": 1.434,
+     "text": "Death stepped back."
+    },
+    {
+     "t": 37.251,
+     "d": 1.29,
+     "text": "And Markandeya?"
+    },
+    {
+     "t": 38.841,
+     "d": 2.075,
+     "text": "He stayed sixteen. Forever."
+    }
+   ]
+  },
+  {
+   "t": 41.615,
+   "d": 2.767,
+   "text": "Hold on to something greater than your fear.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 41.615,
+     "d": 2.767,
+     "text": "Hold on to something greater than your fear."
+    }
+   ]
+  },
+  {
+   "t": 45.082,
+   "d": 1.832,
+   "text": "Kailasa. On Google Play.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 45.082,
+     "d": 1.832,
+     "text": "Kailasa. On Google Play."
+    }
+   ]
+  }
+ ],
+ "dur": 47.514
+}

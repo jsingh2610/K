@@ -1,0 +1,237 @@
+{
+"key": 60,
+"bell": [
+5
+],
+"swell": [
+[
+4,
+0.9
+]
+],
+"flute": [
+[
+6,
+0.3
+]
+],
+"fix": {
+"mˈɑːɹkɐndˌaɪə": "mɑːɹkənˈdeɪjə",
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"lines": [
+[
+"n",
+[
+[
+"A sixteen year old boy was told the exact day he would die.",
+"A sixteen-year-old boy was told the exact day he would die.",
+1.0,
+1,
+0.5,
+0.45
+],
+[
+"He spent it... hugging a stone.",
+"He spent it hugging a stone.",
+0.86,
+0.9,
+-0.5,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Markandeya was born with a blessing...",
+"Markandeya was born with a blessing,",
+0.96,
+1,
+0,
+0.15
+],
+[
+"and a deadline.",
+null,
+0.84,
+0.95,
+-1,
+0.45
+],
+[
+"Sixteen years.",
+null,
+0.9,
+1,
+0,
+0.3
+],
+[
+"Not a day more.",
+null,
+0.8,
+0.85,
+-1,
+0.55
+]
+]
+],
+[
+"n",
+[
+[
+"On his last evening, he walked into a Shiva temple,",
+null,
+0.95,
+0.95,
+0,
+0.2
+],
+[
+"and held the lingam, tight.",
+"and held the lingam tight.",
+0.85,
+1,
+0.5,
+0.55
+]
+]
+],
+[
+"n",
+[
+[
+"Then Yama, the god of death, arrived!",
+"Then Yama, the god of death, arrived.",
+1.02,
+1.1,
+1,
+0.25
+],
+[
+"He threw his noose.",
+null,
+0.95,
+1.05,
+0,
+0.35
+],
+[
+"It caught the boy...",
+"It caught the boy,",
+0.9,
+1,
+0,
+0.2
+],
+[
+"and the stone.",
+null,
+0.8,
+0.9,
+-1,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"That, was his mistake.",
+"That was his mistake.",
+0.86,
+0.95,
+-0.5,
+0.45
+],
+[
+"The stone split open!",
+"The stone split open.",
+1.0,
+1.12,
+1,
+0.25
+],
+[
+"And Shiva stepped out.",
+null,
+0.86,
+1.05,
+0,
+0.45
+]
+]
+],
+[
+"s",
+[
+[
+"This one, is mine.",
+"This one is mine.",
+0.8,
+1,
+0,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Death... stepped back.",
+"Death stepped back.",
+0.84,
+0.9,
+-0.5,
+0.5
+],
+[
+"And Markandeya?",
+null,
+0.95,
+1,
+1,
+0.3
+],
+[
+"He stayed sixteen. Forever.",
+null,
+0.84,
+1,
+0,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Hold on, to something greater than your fear.",
+"Hold on to something greater than your fear.",
+0.86,
+0.92,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

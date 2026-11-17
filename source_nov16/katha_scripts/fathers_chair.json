@@ -1,0 +1,160 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/fathers_chair.json",
+"wav": "public/katha/fathers_chair.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "YOU NEVER GOT TO SAY *GOODBYE",
+"title": "F28 · fathers_chair · His Father's Chair",
+"lines": [
+[
+"n",
+[
+[
+"Three years ago today.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"His father sat in that chair for forty years. Nobody has sat in it since.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He was at a wedding in another city when the call came.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"There were things he meant to say. He was always going to say them next week.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"That night the moon was a thin, last sliver.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"s",
+[
+[
+"It is not gone. It is in my keeping.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"In the morning Papa sat down in the chair.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"It fit him.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He said the things out loud, to the shop, while he opened the shutter.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"What you did not say can still be said. They are kept. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

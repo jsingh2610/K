@@ -1,0 +1,255 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/dance.json",
+"wav": "public/katha/dance.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "WHO IS UNDER *NATARAJA'S *FOOT?",
+"title": "21 · dance · The Dance",
+"lines": [
+[
+"n",
+[
+[
+"Look under Nataraja's foot. Someone is there.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"He has been there since the beginning. And Shiva will never kill him.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"His name is Apasmara.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He is forgetting. Carelessness. The fog in your head.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"When he runs free, people forget who they are.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The gods asked Shiva to destroy him.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"I cannot, said Shiva.",
+"\"I cannot,\" said Shiva.",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"s",
+[
+[
+"Without forgetting, there is no learning.",
+null,
+0.8,
+1,
+0,
+0.35
+],
+[
+"Without the dark, no one would look for the light.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"So he did something else.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He put one foot on him.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"And began to dance.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The drum in one hand makes the world.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The fire in the other ends it.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"One hand says: do not be afraid.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"And the lifted foot says:",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"this way out.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Two sages waited lifetimes to see it.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"One with a serpent's body. One with a tiger's feet.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"You do not kill your ignorance. You stand on it, every day, and dance. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

@@ -1,0 +1,263 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/torn_lock.json",
+"wav": "public/katha/torn_lock.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "SHIVA TORE OUT *ONE *HAIR",
+"title": "30 · torn_lock · The Torn Lock",
+"lines": [
+[
+"n",
+[
+[
+"Shiva once pulled a single hair from his head,",
+null,
+0.95,
+1,
+0.5,
+0.25
+],
+[
+"and threw it at the ground.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"What stood up ended a kingdom in one night.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"You know how Sati died.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Insulted in her father's hall. Walking into his fire.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"When the news reached Kailash,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"the one who never moves, moved.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He did not shout.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He reached up, tore out one lock of hair, and dashed it on the rock.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"From one half rose Virabhadra.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"A thousand arms. Fire for eyes.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"From the other, Bhadrakali.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"s",
+[
+[
+"Go. End his sacrifice.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"They fell on Daksha's hall like a storm.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The sacred fire was put out. The gods fled through the windows.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"One sage had warned them all.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"A sacrifice without Shiva is a body without breath.",
+"\"A sacrifice without Shiva is a body without breath.\"",
+0.9,
+1,
+0,
+0.32
+],
+[
+"They had laughed at him.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"And the proud king who started it",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"lost the head he had held so high.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Do not mistake the quiet one's patience for weakness. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

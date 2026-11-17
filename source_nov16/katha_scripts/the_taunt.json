@@ -1,0 +1,160 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/the_taunt.json",
+"wav": "public/katha/the_taunt.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "NOTHING SHE DOES IS EVER *ENOUGH",
+"title": "F34 · the_taunt · \"In Our Time...\"",
+"lines": [
+[
+"n",
+[
+[
+"In our time, we ground the spices by hand.",
+"\"In our time, we ground the spices by hand.\"",
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Too much salt. Too little. The curtains. The children's manners.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"For three days she has smiled and said nothing.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She is one sentence away from saying something she cannot take back.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Dadi called the aunt to sit with her. And told her a story about a devotee who would only bow to one half.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He lost all his flesh, Dadi said sweetly, for not honouring the woman of the house.",
+"\"He lost all his flesh,\" Dadi said sweetly, \"for not honouring the woman of the house.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The aunt was quiet for a whole minute. A record.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Then she tasted the dal again.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Give me the recipe, she said.",
+"\"Give me the recipe,\" she said.",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Honour the one who holds the house. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

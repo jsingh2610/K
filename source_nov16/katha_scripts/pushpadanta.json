@@ -1,0 +1,255 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/pushpadanta.json",
+"wav": "public/katha/pushpadanta.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "A *THIEF WROTE SHIVA'S GREATEST *HYMN",
+"title": "27 · pushpadanta · The Singer Who Stole Flowers",
+"lines": [
+[
+"n",
+[
+[
+"The most beautiful hymn to Shiva was written by a thief.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"He wrote it the night he got caught.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Pushpadanta was a musician of the heavens.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He could fly. He could walk unseen.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"And every night he stole flowers from a king's garden.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"To offer to Shiva.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The king could not catch a thief he could not see.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"So he scattered bilva leaves across every path.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Leaves that had been offered to Shiva.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The thief stepped on them.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And in one breath, his powers were gone.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He had stolen for Shiva,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and insulted Shiva with his own foot.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He did not run. He did not make excuses.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He sat down in that garden, and sang.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"If the ocean were ink, and the sky were paper,",
+"\"If the ocean were ink, and the sky were paper,",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"even then your greatness could not be written.",
+"even then your greatness could not be written.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva gave him back everything.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And the song is still sung today.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"When you fall, do not hide. Sing. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

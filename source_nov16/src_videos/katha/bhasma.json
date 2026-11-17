@@ -1,0 +1,167 @@
+{
+ "lines": [
+  {
+   "t": 0.12,
+   "d": 7.283,
+   "text": "Shiva once gave a demon the power to burn anyone to ash, with one touch. The demon tried it on Shiva first.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 0.12,
+     "d": 4.643,
+     "text": "Shiva once gave a demon the power to burn anyone to ash, with one touch."
+    },
+    {
+     "t": 5.113,
+     "d": 2.29,
+     "text": "The demon tried it on Shiva first."
+    }
+   ]
+  },
+  {
+   "t": 8.003,
+   "d": 4.287,
+   "text": "Bhasmasura prayed for years. Pleased, Shiva offered him any boon.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 8.003,
+     "d": 1.918,
+     "text": "Bhasmasura prayed for years."
+    },
+    {
+     "t": 10.221,
+     "d": 2.069,
+     "text": "Pleased, Shiva offered him any boon."
+    }
+   ]
+  },
+  {
+   "t": 12.69,
+   "d": 2.889,
+   "text": "Let whoever I touch on the head burn to ash.",
+   "who": "d",
+   "parts": [
+    {
+     "t": 12.69,
+     "d": 2.889,
+     "text": "Let whoever I touch on the head burn to ash."
+    }
+   ]
+  },
+  {
+   "t": 16.078,
+   "d": 3.306,
+   "text": "Granted. And his hand reached straight for Shiva.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 16.078,
+     "d": 0.849,
+     "text": "Granted."
+    },
+    {
+     "t": 17.328,
+     "d": 2.056,
+     "text": "And his hand reached straight for Shiva."
+    }
+   ]
+  },
+  {
+   "t": 19.833,
+   "d": 6.469,
+   "text": "Shiva ran. Vishnu saw it, and became Mohini. The most beautiful dancer in all the worlds.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 19.833,
+     "d": 0.952,
+     "text": "Shiva ran."
+    },
+    {
+     "t": 21.086,
+     "d": 2.194,
+     "text": "Vishnu saw it, and became Mohini."
+    },
+    {
+     "t": 23.58,
+     "d": 2.722,
+     "text": "The most beautiful dancer in all the worlds."
+    }
+   ]
+  },
+  {
+   "t": 26.801,
+   "d": 2.546,
+   "text": "Dance with me. Copy every move.",
+   "who": "f",
+   "parts": [
+    {
+     "t": 26.801,
+     "d": 0.997,
+     "text": "Dance with me."
+    },
+    {
+     "t": 28.098,
+     "d": 1.249,
+     "text": "Copy every move."
+    }
+   ]
+  },
+  {
+   "t": 29.847,
+   "d": 4.601,
+   "text": "Hand on hip. Hand on shoulder. Hand on head.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 29.847,
+     "d": 1.106,
+     "text": "Hand on hip."
+    },
+    {
+     "t": 31.403,
+     "d": 1.24,
+     "text": "Hand on shoulder."
+    },
+    {
+     "t": 33.093,
+     "d": 1.355,
+     "text": "Hand on head."
+    }
+   ]
+  },
+  {
+   "t": 35.448,
+   "d": 4.845,
+   "text": "The power you beg for can be the thing that ends you. Ask wisely.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 35.448,
+     "d": 3.156,
+     "text": "The power you beg for can be the thing that ends you."
+    },
+    {
+     "t": 39.054,
+     "d": 1.239,
+     "text": "Ask wisely."
+    }
+   ]
+  },
+  {
+   "t": 40.993,
+   "d": 1.832,
+   "text": "Kailasa. On Google Play.",
+   "who": "n",
+   "parts": [
+    {
+     "t": 40.993,
+     "d": 1.832,
+     "text": "Kailasa. On Google Play."
+    }
+   ]
+  }
+ ],
+ "dur": 43.425
+}

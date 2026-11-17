@@ -1,0 +1,147 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/rejections.json",
+"wav": "public/katha/rejections.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "*47 REJECTIONS. *ZERO OFFERS.",
+"title": "F11 · rejections · We Regret to Inform You",
+"lines": [
+[
+"n",
+[
+[
+"We regret to inform you. Forty-seven times.",
+"\"We regret to inform you.\" Forty-seven times.",
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"She has stopped telling her parents about interviews.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Her friends are posting first-salary photos.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Interview forty-eight.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"She almost did not go.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The auto driver had a small Shiva on his dashboard, holding a bow.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"s",
+[
+[
+"He waited a thousand years. And then he needed only one arrow.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"She went in.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"You do not need forty-eight yeses. You need one. Keep the bow up. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

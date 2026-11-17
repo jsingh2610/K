@@ -1,0 +1,250 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/procession.json",
+"wav": "public/katha/procession.wav",
+"bell": [
+0
+],
+"flute": [
+[
+9,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "SHE *FAINTED AT HER DAUGHTER'S *WEDDING",
+"title": "02 · procession · The Groom's Procession",
+"lines": [
+[
+"n",
+[
+[
+"Parvati's mother fainted at her own daughter's wedding.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Because she had just seen the groom.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Every king arrives with elephants and gold.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva arrived on a bull,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"smeared in ash,",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"with a snake around his neck.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"And behind him danced his family.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Ghosts. Goblins.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"Every creature nobody else would invite.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Her mother wept.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"I will not give my daughter to this.",
+"\"I will not give my daughter to this.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Parvati only smiled.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"She had seen what he really was, long ago.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"And for her mother's sake,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Shiva let it show.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The most beautiful groom the three worlds had ever seen.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He did not change for the world.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He changed for one frightened mother.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"And he kept every ghost at his side.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He takes you as you are. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

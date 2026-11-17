@@ -1,0 +1,155 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/slow_month.json",
+"wav": "public/katha/slow_month.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "THE *SHOP WAS EMPTY ALL *DAY",
+"title": "F22 · slow_month · No Customers",
+"lines": [
+[
+"n",
+[
+[
+"Forty rupees. That was today.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Across the road, the new store has a queue out of the door.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"His father ran this shop for forty years.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He is afraid he will be the one to close it.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He started pulling the shutter down early.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"An old man ducked under it. One washer. The small kind.",
+"An old man ducked under it. \"One washer. The small kind.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"s",
+[
+[
+"The river did not reach the ashes in a day. A king stood on one leg for years.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"Papa pushed the shutter back up,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and wrote on a board: Free home delivery. Repairs done.",
+"and wrote on a board: \"Free home delivery. Repairs done.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Slow is not finished. Stand a little longer. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

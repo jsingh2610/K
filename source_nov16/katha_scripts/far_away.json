@@ -1,0 +1,152 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/far_away.json",
+"wav": "public/katha/far_away.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "YOUR *MOTHER IS ILL AND YOU ARE *FAR AWAY",
+"title": "F36 · far_away · Her Mother Is Unwell",
+"lines": [
+[
+"n",
+[
+[
+"I am fine, beta. Do not come. You have the children.",
+"\"I am fine, beta. Do not come. You have the children.\"",
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Her mother has fever. She is seventy-eight. And six hundred kilometres away.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Tickets are not there till Friday.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She is a mother here and a daughter there, and she cannot be both tonight.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Pari tugged her sari. Whisper it to Nandi. He carries it.",
+"Pari tugged her sari. \"Whisper it to Nandi. He carries it.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She felt foolish. She bent down anyway, and whispered her mother's name.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Then she did the things she could do. Called the neighbour there. Paid the doctor online. Booked Friday.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"At dawn: Fever is down. Who sent the doctor?",
+"At dawn: \"Fever is down. Who sent the doctor?\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Send what you can. Then send your love. It arrives. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

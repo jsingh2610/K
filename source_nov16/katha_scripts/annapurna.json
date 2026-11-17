@@ -1,0 +1,239 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/annapurna.json",
+"wav": "public/katha/annapurna.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "*SHIVA STOOD AT HER DOOR, *BEGGING",
+"title": "16 · annapurna · She Who Feeds the World",
+"lines": [
+[
+"n",
+[
+[
+"Shiva once stood at a kitchen door, begging for food.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"He had started the famine himself. With one sentence.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He and Parvati were playing dice, and talking.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The world is an illusion, said Shiva. Even food. Nothing here is real.",
+"\"The world is an illusion,\" said Shiva. \"Even food. Nothing here is real.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Parvati went very quiet.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"f",
+[
+[
+"If food is nothing, then I am nothing.",
+null,
+0.88,
+1,
+0,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"And she vanished.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The rain stopped. The fields cracked.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Every pot in the three worlds was empty.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Even on Kailash, the Ganas were starving.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Shiva watched his own children go hungry.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Then news came. In Kashi, one kitchen had opened.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"A woman was feeding everyone who came.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva stood in that line,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and held out his bowl.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She filled it.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Now I know, he said. The body is not an illusion to the one who is hungry.",
+"\"Now I know,\" he said. \"The body is not an illusion to the one who is hungry.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Feed the body before you teach the soul. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

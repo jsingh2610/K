@@ -1,0 +1,271 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/kirata.json",
+"wav": "public/katha/kirata.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "*ARJUNA LOST A FIGHT TO A *STRANGER",
+"title": "17 · kirata · The Hunter and the Prince",
+"lines": [
+[
+"n",
+[
+[
+"The greatest archer alive once lost a fight to a stranger in the woods.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"He was never happier to lose.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Arjuna needed a weapon no man could give him.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"So he went to the mountains to pray to Shiva.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"A wild boar charged.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He shot.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"And a second arrow hit it at the same instant.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"A hunter stepped out of the trees.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"My kill.",
+"\"My kill.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Mine, said the prince.",
+"\"Mine,\" said the prince.",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Arjuna emptied his quiver.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The hunter swallowed every arrow like rain.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He swung his bow. The hunter took it.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He used his fists. He was thrown like a child.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Beaten,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Arjuna crawled back to his little clay lingam,",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"and laid a garland on it.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He looked up.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"The garland was around the hunter's neck.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The stranger's feathers became a crescent moon.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And Arjuna got his weapon.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"When you lose to God, you have won. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

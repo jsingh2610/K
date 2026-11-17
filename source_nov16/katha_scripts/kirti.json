@@ -1,0 +1,260 @@
+{
+"key": 62,
+"bell": [
+8
+],
+"swell": [
+[
+2,
+1.6
+]
+],
+"flute": [
+[
+6,
+0.4
+],
+[
+9,
+0.5
+]
+],
+"json": "src/videos/kirti/vo.json",
+"wav": "public/kirti/mix.wav",
+"fix": {
+"kˈɪɹɾɪmˌʌkə": "kˈiːɹtɪmˌʊkə"
+},
+"lines": [
+[
+"n",
+[
+[
+"Look above the door of an old Shiva temple.",
+null,
+1.0,
+1,
+0.5,
+0.35
+],
+[
+"There's a monster's face.",
+null,
+0.88,
+0.95,
+-0.5,
+0.4
+],
+[
+"And Shiva put it there... himself.",
+"And Shiva put it there himself.",
+0.84,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"A proud king once sent his messenger to Kailash...",
+"A proud king once sent his messenger to Kailash,",
+0.96,
+1,
+0,
+0.2
+],
+[
+"to demand Parvati.",
+null,
+0.86,
+1,
+-0.5,
+0.5
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva said nothing.",
+null,
+0.82,
+0.88,
+-1,
+0.5
+],
+[
+"His third eye opened!",
+"His third eye opened.",
+0.95,
+1.1,
+1,
+0.3
+],
+[
+"And out leapt a creature of pure hunger.",
+null,
+0.92,
+1.08,
+0,
+0.5
+]
+]
+],
+[
+"n",
+[
+[
+"The messenger begged for mercy.",
+null,
+0.98,
+1,
+1,
+0.35
+],
+[
+"And Shiva forgave him.",
+null,
+0.85,
+0.92,
+-0.5,
+0.5
+]
+]
+],
+[
+"n",
+[
+[
+"But the creature was still starving.",
+null,
+0.92,
+1,
+0,
+0.4
+],
+[
+"So Shiva said:",
+null,
+0.88,
+0.9,
+-0.5,
+0.35
+]
+]
+],
+[
+"s",
+[
+[
+"Then eat yourself.",
+null,
+0.82,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"And it did.",
+null,
+0.82,
+0.9,
+-0.5,
+0.45
+],
+[
+"Until only its face remained.",
+null,
+0.82,
+0.9,
+-0.5,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva smiled.",
+null,
+0.86,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"s",
+[
+[
+"I name you Keertimukha.",
+"I name you Kirtimukha.",
+0.84,
+1,
+0,
+0.3
+],
+[
+"The face of glory.",
+null,
+0.82,
+1,
+0,
+0.3
+],
+[
+"Guard my door, forever.",
+null,
+0.82,
+1,
+0,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"The ego that devours itself, becomes sacred.",
+"The ego that devours itself becomes sacred.",
+0.86,
+0.95,
+-0.5,
+0.45
+],
+[
+"That, is sadhana.",
+"That is sadhana.",
+0.78,
+0.95,
+0,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

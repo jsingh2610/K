@@ -1,0 +1,171 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/log_kya_kahenge.json",
+"wav": "public/katha/log_kya_kahenge.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "\"LOG *KYA *KAHENGE?\"",
+"title": "F19 · log_kya_kahenge · What Will People Say",
+"lines": [
+[
+"n",
+[
+[
+"What will people say?",
+"\"What will people say?\"",
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"She wants to take a job in another city. That is all.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"One uncle says it is not safe. One aunt says it is not proper.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"A neighbour has not said anything yet, but she will.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Her mother has started to waver.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Dadi, from her chair, started laughing.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"People said Parvati's groom was a beggar with ghosts for friends.",
+"\"People said Parvati's groom was a beggar with ghosts for friends.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Her own mother fainted.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"She married him anyway. Ask them how that turned out.",
+"She married him anyway. Ask them how that turned out.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Her mother folded the offer letter,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and put it in her own purse, to keep it safe.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"People will always say something. Go as you are. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

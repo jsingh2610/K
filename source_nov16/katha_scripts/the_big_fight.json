@@ -1,0 +1,160 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/the_big_fight.json",
+"wav": "public/katha/the_big_fight.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "THE WHOLE *FAMILY STOPPED *TALKING",
+"title": "F49 · the_big_fight · Nobody Spoke for Three Days",
+"lines": [
+[
+"n",
+[
+[
+"Day three of nobody talking.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"It began with one sentence at dinner. Nobody remembers who was right.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Everyone is waiting for someone else to go first.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The house is so quiet you can hear the fridge.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Dadi went up to the roof, slowly, for the first time in a year.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"They found her sitting beside the water tank, talking to nobody.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"I told him: you forgave the man who cost you your wife. And these fools cannot forgive a sentence.",
+"\"I told him: you forgave the man who cost you your wife. And these fools cannot forgive a sentence.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Papa laughed first. He could not help it.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Sorry got said six times, in six voices, mostly at once.",
+"\"Sorry\" got said six times, in six voices, mostly at once.",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Somebody has to go first. Let it be you. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

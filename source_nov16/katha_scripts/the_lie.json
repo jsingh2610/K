@@ -1,0 +1,171 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/the_lie.json",
+"wav": "public/katha/the_lie.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "HE *FORGED HIS MOTHER'S *SIGNATURE",
+"title": "F08 · the_lie · Signed by Me",
+"lines": [
+[
+"n",
+[
+[
+"He practised her signature eleven times.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"The twelfth was almost perfect.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Thirty-one in maths.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"She would never have to know.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"At dinner she asked how school was.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Fine.",
+"\"Fine.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Every time he passed the shelf that night, the little lamp seemed brighter.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He could not sleep.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"At midnight he put the card on the kitchen counter, and woke her.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She looked at the marks. Then at the signature.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"You got my S wrong, she said. And then she hugged him.",
+"\"You got my S wrong,\" she said. And then she hugged him.",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The fall is small. Hiding it is what makes it heavy. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

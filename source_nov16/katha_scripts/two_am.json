@@ -1,0 +1,179 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/two_am.json",
+"wav": "public/katha/two_am.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "IT IS *2 A.M. AND YOU ARE STILL *SCROLLING",
+"title": "F02 · two_am · The 2 a.m. Scroll",
+"lines": [
+[
+"n",
+[
+[
+"It is two in the morning. Your thumb is still moving.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"You do not even remember what you opened it for.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Just one more.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Just one more.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"The exam is in six hours.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Then the battery died.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"And in the black glass,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"behind his own tired face,",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"someone was dancing.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The weight on his chest got lighter.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He put the phone across the room, face down,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"and slept.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"You do not delete the app. You put your foot on it. Every night. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

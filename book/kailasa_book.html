@@ -1,0 +1,315 @@
+<title>The Kailasa Book</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Karla:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+/* layout: one long night-sky scroll; a sticky chapter rail; every character is a plate (art left, lore right) */
+:root{
+  --night:#080a22; --deep:#111542; --dusk:#2a2458; --snow:#e9efff; --ink:#dfe6ff; --dim:#9aa3d6;
+  --gold:#f6c768; --saffron:#f39a2e; --kumkum:#d9455a; --line:rgba(246,199,104,.22); --card:rgba(255,255,255,.045);
+  --display:"Marcellus",Georgia,"Times New Roman",serif; --body:"Karla","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+body{background:var(--night);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;
+  background-image:radial-gradient(1200px 700px at 80% -10%,rgba(111,140,255,.20),transparent 70%),radial-gradient(900px 600px at 0% 30%,rgba(120,80,200,.14),transparent 70%)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;color:var(--gold);margin:0}
+h1{font-size:clamp(44px,8vw,92px);line-height:1.02;letter-spacing:.5px}
+h2{font-size:clamp(30px,4.6vw,46px);line-height:1.1;margin-bottom:10px}
+h3{font-size:26px;line-height:1.15}
+p{margin:0 0 12px;max-width:68ch}
+a{color:var(--gold)}
+.eyebrow{font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--dim);font-weight:700}
+.hero{padding-block:56px 34px;display:grid;gap:28px;grid-template-columns:1.1fr .9fr;align-items:center}
+.hero img{width:100%;border-radius:22px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.hero p{font-size:20px;color:var(--snow)}
+.stats{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:18px;font-variant-numeric:tabular-nums}
+.stats b{font-family:var(--display);font-size:34px;color:var(--gold);font-weight:400;display:block;line-height:1}
+.stats span{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--dim)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(8,10,34,.92);backdrop-filter:blur(8px);border-block:1px solid var(--line)}
+nav .wrap{display:flex;gap:6px 18px;flex-wrap:wrap;padding-block:10px}
+nav a{font-size:14px;text-decoration:none;color:var(--ink);letter-spacing:.5px}
+nav a:hover,nav a:focus-visible{color:var(--gold);outline:none;text-decoration:underline}
+section{padding-block:54px 8px}
+.lead{font-size:19px;color:var(--snow)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:18px}
+.note{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.note h3{font-size:21px;margin-bottom:6px}
+.note p,.note li{font-size:16px;color:var(--ink)}
+ul{margin:0;padding-left:20px}li{margin-bottom:6px;max-width:66ch}
+.swatches{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.sw{width:74px;font-size:11px;color:var(--dim);text-align:center}
+.sw i{display:block;height:44px;border-radius:10px;border:1px solid rgba(255,255,255,.18);margin-bottom:4px}
+.plate{display:grid;grid-template-columns:minmax(200px,300px) 1fr;gap:22px;padding-block:22px;border-top:1px solid var(--line);align-items:start}
+.plate img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;border:1px solid var(--line);background:var(--deep)}
+.plate h3 small{display:block;font-family:var(--body);font-style:italic;font-size:16px;color:var(--dim);margin-top:2px}
+.plate dl{margin:10px 0 0;display:grid;grid-template-columns:86px 1fr;gap:6px 14px}
+.plate dt{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--saffron);font-weight:700;padding-top:4px}
+.plate dd{margin:0;max-width:62ch}
+.tag{display:inline-block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--line);border-radius:20px;padding:2px 10px;margin:8px 6px 0 0;color:var(--dim)}
+.tag.new{color:var(--gold);border-color:var(--gold)} .tag.done{color:#8fe0b0;border-color:#8fe0b0}
+table{border-collapse:collapse;width:100%;font-size:15.5px}
+.tw{overflow-x:auto;margin-top:14px;border:1px solid var(--line);border-radius:14px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--saffron);white-space:nowrap}
+td:first-child{font-variant-numeric:tabular-nums;color:var(--dim);width:1%}
+td b{color:var(--gold);font-weight:600}
+.quote{font-family:var(--display);font-size:clamp(24px,3.4vw,34px);color:var(--snow);line-height:1.25;border-left:3px solid var(--gold);padding-left:18px;margin:18px 0;max-width:30ch}
+footer{padding-block:40px 60px;color:var(--dim);font-size:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr}.plate{grid-template-columns:1fr}.plate img{max-width:340px}.plate dl{grid-template-columns:1fr}.plate dt{padding-top:8px}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<div class="wrap hero">
+  <div>
+    <div class="eyebrow">The Kailasa Universe · Book One</div>
+    <h1>The Kailasa Book</h1>
+    <p style="margin-top:16px">Every being in Shiva's world, drawn in one hand. The look of the Kirtimukha reel, turned into a cast, a canon and a plan for a following.</p>
+    <div class="stats">
+      <div><b id="nAll">90</b><span>character plates</span></div>
+      <div><b>7</b><span>chapters</span></div>
+      <div><b>36</b><span>stories ready to tell</span></div>
+      <div><b>1</b><span>drawing rig</span></div>
+    </div>
+  </div>
+  <img src="img/shiva.jpg" alt="Shiva seated on Kailash, the master design every other character follows">
+</div>
+
+<nav><div class="wrap" id="nav"></div></nav>
+
+<div class="wrap">
+
+<section id="world">
+  <div class="eyebrow">Chapter 0</div>
+  <h2>The world and its one rule</h2>
+  <p class="lead">Kailash is a quiet white mountain under a deep indigo night, with a full moon top right. Everything that happens in this universe happens under that sky.</p>
+  <p class="quote">Every story explains something you have already seen in a temple.</p>
+  <p>That is the engine of the whole series. People have walked past the face above the temple door, the bull facing the shrine, the moon in the hair and the blue throat for their whole lives. A reel that finally tells them why gets saved, sent to family and argued about in the comments. A reel that only retells a myth gets a like.</p>
+  <div class="grid2">
+    <div class="note"><h3>Tone</h3><p>A grandfather's voice at bedtime: calm, warm, never preachy. Gods are loved, never mocked. The comedy belongs to the Ganas, to Ganesha's appetite and to proud kings getting humbled.</p></div>
+    <div class="note"><h3>Shape of a story</h3><p>One temple detail as the hook. One want, one refusal, one turn. Shiva speaks at most two lines. The last line is a teaching in under ten words, then the closing ritual.</p></div>
+    <div class="note"><h3>What never happens</h3><p>No gore on screen, no mocking any deity or sect, no caste or politics, no claims the texts do not make. Where traditions differ, the narrator says "one telling says".</p></div>
+  </div>
+</section>
+
+<section id="style">
+  <div class="eyebrow">Chapter 0.5</div>
+  <h2>The style lock</h2>
+  <p class="lead">This is the look of the Kirtimukha reel, written down so that any hand, human or model, draws the same world.</p>
+  <div class="grid2">
+    <div class="note"><h3>Line</h3><ul><li>One outline colour everywhere, a near-black plum.</li><li>Thick round strokes: 7 on bodies, 5 on details, 3 on beads.</li><li>Flat fills with one soft shadow on the right side.</li></ul></div>
+    <div class="note"><h3>Bodies</h3><ul><li>Big head, small body: the head is about a third of a seated figure.</li><li>Arms and legs are one thick rounded stroke with a round hand.</li><li>Every human-shaped character is the same rig in a different costume.</li></ul></div>
+    <div class="note"><h3>Faces</h3><ul><li>Calm is two closed arcs and a small smile. That is the default for every god.</li><li>Five moods only: calm, joy, fierce, sad, awe.</li><li>Fierce opens the eyes, drops the brows and shows teeth. Nothing else changes.</li></ul></div>
+    <div class="note"><h3>Light</h3><ul><li>Glow is always a soft halo: blue for Shiva, gold for sacred moments, orange for fire and the goddess.</li><li>Night sky and snow in almost every frame. Dusk only at temples.</li></ul></div>
+    <div class="note"><h3>Camera</h3><ul><li>One slow push in or pull out per scene. Dissolves, never hard cuts.</li><li>The camera never leaves the page, so no dark bands.</li><li>Subtitles in the top third. No border, no episode numbers.</li></ul></div>
+    <div class="note"><h3>Voice and sound</h3><ul><li>The calm American storyteller with real pauses. Shiva is deeper, with a little echo.</li><li>Drone, soft bells, a flute. Nothing loud. Shocks are silent.</li></ul></div>
+  </div>
+  <h3 style="margin-top:26px">The palette</h3>
+  <div class="swatches" id="sw"></div>
+</section>
+
+<section id="cult">
+  <div class="eyebrow">Chapter 0.9</div>
+  <h2>How this becomes a following</h2>
+  <p class="lead">A following forms around rituals people can join, a companion they love and a world that rewards paying attention. These are the eight habits that build one.</p>
+  <div class="grid2">
+    <div class="note"><h3>1. The viewers are the Ganas</h3><p>Shiva's own crowd is a wild, loyal, odd-looking family that he never turns away. That is the audience. Captions greet them as Ganas, and the three Gana characters become their stand-ins in comedy reels.</p></div>
+    <div class="note"><h3>2. Nandi is in every reel</h3><p>The app's mascot and the reels' mascot are the same calf. He never narrates. He reacts: one or two seconds in a corner, or the last frame sitting and facing Shiva. People will start looking for him.</p></div>
+    <div class="note"><h3>3. Whisper to Nandi</h3><p>In temples people whisper a wish into Nandi's ear. Every Monday one post invites the Ganas to comment their wish. It is a real custom, it fills the comments, and it leads straight to the app's sankalpa feature.</p></div>
+    <div class="note"><h3>4. One closing line</h3><p>Every story ends with its teaching and then the same three words, as the Kirtimukha reel did: "That is sadhana." Followers will finish the sentence in the comments before the reel does.</p></div>
+    <div class="note"><h3>5. The hidden face</h3><p>Kirtimukha's face is hidden once in every reel: in a cloud, a carving, the pattern on a pot. "Found it" comments push each reel, and it honours his job of guarding every door.</p></div>
+    <div class="note"><h3>6. Sagas, not singles</h3><p>Stories connect. Jalandhara is born in one reel, sends Rahu in another and falls in a third. Followers who have seen the earlier one explain it to newcomers, which is exactly what a fandom does.</p></div>
+    <div class="note"><h3>7. Mondays belong to Mahadev</h3><p>Monday is Shiva's day, so the main story lands every Monday. Extra posts land on Pradosh, on the monthly Shivratri, through Shravan and on Mahashivratri.</p></div>
+    <div class="note"><h3>8. The app is the temple</h3><p>Reels tell why. The app is where you do: 108 names, the pooja, the 40 days. Badge names in the app are characters in this book, so a streak feels like joining the story.</p></div>
+  </div>
+  <h3 style="margin-top:28px">The week</h3>
+  <div class="tw"><table>
+    <tr><th>Day</th><th>Post</th><th>Style</th><th>Job</th></tr>
+    <tr><td>Mon</td><td><b>The story</b>, 40 to 50 seconds, plus Whisper to Nandi in the caption</td><td>Storybook</td><td>Reach and saves</td></tr>
+    <tr><td>Wed</td><td><b>One "why"</b>, 15 to 20 seconds: one temple detail, one answer</td><td>Storybook or paper map</td><td>Shares</td></tr>
+    <tr><td>Fri</td><td><b>Nandi and the Ganas</b>: a streak joke, a japa reminder, a meme</td><td>Cartoon</td><td>Affection and app installs</td></tr>
+    <tr><td>Sun</td><td><b>The plate</b>: one character from this book as a carousel</td><td>Book plates</td><td>Saves and lore</td></tr>
+  </table></div>
+</section>
+
+<section id="slate">
+  <div class="eyebrow">Chapter 0.95</div>
+  <h2>The story slate</h2>
+  <p class="lead">Thirty-six stories in the order I would tell them. The hook is the temple detail or the question that opens the reel.</p>
+  <div class="tw"><table id="slateT"><tr><th>#</th><th>Story</th><th>Opening hook</th><th>Saga</th><th>Cast</th></tr></table></div>
+</section>
+
+<div id="chapters"></div>
+
+<section id="make">
+  <div class="eyebrow">Appendix</div>
+  <h2>How a reel gets made from this book</h2>
+  <div class="grid2">
+    <div class="note"><h3>Fable directs</h3><p>Picks the story from the slate, writes the script and the shot list, and designs any new pose or prop on the rig.</p></div>
+    <div class="note"><h3>Opus builds</h3><p>Reads only the script and this book, splits the build into scenes and reviews every scene against the plates.</p></div>
+    <div class="note"><h3>The crew renders</h3><p>Smaller models run the voice, the renders, the frame checks and the dark-band check.</p></div>
+  </div>
+  <p style="margin-top:18px">The cast lives in the reel project as code: one figure rig, one file of characters and one file of creatures. Every plate in this book is rendered from that code, so what you see here is exactly what appears in a reel.</p>
+</section>
+
+<footer>
+  <p>Drawn for Kailasa, India. Iconography follows the Shiva, Linga, Skanda, Matsya, Vamana and Padma Puranas and standard temple imagery. Characters marked "one telling" come from later or regional traditions.</p>
+</footer>
+</div>
+
+<script>
+const SW=[["#060822","night"],["#171d54","sky"],["#3c2c66","horizon"],["#eef4ff","snow"],["#8db6ea","Shiva"],["#241634","jata"],["#f6c768","gold"],["#e08a2a","saffron"],["#d61f3a","kumkum"],["#3f8a55","serpent"],["#7a3a1a","rudraksha"],["#e9822b","Kirtimukha"],["#f3c486","devi"],["#160a1c","outline"]];
+document.getElementById("sw").innerHTML=SW.map(([c,n])=>`<div class="sw"><i style="background:${c}"></i>${n}<br>${c}</div>`).join("");
+
+// id, name, epithet, who, look (what never changes), stories, status
+const G=[
+["family","The Family","The household on the mountain. These are the faces of the brand.",[
+["shiva","Shiva","Mahadev, the still one","The centre of everything. He sits, he listens, and he acts once. Everything else in this book moves around his stillness.","Blue skin, jata bun with the crescent, three ash lines, Vasuki at the neck, rudraksha, tiger cloth, trishul with the damaru tied on. Eyes closed unless something matters.","Every story. He speaks two lines at most.","done"],
+["shiva_stand","Shiva, standing","the wanderer of Kailash","The same Shiva on his feet. Every other form of him in this book is this figure in a different costume.","Trishul in the left hand, right hand raised in blessing.","Walking scenes, arrivals, the wedding, the forest.","new"],
+["parvati","Parvati","Uma, daughter of the mountain","Daughter of Himavan and Mena. She won Shiva through years of tapas, and she is the only one who can tease him.","Golden skin, red sari with a gold border, dark bun with a gold tiara, red bindi, a pink lotus.","Her tapas, the wedding, Ganesha's birth, Ardhanarishvara, covering Shiva's eyes, Annapurna.","new"],
+["sati","Sati","the first love","Daksha's daughter and Shiva's first wife. She walked into her father's fire when he insulted her husband.","Parvati's face, younger. Saffron sari, loose hair, flower crown.","The Daksha yagna. Reborn as Parvati.","done"],
+["ganesha","Ganesha","remover of obstacles","Made by Parvati to guard her door. Shiva did not know him, and the boy would not move. He got his elephant head that day.","Coral skin, big ears, one broken tusk on his right, gold crown, yellow dhoti, snake belt, a modak in hand, axe and noose behind.","His head, the race around the world, writing the Mahabharata with his tusk, Kubera's feast.","new"],
+["kartikeya","Kartikeya","Skanda, general of the gods","Born from Shiva's fire to end Tarakasura, raised by six star-mothers, so he has six faces.","Young warrior, gold crown, the vel spear, red dhoti, two extra faces showing behind him.","His birth, Tarakasura, the race around the world, the fruit of wisdom.","new"],
+["ashoksundari","Ashok Sundari","the daughter from the wishing tree","One telling, from the Padma Purana: Parvati wished for a daughter under the Kalpavriksha to ease her loneliness.","A small girl in pink with a flower crown and a lotus.","A gentle short for the family series.","new"],
+["nandi","Nandi","the gatekeeper who listens","Shiva's bull, his doorkeeper and his first devotee. He always sits facing Shiva. Whatever you whisper in his ear reaches Mahadev.","The app mascot exactly: cream calf, saffron cloth, rudraksha with a gold bell, ash lines with an orange dot.","A moment in every reel. Curses Ravana. Whisper to Nandi.","new"],
+["vasuki","Vasuki","king of serpents","The serpent Shiva wears. He was the rope when gods and demons churned the ocean.","Green hood with a pale belly, gold eyes, a red jewel on the crown.","The churning, the poison, why Shiva wears a snake.","new"],
+["ganga","Ganga","the river who fell from heaven","Her fall would have broken the earth, so Shiva caught her in his hair and let her down gently.","Pale blue skin, hair made of flowing water, white and blue sari, a water pot.","Bhagiratha's penance, Gangadhara.","new"],
+["chandra","Chandra","the moon on his brow","Cursed by Daksha to fade away, he prayed to Shiva, who set him in his hair. That is why the moon wanes and returns.","Silver-white youth, a huge crescent behind him, a lotus.","Somnath, the first Jyotirlinga.","new"],
+]],
+["forms","Forms of Shiva","One god, many costumes. Each form is the standing or seated Shiva rig with a new pose and props.",[
+["nataraja","Nataraja","lord of the dance","Shiva dancing the universe in and out of being, inside a ring of fire.","Four arms: drum, flame, blessing, one pointing to the raised foot. Flying jata. The dwarf Apasmara under his foot.","Chidambaram, Patanjali and Vyaghrapada watching.","new"],
+["ardhanarishvara","Ardhanarishvara","half him, half her","Shiva and Parvati as one body, split down the middle.","Left of frame is Shiva, right of frame is Parvati, with a dotted gold seam.","Bhringi refuses to bow to her.","new"],
+["neelakantha","Neelakantha","the blue throat","When the ocean gave up poison before nectar, he drank it. Parvati held his throat so it stayed there.","Seated Shiva with a glowing indigo throat, a bowl, and Halahala drifting beside him.","The churning of the ocean.","new"],
+["bhairava","Kala Bhairava","the terror of time","Shiva's fiercest face. He cut off Brahma's fifth head, and the skull stuck to his hand until Kashi.","Dark blue, wild hair, fangs, skull garland, the skull in his palm, a black dog beside him.","Brahma's fifth head, why Bhairava guards Kashi.","new"],
+["rudra","Rudra","the howler of the storm","The oldest name. The archer of the Vedas whose arrows are fever and whose mercy is medicine.","Red-brown skin, wild hair, bow and arrow.","Origin shorts, the eleven Rudras.","new"],
+["mahakaal","Mahakaal","time itself","The form at Ujjain, worshipped at dawn with ash.","Midnight blue skin, glowing gold eyes, long locks, skull garland, rays behind.","The Bhasma Aarti, the Jyotirlinga series.","new"],
+["dakshinamurti","Dakshinamurti","the teacher who never speaks","Young Shiva under a banyan, teaching old sages in silence.","Seated under a tree, one hand in the teaching gesture, a book, a flame and a mala.","A quiet reel on silence. Good for exam season.","new"],
+["pashupati","Pashupati","lord of all creatures","The protector of every animal and every soul.","Seated, with extra faces to each side and deer at his knees.","Pashupatinath, kindness to animals.","new"],
+["kirata","Kirata","the hunter in disguise","Shiva as a forest hunter, sent to test Arjuna before giving him the Pashupatastra.","Blue skin, topknot, feather headband, bark cloth, bow, quiver.","The boar both shot, the fight, the gift.","new"],
+["bhikshatana","Bhikshatana","the beggar god","Shiva walking as a beggar through the pine forest to humble proud sages.","Standing Shiva with a skull bowl, short cloth, a deer following.","The Daruka forest. Why he wears the tiger skin.","new"],
+["tripurantaka","Tripurantaka","one arrow, three cities","Three demon brothers lived in three flying cities that lined up once in a thousand years. He waited, and loosed one arrow.","Shiva with bow and arrow, three small cities in the sky: gold, silver, iron.","Tripura. Patience as a weapon.","new"],
+["gangadhara","Gangadhara","he who caught the river","The moment of catching Ganga.","Standing Shiva, a river curving down from his hair with Ganga's face in it.","Bhagiratha.","new"],
+["harihara","Harihara","Shiva and Vishnu as one","Half Shiva, half Vishnu. The answer to every argument about who is greater.","Left of frame Shiva with trishul, right of frame Vishnu with chakra and crown.","Unity shorts.","new"],
+["virabhadra","Virabhadra","born of one torn lock","When Sati died, Shiva tore out a lock of hair and threw it down. Virabhadra rose from it and ended Daksha's yagna.","Dark blue, six arms, sword, shield, bow, axe, trishul, skull garland, fangs.","The Daksha yagna.","new"],
+["hanuman","Hanuman","the eleventh Rudra","The Shiva Purana calls him Shiva's own avatar, born to serve Rama.","Orange-furred face, gold crown, mace, saffron cloth, hands folded.","The Rudra avatar story.","new"],
+["sharabha","Sharabha","the beast that calmed a god","One telling, from Shaiva texts: a lion-bird form taken to calm Narasimha. Other traditions tell it differently.","A lion with wings and a beak.","Handle with care. Optional.","new"],
+]],
+["ganas","Ganas & Companions","Shiva's people. This is where the warmth and the comedy live.",[
+["kirtimukha","Kirtimukha","the face of glory","A hunger that ate itself on Shiva's word until only the face remained. He guards every temple door.","Orange lion face, horns, mane, round gold eyes.","Told. Now hidden once in every reel.","done"],
+["bhringi","Bhringi","the three-legged devotee","He loved Shiva so much that he refused to bow to Parvati. He lost his flesh for it and was given a third leg to stand on.","Thin as a twig, ribs showing, three legs, white topknot, always smiling.","Ardhanarishvara. Devotion that had to grow up.","new"],
+["bhadrakali","Bhadrakali","the fury beside Virabhadra","She rose from the same lock of hair.","Dark blue, wild hair, red sari, sword and trishul.","The Daksha yagna.","new"],
+["ganas","The Ganas","Shiva's wild, loyal crowd","Goblins, ghosts and misfits who follow Shiva because he never turned anyone away. They are the audience.","Three stand-ins: teal with a drum, gold with horns and a conch, lilac with a bell. Pot bellies, always laughing.","The wedding procession, Friday comedy reels.","new"],
+["chandesha","Chandesha","the boy steward","A cowherd boy who worshipped a sand lingam with milk. When his father kicked it, he struck without looking. Shiva made him keeper of his offerings.","A small boy, topknot, white dhoti, an axe.","A strong, strange story. Told gently.","new"],
+["pushpadanta","Pushpadanta","the singer who stole flowers","A heavenly musician who lost his powers for stepping on Shiva's offerings and won them back with a song.","Flower crown, long hair, veena, pale wings.","The Shiva Mahimna Stotra.","new"],
+["kubera","Kubera","treasurer of the gods","Rich, proud, and Shiva's neighbour. He invited Ganesha to dinner to show off.","Round belly, gold crown, moustache, a pot of coins.","Ganesha eats everything he owns.","new"],
+["apasmara","Apasmara","the dwarf of forgetting","Ignorance itself. He is kept under Nataraja's foot and never killed, because without forgetting there is no learning.","Small, green-grey, bald and sulking, holding a snake.","Nataraja.","new"],
+]],
+["devi","Goddess Forms & Family","Parvati's other faces, and the family she came from.",[
+["durga","Durga","the unconquerable","The goddess armed by every god to end the buffalo demon.","Parvati's face, red sari, gold crown, eight arms, on her lion.","Mahishasura. Navratri posts.","new"],
+["kali","Kali","the dark mother","Rage that could not stop. Shiva lay down in her path, and when she stepped on him she bit her tongue.","Deep blue, wild hair, tongue out, skull garland, sword.","Raktabija. Why she stands on Shiva.","new"],
+["annapurna","Annapurna","she who feeds the world","When Shiva called food an illusion, she vanished and the world went hungry. He came to her door with a bowl.","Parvati in orange, a ladle and a pot heaped with rice.","Kashi. Why even Shiva begs.","new"],
+["himavan","Himavan","king of the mountains","Parvati's father, the Himalaya himself.","Ice-white hair and beard, pale blue crown, a staff.","The wedding.","new"],
+["mena","Mena","Parvati's mother","She fainted when she first saw the groom's procession of ghosts.","Blue sari, grey bun, hands folded.","The wedding procession.","new"],
+["daksha","Daksha","the proud father","He never forgave his daughter for marrying an ascetic.","Purple robes, gold crown, pointing finger.","The yagna.","done"],
+["daksha_goat","Daksha, restored","the goat-headed king","Beheaded by Virabhadra and brought back by Shiva with a goat's head. He was humbler after.","Same robes, a goat's head with a crown.","The end of the yagna story.","new"],
+]],
+["devas","Devas & Sages","Gods, kings, devotees and teachers who cross Shiva's path.",[
+["brahma","Brahma","the creator","He once lied about finding the top of Shiva's pillar of light.","Four faces, white beard, red robes, on a lotus.","The pillar, the fifth head.","done"],
+["vishnu","Vishnu","the preserver","Shiva's oldest friend. He offered his own eye as the thousandth lotus and received the Sudarshana chakra.","Blue, tall gold crown, yellow cloth.","The pillar, Mohini, the thousand lotuses.","done"],
+["mohini","Mohini","the enchantress","Vishnu as a dancer, who tricked Bhasmasura into touching his own head.","Green and red, a long braid.","Bhasmasura.","done"],
+["indra","Indra","king of heaven","Powerful and often too proud.","Tall crown, moustache, blue sash, thunderbolt.","Humbling stories, with Airavata.","new"],
+["narada","Narada","the wandering storyteller","He carries news between worlds and starts half the stories in this book.","Topknot, saffron dhoti, veena, always laughing.","Told Parvati who she would marry. Can open any reel.","new"],
+["kamadeva","Kamadeva","god of desire","Sent to wake Shiva from meditation, he fired one flower arrow and was burned to ash by the third eye.","Green skin, flower crown, sugarcane bow, a parrot.","The burning of Kama.","new"],
+["rati","Rati","Kama's beloved","Her grief moved Parvati to ask for his return.","Pink sari, flower crown, lotus.","After the burning.","new"],
+["surya","Surya","the sun","The witness of every day.","Gold skin, a lotus in each hand, a sun disc behind.","Background deity, dawn reels.","new"],
+["yama","Yama","lord of death","He came for a sixteen-year-old and met Shiva instead.","Green skin, crown, buffalo, staff.","Markandeya.","done"],
+["markandeya","Markandeya","the boy death could not take","Fated to die at sixteen, he held on to the lingam.","A boy with a topknot and folded hands.","Told.","done"],
+["saptarishi","The Saptarishis","the seven sages","They tested Parvati by speaking ill of Shiva. She did not blink.","Seven old men, one rig, seven beards.","Parvati's tapas.","new"],
+["dadhichi","Dadhichi","the sage who gave his bones","He gave up his body so a weapon could be made from his spine, and he stood with Shiva against Daksha.","Thin, bald, seated, ribs glowing gold.","The vajra.","new"],
+["agastya","Agastya","the small sage who drank the sea","So many came to Shiva's wedding that the earth tilted. Shiva sent one small sage south to balance it.","Short, round, grey beard, a water pot.","The wedding.","new"],
+["durvasa","Durvasa","the sage of the short temper","Said to be born from Shiva's own anger.","Wild grey hair, shouting, a staff.","Comic relief with consequences.","new"],
+["bhrigu","Bhrigu","the sage who tested the gods","One telling says his curse is why Shiva is worshipped as the lingam.","Bald, grey beard, staff and book.","Handle as one telling.","new"],
+["bhagiratha","Bhagiratha","the king who would not stop","He stood on one leg for years to bring Ganga down for his ancestors.","Thin, bark cloth, one leg, arms raised.","Ganga's descent.","new"],
+["kannappa","Kannappa","the hunter who gave his eyes","A hunter who fed the lingam meat and water from his mouth. When its eye bled, he gave his own.","Dark skin, green feather, bow, one eye marked in red, an eye in his palm.","Told with care, this is the most powerful devotion story here.","new"],
+["upamanyu","Upamanyu","the boy who asked for milk","A poor boy who wanted one cup of milk and prayed to Shiva. He was given an ocean of it.","A thin child with a small pot.","Family and children posts.","new"],
+["arjuna","Arjuna","the archer who fought a god","He fought a hunter over a boar and lost, then saw who it was.","Gold armour, headband, bow, blue quiver.","Kirata.","new"],
+["ravana","Ravana","the demon king who sang","He tried to lift Kailash, was pinned under it, and sang until Shiva smiled.","Ten crowned heads, a fan of arms.","Told.","done"],
+["shukra","Shukracharya","guru of the asuras","He won the secret of raising the dead from Shiva and used it for the other side.","White hair, one eye shut, purple sash, water pot.","Swallowed by Shiva in the Andhaka war.","new"],
+["patanjali","Patanjali","the serpent sage","Half sage, half serpent. He watched the cosmic dance.","Hood of cobras, coiled tail, folded hands.","Nataraja.","new"],
+["vyaghrapada","Vyaghrapada","the tiger-footed sage","He asked for tiger feet so he could climb trees and pick flowers no bee had touched.","Grey beard, striped legs, paws.","Nataraja.","new"],
+["sage","The Old Sage","keeper of the mala","The one who shows the way up: one name, one bead, one step.","White topknot and beard, orange cloth, a long mala.","The brand film.","done"],
+["seeker","The Seeker","you","The viewer, wrapped in a shawl the shape of the mountain.","Cream hooded shawl, closed eyes, mala in the lap.","The brand film, app posts.","done"],
+["devotee","The Devotee","at the temple door","Seen from behind, looking in.","Cream kurta, dark hair, saffron scarf.","Any temple scene.","done"],
+]],
+["asuras","Asuras","The ones who wanted too much. Most of them were devotees first, which is what makes them worth telling.",[
+["jalandhara","Jalandhara","born of Shiva's own fire","The fire of Shiva's third eye, thrown into the sea, became a child. He grew up to demand Parvati.","Sea-teal skin, horns, dark armour, a cape like a wave.","A three-part saga: birth, Kirtimukha, fall.","new"],
+["rahu","Rahu","the proud king's messenger","He carried Jalandhara's demand to Kailash and ran from what answered.","Purple robe, gold helmet with horns.","Kirtimukha.","done"],
+["bhasmasura","Bhasmasura","the hand of ash","He asked for the power to burn anything he touched, then reached for Shiva.","Red, horns, a necklace of teeth.","Told.","done"],
+["andhaka","Andhaka","the blind son","Born from the dark when Parvati covered Shiva's eyes. He was raised by demons and never knew whose son he was.","Violet, blank white eyes, six reaching arms.","A tragic story. One telling says he became Bhringi.","new"],
+["tarakasura","Tarakasura","only Shiva's son can end him","He chose his boon carefully, because Shiva had no wife and no wish for one.","Big, red, horns, gold armour, a mace.","Why Kama was sent, why Kartikeya was born.","new"],
+["tripura","The Tripurasuras","three brothers, three flying cities","Tarakaksha, Kamalaksha and Vidyunmali. Their cities of gold, silver and iron could only fall to one arrow.","Three small kings in gold, silver and iron.","Tripurantaka.","new"],
+["gajasura","Gajasura","the elephant demon","He terrorised sages until Shiva danced inside his skin and then wore it.","A dark violet elephant with burning eyes.","Why Shiva wears an elephant hide.","new"],
+["mahishasura","Mahishasura","the buffalo demon","No man or god could kill him, so the gods made a goddess.","Dark green, huge buffalo horns, nose ring.","Durga.","new"],
+["raktabija","Raktabija","every drop becomes another","Each drop of his blood became another of him.","Bright red, with small copies of himself.","Kali.","new"],
+["shankhachuda","Shankhachuda","the conch-crowned king","A righteous asura king, husband of Tulasi, who fell to Shiva's trident.","Blue skin, white crown and armour, a conch.","Why conch water is not offered to Shiva.","new"],
+["vrinda","Vrinda","the faithful wife","Jalandhara's wife. Her faithfulness was his armour.","Green sari, flower crown, tulsi leaves.","The fall of Jalandhara. Told with respect.","new"],
+["halahala","Halahala","the poison of the ocean","The first thing the churning gave up.","A violet cloud with green eyes.","Neelakantha.","new"],
+]],
+["beasts","Mounts & Creatures","Every vahana and animal. They carry the cuteness, and they make good stickers.",[
+["mushika","Mushika","Ganesha's mouse","Small enough to get into any corner where an obstacle hides.","Grey, pink ears, pink tail.","With Ganesha.","new"],
+["paravani","Paravani","Kartikeya's peacock","Vanity, tamed and ridden.","Blue body, teal and gold fan.","The race around the world.","new"],
+["lion","Dawon","the goddess's lion","Courage that serves.","Gold, dark brown mane.","Durga.","new"],
+["makara","Makara","Ganga's river beast","Half crocodile, half fish.","Sea green with a fin tail.","Ganga.","new"],
+["airavata","Airavata","Indra's white elephant","Born from the churning.","White, gold headband.","Indra.","new"],
+["garuda","Garuda","Vishnu's eagle","Speed and loyalty.","White eagle head, gold beak and crown, red wings.","With Vishnu.","new"],
+["dog","Shvan","Bhairava's dog","The outcast animal that Bhairava keeps closest.","Black, amber eyes, red collar.","Kala Bhairava, Kashi.","new"],
+["deer","Mriga","the deer of the forest","The restless mind, held still in Shiva's hand.","Fawn with white spots.","Pashupati, Bhikshatana.","new"],
+["hamsa","Hamsa","Brahma's swan","Flew up to find the top of the pillar.","White, gold crown.","The pillar.","done"],
+["varaha","Varaha","Vishnu as the boar","Dug down to find the bottom of the pillar.","Blue boar, tusks, diving.","The pillar.","done"],
+]],
+];
+// the slate: story, hook, saga, cast
+const SL=[
+["Kannappa's eyes","A hunter once spat water on a Shiva lingam. Shiva loved him for it.","Devotees","Kannappa, Shiva"],
+["The groom's procession","Parvati's mother fainted when she saw who her daughter was marrying.","The Love Saga","Ganas, Mena, Shiva, Parvati"],
+["Why Ganesha has an elephant's head","A boy stood at his mother's door and told Shiva he could not come in.","The Family","Ganesha, Parvati, Shiva, Nandi"],
+["The blue throat","Why is Shiva's neck a different colour from his face?","The Churning","Neelakantha, Halahala, Vasuki, Parvati"],
+["The moon in his hair","The moon was once cursed to disappear forever.","Why","Chandra, Daksha, Shiva"],
+["Kama's one arrow","The god of love fired at Shiva once. Only once.","The Love Saga","Kamadeva, Rati, Shiva, Parvati"],
+["Parvati's test","Seven sages told Parvati that Shiva was a beggar who lives with ghosts.","The Love Saga","Parvati, Saptarishis, Narada"],
+["Why Nandi faces the shrine","In every Shiva temple the bull looks at only one thing.","Why","Nandi, Shiva"],
+["The bull's curse","Ravana laughed at Nandi's face. Nandi told him who would burn his city.","Devotees","Nandi, Ravana"],
+["Half him, half her","A devotee walked around Shiva and refused to walk around Parvati.","The Forms","Bhringi, Ardhanarishvara"],
+["The race around the world","Two brothers were told to circle the world. One of them never left the room.","The Family","Ganesha, Kartikeya, Mushika, Paravani"],
+["Kubera's dinner guest","The richest being alive invited a child to dinner to show off.","The Family","Kubera, Ganesha, Shiva"],
+["The river in his hair","A king stood on one leg for a thousand years to bring a river down.","Why","Bhagiratha, Ganga, Gangadhara"],
+["One arrow, three cities","Three cities flew through the sky and lined up once every thousand years.","Demons who asked too much","Tripurantaka, Tripurasuras"],
+["The fifth head","Brahma once had five heads. Kashi is where the fifth one fell.","The Forms","Bhairava, Brahma, Shvan"],
+["She who feeds the world","Shiva once said food is an illusion. Then the food vanished.","The Goddess","Annapurna, Shiva"],
+["The hunter and the prince","Arjuna shot a boar and so did a stranger. They fought over it.","Devotees","Kirata, Arjuna"],
+["The boy who asked for milk","A poor boy wanted one cup of milk.","Devotees","Upamanyu, Shiva"],
+["The beggar in the pine forest","Why does Shiva wear a tiger's skin?","Why","Bhikshatana, Mriga"],
+["The elephant's hide","Why is Shiva sometimes wrapped in an elephant's skin?","Why","Gajasura, Shiva"],
+["The dance","Under Nataraja's foot there is a small figure. He is never killed.","The Forms","Nataraja, Apasmara, Patanjali, Vyaghrapada"],
+["Born of his own fire","Shiva threw his anger into the sea. It grew up.","Jalandhara","Jalandhara, Shiva"],
+["The faithful wife","A demon king could not be killed while one woman believed in him.","Jalandhara","Vrinda, Jalandhara, Vishnu"],
+["The blind son","Parvati covered Shiva's eyes for one moment. The dark had a child.","Demons who asked too much","Andhaka, Parvati, Shiva, Shukracharya"],
+["Kali's tongue","Why is the goddess standing on Shiva with her tongue out?","The Goddess","Kali, Raktabija, Shiva"],
+["The boy steward","A cowherd boy made a lingam out of sand. His father kicked it.","Devotees","Chandesha, Shiva"],
+["The singer who stole flowers","A thief of flowers wrote the most beautiful hymn to Shiva.","Devotees","Pushpadanta"],
+["The thousandth lotus","Vishnu was one flower short, so he offered his eye.","Friends","Vishnu, Shiva"],
+["The teacher who never speaks","The youngest in the room taught the oldest without a word.","The Forms","Dakshinamurti, Saptarishis"],
+["The torn lock","Shiva pulled out one hair and threw it at the ground.","Sati","Virabhadra, Bhadrakali, Daksha, Dadhichi"],
+["The goat-headed king","There is a king in the old stories with the head of a goat.","Sati","Daksha, Shiva"],
+["Only his son","A demon asked to be killed only by Shiva's son. Shiva had no wife.","The Love Saga","Tarakasura, Kartikeya"],
+["The small sage","So many came to the wedding that the earth tilted.","The Love Saga","Agastya, Shiva"],
+["Time itself","In Ujjain, Shiva is woken every dawn with ash.","Jyotirlinga","Mahakaal"],
+["The eleventh Rudra","One telling says Hanuman is Shiva himself.","The Forms","Hanuman, Shiva"],
+["The conch","Why is water from a conch never offered to Shiva?","Why","Shankhachuda, Shiva"],
+];
+const all=G.reduce((n,g)=>n+g[3].length,0);document.getElementById("nAll").textContent=all;
+const nav=[["world","The world"],["style","Style lock"],["cult","The following"],["slate","Story slate"],...G.map(g=>[g[0],g[1]]),["make","Making a reel"]];
+document.getElementById("nav").innerHTML=nav.map(([i,n])=>`<a href="#${i}">${n}</a>`).join("");
+document.getElementById("chapters").innerHTML=G.map(([id,name,lead,cs],gi)=>`<section id="${id}"><div class="eyebrow">Chapter ${gi+1} · ${cs.length} plates</div><h2>${name}</h2><p class="lead">${lead}</p>`+cs.map(([cid,n,ep,who,look,st,status])=>`<div class="plate"><img loading="lazy" src="img/${cid}.jpg" alt="${n}, character sheet"><div><h3>${n}<small>${ep}</small></h3><span class="tag ${status}">${status==="done"?"already in a reel":"new in this book"}</span><dl><dt>Who</dt><dd>${who}</dd><dt>Look</dt><dd>${look}</dd><dt>Stories</dt><dd>${st}</dd></dl></div></div>`).join("")+`</section>`).join("");
+document.getElementById("slateT").insertAdjacentHTML("beforeend",SL.map((r,i)=>`<tr><td>${i+1}</td><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join(""));
+</script>

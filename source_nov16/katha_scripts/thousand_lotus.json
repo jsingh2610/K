@@ -1,0 +1,263 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/thousand_lotus.json",
+"wav": "public/katha/thousand_lotus.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "*VISHNU OFFERED SHIVA HIS OWN *EYE",
+"title": "28 · thousand_lotus · The Thousandth Lotus",
+"lines": [
+[
+"n",
+[
+[
+"Vishnu once offered Shiva his own eye.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Because he was one flower short.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The demons were winning.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And Vishnu knew where strength comes from.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He vowed to worship Shiva with a thousand lotuses.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"One name for each flower.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Nine hundred and ninety-seven.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Nine hundred and ninety-eight.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"Nine hundred and ninety-nine.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He reached into the basket.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"It was empty.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva had hidden the last flower.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"A vow is a vow.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Vishnu did not get up to look for another.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"They call me the lotus-eyed, he said.",
+"\"They call me the lotus-eyed,\" he said.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Then let my eye be the lotus.",
+"\"Then let my eye be the lotus.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva caught his wrist, laughing.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And placed in that hand a wheel of light.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The weapon Vishnu carries in every picture",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"was a gift for one missing flower.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Give the thing you are known for. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

@@ -1,0 +1,152 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/through_the_wall.json",
+"wav": "public/katha/through_the_wall.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "THE *CHILDREN CAN HEAR YOU *FIGHTING",
+"title": "F46 · through_the_wall · She Can Hear Them",
+"lines": [
+[
+"n",
+[
+[
+"She is supposed to be asleep.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"She cannot hear the words. She can hear the shape.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Money. His family. Her family. The same fight as last month.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Pari got out of bed. She did not go to them.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She went to the shelf, took down the picture, and carried it to their door.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Dadi says these two are one person, she said. Are you two one person?",
+"\"Dadi says these two are one person,\" she said. \"Are you two one person?\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Nobody answered for a while.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Then all three of them sat on the kitchen floor at midnight, eating biscuits, and the bill waited till morning.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Disagree. But remember who is listening through the wall. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

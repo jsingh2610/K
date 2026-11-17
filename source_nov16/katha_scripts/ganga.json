@@ -1,0 +1,271 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/ganga.json",
+"wav": "public/katha/ganga.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "A *RIVER IS TRAPPED IN SHIVA'S *HAIR",
+"title": "13 · ganga · The River in His Hair",
+"lines": [
+[
+"n",
+[
+[
+"A river once fell from heaven hard enough to crack the earth.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"One god stood under it.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Sixty thousand princes had been burned to ash by a sage's glance.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Only one river could free their souls.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"And she lived in the sky.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Their descendant, Bhagiratha,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"stood on one leg and prayed. For years.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Ganga agreed to come.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"But she was proud.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"I will fall with all my weight.",
+"\"I will fall with all my weight.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"I will sweep even Shiva down to the underworld.",
+"I will sweep even Shiva down to the underworld.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"So Bhagiratha prayed again. To Shiva this time.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Catch her.",
+"\"Catch her.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva stepped out,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"loosened one lock of hair,",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"and looked up.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She fell.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And vanished.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Lost in his hair. For years. Until all her pride was gone.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Then he let her out in seven gentle streams.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And she flowed over the ashes, and the princes rose.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Great force needs a quiet place to land. Be that place. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

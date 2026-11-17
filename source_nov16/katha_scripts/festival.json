@@ -1,0 +1,168 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/festival.json",
+"wav": "public/katha/festival.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "THE *FESTIVAL IS MORE WORK THAN *JOY",
+"title": "F37 · festival · Who Does Diwali",
+"lines": [
+[
+"n",
+[
+[
+"Every festival has one person who makes it happen.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Cleaning. Sweets. Gifts for fourteen houses.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Everyone else calls it a holiday.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She has started to dread the day she used to love.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Dadi looked at the lists. Then she tore them in half.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"At Shiva's wedding, she said, nothing matched and nobody was polished.",
+"\"At Shiva's wedding,\" she said, \"nothing matched and nobody was polished.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"It is the only wedding anyone still talks about.",
+"It is the only wedding anyone still talks about.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"That year: three sweets, not six. A crooked rangoli made by Pari.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And everybody had a job.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Mummy lit the first diya sitting down.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"A festival is who is in the room, not what is on the table. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

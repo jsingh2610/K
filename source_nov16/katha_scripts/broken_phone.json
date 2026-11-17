@@ -1,0 +1,155 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/broken_phone.json",
+"wav": "public/katha/broken_phone.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "YOU *THREW IT. NOW IT IS *BROKEN.",
+"title": "F07 · broken_phone · The Throw",
+"lines": [
+[
+"n",
+[
+[
+"One bad game. One second of anger.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"And the sound of glass.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"It was not even his phone. It was his father's old one.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The anger was gone already.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"What it broke was still there.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Dadi did not scold him. She told him about the day Shiva threw his own anger into the sea.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"It did not vanish, she said. It grew up and came back.",
+"\"It did not vanish,\" she said. \"It grew up and came back.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Kabir took the phone to his father himself,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"before anyone could find it.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Anger does not disappear when you throw it. Own it while it is small. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

@@ -1,0 +1,20 @@
+{"key":62,"minor":false,"json":"src/videos/film/film.json","wav":"public/film/film.wav",
+"bell":[4],"swell":[[10,1.2]],"flute":[[11,0.1]],
+"pluck":[[3,2.42,3,1.33,0],[5,0.1,11,0.19,0],[8,0.6,10,0.26,2],[9,0,1,1,5],[9,1.78,1,1,6],[9,2.93,4,0.25,7],[10,0.3,8,0.3,7]],
+"fix":{"ʃˈɪvoʊhˌæm":"ʃɪvˈoʊhʌm","lˈɪŋɡæm":"lˈɪŋɡəm"},
+"lines":[
+["n",[["Everest has been climbed over fourteen thousand times.","Everest has been climbed over 14,000 times.",0.95,1,0.5,0.4]]],
+["n",[["Kailash is smaller.",null,0.92,1,0,0.3],["And no one has ever reached the top.",null,0.86,0.95,-0.5,0.6]]],
+["n",[["Because this mountain was never meant for feet.",null,0.9,1,0,0.4],["Pilgrims only walk around it.",null,0.92,0.95,0,0.55]]],
+["n",[["But the sages knew a way up.",null,0.9,1,0.5,0.45],["One name.",null,0.88,1,0,0.32],["One bead.",null,0.88,1,0,0.32],["One step.",null,0.86,1,-0.5,0.6]]],
+["n",[["Tonight,",null,0.86,0.95,0,0.15],["that climb fits in your hand.",null,0.9,1,0,0.55]]],
+["n",[["A mala that counts every name.",null,0.95,1,0.5,0.45]]],
+["n",[["Water for the lingam.",null,0.93,1,0,0.25],["A lamp for the dark.",null,0.9,0.95,-0.5,0.45]]],
+["n",[["Twenty one mantras.","Twenty-one mantras.",0.95,1,0.5,0.25],["The great temples, live.",null,0.93,1,0,0.5]]],
+["n",[["Forty days.",null,0.9,1,0,0.25],["One lamp at a time.",null,0.88,0.95,-0.5,0.5]]],
+["n",[["Day three, the trident.","Day 3: the trident.",0.95,1,0.5,0.3],["Day seven, the drum.","Day 7: the drum.",0.93,1,0,0.5]]],
+["n",[["And on day one hundred and eight,","And on day 108,",0.9,1,0.5,0.25],["you reach the top,","you reach the top,",0.86,1,0,0.5],["and find the mountain was never out there.",null,0.86,0.95,-0.5,0.7]]],
+["n",[["It was you.",null,0.86,1,0,0.45],["Sitting still.",null,0.86,0.9,-1,0.9]]],
+["s",[["Shivoham.",null,0.8,1,0,0.8]]],
+["n",[["Kailasa. On Google Play.",null,0.92,1,0,0.6]]]
+]}

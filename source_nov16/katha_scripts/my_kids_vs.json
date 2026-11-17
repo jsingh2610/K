@@ -1,0 +1,160 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/my_kids_vs.json",
+"wav": "public/katha/my_kids_vs.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "SHE *COMPARED HER SON. THEN SAW HIS *FACE.",
+"title": "F38 · my_kids_vs · \"Why Can You Not Be Like...\"",
+"lines": [
+[
+"n",
+[
+[
+"Why can you not be more like Mehta aunty's son?",
+"\"Why can you not be more like Mehta aunty's son?\"",
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"She said it without thinking. Mothers do.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She watched something close in his face.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He finished eating. He said, Okay. He washed his plate.",
+"He finished eating. He said, \"Okay.\" He washed his plate.",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"That was worse than if he had shouted.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Clearing the table she remembered the story she herself had told him at five. Two brothers. One fruit.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"And parents who never once asked the slow one to be the fast one.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She knocked on his door.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"I do not want Mehta aunty's son, she said. I have never even liked that boy.",
+"\"I do not want Mehta aunty's son,\" she said. \"I have never even liked that boy.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"See the child you have. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

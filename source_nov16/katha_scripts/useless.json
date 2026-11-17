@@ -1,0 +1,168 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/useless.json",
+"wav": "public/katha/useless.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "SHE FEELS *USELESS IN HER OWN *HOME",
+"title": "F41 · useless · \"Let Me Do It, Dadi\"",
+"lines": [
+[
+"n",
+[
+[
+"Let me do it, Dadi. It is faster.",
+"\"Let me do it, Dadi. It is faster.\"",
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"The phone. The gas booking. The TV remote with forty buttons.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She raised four children and ran a house on one salary.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Now she cannot pay the milkman.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She has started saying, What do I know. I am old.",
+"She has started saying, \"What do I know. I am old.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"That evening Pari had a question no phone could answer.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Dadi did not explain. She just held her, and was quiet, until the question got smaller.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Kabir was watching from the door. He looked at the phone in his hand.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He sat down beside her. Dadi. Teach me the thing you just did.",
+"He sat down beside her. \"Dadi. Teach me the thing you just did.\"",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"First, she said, show me this UPI. Slowly.",
+"\"First,\" she said, \"show me this UPI. Slowly.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Some knowledge is fast. The other kind takes seventy years. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

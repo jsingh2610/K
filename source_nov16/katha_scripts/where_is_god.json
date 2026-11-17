@@ -1,0 +1,163 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/where_is_god.json",
+"wav": "public/katha/where_is_god.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "A CHILD ASKED: \"*WHERE IS *GOD?\"",
+"title": "F47 · where_is_god · \"Where Is God?\"",
+"lines": [
+[
+"n",
+[
+[
+"Dadi. Where does God actually live?",
+"\"Dadi. Where does God actually live?\"",
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"On Kailash. Where is Kailash? Far. How far?",
+"\"On Kailash.\" \"Where is Kailash?\" \"Far.\" \"How far?\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Can we go? Nobody has ever climbed it.",
+"\"Can we go?\" \"Nobody has ever climbed it.\"",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Then how does anybody meet him?",
+"\"Then how does anybody meet him?\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Dadi put down the peas.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Sit like me. Close your eyes. Now be very, very still.",
+"\"Sit like me. Close your eyes. Now be very, very still.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"In the window behind them, their two reflections looked exactly like two small mountains.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Do you feel that quiet place inside?",
+"\"Do you feel that quiet place inside?\"",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"...Yes.",
+"\"...Yes.\"",
+0.9,
+1,
+0,
+0.32
+],
+[
+"That is the address.",
+"\"That is the address.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He is not far. You were just moving too much to notice. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

@@ -1,0 +1,155 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/new_city.json",
+"wav": "public/katha/new_city.wav",
+"bell": [
+0
+],
+"flute": [
+[
+6,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "NEW CITY. *NOBODY KNOWS YOUR *NAME.",
+"title": "F16 · new_city · Room 304",
+"lines": [
+[
+"n",
+[
+[
+"New city. New job.",
+null,
+0.95,
+1,
+0.5,
+0.25
+],
+[
+"And nobody to tell when you get home safe.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She eats standing up, because sitting at a table for one feels worse.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"At home right now, six people are fighting over one remote.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She walked down for tea, just to hear a voice.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The chai seller had a blue-grey face in the kettle's steam. He did not ask her name.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"s",
+[
+[
+"The one who is sent far from the celebration is the one holding the world level.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"She called home.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Her mother picked up before the first ring finished.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Far is not the same as alone. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

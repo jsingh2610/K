@@ -1,0 +1,176 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/fathers_dream.json",
+"wav": "public/katha/fathers_dream.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "YOUR *FATHER'S DREAM IS NOT *YOURS",
+"title": "F09 · fathers_dream · Engineer",
+"lines": [
+[
+"n",
+[
+[
+"My son will be an engineer. He says it to every customer.",
+"\"My son will be an engineer.\" He says it to every customer.",
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Kabir draws. He has never told him.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The coaching fee is one lakh forty thousand.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"His father has already paid half.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"How do you tell a man his dream is the wrong size for you?",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"An old customer was waiting for change. He picked up the sketchbook by mistake.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"s",
+[
+[
+"A father once did not recognise his own son. It took him losing the boy to look properly.",
+null,
+0.8,
+1,
+0,
+0.8
+]
+]
+],
+[
+"n",
+[
+[
+"Papa looked at the drawing of his own shop.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Every tin. Every shelf. Exactly right.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He did not say yes.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He said: Show me the others.",
+"He said: \"Show me the others.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Before you decide who they are, look. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

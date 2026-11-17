@@ -1,0 +1,160 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/shutter_down.json",
+"wav": "public/katha/shutter_down.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "THE *SHOP IS CLOSING *FOREVER",
+"title": "F29 · shutter_down · The Last Day",
+"lines": [
+[
+"n",
+[
+[
+"Forty-three years. And today is the last one.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"The new store won. That is all. Nobody did anything wrong.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He wraps his father's photograph in newspaper.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"What am I, he asks nobody, without this shop?",
+"\"What am I,\" he asks nobody, \"without this shop?\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Kabir had come to help carry boxes. He was looking at the tools.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Papa. Half this street calls you when something breaks. They do not call the big store.",
+"\"Papa. Half this street calls you when something breaks. They do not call the big store.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"He looked at the slips for a long time.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The shutter came down on the shop.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"A month later, a van went up and down the same street: Rakesh Repairs.",
+"A month later, a van went up and down the same street: \"Rakesh Repairs.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"What ends can become what you wear into the next thing. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

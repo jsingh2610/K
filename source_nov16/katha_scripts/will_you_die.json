@@ -1,0 +1,176 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/will_you_die.json",
+"wav": "public/katha/will_you_die.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "SHE ASKED: \"WILL YOU *DIE, DADI?\"",
+"title": "F42 · will_you_die · \"Will You Die, Dadi?\"",
+"lines": [
+[
+"n",
+[
+[
+"Dadi. Will you die?",
+"\"Dadi. Will you die?\"",
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"A girl in her class lost her grandfather on Monday.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Adults usually say: Do not talk like that.",
+"Adults usually say: \"Do not talk like that.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Dadi did not.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Yes. One day. Everyone does.",
+"\"Yes. One day. Everyone does.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Come, look.",
+"Come, look.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"See the moon? It is going. In a few days you will not see it at all.",
+"\"See the moon? It is going. In a few days you will not see it at all.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Is it gone?",
+"Is it gone?\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Who keeps it?",
+"\"Who keeps it?\"",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Shivji. In his hair.",
+"\"Shivji. In his hair.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Then that is where I will be. And you will still see me, most nights.",
+"\"Then that is where I will be. And you will still see me, most nights.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Tell children the truth, gently. They can hold it. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

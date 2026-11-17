@@ -1,0 +1,255 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/parvati_test.json",
+"wav": "public/katha/parvati_test.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "A STRANGER *INSULTED SHIVA TO HER *FACE",
+"title": "07 · parvati_test · Parvati's Test",
+"lines": [
+[
+"n",
+[
+[
+"A young monk walked up to Parvati and insulted Shiva to her face.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"He had no idea what she had given up for him.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Or so she thought.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"A princess,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"she left the palace to win the one god who wanted nothing.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She sat between five fires in summer.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"She stood in ice water in winter.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She stopped eating fruit. Then leaves.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"They named her Aparna: she who gave up even a leaf.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Then the stranger came.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva? He is a beggar. He sleeps in graveyards. He wears snakes.",
+"\"Shiva? He is a beggar. He sleeps in graveyards. He wears snakes.",
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Princess, you can do better.",
+"Princess, you can do better.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"She did not argue.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"You know nothing of him. Leave.",
+"\"You know nothing of him. Leave.\"",
+0.9,
+1,
+0,
+0.32
+],
+[
+"And she turned to walk away.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"A hand caught hers.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The monk was gone. Shiva stood there, smiling.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"From today, he said, I am yours. Bought by your tapas.",
+"\"From today,\" he said, \"I am yours. Bought by your tapas.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The last test is always the same. Someone tells you it was not worth it.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Hold anyway. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

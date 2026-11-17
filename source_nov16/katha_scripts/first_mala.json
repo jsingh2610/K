@@ -1,0 +1,168 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/first_mala.json",
+"wav": "public/katha/first_mala.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "A *7-YEAR-OLD LEARNS TO *COUNT TO 108",
+"title": "F43 · first_mala · One Hundred and Eight",
+"lines": [
+[
+"n",
+[
+[
+"One bead. One name. Do not rush.",
+"\"One bead. One name. Do not rush.\"",
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"Pari wanted to know what Dadi does every morning with that necklace.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"I am climbing a mountain, Dadi said. Sitting down.",
+"\"I am climbing a mountain,\" Dadi said. \"Sitting down.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Eleven.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Twelve.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"Dadi, my leg is sleeping.",
+"\"Dadi, my leg is sleeping.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Thirty. She got bored. She looked at the ceiling. She started again from one.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The mountain does not mind, said Dadi. You just start walking again.",
+"\"The mountain does not mind,\" said Dadi. \"You just start walking again.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"It took her nine days to reach one hundred and eight without stopping.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"On the ninth day she looked up, and for one second she saw the whole shelf full of light.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"You will lose count. Start again. That is the whole path. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

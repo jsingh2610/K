@@ -1,0 +1,19 @@
+{"key":62,"minor":true,"json":"src/videos/katha/kannappa.json","wav":"public/katha/kannappa.wav",
+"bell":[0,8],"swell":[[8,0.2]],"flute":[[10,0.2]],
+"fix":{"lˈɪŋɡæm":"lˈɪŋɡəm","kˈænæpə":"kˈʌnəpˌɑː"},
+"hook":"HE *SPAT ON A SHIVA *LINGAM",
+"lines":[
+["n",[["A hunter once spat water on a Shiva lingam.",null,0.95,1,0.5,0.35]]],
+["n",[["And Shiva loved him for it.",null,0.88,1,-0.5,0.7]]],
+["n",[["He knew no mantras.",null,0.92,1,0.5,0.3],["So he brought what a hunter has.",null,0.92,1,0,0.35],["Water, carried in his mouth.",null,0.9,1,0,0.3],["And meat, tasted first, so only the best reached his god.",null,0.9,0.95,-0.5,0.6]]],
+["n",[["The temple priest was horrified.",null,0.93,1,0.5,0.3],["Every morning, he scrubbed the stone clean.",null,0.9,0.95,-0.5,0.6]]],
+["n",[["Then one day,",null,0.86,0.95,0,0.35],["the lingam's eye began to bleed.",null,0.86,1,-0.5,0.7]]],
+["n",[["The hunter did not think.",null,0.92,1,0.5,0.35],["He took an arrow,",null,0.88,1,0,0.3],["and gave it his own eye.",null,0.86,0.95,-1,0.8]]],
+["n",[["The bleeding stopped.",null,0.9,0.95,0,0.5],["Then the other eye began.",null,0.86,1,-0.5,0.7]]],
+["n",[["He marked the place with his foot,",null,0.92,1,0.5,0.25],["and raised the arrow again.",null,0.86,1,-0.5,0.6]]],
+["s",[["Stop,","Stop,",0.8,1,0,0.3],["Kannappa.","Kannappa.",0.8,1,0,0.8]]],
+["n",[["A hand rose from the stone, and held his wrist.",null,0.88,1,0,0.7]]],
+["n",[["The priest knew every ritual.",null,0.92,1,0.5,0.3],["The hunter knew only love.",null,0.88,1,0,0.5],["Love was enough.",null,0.86,0.95,-1,0.6]]],
+["n",[["That is sadhana.",null,0.86,1,-0.5,0.7]]],
+["n",[["Kailasa. On Google Play.",null,0.92,1,0,0.6]]]
+]}

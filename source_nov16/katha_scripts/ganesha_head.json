@@ -1,0 +1,255 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/ganesha_head.json",
+"wav": "public/katha/ganesha_head.wav",
+"bell": [
+0
+],
+"flute": [
+[
+10,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "A BOY TOLD *SHIVA \"YOU CANNOT ENTER\"",
+"title": "03 · ganesha_head · Why Ganesha Has an Elephant's Head",
+"lines": [
+[
+"n",
+[
+[
+"A small boy once stood in a doorway and told Shiva, You cannot enter.",
+"A small boy once stood in a doorway and told Shiva, \"You cannot enter.\"",
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"It was Shiva's own house.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Parvati had made the boy that morning,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"from the sandal paste on her own skin.",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"Guard my door, she said. Let no one in.",
+"\"Guard my door,\" she said. \"Let no one in.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He did not know who Shiva was.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"Shiva did not know who he was.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"The Ganas tried to move him. All of them.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"He would not move.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"So Shiva raised his trident.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"When Parvati saw what had been done,",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"her grief shook the mountain.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Bring the head of the first creature you find, said Shiva, sleeping with its head to the north.",
+"\"Bring the head of the first creature you find,\" said Shiva, \"sleeping with its head to the north.\"",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"It was an elephant.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The boy opened his eyes.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"And Shiva named him Ganesha:",
+null,
+0.9,
+1,
+0,
+0.32
+],
+[
+"leader of all his people, first to be worshipped, before every god.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"He never moved from his mother's door.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"So now he stands at every door.",
+null,
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"Loyalty before understanding. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

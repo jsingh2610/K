@@ -1,0 +1,219 @@
+{
+"key": 59,
+"bell": [],
+"swell": [
+[
+3,
+0.6
+]
+],
+"flute": [
+[
+4,
+3.4
+]
+],
+"drum": [
+[
+6,
+-0.2,
+84,
+8
+]
+],
+"fix": {
+"bˈæzmɐsˌɜːɹə": "bʌsmˈɑːsʊɹə",
+"moʊhˈiːni": "mˈoʊhɪniː"
+},
+"lines": [
+[
+"n",
+[
+[
+"Shiva once gave a demon the power to burn anyone to ash. With one touch.",
+"Shiva once gave a demon the power to burn anyone to ash, with one touch.",
+1.0,
+1,
+0.5,
+0.35
+],
+[
+"The demon tried it on Shiva, first.",
+"The demon tried it on Shiva first.",
+0.86,
+1,
+-0.5,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Bhasmasura prayed for years.",
+null,
+0.95,
+0.95,
+0,
+0.3
+],
+[
+"Pleased, Shiva offered him any boon.",
+null,
+0.95,
+1,
+0.5,
+0.4
+]
+]
+],
+[
+"d",
+[
+[
+"Let whoever I touch on the head... burn to ash.",
+"Let whoever I touch on the head burn to ash.",
+0.9,
+1,
+0,
+0.5
+]
+]
+],
+[
+"n",
+[
+[
+"Granted.",
+null,
+0.8,
+0.95,
+-0.5,
+0.4
+],
+[
+"And his hand reached straight for Shiva!",
+"And his hand reached straight for Shiva.",
+1.0,
+1.1,
+1,
+0.45
+]
+]
+],
+[
+"n",
+[
+[
+"Shiva ran!",
+"Shiva ran.",
+1.05,
+1.1,
+1.5,
+0.3
+],
+[
+"Vishnu saw it, and became Mohini.",
+null,
+0.95,
+1,
+0,
+0.3
+],
+[
+"The most beautiful dancer in all the worlds.",
+null,
+0.86,
+0.95,
+0.5,
+0.5
+]
+]
+],
+[
+"f",
+[
+[
+"Dance with me.",
+null,
+0.9,
+1,
+0,
+0.3
+],
+[
+"Copy every move.",
+null,
+0.88,
+1,
+0,
+0.5
+]
+]
+],
+[
+"n",
+[
+[
+"Hand on hip.",
+null,
+0.92,
+1,
+0,
+0.45
+],
+[
+"Hand on shoulder.",
+null,
+0.9,
+1,
+0.5,
+0.45
+],
+[
+"Hand on... head.",
+"Hand on head.",
+0.78,
+1.05,
+-0.5,
+1.0
+]
+]
+],
+[
+"n",
+[
+[
+"The power you beg for, can be the thing that ends you.",
+"The power you beg for can be the thing that ends you.",
+0.88,
+0.95,
+-0.5,
+0.45
+],
+[
+"Ask wisely.",
+null,
+0.78,
+1,
+0,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}

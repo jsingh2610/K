@@ -1,0 +1,160 @@
+{
+"key": 62,
+"minor": true,
+"json": "src/videos/katha/thank_you.json",
+"wav": "public/katha/thank_you.wav",
+"bell": [
+0
+],
+"flute": [
+[
+7,
+0.2
+]
+],
+"fix": {
+"lˈɪŋɡæm": "lˈɪŋɡəm"
+},
+"hook": "SHE DID *EVERYTHING. NOBODY *NOTICED.",
+"title": "F31 · thank_you · Nobody Said Thank You",
+"lines": [
+[
+"n",
+[
+[
+"Twenty guests. Eleven dishes. One pair of hands.",
+null,
+0.95,
+1,
+0.5,
+0.35
+]
+]
+],
+[
+"n",
+[
+[
+"The food is wonderful! they say. To her husband.",
+"\"The food is wonderful!\" they say. To her husband.",
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She has been on her feet since five.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"By the time she sits, the plates are empty and the photos are taken.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Late that night she stood at the shelf to put out the diya.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"The world stayed level because of the one nobody saw at the party.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"She did not put the lamp out.",
+null,
+0.93,
+1,
+0.5,
+0.3
+],
+[
+"She took the group photo off the fridge, and wrote on it: Taken by nobody. Cooked by me.",
+"She took the group photo off the fridge, and wrote on it: \"Taken by nobody. Cooked by me.\"",
+0.86,
+0.95,
+-0.5,
+0.65
+]
+]
+],
+[
+"n",
+[
+[
+"In the morning it was the first thing the family saw.",
+null,
+0.9,
+1,
+0,
+0.6
+]
+]
+],
+[
+"n",
+[
+[
+"Being unseen does not make it small. And you may say so. That is sadhana.",
+null,
+0.86,
+1,
+-0.5,
+0.7
+]
+]
+],
+[
+"n",
+[
+[
+"Kailasa. On Google Play.",
+null,
+0.92,
+1,
+0,
+0.6
+]
+]
+]
+]
+}
